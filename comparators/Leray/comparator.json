@@ -1,0 +1,18 @@
+{
+  "challenge_module": "comparators.Leray.Challenge",
+  "solution_module": "comparators.Leray.Solution",
+  "theorem_names": [
+    "CKNLerayChallenge.leray_existence",
+    "CKNLerayChallenge.leray_existence_singularSet",
+    "CKNLerayChallenge.lerayExistenceForced",
+    "CKNLerayChallenge.lerayExistenceForcedSingularSet",
+    "CKNLerayChallenge.associatedPressure"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "enable_nanoda": true
+}

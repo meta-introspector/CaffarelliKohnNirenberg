@@ -874,6 +874,29 @@ public import CKN.Core.HeatPotential.HeatLinftyCore
 public import CKN.Core.HeatPotential.HeatHolderBridge
 public import CKN.Core.HeatPotential.HeatHolderComplex
 public import CKN.Core.HeatPotential.HeatHolderCampanato
+public import CKN.Main.AssociatedPressure
+public import CKN.Main.AssociatedPressureForced
+public import CKN.Main.LerayExistence
+public import CKN.Main.LerayExistenceForced
+public import CKN.Main.LerayExistenceForcedSingularSet
+public import CKN.Main.LerayExistenceSingularSet
+public import CKN.Statements.AssociatedPressure
+public import CKN.Statements.AssociatedPressureForced
+public import CKN.Statements.ForcedQuadraticTensor
+public import CKN.Statements.HasSpaceTimeWeakDerivs
+public import CKN.Statements.IsForcedLerayHopfSolution
+public import CKN.Statements.IsGlobalForcedLerayHopfSolution
+public import CKN.Statements.IsGlobalLerayHopfSolution
+public import CKN.Statements.IsInJ
+public import CKN.Statements.IsLerayHopfSolution
+public import CKN.Statements.IsLocallyQIntegrableForce
+public import CKN.Statements.IsLocallySquareIntegrableForce
+public import CKN.Statements.LerayExistence
+public import CKN.Statements.LerayExistenceForced
+public import CKN.Statements.LerayExistenceForcedSingularSet
+public import CKN.Statements.LerayExistenceSingularSet
+public import CKN.Witnesses.ForcedZero
+public import CKN.Witnesses.LerayHopfZero
 
 /-!
 # Caffarelli–Kohn–Nirenberg formalization
