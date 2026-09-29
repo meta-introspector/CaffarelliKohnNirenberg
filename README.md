@@ -306,12 +306,17 @@ exactly on `propext`, `Classical.choice` and `Quot.sound`.
 
 ## How this was made
 
-The original CKN development was written in roughly 48 hours with AI coding tools under the authors' supervision. Claude Fable 5.1 coordinated work using GPT 5.6-Luna, GPT Astra, Deepseek 4.1 flash, Leanstral and Opus 5. The Leray existence development was written as part of the Escauriaza–Seregin–Šverák formalization from 2026-09-26 to 2026-09-29 (Claude Opus 5.5 coordinating GPT-6 Luna and GPT-6 Sol) and transferred here on 2026-09-29. The transfer and the port of the whole library to Lean's module system were done with Claude Sonnet 5.5 coordinated by Claude Opus 5.5, with independent reviews including a GPT-6 Sol audit. The authors
+The Lean development was written in roughly 48 hours using AI coding agents
+under the authors' supervision. Claude Fable 5.1 coordinated agents using
+GPT 5.6-Luna, GPT Astra, Deepseek 4.1 flash, Leanstral and Opus 5. The authors
 reviewed the theorem statements before proof development and decided the
 mathematics and the corrections to the manuscript. Separate reviews checked
 the statements and the use of intermediate results in the main proofs.
 Lean checks the proofs; the comparator files make their mathematical
 statements available for independent inspection.
+
+The Leray existence development was added later, on 2026-09-29, using Claude
+Opus 5.5 and Sonnet 5.5.
 
 ## Contributing, authors and license
 
