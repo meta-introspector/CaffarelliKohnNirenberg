@@ -374,6 +374,29 @@ and the comparator proof bridges, as described in
 [Verification](VERIFICATION.md); comparison with the manuscript still
 requires mathematical review.
 
+## Leray–Hopf solutions and the solution classes
+
+A Leray–Hopf solution (`CKN.IsLerayHopfSolution`) constrains its velocity at
+**every** time: weak continuity holds on the closed interval \([0,T]\), the
+energy inequality holds at every \(t_0\in[0,T]\), and the initial datum is
+attained in \(L^2\) as \(t\downarrow0\). The velocity is therefore a function
+defined at every point, and the predicate is about that function, not an
+almost-everywhere class, whereas the suitable weak-solution class is
+insensitive to modifications on null sets. The existence theorem asserts both
+properties for **the same** function \(u\): the construction produces a jointly
+measurable function whose every time slice is the weak limit of the
+approximations, and sets \(u(\cdot,0)=a\). Every theorem that passes between
+the two notions works with this one function.
+
+A global solution (`CKN.IsGlobalLerayHopfSolution`) is a Leray–Hopf solution on
+every finite interval \([0,T]\). Applying the finite-interval energy-space condition literally on \([0,\infty)\) would require \(\int_0^\infty\!\int|u|^2<\infty\), which Leray's solutions need not satisfy. The energy inequality controls the supremum in time of the kinetic energy and the time integral of \(|\nabla u|^2\). The forced classes
+(`CKN.IsForcedLerayHopfSolution`, `CKN.IsGlobalForcedLerayHopfSolution`) add a
+force with `CKN.IsLocallySquareIntegrableForce`, and one solution is suitable
+for every \(q\) at which `CKN.IsLocallyQIntegrableForce q` holds. The space
+\(J\) of data is `CKN.IsInJ`. The classes are the ones that feed
+`CKN.IsSuitableWeakSolution`: the conclusion of `CKN.leray_existence` is
+literally that predicate on \(\mathbb{R}^3\times(0,\infty)\) with zero force. The library also supplies `CKN.HasSpaceTimeWeakDerivs`, the space-time weak-derivative predicate used by the linear theorems in the ESS library. The forced pressure split uses `CKN.forcedQuadraticTensor`.
+
 ## Constants, statement stability, and authorship
 
 Constants are chosen in the order stated by each theorem. An absolute
@@ -407,8 +430,4 @@ file is different from altering that object's definition. This
 separation permits additive library development and documented revisions
 without silently changing the meaning of a theorem.
 
-Lean source files credit both authors with the first line
-`-- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.` and retain the
-Apache 2.0 license notice. Updating a copyright comment changes source
-bytes but not the elaborated theorem types. Authorship metadata and
-mathematical statement identity are therefore checked separately.
+Lean source files retain their existing copyright notices. Original CKN files credit Scott Armstrong and Vlad Vicol; files transferred with the Leray development credit Scott Armstrong. Both forms retain the Apache 2.0 license notice. Copyright comments and repository authorship are distinct from elaborated theorem types.

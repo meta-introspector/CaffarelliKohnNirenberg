@@ -19,20 +19,29 @@ The build scripts check the toolchain, dependency revision and package files.
 
 ## Lean source conventions
 
-Every Lean file begins with:
+Lean files retain their existing copyright notices. Original CKN files use:
 
 ```lean
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 ```
 
+Files transferred with the Leray development use:
+
+```lean
+-- Copyright (c) 2026 Scott Armstrong.
+-- Released under Apache 2.0 license.
+```
+
+Preserve the appropriate notice when editing a file. All Lean files use
+Lean's module system, with the `module` header following the copyright notice.
+
 Use `set_option autoImplicit false`. Library code must contain no `sorry`,
 `admit`, `sorryAx`, or custom axiom declarations. The only exceptions are the
-three deliberately unproved comparator Challenge statements, whose separate
-Solution files provide the proofs.
+eight deliberately unproved comparator Challenge statements: three for Theorems A–C and five for the Leray existence and pressure results. Their separate Solution files provide the proofs.
 
 Do not add heartbeat overrides or use bare `linarith` or `nlinarith`; use
-explicit `only` arguments. Lean files must remain at most 1,500 lines.
+explicit `only` arguments. Library Lean files must remain at most 1,500 lines. Comparator Challenges must remain at most 1,000 lines and 100 KiB; comparator Solutions must remain at most 10,000 lines.
 The library builds with warnings treated as errors.
 
 ## Building and checking changes

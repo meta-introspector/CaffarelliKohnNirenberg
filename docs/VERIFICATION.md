@@ -14,8 +14,8 @@ python3 scripts/build.py CKN
 python3 scripts/build_all.py
 ```
 
-The first build follows the imports of `CKN.lean`, including the three main
-theorems. The second builds every tracked module under `CKN/`, including
+The whole library is written in Lean's module system. The first build
+follows the imports of `CKN.lean`, including Theorems A–C and the six Leray existence and pressure theorems. The second builds every tracked module under `CKN/`, including
 auxiliary results and examples. Library warnings are treated as errors.
 
 The build wrapper checks the toolchain, the Mathlib revision and cache, and
@@ -40,9 +40,14 @@ python3 scripts/build.py Comparators
 python3 scripts/check_comparators.py
 ```
 
-The Challenge states all three main theorems using Mathlib alone, with three
+The root Challenge states Theorems A–C using Mathlib alone, with three
 intentional proof placeholders. The separate Solution proves the same named
-statements from the library. The local checker compares all shared source
+statements from the library. A second pair, `comparators/Leray/Challenge.lean`
+and `comparators/Leray/Solution.lean`, does the same for five of the Leray
+existence and pressure theorems (`leray_existence`,
+`leray_existence_singularSet`, `lerayExistenceForced`,
+`lerayExistenceForcedSingularSet` and `associatedPressure`); the checker runs
+every pair, and `--pair Leray` selects this one. The local checker compares all shared source
 definitions and theorem types and verifies the solutions' exact standard axiom
 sets. `--no-build` performs source checks only; `--lake` also builds the target.
 
@@ -53,7 +58,9 @@ scripts/verify_comparator.sh
 ```
 
 This builds pinned verification tools in a user cache and runs them with
-[comparator.json](../comparator.json). It requires Linux with Landlock support,
+[comparator.json](../comparator.json) and
+[comparators/Leray/comparator.json](../comparators/Leray/comparator.json),
+one Palomar entry each. It requires Linux with Landlock support,
 Go 1.24 or later, Rust/Cargo, Python 3, Git and Lean. See the
 [comparator guide](../comparators/README.md) for the verification boundaries.
 
@@ -77,7 +84,7 @@ and custom axioms are rejected. A failed Lean probe or a nonzero checker exit
 status is a verification failure. File and declaration counts are reported
 at run time.
 
-## Inspect the three main theorems directly
+## Inspect Theorems A–C directly
 
 After building the library:
 
@@ -99,6 +106,31 @@ rm -rf -- "$probe_dir"
 
 Each result should list exactly `[propext, Classical.choice, Quot.sound]`.
 These are the standard logical axioms used by this formalization.
+
+The six theorems of Leray's global existence theory (in
+`CKN/Statements`: `LerayExistence`, `LerayExistenceSingularSet`,
+`AssociatedPressure`, `LerayExistenceForced`,
+`LerayExistenceForcedSingularSet` and `AssociatedPressureForced`) can be
+inspected in the same way:
+
+```lean
+import CKN.Statements.LerayExistence
+import CKN.Statements.LerayExistenceSingularSet
+import CKN.Statements.AssociatedPressure
+import CKN.Statements.LerayExistenceForced
+import CKN.Statements.LerayExistenceForcedSingularSet
+import CKN.Statements.AssociatedPressureForced
+
+#print axioms CKN.leray_existence
+#print axioms CKN.leray_existence_singularSet
+#print axioms CKN.associatedPressure
+#print axioms CKN.lerayExistenceForced
+#print axioms CKN.lerayExistenceForcedSingularSet
+#print axioms CKN.associatedPressureForced
+```
+
+Each again lists exactly `[propext, Classical.choice, Quot.sound]`.
+`CKN.associatedPressureForced` is proved but not restated in a comparator.
 
 ## Verify a fresh clone
 
