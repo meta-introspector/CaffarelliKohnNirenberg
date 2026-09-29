@@ -4,9 +4,13 @@
 -- Copyright (c) 2026 Scott Armstrong.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.Campanato
-import CKN.Core.HeatPotential.FarOscillation
-import CKN.Foundation.Heat.Subordination
+module
+
+public import CKN.Core.HeatPotential.Campanato
+public import CKN.Core.HeatPotential.FarOscillation
+public import CKN.Foundation.Heat.Subordination
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

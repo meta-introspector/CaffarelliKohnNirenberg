@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ForceSlotNumericalClosure
-import CKN.Core.Endgame.TheoremAClosersInstancesQ
-import CKN.Core.Step4.PressureGradientOriginASlotFinal
-import CKN.Core.Step4.PressureGradientOriginBSlotInstances
+module
+
+public import CKN.Core.Endgame.ForceSlotNumericalClosure
+public import CKN.Core.Endgame.TheoremAClosersInstancesQ
+public import CKN.Core.Step4.PressureGradientOriginASlotFinal
+public import CKN.Core.Step4.PressureGradientOriginBSlotInstances
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Inequalities.SeeleyC1
-import CKN.Foundation.Sobolev.Inequalities.SeeleyBounds
+module
+
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyC1
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyBounds
 
 /-!
 # L¹ estimates for the two-reflection extension
@@ -11,6 +13,8 @@ These estimates are the endpoint companions of the established quadratic Seeley
 energy bounds.  They are used to control the value and derivative terms after
 the compactly supported cutoff is applied to a mean-subtracted function.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal

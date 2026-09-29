@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.BootstrapBounds
-import CKN.Foundation.Parabolic.BallDisplays
+module
+
+public import CKN.Core.Endgame.BootstrapBounds
+public import CKN.Foundation.Parabolic.BallDisplays
 
 /-! # Quantitative Morrey improvement for symmetric source carriers
 
@@ -10,6 +12,8 @@ A symmetric parabolic ball lies in a backward cylinder whose top time is
 shifted forward. The quantitative potential estimate is independent of this
 enlargement, so its numerical coefficient is unchanged.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal

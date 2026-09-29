@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.HessianL2
-import CKN.Foundation.Euclidean.CZDecomposition
-import CKN.Foundation.Euclidean.CZDecompositionExistence
-import CKN.Foundation.Euclidean.Hormander
-import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+module
+
+public import CKN.Foundation.Euclidean.HessianL2
+public import CKN.Foundation.Euclidean.CZDecomposition
+public import CKN.Foundation.Euclidean.CZDecompositionExistence
+public import CKN.Foundation.Euclidean.Hormander
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

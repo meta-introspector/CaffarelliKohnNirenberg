@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.SeriesApprox
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.SeriesApprox
 
 /-! # Reduced spatial finite-scale estimates. -/
+
+@[expose] public section
 
 namespace CKN
 

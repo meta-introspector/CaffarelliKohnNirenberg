@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.ClassEquivalence.DivergenceFreeIntegrand
-import CKN.ClassEquivalence.MomentumIntegrand
-import CKN.ClassEquivalence.DissipationIntegrand
-import CKN.ClassEquivalence.EnergyIntegrand
+module
+
+public import CKN.ClassEquivalence.DivergenceFreeIntegrand
+public import CKN.ClassEquivalence.MomentumIntegrand
+public import CKN.ClassEquivalence.DissipationIntegrand
+public import CKN.ClassEquivalence.EnergyIntegrand
 
 /-!
 # The integrability clauses of `def:sws` are redundant
@@ -39,6 +41,8 @@ for instance over the closed support of the test function or over the whole
 space-time, has to transport it, and that transport is legal only once the
 integrability is in hand - which is exactly what these lemmas supply.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

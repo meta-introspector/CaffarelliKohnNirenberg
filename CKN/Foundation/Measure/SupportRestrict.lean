@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

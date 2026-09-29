@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.Localization
-import CKN.Core.Endgame.SourceRegularity
-import CKN.Core.Endgame.SourceExponents
-import CKN.Core.Endgame.PotentialFiniteness
-import CKN.Core.Step4.PressureGradientBase
-import CKN.Core.Step4.SourceMorreyGradient
-import CKN.Setting.ScalingInvarianceTests
+module
+
+public import CKN.Core.Endgame.Localization
+public import CKN.Core.Endgame.SourceRegularity
+public import CKN.Core.Endgame.SourceExponents
+public import CKN.Core.Endgame.PotentialFiniteness
+public import CKN.Core.Step4.PressureGradientBase
+public import CKN.Core.Step4.SourceMorreyGradient
+public import CKN.Setting.ScalingInvarianceTests
 
 /-!
 # Local regularity from pressure-gradient and localized-source estimates
@@ -15,6 +17,8 @@ import CKN.Setting.ScalingInvarianceTests
 The velocity improvement and pressure-gradient construction are used on
 nested balls before localizing the equation and applying the heat estimate.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

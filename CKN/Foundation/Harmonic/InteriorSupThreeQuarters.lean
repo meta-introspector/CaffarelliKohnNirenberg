@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorSupDisplay
+module
+
+public import CKN.Foundation.Harmonic.InteriorSupDisplay
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open CKN.Foundation.Parabolic

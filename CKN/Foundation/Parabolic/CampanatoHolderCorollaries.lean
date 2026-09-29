@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Parabolic.CampanatoHolderFinal
+module
 
-import CKN.Statements.ParabolicHolderVecOn
+public import CKN.Foundation.Parabolic.CampanatoHolderFinal
+
+public import CKN.Statements.ParabolicHolderVecOn
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

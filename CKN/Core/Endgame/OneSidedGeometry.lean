@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Topology
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.NormNum
+module
+
+public import CKN.Foundation.Parabolic.Topology
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
 
 /-!
 # One-sided cylinder covering
@@ -16,6 +18,8 @@ forward time shift truncated at the top face. It stays among the admissible
 centres, and `𝒞_ϱ(w) ∩ {t ≤ 0} ⊆ 𝒞_{2ϱ}(w'')`. The covering itself needs no
 upper bound on the radius.
 -/
+
+@[expose] public section
 
 open Set
 open CKN.Foundation.Parabolic

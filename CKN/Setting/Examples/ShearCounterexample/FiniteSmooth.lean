@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.ReducedSpatialFinite
-import CKN.Setting.Examples.ShearCounterexample.SliceFullWeak
-import CKN.Setting.Examples.ShearCounterexample.FactorDerivative
-import Mathlib.Analysis.Calculus.ContDiff.Operations
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.ReducedSpatialFinite
+public import CKN.Setting.Examples.ShearCounterexample.SliceFullWeak
+public import CKN.Setting.Examples.ShearCounterexample.FactorDerivative
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
 
 /-! # Smoothness of finite shear approximations. -/
+
+@[expose] public section
 
 namespace CKN
 open CKN.Foundation.Parabolic

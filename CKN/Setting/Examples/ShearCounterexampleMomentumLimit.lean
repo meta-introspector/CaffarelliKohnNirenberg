@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearCounterexample.MomentumMajorant
-import CKN.Setting.Examples.ShearCounterexample.FiniteMomentumIntegral
-import CKN.Setting.Examples.ShearCounterexample.SeriesApprox
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.MomentumMajorant
+public import CKN.Setting.Examples.ShearCounterexample.FiniteMomentumIntegral
+public import CKN.Setting.Examples.ShearCounterexample.SeriesApprox
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
 
 /-! # Distributional momentum identities for the rough parabolic shear. -/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section
@@ -14,7 +18,7 @@ open CKN.Foundation.Parabolic Set MeasureTheory Filter
 open scoped Topology
 namespace CKN
 
-private def finiteMomentumResidual (N : ℕ) (φ : Vec3 × ℝ → Vec3)
+def finiteMomentumResidual (N : ℕ) (φ : Vec3 × ℝ → Vec3)
     (z : Vec3 × ℝ) : ℝ :=
   -(shearFullScalarPartial N z * timePartial (fun w => φ w 2) z)
     - shearFullScalarPartial N z ^ 2 * spatialPartial (fun w => φ w 2) 2 z

@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ForceSlotNumerical
+module
+
+public import CKN.Core.Endgame.ForceSlotNumerical
 
 /-!
 # The endgame force bound from Step 2 and a selected pressure gradient
@@ -12,6 +14,8 @@ then supply the full localized force estimate with an explicit constant.
 The local integrability and weak-gradient identity are retained on exactly
 the supplied cutoff box.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

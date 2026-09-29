@@ -1,24 +1,28 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.Admissibility
-import CKN.Core.Caccioppoli.Conversions
-import CKN.Core.Caccioppoli.Cutoff
-import CKN.Core.Caccioppoli.Terms
-import CKN.Core.Caccioppoli.I4
-import CKN.Core.Caccioppoli.RawI1
-import CKN.Core.Caccioppoli.RawI2Bound
-import CKN.Core.Caccioppoli.RawI3Bound
-import CKN.Core.Caccioppoli.RawI4
-import CKN.Core.Caccioppoli.Finiteness
-import CKN.Core.Caccioppoli.FinitenessComponentBounds
-import CKN.Core.Caccioppoli.LocalBox
-import CKN.Setting.Energy.Integrability
-import CKN.Setting.Energy.AELocalEnergy
-import CKN.Setting.Energy.PointwiseEnergy
-import CKN.Setting.PoincareSobolevL1Slice
-import CKN.Pressure.SliceIntegrability
-import CKN.Setting.VectorInequalities
+module
+
+public import CKN.Core.Caccioppoli.Admissibility
+public import CKN.Core.Caccioppoli.Conversions
+public import CKN.Core.Caccioppoli.Cutoff
+public import CKN.Core.Caccioppoli.Terms
+public import CKN.Core.Caccioppoli.I4
+public import CKN.Core.Caccioppoli.RawI1
+public import CKN.Core.Caccioppoli.RawI2Bound
+public import CKN.Core.Caccioppoli.RawI3Bound
+public import CKN.Core.Caccioppoli.RawI4
+public import CKN.Core.Caccioppoli.Finiteness
+public import CKN.Core.Caccioppoli.FinitenessComponentBounds
+public import CKN.Core.Caccioppoli.LocalBox
+public import CKN.Setting.Energy.Integrability
+public import CKN.Setting.Energy.AELocalEnergy
+public import CKN.Setting.Energy.PointwiseEnergy
+public import CKN.Setting.PoincareSobolevL1Slice
+public import CKN.Pressure.SliceIntegrability
+public import CKN.Setting.VectorInequalities
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

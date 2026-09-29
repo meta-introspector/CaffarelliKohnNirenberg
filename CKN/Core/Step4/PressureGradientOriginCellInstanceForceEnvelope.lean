@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceForceGrowth
-import CKN.Core.Step4.PressureGradientOriginCellInstanceWholeFinite
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceForceGrowth
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceWholeFinite
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-!
 # A measurable-norm envelope for the harmonic force term
@@ -11,6 +13,8 @@ import CKN.Foundation.Parabolic.Vec3Norm
 Fixed-radius Young and far-field bounds control the force contribution
 of `eq:pressure-gradient-morrey` by spatial source norms on its cutoff ball.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Metric Filter
 open scoped ENNReal NNReal Topology BigOperators

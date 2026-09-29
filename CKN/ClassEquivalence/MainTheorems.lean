@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.ClassEquivalence.Constructor
-import CKN.Statements.SuitableWeakSolution
-import CKN.Main.TheoremA
-import CKN.Main.TheoremB
-import CKN.Main.TheoremC
+module
+
+public import CKN.ClassEquivalence.Constructor
+public import CKN.Statements.SuitableWeakSolution
+public import CKN.Main.TheoremA
+public import CKN.Main.TheoremB
+public import CKN.Main.TheoremC
 
 /-!
 # The three main theorems under the manuscript's hypothesis
@@ -49,6 +51,8 @@ the integrability of each tested integrand visible at the point of use.  The
 statements assume `CKN.IsSuitableWeakSolution`: exactly what
 `def:sws` assumes, and nothing more.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

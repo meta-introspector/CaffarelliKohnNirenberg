@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.FullFields
-import CKN.Setting.Examples.ShearCounterexample.ScaleSupport
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.FullFields
+public import CKN.Setting.Examples.ShearCounterexample.ScaleSupport
 
 /-! # Separation estimates for the reduced shear gradient. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory

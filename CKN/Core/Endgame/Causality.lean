@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.Kernel
-import CKN.Foundation.Parabolic.Morrey.Basic
-import CKN.Foundation.Parabolic.Topology
+module
+
+public import CKN.Core.HeatPotential.Kernel
+public import CKN.Foundation.Parabolic.Morrey.Basic
+public import CKN.Foundation.Parabolic.Topology
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic CKN.Foundation.Heat CKN.Core.HeatPotential

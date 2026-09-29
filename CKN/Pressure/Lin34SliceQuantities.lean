@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Lin34SliceForceCylinder
-import CKN.Pressure.Lin34SliceFubini
-import CKN.Pressure.Lin34SliceMeanFree
-import CKN.Pressure.Lin34SlicePointwise
+module
+
+public import CKN.Pressure.Lin34SliceForceCylinder
+public import CKN.Pressure.Lin34SliceFubini
+public import CKN.Pressure.Lin34SliceMeanFree
+public import CKN.Pressure.Lin34SlicePointwise
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

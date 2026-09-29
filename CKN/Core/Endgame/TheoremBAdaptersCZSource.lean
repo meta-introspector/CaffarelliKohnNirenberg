@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.TheoremBAdaptersVelocitySlice
-import CKN.Pressure.IdentificationExtensionGrowthSWS
-import CKN.Core.Endgame.TheoremBAdaptersCZ
+module
+
+public import CKN.Core.Endgame.TheoremBAdaptersVelocitySlice
+public import CKN.Pressure.IdentificationExtensionGrowthSWS
+public import CKN.Core.Endgame.TheoremBAdaptersCZ
 
 /-! # The singly centred pressure estimate
 
@@ -11,6 +13,8 @@ For `ext:CZ` and `thm:B`, the nine tensor components contribute a factor
 of nine to the pressure constant. The suitable-solution slice and residual
 estimates supply every analytic input of the scalar extension estimate.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

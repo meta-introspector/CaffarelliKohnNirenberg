@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginClauseGrowth
-import CKN.Core.Step4.PressureGradientGluedOriginTransfer
-import CKN.Core.Step4.PressureGradientLargeCells
-import CKN.Foundation.Parabolic.BallBasics
+module
+
+public import CKN.Core.Step4.PressureGradientOriginClauseGrowth
+public import CKN.Core.Step4.PressureGradientGluedOriginTransfer
+public import CKN.Core.Step4.PressureGradientLargeCells
+public import CKN.Foundation.Parabolic.BallBasics
 
 /-!
 # Finite-cell bounds on the whole origin carrier
@@ -15,6 +17,8 @@ top time the cover uses relative neighbourhoods, so no future-time estimate
 is needed. Summing the clipped slice inequalities bounds the whole-carrier
 integral and hence every large cell of the restricted gradient.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal BigOperators

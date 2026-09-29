@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearCounterexample.ReducedFiniteDerivatives
-import CKN.Setting.Examples.ShearCounterexample.FactorDerivative
-import CKN.Statements.SpatialSecondPartial
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.ReducedFiniteDerivatives
+public import CKN.Setting.Examples.ShearCounterexample.FactorDerivative
+public import CKN.Statements.SpatialSecondPartial
 
 /-! # Finite-scale heat identities for the shear profile. -/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

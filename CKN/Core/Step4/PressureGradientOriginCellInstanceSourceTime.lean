@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
-import CKN.Core.Step4.PressureGradientSourceMorrey
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
+public import CKN.Core.Step4.PressureGradientSourceMorrey
 
 /-!
 # Time growth of the divergence source on origin cells
@@ -13,6 +15,8 @@ then satisfy the clipped time growth in `prop:bootstrap`. This estimate is
 for the uncentered divergence source; localization and subtraction of the
 velocity average require additional terms.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology BigOperators

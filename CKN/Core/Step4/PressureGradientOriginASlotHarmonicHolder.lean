@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Integration.Average
+module
+
+public import CKN.Foundation.Parabolic.Integration.Average
 
 /-!
 # Hölder below exponent one and its slice-then-time form
@@ -17,6 +19,8 @@ This module records two measure-theoretic inequalities in `ℝ≥0∞` that feed
   product-measure integral of the `c`-power of the integrand, with the exponents
   dictated by the two applications of the first inequality.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal

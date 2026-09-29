@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Cutoff.Ball
-import CKN.Pressure.LeibnizLaplacian
-import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
+module
+
+public import CKN.Foundation.Sobolev.Cutoff.Ball
+public import CKN.Pressure.LeibnizLaplacian
+public import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+
+@[expose] public section
 
 open scoped BigOperators Topology
 open Filter MeasureTheory
@@ -13,7 +17,7 @@ namespace CKN.Foundation.Harmonic.Commutator
 
 noncomputable section
 
-private def q (x : CKN.Vec 3) : ℝ := CKN.vecNormSq x
+def q (x : CKN.Vec 3) : ℝ := CKN.vecNormSq x
 
 private theorem hasFDerivAt_q (x : CKN.Vec 3) :
     HasFDerivAt q
@@ -156,12 +160,12 @@ def secondFormula (i j : Fin 3) (x : CKN.Vec 3) : ℝ :=
   3 * x i * x j * q x ^ (-(5 : ℝ) / 2) -
     (if i = j then 1 else 0) * q x ^ (-(3 : ℝ) / 2)
 
-private def qDerivative (p : ℝ) (x : CKN.Vec 3) : CKN.Vec 3 →L[ℝ] ℝ :=
+def qDerivative (p : ℝ) (x : CKN.Vec 3) : CKN.Vec 3 →L[ℝ] ℝ :=
   (p * q x ^ (p - 1)) •
     ∑ k : Fin 3, (2 * x k) •
       (ContinuousLinearMap.proj k : CKN.Vec 3 →L[ℝ] ℝ)
 
-private def secondDerivative (i j : Fin 3) (x : CKN.Vec 3) : CKN.Vec 3 →L[ℝ] ℝ :=
+def secondDerivative (i j : Fin 3) (x : CKN.Vec 3) : CKN.Vec 3 →L[ℝ] ℝ :=
   3 • ((x i * x j) • qDerivative (-(5 : ℝ) / 2) x +
     (q x ^ (-(5 : ℝ) / 2)) •
       (x i • (ContinuousLinearMap.proj j : CKN.Vec 3 →L[ℝ] ℝ) +
@@ -322,13 +326,13 @@ theorem third_derivative_inverse_norm {x : CKN.Vec 3} (hx : x ≠ 0)
   ring
 
 
-private def inverseThirdFormulaQ (m j l : Fin 3) (x : CKN.Vec 3) : ℝ :=
+def inverseThirdFormulaQ (m j l : Fin 3) (x : CKN.Vec 3) : ℝ :=
   -15 * x m * x j * x l * q x ^ (-(7 : ℝ) / 2) +
     3 * ((if m = l then 1 else 0) * x j +
       (if m = j then 1 else 0) * x l +
       (if l = j then 1 else 0) * x m) * q x ^ (-(5 : ℝ) / 2)
 
-private def inverseThirdFormulaQDerivative (m j l : Fin 3) (x : CKN.Vec 3) :
+def inverseThirdFormulaQDerivative (m j l : Fin 3) (x : CKN.Vec 3) :
     CKN.Vec 3 →L[ℝ] ℝ :=
   (-15 : ℝ) • (
       q x ^ (-(7 : ℝ) / 2) •

@@ -133,6 +133,23 @@ def selected_files(root: Path, given: list[Path] | None = None) -> list[Path]:
     return sorted(result, key=lambda path: relative_path(root, path))
 
 
+def comparator_pair(name: str, first: str, second: str) -> bool:
+    """A Challenge and its Solution repeat the same names by design: the root
+    pair in namespace CKNChallenge, the pair in comparators/<Topic>/ in
+    CKN<Topic>Challenge. Those two files are never imported together."""
+    pairs = {("CKNChallenge", "comparators")}
+    for path in (first, second):
+        parts = path.split("/")
+        if len(parts) == 3 and parts[0] == "comparators":
+            pairs.add((f"CKN{parts[1]}Challenge", f"comparators/{parts[1]}"))
+    for namespace, directory in pairs:
+        if name.startswith(namespace + ".") and {first, second} == {
+            f"{directory}/Challenge.lean", f"{directory}/Solution.lean"
+        }:
+            return True
+    return False
+
+
 def find_duplicates(root: Path, given: list[Path] | None = None) -> list[Duplicate]:
     locations: dict[str, list[DeclarationLocation]] = {}
     for path in selected_files(root, given):
@@ -144,9 +161,7 @@ def find_duplicates(root: Path, given: list[Path] | None = None) -> list[Duplica
             # Comparator requires identical names in two separate environments.
             # This exact pair is never imported together; duplicates within
             # either file or involving any library file remain errors.
-            if name.startswith("CKNChallenge.") and {first.path, second.path} == {
-                "comparators/Challenge.lean", "comparators/Solution.lean"
-            }:
+            if comparator_pair(name, first.path, second.path):
                 continue
             duplicates.append(Duplicate(name, first, second))
     return sorted(

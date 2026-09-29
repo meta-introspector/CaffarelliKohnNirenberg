@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.PotentialFiniteness
-import CKN.Core.HeatPotential.MorreySources
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Parabolic.Morrey.Minkowski
+module
+
+public import CKN.Core.Endgame.PotentialFiniteness
+public import CKN.Core.HeatPotential.MorreySources
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
 
 /-!
 # Morrey cell estimates for the first velocity-improvement round
@@ -17,6 +19,8 @@ is known on a metric ball, so the estimates below are stated for abstract
 exponents: a lowering step for the pair of exponents, and the local
 integrability that a finite Morrey norm supplies.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric
 open scoped ENNReal NNReal

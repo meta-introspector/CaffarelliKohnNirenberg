@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTWindowSelection
-import CKN.Core.Step4.WeakGradientGluingTSourceMeasurable
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTWindowSelection
+public import CKN.Core.Step4.WeakGradientGluingTSourceMeasurable
 
 /-! # Jointly measurable completed pressure operators from suitability
 
@@ -10,6 +12,8 @@ Both force-free and near-force sources use one spatial cutoff and one time
 window. The selected operator fields satisfy the completed-operator identity
 on the full spatial space at almost every time, including the zero extension.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

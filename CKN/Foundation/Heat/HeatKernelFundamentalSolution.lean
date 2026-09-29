@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.CausalDistribution
-import CKN.Foundation.Heat.BackwardPotentialIdentity
-import CKN.Foundation.Parabolic.Integration.Average
+module
+
+public import CKN.Foundation.Heat.CausalDistribution
+public import CKN.Foundation.Heat.BackwardPotentialIdentity
+public import CKN.Foundation.Parabolic.Integration.Average
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped BigOperators Distributions

@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.RieszSecondWeakConcrete
-import CKN.Foundation.Euclidean.RieszSecondExterior
-import CKN.Foundation.Euclidean.RieszSecondL2Input
-import CKN.Core.Endgame.RestrictedCZInterpolation
+module
+
+public import CKN.Foundation.Euclidean.RieszSecondWeakConcrete
+public import CKN.Foundation.Euclidean.RieszSecondExterior
+public import CKN.Foundation.Euclidean.RieszSecondL2Input
+public import CKN.Core.Endgame.RestrictedCZInterpolation
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology
@@ -30,7 +34,7 @@ private lemma rieszSecond_concrete_exterior
   have h := rieszSecondL2_exterior_representation hL2 hb₂ hU hbA hAb hδ hsep
   simpa only [rieszSecondPressureKernel, rieszSecondKernel, Pi.neg_apply] using h
 
-private lemma rieszSecond_concrete_bad_bridge
+lemma rieszSecond_concrete_bad_bridge
     {i j : Fin 3} {F : Vec3 → ℝ} {level : ℝ}
     (hL2 : RieszSecondL2Input i j) (D : CZDecomposition F level)
     (hF₂ : MemLp F (2 : ℝ≥0∞) volume) :
@@ -56,7 +60,7 @@ private lemma rieszSecond_concrete_bad_bridge
   exact (rieszSecond_exterior_operator_bad_bridge hL2 D hF₂ hExterior
     (rieszSecond_bad_cube_kernel_bridge D hF₂)) Q
 
-private lemma rieszSecond_concrete_bad_additivity
+lemma rieszSecond_concrete_bad_additivity
     {i j : Fin 3} {F : Vec3 → ℝ} {level : ℝ}
     (hL2 : RieszSecondL2Input i j) (D : CZDecomposition F level)
     (hF : Integrable F volume) (hF₂ : MemLp F (2 : ℝ≥0∞) volume) :

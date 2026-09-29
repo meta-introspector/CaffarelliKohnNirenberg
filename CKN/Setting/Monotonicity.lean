@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.Alpha
-import CKN.Statements.Beta
-import CKN.Statements.Gamma
-import CKN.Statements.Delta
-import CKN.Statements.Lambda
-import CKN.Foundation.Parabolic.Integration.Scaling
+module
+
+public import CKN.Statements.Alpha
+public import CKN.Statements.Beta
+public import CKN.Statements.Gamma
+public import CKN.Statements.Delta
+public import CKN.Statements.Lambda
+public import CKN.Foundation.Parabolic.Integration.Scaling
 
 /-!
 # Monotonicity of the scale quantities in the radius
@@ -33,6 +35,8 @@ require the relevant quantity at the larger radius to be finite: this is the
 `hfin` hypothesis below, and it holds for the suitable weak solutions considered
 in `paper/ckn.tex`.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set
 open scoped ENNReal

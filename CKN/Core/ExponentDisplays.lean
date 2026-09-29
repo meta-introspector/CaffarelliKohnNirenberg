@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Hedberg
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Hedberg
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
 
 /-!
 # The small exponent displays of the pressure and potential sections
@@ -22,6 +24,8 @@ from `paper/ckn.tex`:
 * `eq:adams-exponents` — the reciprocal identity
   `1 / (τ / λ) = 1 / τ - a / 5` with `λ = 1 - a τ / 5`.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

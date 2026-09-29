@@ -1,15 +1,19 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.OneSidedMeasurability
-import CKN.Foundation.Parabolic.Morrey.Basic
-import CKN.Statements.MorreyVecMem
+module
+
+public import CKN.Core.Endgame.OneSidedMeasurability
+public import CKN.Foundation.Parabolic.Morrey.Basic
+public import CKN.Statements.MorreyVecMem
 
 /-! # Restriction of indicated Morrey data
 
 Smaller carriers retain the same numerical Morrey bound. Joint measurability
 on a spatial-time strip gives globally measurable past-cylinder indications.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal

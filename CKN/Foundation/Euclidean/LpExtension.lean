@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.RieszSecondOperator
-import Mathlib.MeasureTheory.Function.ContinuousMapDense
-import Mathlib.MeasureTheory.Function.LpSpace.Complete
-import Mathlib.MeasureTheory.Function.Holder
-import Mathlib.Analysis.Normed.Operator.Extend
-import Mathlib.Analysis.Normed.Operator.Mul
-import CKN.Core.Endgame.ExtensionNormTransport
+module
+
+public import CKN.Foundation.Euclidean.RieszSecondOperator
+public import Mathlib.MeasureTheory.Function.ContinuousMapDense
+public import Mathlib.MeasureTheory.Function.LpSpace.Complete
+public import Mathlib.MeasureTheory.Function.Holder
+public import Mathlib.Analysis.Normed.Operator.Extend
+public import Mathlib.Analysis.Normed.Operator.Mul
+public import CKN.Core.Endgame.ExtensionNormTransport
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology
@@ -86,7 +90,7 @@ structure LpExtensionInput (p : ℝ≥0∞) (C : ℝ) where
     ‖(output_mem hf hf₂).toLp (T f)‖ ≤
       C * ‖hf.toLp f‖
 
-private def lpInterL2Map {p : ℝ≥0∞} [Fact (1 ≤ p)]
+def lpInterL2Map {p : ℝ≥0∞} [Fact (1 ≤ p)]
     {C : ℝ} (h : LpExtensionInput p C) :
     lpInterL2Submodule p →ₗ[ℝ] Lp ℝ p (volume : Measure Vec3) where
   toFun u :=
@@ -335,7 +339,7 @@ theorem lpExtensionTensorOperator_eLpNorm_le {p : ℝ≥0∞} [Fact (1 ≤ p)]
       exact Finset.sum_le_sum fun i _ =>
         Finset.sum_le_sum fun j _ => hcomponent i j
 
-private def lpInterL2Input {p : ℝ≥0∞} [Fact (1 ≤ p)] {f : Vec3 → ℝ}
+def lpInterL2Input {p : ℝ≥0∞} [Fact (1 ≤ p)] {f : Vec3 → ℝ}
     (hf : MemLp f p volume) (hf₂ : MemLp f (2 : ℝ≥0∞) volume) :
     lpInterL2Submodule p := by
   let hu₂ : MemLp (hf.toLp f : Vec3 → ℝ) (2 : ℝ≥0∞) volume :=
@@ -444,7 +448,7 @@ theorem lpExtensionRepresentative_congr_ae {p : ℝ≥0∞} [Fact (1 ≤ p)]
     _ =ᵐ[volume] lpExtensionRepresentative hp h g :=
       (lpExtensionRepresentative_ae_eq_core hp h hg).symm
 
-private def lpPairingWith {p q : ℝ≥0∞} [Fact (1 ≤ p)] [Fact (1 ≤ q)]
+def lpPairingWith {p q : ℝ≥0∞} [Fact (1 ≤ p)] [Fact (1 ≤ q)]
     [ENNReal.HolderConjugate p q]
     (g : Lp ℝ q (volume : Measure Vec3)) :
     Lp ℝ p (volume : Measure Vec3) →L[ℝ] ℝ :=

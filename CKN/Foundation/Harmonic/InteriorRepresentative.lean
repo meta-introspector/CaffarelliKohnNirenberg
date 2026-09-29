@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorWeak
-import Mathlib.Analysis.Calculus.UniformLimitsDeriv
+module
+
+public import CKN.Foundation.Harmonic.InteriorWeak
+public import Mathlib.Analysis.Calculus.UniformLimitsDeriv
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Convolution
 open MeasureTheory MeasureTheory.Measure Set Filter

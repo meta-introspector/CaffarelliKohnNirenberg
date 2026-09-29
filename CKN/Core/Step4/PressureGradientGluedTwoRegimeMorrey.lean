@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedTwoRegime
+module
+
+public import CKN.Core.Step4.PressureGradientGluedTwoRegime
 
 /-!
 # The every-cell Morrey bound in its two regimes
@@ -19,6 +21,8 @@ A single uniform argument across all radii does not exist: the slice bound is
 available only while the cell is small relative to its distance to the carrier
 boundary, so the two regimes must be kept separate and then glued.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorDisplayBounds
-import CKN.Foundation.Sobolev.Poincare.Mean
-import CKN.Foundation.Sobolev.Poincare.LpConvergence
+module
+
+public import CKN.Foundation.Harmonic.InteriorDisplayBounds
+public import CKN.Foundation.Sobolev.Poincare.Mean
+public import CKN.Foundation.Sobolev.Poincare.LpConvergence
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Filter

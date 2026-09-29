@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.PressureMultiplierSymbol
-import CKN.Foundation.Euclidean.SpatialMultiplierKernel
+module
+
+public import CKN.Foundation.Euclidean.PressureMultiplierSymbol
+public import CKN.Foundation.Euclidean.SpatialMultiplierKernel
 
 /-!
 # The pressure symbol inhabits the degree-one symbol class
@@ -17,6 +19,8 @@ multiplier.  The frequency integral defining `ς(D)W₊` converges absolutely fo
 that same symbol, so the kernel of `SpatialMultiplierKernel` is meaningful at
 the paper's object and not only at a hypothetical one.
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open Set MeasureTheory

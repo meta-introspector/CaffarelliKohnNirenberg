@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step3.LocalEquationRepresentation
-import CKN.Foundation.Heat.BackwardPotentialKernelBridge
-import CKN.Foundation.Sobolev.Cutoff.SpaceTime
+module
+
+public import CKN.Core.Step3.LocalEquationRepresentation
+public import CKN.Foundation.Heat.BackwardPotentialKernelBridge
+public import CKN.Foundation.Sobolev.Cutoff.SpaceTime
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

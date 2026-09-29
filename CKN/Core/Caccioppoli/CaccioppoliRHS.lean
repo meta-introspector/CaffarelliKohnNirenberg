@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.CaccioppoliEnergy
-import CKN.Setting.ScalingInvarianceTests
+module
+
+public import CKN.Core.Caccioppoli.CaccioppoliEnergy
+public import CKN.Setting.ScalingInvarianceTests
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.TheoremAAdaptersLin34
-import CKN.Pressure.ForceCancellationUnconditional
-import CKN.Pressure.HarmonicRemainderForceTerms
-import CKN.Pressure.Lin34SliceIntegrated
-import CKN.Pressure.Lin34CentredCZResidual
-import CKN.Foundation.Measure.SliceDistribution
+module
+
+public import CKN.Core.Endgame.TheoremAAdaptersLin34
+public import CKN.Pressure.ForceCancellationUnconditional
+public import CKN.Pressure.HarmonicRemainderForceTerms
+public import CKN.Pressure.Lin34SliceIntegrated
+public import CKN.Pressure.Lin34CentredCZResidual
+public import CKN.Foundation.Measure.SliceDistribution
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

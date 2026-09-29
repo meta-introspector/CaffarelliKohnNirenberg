@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Inequalities.SeeleyEnergy
-import CKN.Foundation.Sobolev.Inequalities.SeeleyC1
-import CKN.Foundation.Sobolev.Inequalities.SeeleySplit
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Ring
+module
+
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyEnergy
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyC1
+public import CKN.Foundation.Sobolev.Inequalities.SeeleySplit
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
 
 /-!
 # Gradient energy bounds for the two-reflection extension
@@ -13,6 +15,8 @@ import Mathlib.Tactic.Ring
 The chain rule and the operator-norm estimates from `SeeleyBounds` are
 combined with the pullback estimates from `SeeleyEnergy`.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal

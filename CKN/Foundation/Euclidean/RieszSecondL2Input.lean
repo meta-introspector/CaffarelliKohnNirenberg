@@ -1,9 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.RieszSecondOperator
-import Mathlib.Analysis.Distribution.TestFunction
-import Mathlib.Analysis.Convolution
+module
+
+public import CKN.Foundation.Euclidean.RieszSecondOperator
+public import Mathlib.Analysis.Normed.Lp.SmoothApprox
+public import Mathlib.Analysis.Distribution.TestFunction
+public import Mathlib.Analysis.Convolution
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology Distributions Convolution
@@ -16,7 +21,7 @@ namespace CKN.Foundation.Euclidean
 
 open CKN
 
-private abbrev testFunction := 𝓓((⊤ : TopologicalSpace.Opens Vec3), ℝ)
+abbrev testFunction := 𝓓((⊤ : TopologicalSpace.Opens Vec3), ℝ)
 
 private lemma pressure_neg_kernel_locallyIntegrable' :
     LocallyIntegrable (fun z : Vec3 => -Foundation.Heat.newtonianKernel z) volume := by
@@ -102,7 +107,7 @@ private lemma mixedSecond_smul_smooth {f : Vec3 → ℝ} (c : ℝ)
     ((contDiff_spatialDeriv_smooth hf j).differentiable (by norm_num) x)]
   simp only [_root_.smul_apply, smul_eq_mul]
 
-private def testSource : testFunction →ₗ[ℝ] rieszSecondL2 where
+def testSource : testFunction →ₗ[ℝ] rieszSecondL2 where
   toFun f := MemLp.toLp (p := (2 : ℝ≥0∞)) (f : Vec3 → ℝ)
     (f.continuous.memLp_of_hasCompactSupport (p := (2 : ℝ≥0∞))
       (μ := (volume : Measure Vec3)) f.hasCompactSupport)
@@ -144,7 +149,7 @@ private lemma test_dense : DenseRange (fun f : testFunction =>
     filter_upwards [hmem.coeFn_toLp] with x hx
     simp [hx]
 
-private lemma test_hessian_mem (i j : Fin 3) (f : testFunction) :
+lemma test_hessian_mem (i j : Fin 3) (f : testFunction) :
     MemLp (mixedSecond (pressureNewtonianPotential (f : Vec3 → ℝ)) i j)
       (2 : ℝ≥0∞) volume := by
   have hP : ContDiff ℝ (⊤ : ℕ∞)
@@ -184,7 +189,7 @@ private lemma test_hessian_mem (i j : Fin 3) (f : testFunction) :
   norm_num at hsqrt ⊢
   simpa [absE, Real.enorm_eq_ofReal_abs] using hsqrt
 
-private def testHessian (i j : Fin 3) : testFunction →ₗ[ℝ] rieszSecondL2 where
+def testHessian (i j : Fin 3) : testFunction →ₗ[ℝ] rieszSecondL2 where
   toFun f := MemLp.toLp (p := (2 : ℝ≥0∞))
     (mixedSecond (pressureNewtonianPotential (f : Vec3 → ℝ)) i j)
     (test_hessian_mem i j f)
@@ -259,7 +264,7 @@ private lemma test_hessian_norm_bound (i j : Fin 3) (f : testFunction) :
           (μ := (volume : Measure Vec3)) f.hasCompactSupport)‖
   simpa only [one_mul] using test_hessian_norm_le i j f
 
-private def testHessianExtension (i j : Fin 3) :
+def testHessianExtension (i j : Fin 3) :
     rieszSecondL2 →L[ℝ] rieszSecondL2 :=
   LinearMap.mkContinuous
     ((testHessian i j).extendOfNorm testSource) 1 (by
@@ -273,12 +278,12 @@ private def testHessianExtension (i j : Fin 3) :
           exact test_dense) 1
         (fun φ => test_hessian_norm_bound i j φ) f)
 
-private def rieszSecondSmoothMap (i j : Fin 3) :
+def rieszSecondSmoothMap (i j : Fin 3) :
     SchwartzMap Vec3 ℝ →L[ℝ] rieszSecondL2 :=
   (testHessianExtension i j).comp
     (SchwartzMap.toLpCLM ℝ ℝ 2 volume)
 
-private lemma rieszSecondSmoothMap_bound (i j : Fin 3)
+lemma rieszSecondSmoothMap_bound (i j : Fin 3)
     (φ : SchwartzMap Vec3 ℝ) :
     ‖rieszSecondSmoothMap i j φ‖ ≤
       ‖SchwartzMap.toLpCLM ℝ ℝ 2 volume φ‖ := by

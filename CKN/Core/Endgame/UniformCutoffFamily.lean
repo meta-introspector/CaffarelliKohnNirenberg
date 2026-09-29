@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.UniformCutoffFamilyScaled
-import CKN.Core.Endgame.CompactBall
-import CKN.Core.Endgame.QuantitativeEndgame
+module
+
+public import CKN.Core.Endgame.UniformCutoffFamilyScaled
+public import CKN.Core.Endgame.CompactBall
+public import CKN.Core.Endgame.QuantitativeEndgame
 
 /-!
 # A cutoff family with one derivative constant for every centre and radius
@@ -26,6 +28,8 @@ factors `a ^ (-1)` and `a ^ (-2)`.
   `endgameLocalRadius r₂ r₃`, in the exact shape of the cutoff hypothesis of
   the quantitative endgame consumer.
 -/
+
+@[expose] public section
 
 open Set Metric
 open CKN.Foundation.Parabolic

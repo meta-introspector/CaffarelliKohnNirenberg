@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTFixedSelection
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTFixedSelection
 
 /-! # Representatives with pointwise spatial slice bounds
 
@@ -9,6 +11,8 @@ A jointly measurable field with an almost-everywhere spatial bound can be
 changed on a null set to obey that bound at every spatial point on almost
 every time slice. This preserves its value on the prescribed carrier.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal Topology

@@ -1,15 +1,19 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Inequalities.H1
-import CKN.Foundation.Sobolev.Inequalities.Smooth
-import CKN.Foundation.Parabolic.Integration.Average
-import CKN.Foundation.Parabolic.Integration.Scaling
-import CKN.Statements.Alpha
-import CKN.Statements.Beta
-import CKN.Statements.Gamma
-import CKN.Statements.SpatialGradientSq
-import CKN.Statements.SuitableWeakSolutionIntegrable
+module
+
+public import CKN.Foundation.Sobolev.Inequalities.H1
+public import CKN.Foundation.Sobolev.Inequalities.Smooth
+public import CKN.Foundation.Parabolic.Integration.Average
+public import CKN.Foundation.Parabolic.Integration.Scaling
+public import CKN.Statements.Alpha
+public import CKN.Statements.Beta
+public import CKN.Statements.Gamma
+public import CKN.Statements.SpatialGradientSq
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric Filter
 open scoped ENNReal NNReal Topology

@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PointwisePotential
-import CKN.Core.ExponentDisplays
-import CKN.Core.Parameters
-import CKN.Foundation.Parabolic.Morrey.AdamsM4
-import CKN.Foundation.Parabolic.Morrey.Minkowski
+module
+
+public import CKN.Core.Step4.PointwisePotential
+public import CKN.Core.ExponentDisplays
+public import CKN.Core.Parameters
+public import CKN.Foundation.Parabolic.Morrey.AdamsM4
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

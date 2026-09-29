@@ -2,14 +2,18 @@
 -- Released under Apache 2.0 license.
 
 
-import CKN.Core.Step2.MorreyDecay
-import CKN.Core.Step2.MorreyFormUniform
+module
+
+public import CKN.Core.Step2.MorreyDecay
+public import CKN.Core.Step2.MorreyFormUniform
 
 /-! # Neighborhood Morrey data from the gradient criterion
 
 The smallness premise stays in the extended nonnegative reals. The only
 additional estimate is the pair of one-step inequalities in `lem:theta-decay`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

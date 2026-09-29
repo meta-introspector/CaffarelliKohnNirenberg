@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.SubordinatedCampanato
-import CKN.Statements.SuitableWeakSolutionIntegrable
-import CKN.Setting.Energy.Calculus
-import CKN.Pressure.LeibnizLaplacian
+module
+
+public import CKN.Core.HeatPotential.SubordinatedCampanato
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+public import CKN.Setting.Energy.Calculus
+public import CKN.Pressure.LeibnizLaplacian
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

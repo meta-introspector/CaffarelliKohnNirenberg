@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Mollify.Transport
+module
+
+public import CKN.Foundation.Sobolev.Mollify.Transport
 
 /-!
 # The mollified weak-derivative identity as an explicit integral
@@ -13,6 +15,8 @@ point whose closed `ε`-ball lies in the domain of the weak derivative. The
 result is the integral form of the transport identity, stated on its own so
 that it can be used without unfolding the convolution derivative.
 -/
+
+@[expose] public section
 
 open scoped Convolution Topology
 open MeasureTheory

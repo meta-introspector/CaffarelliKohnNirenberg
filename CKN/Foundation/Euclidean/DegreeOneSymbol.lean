@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-!
 # Symbols homogeneous of degree one
@@ -14,6 +16,8 @@ homogeneity predicate for such a symbol and proves the linear growth bound
 `‖ς ξ‖ ≤ C |ξ|` that makes the associated Fourier integrals absolutely
 convergent.  Symbols are complex valued, as `ς_{jl}` is.
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open Set

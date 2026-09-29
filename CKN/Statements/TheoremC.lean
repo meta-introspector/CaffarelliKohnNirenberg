@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Main.TheoremC
-import CKN.Main.TheoremCPaper
-import CKN.Statements.SpaceTimeSet
-import CKN.Statements.SuitableWeakSolutionIntegrable
-import CKN.Statements.SuitableWeakSolution
-import CKN.Statements.RegularPoint
-import CKN.Statements.SingularSet
+module
+
+public import CKN.Main.TheoremC
+public import CKN.Main.TheoremCPaper
+public import CKN.Statements.SpaceTimeSet
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+public import CKN.Statements.SuitableWeakSolution
+public import CKN.Statements.RegularPoint
+public import CKN.Statements.SingularSet
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

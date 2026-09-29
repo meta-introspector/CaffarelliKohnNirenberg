@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.SourceComponents
-import CKN.Core.Step3.LocalEquationRepresentation
+module
+
+public import CKN.Core.Endgame.SourceComponents
+public import CKN.Core.Step3.LocalEquationRepresentation
 
 /-! # The past-time convective heat source
 
@@ -10,6 +12,8 @@ The improved velocity exponent and initial gradient exponent give the
 convective source estimate by scalar Morrey Hölder and the finite-sum
 triangle inequality. Only the cutoff's nonpositive-time values are used.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped BigOperators ENNReal

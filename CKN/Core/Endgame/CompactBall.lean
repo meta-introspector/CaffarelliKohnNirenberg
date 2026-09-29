@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Topology
-import Mathlib.Tactic.Linarith
+module
+
+public import CKN.Foundation.Parabolic.Topology
+public import Mathlib.Tactic.Linarith
 
 /-! # Compact parabolic balls and changes of center
 
@@ -10,6 +12,8 @@ Compactness is transported through the product homeomorphism. The ball
 inclusion uses the triangle inequality and applies without any positivity
 assumption on its radii.
 -/
+
+@[expose] public section
 
 open Set Metric
 open CKN.Foundation.Parabolic

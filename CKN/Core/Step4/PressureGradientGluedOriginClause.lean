@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOneSidedOrigin
-import CKN.Core.Step4.PressureGradientGluedMarginGeometry
-import CKN.Core.Step4.RouteAGradientProducerUniformExponents
+module
+
+public import CKN.Core.Step4.PressureGradientOneSidedOrigin
+public import CKN.Core.Step4.PressureGradientGluedMarginGeometry
+public import CKN.Core.Step4.RouteAGradientProducerUniformExponents
 
 /-!
 # The every-cell bound of the origin carrier, at the margin scale
@@ -49,6 +51,8 @@ majorant of the estimate unsatisfiable at the top of the admissible range.  At
 Nothing else in the estimate changes: the transfer, the carrier, the field and
 the conclusion are the established ones.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

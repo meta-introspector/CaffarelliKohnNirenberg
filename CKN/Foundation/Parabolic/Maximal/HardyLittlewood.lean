@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Doubling
-import Mathlib.MeasureTheory.Covering.Vitali
-import Mathlib.MeasureTheory.Integral.Average
+module
+
+public import CKN.Foundation.Parabolic.Doubling
+public import Mathlib.MeasureTheory.Covering.Vitali
+public import Mathlib.MeasureTheory.Integral.Average
 
 /-!
 # The parabolic Hardy--Littlewood maximal function
@@ -15,6 +17,8 @@ theorem.  The covering argument follows the general metric-measure argument in
 under Apache 2.0.
 -/
 
+@[expose] public section
+
 open scoped ENNReal NNReal Topology
 
 open MeasureTheory MeasureTheory.Measure Set Metric Filter
@@ -25,17 +29,17 @@ noncomputable section
 
 namespace CKN.Foundation.Parabolic
 
-private abbrev parabolicMetricBall (z : ParabolicPoint) (r : ℝ) : Set ParabolicPoint :=
+abbrev parabolicMetricBallHL (z : ParabolicPoint) (r : ℝ) : Set ParabolicPoint :=
   @Metric.ball ParabolicPoint parabolicPseudoMetricSpace z r
 
 def parabolicMaximalFunction (f : ParabolicPoint → ℝ≥0∞) (z : ParabolicPoint) : ℝ≥0∞ :=
   ⨆ c : ParabolicPoint, ⨆ r : ℝ,
-    (parabolicMetricBall c r).indicator
-      (fun _ ↦ ⨍⁻ y in parabolicMetricBall c r, f y ∂volume) z
+    (parabolicMetricBallHL c r).indicator
+      (fun _ ↦ ⨍⁻ y in parabolicMetricBallHL c r, f y ∂volume) z
 
 theorem parabolicMaximalFunction_average_le {f : ParabolicPoint → ℝ≥0∞}
-    {c z : ParabolicPoint} {r : ℝ} (hz : z ∈ parabolicMetricBall c r) :
-    ⨍⁻ y in parabolicMetricBall c r, f y ∂volume ≤ parabolicMaximalFunction f z := by
+    {c z : ParabolicPoint} {r : ℝ} (hz : z ∈ parabolicMetricBallHL c r) :
+    ⨍⁻ y in parabolicMetricBallHL c r, f y ∂volume ≤ parabolicMaximalFunction f z := by
   apply le_iSup₂_of_le c r
   simp only [indicator_of_mem hz]
   exact le_rfl
@@ -44,7 +48,7 @@ theorem lowerSemicontinuous_parabolicMaximalFunction (f : ParabolicPoint → ℝ
     LowerSemicontinuous (parabolicMaximalFunction f) := by
   intro z s hzs
   obtain ⟨c, r, h⟩ := exists_lt_of_lt_ciSup₂' hzs
-  have hz : z ∈ parabolicMetricBall c r :=
+  have hz : z ∈ parabolicMetricBallHL c r :=
     mem_of_indicator_ne_zero (h.trans_le' bot_le |>.ne.symm)
   rw [indicator_of_mem hz] at h
   apply eventually_of_mem
@@ -58,19 +62,19 @@ theorem measurable_parabolicMaximalFunction (f : ParabolicPoint → ℝ≥0∞) 
   (lowerSemicontinuous_parabolicMaximalFunction f).measurable
 
 private lemma parabolicMetricBall_measurable (c : ParabolicPoint) (r : ℝ) :
-    MeasurableSet (parabolicMetricBall c r) :=
+    MeasurableSet (parabolicMetricBallHL c r) :=
   Metric.isOpen_ball.measurableSet
 
 private lemma parabolicMetricBall_nonempty {c : ParabolicPoint} {r : ℝ} (hr : 0 < r) :
-    (parabolicMetricBall c r).Nonempty :=
+    (parabolicMetricBallHL c r).Nonempty :=
   Metric.nonempty_ball.mpr hr
 
 private lemma parabolicAverage_condition_of_mem
     {f : ParabolicPoint → ℝ≥0∞} {l : ℝ≥0∞}
     {c : ParabolicPoint} {r : ℝ} (hr : 0 < r)
-    (havg : l < ⨍⁻ y in parabolicMetricBall c r, f y ∂volume) :
-    l * volume (parabolicMetricBall c r) ≤
-      ∫⁻ y in parabolicMetricBall c r, f y := by
+    (havg : l < ⨍⁻ y in parabolicMetricBallHL c r, f y ∂volume) :
+    l * volume (parabolicMetricBallHL c r) ≤
+      ∫⁻ y in parabolicMetricBallHL c r, f y := by
   rw [setLAverage_eq] at havg
   apply (ENNReal.le_div_iff_mul_le
     (Or.inl (volume_parabolicBall_pos hr).ne')
@@ -82,9 +86,9 @@ private theorem measure_biUnion_le_lintegral
     (hpos : ∀ i ∈ T, 0 < i.2)
     (hbounded : ∃ R : ℝ, ∀ i ∈ T, i.2 ≤ R)
     (hcondition : ∀ i ∈ T,
-      l * volume (parabolicMetricBall i.1 i.2) ≤
-        ∫⁻ y in parabolicMetricBall i.1 i.2, f y) :
-    l * volume (⋃ i ∈ T, parabolicMetricBall i.1 i.2) ≤
+      l * volume (parabolicMetricBallHL i.1 i.2) ≤
+        ∫⁻ y in parabolicMetricBallHL i.1 i.2, f y) :
+    l * volume (⋃ i ∈ T, parabolicMetricBallHL i.1 i.2) ≤
       ENNReal.ofReal (10 ^ 5) * ∫⁻ y, f y := by
   obtain ⟨R, hR⟩ := hbounded
   obtain ⟨u, huT, hdisj, hcover⟩ :=
@@ -96,9 +100,9 @@ private theorem measure_biUnion_le_lintegral
   set_option linter.style.haveILetI false in
     letI : Countable u := hu_countable.to_subtype
   let enlarged : ParabolicPoint × ℝ → Set ParabolicPoint :=
-    fun i ↦ parabolicMetricBall i.1 (5 * i.2)
+    fun i ↦ parabolicMetricBallHL i.1 (5 * i.2)
   have hcover_union :
-      (⋃ i ∈ T, parabolicMetricBall i.1 i.2) ⊆ ⋃ i ∈ u, enlarged i := by
+      (⋃ i ∈ T, parabolicMetricBallHL i.1 i.2) ⊆ ⋃ i ∈ u, enlarged i := by
     intro z hz
     rcases mem_iUnion₂.mp hz with ⟨i, hiT, hzi⟩
     obtain ⟨j, hju, hsubset⟩ := hcover i hiT
@@ -106,17 +110,17 @@ private theorem measure_biUnion_le_lintegral
     exact hsubset hzi
   have henlarged_measure (i : u) :
       volume (enlarged i) ≤
-        ENNReal.ofReal (10 ^ 5) * volume (parabolicMetricBall i.1.1 i.1.2) := by
+        ENNReal.ofReal (10 ^ 5) * volume (parabolicMetricBallHL i.1.1 i.1.2) := by
     exact volume_parabolicBall_five_mul_le (hpos i (huT i.property))
   have hdisj_subtype : Pairwise (Function.onFun Disjoint
-      (fun i : u ↦ parabolicMetricBall i.1.1 i.1.2)) := by
+      (fun i : u ↦ parabolicMetricBallHL i.1.1 i.1.2)) := by
     intro i j hij
     exact hdisj i.property j.property (Subtype.coe_ne_coe.mpr hij)
   have hsum_integral :
-      (∑' i : u, ∫⁻ y in parabolicMetricBall i.1.1 i.1.2, f y) ≤ ∫⁻ y, f y := by
+      (∑' i : u, ∫⁻ y in parabolicMetricBallHL i.1.1 i.1.2, f y) ≤ ∫⁻ y, f y := by
     calc
-      (∑' i : u, ∫⁻ y in parabolicMetricBall i.1.1 i.1.2, f y) =
-          ∫⁻ y in ⋃ i : u, parabolicMetricBall i.1.1 i.1.2, f y := by
+      (∑' i : u, ∫⁻ y in parabolicMetricBallHL i.1.1 i.1.2, f y) =
+          ∫⁻ y in ⋃ i : u, parabolicMetricBallHL i.1.1 i.1.2, f y := by
             symm
             apply lintegral_iUnion
             · exact fun i ↦ parabolicMetricBall_measurable i.1.1 i.1.2
@@ -125,31 +129,31 @@ private theorem measure_biUnion_le_lintegral
         gcongr
         exact Measure.restrict_le_self
   calc
-    l * volume (⋃ i ∈ T, parabolicMetricBall i.1 i.2) ≤
+    l * volume (⋃ i ∈ T, parabolicMetricBallHL i.1 i.2) ≤
         l * volume (⋃ i ∈ u, enlarged i) := by
       gcongr
     _ ≤ l * ∑' i : u, volume (enlarged i) := by
       gcongr
       exact measure_biUnion_le volume hu_countable enlarged
     _ ≤ l * ∑' i : u,
-        ENNReal.ofReal (10 ^ 5) * volume (parabolicMetricBall i.1.1 i.1.2) := by
+        ENNReal.ofReal (10 ^ 5) * volume (parabolicMetricBallHL i.1.1 i.1.2) := by
       gcongr with i
       exact henlarged_measure i
     _ = ENNReal.ofReal (10 ^ 5) *
-        ∑' i : u, l * volume (parabolicMetricBall i.1.1 i.1.2) := by
+        ∑' i : u, l * volume (parabolicMetricBallHL i.1.1 i.1.2) := by
       rw [ENNReal.tsum_mul_left, ENNReal.tsum_mul_left]
       ac_rfl
     _ ≤ ENNReal.ofReal (10 ^ 5) *
-        ∑' i : u, ∫⁻ y in parabolicMetricBall i.1.1 i.1.2, f y := by
+        ∑' i : u, ∫⁻ y in parabolicMetricBallHL i.1.1 i.1.2, f y := by
       gcongr with i
       exact hcondition i.1 (huT i.2)
     _ ≤ ENNReal.ofReal (10 ^ 5) * ∫⁻ y, f y := by
       gcongr
 
-private def parabolicMaximalLevelBalls (f : ParabolicPoint → ℝ≥0∞)
+def parabolicMaximalLevelBalls (f : ParabolicPoint → ℝ≥0∞)
     (l : ℝ≥0∞) (n : ℕ) : Set (ParabolicPoint × ℝ) :=
   {i | 0 < i.2 ∧ i.2 ≤ (n : ℝ) ∧
-    l < ⨍⁻ y in parabolicMetricBall i.1 i.2, f y ∂volume}
+    l < ⨍⁻ y in parabolicMetricBallHL i.1 i.2, f y ∂volume}
 
 theorem measure_parabolicMaximalFunction_lt_le
     (f : ParabolicPoint → ℝ≥0∞) {l : ℝ≥0∞} (hl : 0 < l) :
@@ -160,13 +164,13 @@ theorem measure_parabolicMaximalFunction_lt_le
   have hlevel :
       {z | l < parabolicMaximalFunction f z} =
         ⋃ n, ⋃ i ∈ parabolicMaximalLevelBalls f l n,
-          parabolicMetricBall i.1 i.2 := by
+          parabolicMetricBallHL i.1 i.2 := by
     ext z
     constructor
     · intro hz
       change l < parabolicMaximalFunction f z at hz
       obtain ⟨c, r, h⟩ := exists_lt_of_lt_ciSup₂' hz
-      have hzball : z ∈ parabolicMetricBall c r :=
+      have hzball : z ∈ parabolicMetricBallHL c r :=
         mem_of_indicator_ne_zero (h.trans_le' bot_le |>.ne.symm)
       rw [indicator_of_mem hzball] at h
       have hr : 0 < r := by
@@ -179,14 +183,14 @@ theorem measure_parabolicMaximalFunction_lt_le
       rcases mem_iUnion₂.mp hz with ⟨i, hi, hzi⟩
       exact lt_of_lt_of_le hi.2.2 (parabolicMaximalFunction_average_le hzi)
   have hmono : Monotone (fun n : ℕ ↦
-      ⋃ i ∈ parabolicMaximalLevelBalls f l n, parabolicMetricBall i.1 i.2) := by
+      ⋃ i ∈ parabolicMaximalLevelBalls f l n, parabolicMetricBallHL i.1 i.2) := by
     intro m n hmn z hz
     rcases mem_iUnion₂.mp hz with ⟨i, hi, hzi⟩
     refine mem_iUnion₂.mpr ⟨i, ?_, hzi⟩
     exact ⟨hi.1, hi.2.1.trans (by exact_mod_cast hmn), hi.2.2⟩
   have hlevel_bound (n : ℕ) :
       l * volume (⋃ i ∈ parabolicMaximalLevelBalls f l n,
-        parabolicMetricBall i.1 i.2) ≤ ENNReal.ofReal (10 ^ 5) * ∫⁻ y, f y := by
+        parabolicMetricBallHL i.1 i.2) ≤ ENNReal.ofReal (10 ^ 5) * ∫⁻ y, f y := by
     apply measure_biUnion_le_lintegral
     · intro i hi
       exact (hi.1)

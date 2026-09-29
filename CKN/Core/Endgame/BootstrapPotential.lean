@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.PotentialFiniteness
-import CKN.Core.Step4.PointwisePotential
-import CKN.Core.HeatPotential.FarShell
+module
+
+public import CKN.Core.Endgame.PotentialFiniteness
+public import CKN.Core.Step4.PointwisePotential
+public import CKN.Core.HeatPotential.FarShell
 
 /-! # Almost-everywhere pointwise bounds for the localized heat potential
 
@@ -11,6 +13,8 @@ Finite extended-real Riesz potentials give integrable real majorants at almost
 every evaluation point. All conversions to real numbers are made only after
 this finiteness has been established.
 -/
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory Set Filter

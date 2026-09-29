@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Cylinders
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Cylinders
 
 /-! # Morrey bounds from carrier-local representatives
 
@@ -9,6 +11,8 @@ Almost-everywhere equality on a measurable carrier transfers global bounds
 of a representative to the indicated original function. The representative
 need not vanish outside the carrier.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal

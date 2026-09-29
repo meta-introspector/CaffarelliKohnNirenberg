@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.AmbientLp
-import CKN.Setting.Examples.ShearCounterexample.ScaleL3
-import CKN.Setting.Examples.ShearCounterexample.ForceL2
-import CKN.Setting.Examples.ShearCounterexample.ShearWeightedProfile
-import Mathlib.MeasureTheory.Function.LpSpace.Basic
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.AmbientLp
+public import CKN.Setting.Examples.ShearCounterexample.ScaleL3
+public import CKN.Setting.Examples.ShearCounterexample.ForceL2
+public import CKN.Setting.Examples.ShearCounterexample.ShearWeightedProfile
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
 
 /-! # The full space-time velocity, gradient, and force fields. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory

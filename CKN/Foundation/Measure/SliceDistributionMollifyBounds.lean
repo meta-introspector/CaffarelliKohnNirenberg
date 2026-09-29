@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Mollify.Basic
-import Mathlib.Topology.MetricSpace.Thickening
+module
+
+public import CKN.Foundation.Sobolev.Mollify.Basic
+public import Mathlib.Topology.MetricSpace.Thickening
 
 /-!
 # Pointwise bounds and support for normalized mollifications
@@ -14,6 +16,8 @@ throughout the Caffarelli–Kohn–Nirenberg argument.
 * `support_mollify_subset`: mollification does not spread the support of a function
   beyond the closed `ε`-neighbourhood of its topological support.
 -/
+
+@[expose] public section
 
 open MeasureTheory Metric
 

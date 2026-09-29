@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.Interior
-import Mathlib.Analysis.Convolution
-import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
-import Mathlib.MeasureTheory.Integral.MeanInequalities
+module
+
+public import CKN.Foundation.Harmonic.Interior
+public import Mathlib.Analysis.Convolution
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology
@@ -22,7 +26,7 @@ open CKN
 def scalarConvolution (f g : Vec3 → ℝ) (x : Vec3) : ℝ :=
   ∫ y : Vec3, f y * g (x - y)
 
-private def convolutionMajorant (f g : Vec3 → ℝ≥0∞) (x : Vec3) : ℝ≥0∞ :=
+def convolutionMajorant (f g : Vec3 → ℝ≥0∞) (x : Vec3) : ℝ≥0∞ :=
   ∫⁻ y : Vec3, f y * g (x - y)
 
 private theorem convolutionMajorant_aemeasurable {f g : Vec3 → ℝ≥0∞}

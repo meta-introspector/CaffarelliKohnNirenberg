@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.PoincareSobolevL1Ball
-import CKN.Foundation.Parabolic.Basic
-import CKN.Foundation.Sobolev.Poincare.GradientNorm
+module
+
+public import CKN.Setting.PoincareSobolevL1Ball
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Foundation.Sobolev.Poincare.GradientNorm
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped BigOperators ENNReal

@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SourceMorreyGradientPackage
-import CKN.Core.Step4.PressureGradientProduct
-import CKN.Core.Step3.LocalizedEquationGradientTransfer
-import CKN.Pressure.SliceIntegrability
-import CKN.Setting.DivergenceFreeSlice
-import CKN.Foundation.Measure.SliceGradientSelection
+module
+
+public import CKN.Core.Step4.SourceMorreyGradientPackage
+public import CKN.Core.Step4.PressureGradientProduct
+public import CKN.Core.Step3.LocalizedEquationGradientTransfer
+public import CKN.Pressure.SliceIntegrability
+public import CKN.Setting.DivergenceFreeSlice
+public import CKN.Foundation.Measure.SliceGradientSelection
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Metric Filter

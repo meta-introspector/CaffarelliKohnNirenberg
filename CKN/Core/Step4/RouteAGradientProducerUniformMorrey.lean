@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Cylinders
-import CKN.Foundation.Parabolic.Morrey.Inclusions
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Cylinders
+public import CKN.Foundation.Parabolic.Morrey.Inclusions
+
+@[expose] public section
 
 open MeasureTheory Set Metric
 open scoped ENNReal NNReal Topology

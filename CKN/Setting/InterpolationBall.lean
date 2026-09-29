@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Inequalities.H1
-import CKN.Setting.SobolevPoincareBridge
-import Mathlib.Analysis.MeanInequalitiesPow
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+module
+
+public import CKN.Foundation.Sobolev.Inequalities.H1
+public import CKN.Setting.SobolevPoincareBridge
+public import Mathlib.Analysis.MeanInequalitiesPow
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology
@@ -15,10 +19,10 @@ noncomputable section
 
 namespace CKN
 
-private def interpolationTheta (q : ℝ) : ℝ :=
+def interpolationTheta (q : ℝ) : ℝ :=
   3 * (q - 2) / (2 * q)
 
-private def interpolationExponent (q : ℝ) : ℝ :=
+def interpolationExponent (q : ℝ) : ℝ :=
   3 * (q - 2) / 4
 
 private theorem interpolationTheta_bounds {q : ℝ} (hq2 : 2 < q) (hq6 : q < 6) :

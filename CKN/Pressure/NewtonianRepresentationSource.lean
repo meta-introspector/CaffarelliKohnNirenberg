@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.CZP1UnconditionalAssembly
-import CKN.Pressure.IdentificationExtensionGrowthSWS
+module
+
+public import CKN.Pressure.CZP1UnconditionalAssembly
+public import CKN.Pressure.IdentificationExtensionGrowthSWS
 
 /-! # The completed-operator pressure decomposition
 
 The whole-space identification of the first pressure term yields the eight-term
 Newtonian representation at almost every time of an interior cylinder.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

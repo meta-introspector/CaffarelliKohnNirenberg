@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Kernel
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Kernel
 
 /-!
 # The parabolic Riesz potential with the maximum gauge
@@ -9,6 +11,8 @@ import CKN.Foundation.Parabolic.Morrey.Kernel
 This module defines the potential using `parabolicDist` and compares it with
 the equivalent sum-gauge potential.
 -/
+
+@[expose] public section
 
 open MeasureTheory
 open scoped ENNReal NNReal

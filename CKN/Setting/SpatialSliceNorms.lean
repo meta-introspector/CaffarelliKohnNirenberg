@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Vec3Norm
-import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+module
+
+public import CKN.Foundation.Parabolic.Vec3Norm
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
 
 /-! # Spatial slice norms
 
@@ -10,6 +12,8 @@ The velocity and force use the Euclidean magnitude and the velocity derivative
 uses the Frobenius magnitude. Extended values retain infinite norms; no
 conversion to real numbers is made outside the finite-norm domain.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal

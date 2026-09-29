@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.CZHarmonicCorollaryParts
-import CKN.Foundation.Euclidean.CZUnconditional
+module
+
+public import CKN.Pressure.CZHarmonicCorollaryParts
+public import CKN.Foundation.Euclidean.CZUnconditional
 
 /-!
 # Identifying the Calderón–Zygmund part with `-RᵢRⱼ(η Uᵢⱼ)` (`cor:CZ-harmonic`)
@@ -19,6 +21,8 @@ in `L^{3/2}` on the round balls is constant, hence zero.  The distributional
 identity, its integrability and the residual growth enter in the exact binder
 shapes in which they are currently available.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

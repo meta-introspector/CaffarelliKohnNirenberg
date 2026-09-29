@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.KernelAllOrdersShift
-import CKN.Foundation.Parabolic.Topology
+module
+
+public import CKN.Foundation.Harmonic.KernelAllOrdersShift
+public import CKN.Foundation.Parabolic.Topology
 
 /-!
 # Small backward cylinders around an interior space-time point
@@ -15,6 +17,8 @@ point and lies in the ball, and whose time window contains the given time.
 This is the geometric step that lets one apply a slice estimate on arbitrarily
 small cylinders drawn from a fixed countable family.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

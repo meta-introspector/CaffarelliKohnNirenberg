@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.Interior
-import CKN.Foundation.Harmonic.NewtonianKernelIntegrability
-import Mathlib.Analysis.Calculus.FDeriv.Measurable
+module
+
+public import CKN.Foundation.Harmonic.Interior
+public import CKN.Foundation.Harmonic.NewtonianKernelIntegrability
+public import Mathlib.Analysis.Calculus.FDeriv.Measurable
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology

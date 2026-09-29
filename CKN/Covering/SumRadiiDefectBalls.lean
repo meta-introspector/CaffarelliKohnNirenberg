@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.BallsVsCylindersFaithful
-import CKN.Foundation.Parabolic.Covering
+module
+
+public import CKN.Foundation.Parabolic.BallsVsCylindersFaithful
+public import CKN.Foundation.Parabolic.Covering
 
 /-!
 # The sum-of-radii estimate for disjoint defect balls
@@ -28,6 +30,8 @@ Both the current manuscript and this theorem state the first inequality
 non-strictly.  This includes the empty index family, for which both sides
 are zero, and is the form used by the covering estimate.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

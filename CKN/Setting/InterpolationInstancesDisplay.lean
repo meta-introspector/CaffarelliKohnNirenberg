@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.InterpolationInstancesSharpness
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Setting.InterpolationInstancesSharpness
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-! # Two interpolation instances and the failure of swapped exponents
 
 The spatial gradient magnitude is Euclidean. Comparisons with the native
 coordinate norm retain uniform constants and preserve the endpoint q = 6.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

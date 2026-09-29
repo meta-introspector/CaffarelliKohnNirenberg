@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.CZHarmonicCorollaryFaithful
-import CKN.Pressure.ForceCancellationSolenoidalDisplay
+module
+
+public import CKN.Pressure.CZHarmonicCorollaryFaithful
+public import CKN.Pressure.ForceCancellationSolenoidalDisplay
 
 /-!
 # Local-force cancellation in the Calderón–Zygmund pressure corollary
@@ -11,6 +13,8 @@ The Calderón–Zygmund and harmonic conclusions are inherited from the full
 corollary. The force cancellation uses only the local spacetime divergence
 identity on compactly supported tests in the solution domain.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

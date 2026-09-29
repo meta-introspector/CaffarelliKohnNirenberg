@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ForceSlotNumericalScaling
-import CKN.Core.Endgame.ForceSlotNumericalData
+module
+
+public import CKN.Core.Endgame.ForceSlotNumericalScaling
+public import CKN.Core.Endgame.ForceSlotNumericalData
 
 /-!
 # Full source carriers inside normalized past cylinders
@@ -12,6 +14,8 @@ cover the entire symmetric source ball. The normalization uses the fixed
 endgame radius, so neither the dilation nor the carrier losses depend on
 the solution.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

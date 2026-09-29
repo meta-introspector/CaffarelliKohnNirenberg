@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.PkBoundsUnconditionalP8
-import CKN.Pressure.PkBoundsP7SolutionBound
-import CKN.Pressure.Lin34SliceForceCylinder
-import CKN.Foundation.Harmonic.InteriorEstimatesBasic
+module
+
+public import CKN.Pressure.PkBoundsUnconditionalP8
+public import CKN.Pressure.PkBoundsP7SolutionBound
+public import CKN.Pressure.Lin34SliceForceCylinder
+public import CKN.Foundation.Harmonic.InteriorEstimatesBasic
 
 /-!
 # The force group bound as a sum of norms
@@ -15,6 +17,8 @@ Parts (d) and (e) of `lem:pk-bounds` in `paper/ckn.tex` bound the normalised
 norm of the sum — with the constant `C₁₃(q)` of that lemma, which is the sum of
 the two individual constants.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 

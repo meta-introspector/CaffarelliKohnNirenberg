@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.CZInputs
-import CKN.Foundation.Euclidean.LpExtensionInputCast
-import CKN.Foundation.Euclidean.LpExtensionPairingKernel
-import CKN.Foundation.Euclidean.RieszSecondExterior
-import CKN.Pressure.IdentificationExtension
+module
+
+public import CKN.Foundation.Euclidean.CZInputs
+public import CKN.Foundation.Euclidean.LpExtensionInputCast
+public import CKN.Foundation.Euclidean.LpExtensionPairingKernel
+public import CKN.Foundation.Euclidean.RieszSecondExterior
+public import CKN.Pressure.IdentificationExtension
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology Convolution Pointwise

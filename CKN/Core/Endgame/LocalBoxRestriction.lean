@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.Localization
+module
+
+public import CKN.Core.Endgame.Localization
 
 /-! # Spatial restriction of a local product box
 
@@ -9,6 +11,8 @@ A support-containing box may be intersected with the open spatial region
 on which a pressure gradient is characterized, without changing its time
 interval or losing compact containment in the original domain.
 -/
+
+@[expose] public section
 
 open Set
 open CKN.Foundation.Parabolic

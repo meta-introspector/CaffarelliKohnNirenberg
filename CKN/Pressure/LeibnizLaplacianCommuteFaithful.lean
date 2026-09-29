@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.LeibnizLaplacian
+module
+
+public import CKN.Pressure.LeibnizLaplacian
 
 /-!
 # The commutator identity `eq:commute` for a locally integrable matrix field
@@ -14,6 +16,8 @@ Leibniz rule holds pointwise for the smooth pair `η, φ`, and each of the three
 resulting blocks is separately integrable against a locally integrable weight
 because its smooth factor is compactly supported inside `U`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

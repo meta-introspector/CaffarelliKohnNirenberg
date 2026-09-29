@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.ExtSobolevBallSupported
-import CKN.Foundation.Parabolic.Integration.ProdSwap
+module
+
+public import CKN.Setting.ExtSobolevBallSupported
+public import CKN.Foundation.Parabolic.Integration.ProdSwap
 
 /-!
 # The time-Sobolev estimate on Euclidean balls
@@ -19,6 +21,8 @@ formalizes that time estimate on Euclidean balls.  Clauses (i)--(iii) of the
 external input are independent and are not changed here.
 -/
 
+@[expose] public section
+
 open MeasureTheory Set Filter
 open scoped ENNReal Topology
 open CKN.Foundation.Parabolic
@@ -30,7 +34,7 @@ noncomputable section
 
 namespace CKN
 
-private theorem euclideanBall_eq_vec3Ball_timeSobolev
+theorem euclideanBall_eq_vec3Ball_timeSobolev
     {x₀ : Vec3} {r : ℝ} (hr : 0 < r) :
     euclideanBall x₀ r = vec3Ball x₀ r := by
   ext x
@@ -50,7 +54,7 @@ private theorem eLpNorm_two_sq_eq_lintegral
     ENNReal.toReal_ofNat, ← ENNReal.rpow_mul]
   norm_num
 
-private noncomputable def zeroH1Whole : H1Function (Set.univ : Set Vec3) where
+noncomputable def zeroH1Whole : H1Function (Set.univ : Set Vec3) where
   toFun := fun _ => 0
   grad := fun _ => 0
   memL2 := by
@@ -66,7 +70,7 @@ private noncomputable def zeroH1Whole : H1Function (Set.univ : Set Vec3) where
       (f := fun _ : Vec3 => (0 : ℝ)) (contDiff_const (𝕜 := ℝ))
     simpa [HasWeakGradientOn] using h i
 
-private noncomputable def timeSobolevSlice
+noncomputable def timeSobolevSlice
     (x₀ : Vec3) (r : ℝ) (hr : 0 < r)
     (g : Vec3 × ℝ → ℝ) (Dg : Vec3 × ℝ → Vec3) :
     ℝ → H1Function (euclideanBall x₀ r) := by

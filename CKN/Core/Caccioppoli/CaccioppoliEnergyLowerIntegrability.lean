@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.CaccioppoliEnergyTerms
-import CKN.Core.Caccioppoli.CaccioppoliEnergy
+module
+
+public import CKN.Core.Caccioppoli.CaccioppoliEnergyTerms
+public import CKN.Core.Caccioppoli.CaccioppoliEnergy
 
 /-! Integrability estimates used by the local energy lower bound. -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

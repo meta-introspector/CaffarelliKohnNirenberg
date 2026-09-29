@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.OneSidedGeometry
-import CKN.Statements.SpaceTimeTestFunction
-import CKN.Statements.LocalBox
-import Mathlib.Geometry.Manifold.PartitionOfUnity
+module
+
+public import CKN.Core.Endgame.OneSidedGeometry
+public import CKN.Statements.SpaceTimeTestFunction
+public import CKN.Statements.LocalBox
+public import Mathlib.Geometry.Manifold.PartitionOfUnity
 
 /-!
 # Domain localization preserving a fixed negative-time cutoff
@@ -15,6 +17,8 @@ on any open domain containing that cylinder. At every point of time at most
 zero, the resulting function agrees locally with the fixed cutoff. Thus its
 negative-time derivatives do not acquire domain-dependent constants.
 -/
+
+@[expose] public section
 
 open Set Metric Filter
 open scoped Topology

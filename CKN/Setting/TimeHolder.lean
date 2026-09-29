@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Integration.Slice
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+module
+
+public import CKN.Foundation.Parabolic.Integration.Slice
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
 
 /-!
 # Short-time Hölder estimates
@@ -13,6 +15,8 @@ which agrees with the usual `L^p` norm when the latter is finite and keeps the
 statements valid without an extra integrability hypothesis.
 -/
 
+@[expose] public section
+
 open Set MeasureTheory
 open scoped ENNReal
 
@@ -22,7 +26,7 @@ noncomputable section
 
 namespace CKN
 
-private def backwardInterval (t r : ℝ) : Set ℝ := Ioc (t - r ^ 2) t
+def backwardInterval (t r : ℝ) : Set ℝ := Ioc (t - r ^ 2) t
 
 private lemma backwardInterval_subset {t r ρ : ℝ} (hr : 0 < r)
     (hrr : r ≤ ρ / 2) :

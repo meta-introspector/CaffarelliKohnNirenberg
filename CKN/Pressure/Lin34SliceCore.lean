@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Lin34SliceHolder
-import CKN.Pressure.OscillationLin34Solution
-import CKN.Foundation.Harmonic.InteriorEstimatesBasic
+module
+
+public import CKN.Pressure.Lin34SliceHolder
+public import CKN.Pressure.OscillationLin34Solution
+public import CKN.Foundation.Harmonic.InteriorEstimatesBasic
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

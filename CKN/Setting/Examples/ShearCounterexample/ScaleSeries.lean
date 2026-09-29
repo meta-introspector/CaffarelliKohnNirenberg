@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.ScaleDerivatives
-import CKN.Setting.Examples.ShearCounterexample.LpTsum
-import CKN.Setting.Examples.ShearCounterexample.WeightSummable
-import CKN.Setting.Examples.ShearCounterexample.ShearWeightedProfile
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.ScaleDerivatives
+public import CKN.Setting.Examples.ShearCounterexample.LpTsum
+public import CKN.Setting.Examples.ShearCounterexample.WeightSummable
+public import CKN.Setting.Examples.ShearCounterexample.ShearWeightedProfile
+public import Mathlib.Analysis.SpecificLimits.Basic
 
 /-! # Lp summability of the scaled shear series. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory

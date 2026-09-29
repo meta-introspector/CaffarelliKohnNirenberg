@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.HeatHolderOfConclusion
-import CKN.Core.HeatPotential.HeatLinftyOfHolder
-import CKN.Foundation.Euclidean.DegreeOneSymbol
+module
+
+public import CKN.Core.HeatPotential.HeatHolderOfConclusion
+public import CKN.Core.HeatPotential.HeatLinftyOfHolder
+public import CKN.Foundation.Euclidean.DegreeOneSymbol
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric Filter
 open scoped ENNReal NNReal Topology

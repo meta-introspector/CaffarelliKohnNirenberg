@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.CZHarmonicCorollary
-import CKN.Pressure.IdentificationExtensionGrowthLocalBox
+module
+
+public import CKN.Pressure.CZHarmonicCorollary
+public import CKN.Pressure.IdentificationExtensionGrowthLocalBox
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

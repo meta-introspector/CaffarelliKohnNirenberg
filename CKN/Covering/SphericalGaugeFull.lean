@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Covering.CylinderRadiusContent
+module
+
+public import CKN.Covering.CylinderRadiusContent
 
 /-! # Comparison of the parabolic spherical and diameter gauges
 
 The countable-cover radius gauge on parabolic balls and the diameter gauge
 defined by Mathlib's Hausdorff measure differ by at most the factor `2^α`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Metric
 open scoped ENNReal

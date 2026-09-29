@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.CutoffMorrey
-import CKN.Foundation.Parabolic.Topology
+module
+
+public import CKN.Core.Endgame.CutoffMorrey
+public import CKN.Foundation.Parabolic.Topology
 
 /-!
 # Causal bounded multipliers for linear heat sources
@@ -12,6 +14,8 @@ truncation to the past. Uniform multiplier bounds control its Morrey norm.
 The improved velocity exponent supplies the linear velocity terms, while
 a cutoff of absolute value at most one preserves pressure-gradient bounds.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

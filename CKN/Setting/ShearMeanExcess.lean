@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Integration.Average
-import CKN.Foundation.Sobolev.Ambient.Basis
+module
+
+public import CKN.Foundation.Parabolic.Integration.Average
+public import CKN.Foundation.Sobolev.Ambient.Basis
 
 /-!
 # The spatial-mean excess of a shear flow vanishes
@@ -13,6 +15,8 @@ family `u(y,s) = a(s) e₁` the velocity excess built with the *spatial* mean
 `C^{1/3}` in time.  This is the second half of the remark, and it is the reason
 the velocity in `eq:excess` is compared with a space-time mean.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set
 open scoped ENNReal NNReal Topology

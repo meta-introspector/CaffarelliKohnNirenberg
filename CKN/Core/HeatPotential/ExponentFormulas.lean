@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.Exponents
+module
+
+public import CKN.Core.HeatPotential.Exponents
 
 /-! # Heat-potential exponents for an arbitrary Hölder exponent
 
 The reciprocal formulas and strict ordering follow from the explicit
 exponents `5 / (2 - γ)` and `5 / (1 - γ)` for every `0 < γ < 1`.
 -/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

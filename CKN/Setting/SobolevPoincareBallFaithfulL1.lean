@@ -1,33 +1,37 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.SobolevPoincareBallWeak
-import CKN.Setting.SobolevPoincareBridge
-import CKN.Setting.PoincareSobolevL1Ball
-import CKN.Setting.SobolevPoincareConstantFinite
-import CKN.Setting.SobolevPoincareConstantPos
-import CKN.Foundation.Sobolev.W1p.Basic
-import CKN.Foundation.Sobolev.Poincare.GradientNorm
-import CKN.Foundation.Sobolev.Cutoff.NormTriangle
-import CKN.Foundation.Parabolic.Basic
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Parabolic.Vec3Norm
-import CKN.Foundation.Sobolev.Cutoff.BallMemLp
-import CKN.Foundation.Sobolev.Mollify.LpApproximation
-import CKN.Foundation.Sobolev.Mollify.Transport
-import CKN.Foundation.Sobolev.Poincare.LpConvergence
-import Mathlib.MeasureTheory.Function.L1Space.Integrable
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
-import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
-import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
-import Mathlib.Tactic.Finiteness
-import CKN.Setting.SobolevPoincareBallFaithfulL1Local
+module
+
+public import CKN.Setting.SobolevPoincareBallWeak
+public import CKN.Setting.SobolevPoincareBridge
+public import CKN.Setting.PoincareSobolevL1Ball
+public import CKN.Setting.SobolevPoincareConstantFinite
+public import CKN.Setting.SobolevPoincareConstantPos
+public import CKN.Foundation.Sobolev.W1p.Basic
+public import CKN.Foundation.Sobolev.Poincare.GradientNorm
+public import CKN.Foundation.Sobolev.Cutoff.NormTriangle
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Parabolic.Vec3Norm
+public import CKN.Foundation.Sobolev.Cutoff.BallMemLp
+public import CKN.Foundation.Sobolev.Mollify.LpApproximation
+public import CKN.Foundation.Sobolev.Mollify.Transport
+public import CKN.Foundation.Sobolev.Poincare.LpConvergence
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+public import Mathlib.Tactic.Finiteness
+public import CKN.Setting.SobolevPoincareBallFaithfulL1Local
 
 /-!
 # Approximation lemmas for Sobolev–Poincaré on Euclidean balls
 
 These lemmas transfer smooth Euclidean-ball Poincaré estimates to W¹,¹ data.
 -/
+
+@[expose] public section
 
 open MeasureTheory Filter Topology
 open scoped ENNReal

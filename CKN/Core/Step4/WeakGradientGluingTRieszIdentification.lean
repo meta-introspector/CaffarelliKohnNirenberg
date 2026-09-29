@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTRieszSelection
-import CKN.Core.Step4.SliceSelectedGradientForceUnconditional
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTRieszSelection
+public import CKN.Core.Step4.SliceSelectedGradientForceUnconditional
 
 /-! # Identifying a fixed pressure derivative with the completed operators
 
@@ -11,6 +13,8 @@ sum is the negative Riesz sum. The negative first-potential sum of the near
 force has the opposite sign. Uniqueness identifies these terms with an
 already chosen weak pressure derivative.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal BigOperators Topology

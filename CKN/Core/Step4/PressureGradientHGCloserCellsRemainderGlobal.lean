@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientHGCloserCellsRemainder
+module
+
+public import CKN.Core.Step4.PressureGradientHGCloserCellsRemainder
 
 /-! # Uniform Morrey bounds for spatially bounded remainders
 
@@ -9,6 +11,8 @@ Finite spatial support controls large cells, while the spatial volume of a
 cell controls small cells. Together these estimates give a finite Morrey
 seminorm from an `L^{3/2}` temporal bound on the spatial supremum.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

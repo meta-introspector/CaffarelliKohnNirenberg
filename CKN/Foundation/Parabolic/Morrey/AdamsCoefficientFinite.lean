@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.AdamsM4
-import CKN.Foundation.Parabolic.Morrey.AdamsConstantFinite
+module
+
+public import CKN.Foundation.Parabolic.Morrey.AdamsM4
+public import CKN.Foundation.Parabolic.Morrey.AdamsConstantFinite
+
+@[expose] public section
 
 open MeasureTheory
 open scoped ENNReal

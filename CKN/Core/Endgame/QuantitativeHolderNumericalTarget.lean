@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.QuantitativeHolderSourceTarget
-import CKN.Core.Endgame.QuantitativeHolderDerivativeSource
-import CKN.Core.Endgame.Localization
-import CKN.Core.Step2.MorreyFormUniform
+module
+
+public import CKN.Core.Endgame.QuantitativeHolderSourceTarget
+public import CKN.Core.Endgame.QuantitativeHolderDerivativeSource
+public import CKN.Core.Endgame.Localization
+public import CKN.Core.Step2.MorreyFormUniform
 
 /-!
 # The numerical source data of `thm:endgame` with the derivative slot proved
@@ -24,6 +26,8 @@ common bound for the cutoff value, time derivative, spatial first derivatives,
 and spatial Laplacian. The force estimate uses exactly these same coefficient
 bounds. Neither assumption mentions Hölder continuity.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

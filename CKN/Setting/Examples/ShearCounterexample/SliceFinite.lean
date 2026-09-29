@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.FullFields
-import CKN.Setting.Examples.ShearCounterexample.ScaleSupport
-import CKN.Foundation.Sobolev.WeakDerivative
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.FullFields
+public import CKN.Setting.Examples.ShearCounterexample.ScaleSupport
+public import CKN.Foundation.Sobolev.WeakDerivative
+public import Mathlib.Analysis.SpecificLimits.Basic
 
 /-! # Finite-scale spatial estimates for the shear series. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory Filter

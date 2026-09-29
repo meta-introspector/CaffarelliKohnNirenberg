@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.InterpolationBall
+module
+
+public import CKN.Setting.InterpolationBall
 
 /-!
 # The two–six interpolation display on a ball
@@ -14,6 +16,8 @@ import CKN.Setting.InterpolationBall
 This module states that display publicly on every Euclidean ball, with the
 exponent written out, for any almost-everywhere strongly measurable function.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 

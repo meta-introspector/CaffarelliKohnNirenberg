@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step2.ThetaDecayAbsoluteConstant
-import CKN.Core.Step2.MorreyDecayAux
+module
+
+public import CKN.Core.Step2.ThetaDecayAbsoluteConstant
+public import CKN.Core.Step2.MorreyDecayAux
 
 /-!
 # The scale iteration with absolute `κ` and `η`
@@ -23,6 +25,8 @@ exponent: the decay input is discharged from the solution by
 conclusion of `eq:iteration-concl` is supplied by
 `CKN.MorreyDecayAux.max_components_le_theta`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

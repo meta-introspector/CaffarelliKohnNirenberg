@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientPotential
-import CKN.Core.Step4.SliceSelectedGradientRemainder
-import CKN.Core.Endgame.WeakPressureSlice
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientPotential
+public import CKN.Core.Step4.SliceSelectedGradientRemainder
+public import CKN.Core.Endgame.WeakPressureSlice
 
 /-! # The selected weak pressure gradient on one slice
 
@@ -20,6 +22,8 @@ whose coordinates are locally integrable, which lies in `L^{6/5}` on the inner
 set, which is the coordinate weak gradient of the pressure slice there, and
 whose coordinate norms obey the three-term bound of display (3.5).
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

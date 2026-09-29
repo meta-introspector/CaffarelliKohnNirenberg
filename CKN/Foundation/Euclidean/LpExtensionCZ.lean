@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.CZInputs
-import CKN.Foundation.Euclidean.LpExtensionPairingMain
-import CKN.Foundation.Euclidean.RieszSecondWeakCertificate
-import CKN.Core.Endgame.CZConsumption
-import CKN.Core.Endgame.PressureCZConsumption
-import CKN.Core.Endgame.RieszWeakGradient
+module
+
+public import CKN.Foundation.Euclidean.CZInputs
+public import CKN.Foundation.Euclidean.LpExtensionPairingMain
+public import CKN.Foundation.Euclidean.RieszSecondWeakCertificate
+public import CKN.Core.Endgame.CZConsumption
+public import CKN.Core.Endgame.PressureCZConsumption
+public import CKN.Core.Endgame.RieszWeakGradient
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

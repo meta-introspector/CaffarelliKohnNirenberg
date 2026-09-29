@@ -1,15 +1,19 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBounds
-import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
-import Mathlib.Analysis.Calculus.ContDiff.Bounds
-import Mathlib.Analysis.Complex.OperatorNorm
-import Mathlib.Analysis.Fourier.FourierTransformDeriv
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBounds
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.Analysis.Calculus.ContDiff.Bounds
+public import Mathlib.Analysis.Complex.OperatorNorm
+public import Mathlib.Analysis.Fourier.FourierTransformDeriv
 
 /-!
 # High-frequency symbol estimates
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open Set MeasureTheory
@@ -22,7 +26,7 @@ namespace CKN.Foundation.Euclidean
 
 open CKN.Foundation.Parabolic CKN.Foundation.Heat
 
-private def unitFrequencyCutoff : ContDiffBump (0 : Vec3) :=
+def unitFrequencyCutoff : ContDiffBump (0 : Vec3) :=
   ⟨1 / 2, 1, by norm_num, by norm_num⟩
 
 /-- The symbol with its singularity at the origin removed by a smooth cutoff. -/

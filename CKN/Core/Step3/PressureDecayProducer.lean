@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step3.PressureDecayTShape
-import CKN.Pressure.CZP1Closer
-import CKN.Pressure.ForceCancellationSolenoidalDisplay
-import CKN.Pressure.PressureDecompositionFull
-import CKN.Pressure.PkConstantsNonneg
+module
+
+public import CKN.Core.Step3.PressureDecayTShape
+public import CKN.Pressure.CZP1Closer
+public import CKN.Pressure.ForceCancellationSolenoidalDisplay
+public import CKN.Pressure.PressureDecompositionFull
+public import CKN.Pressure.PkConstantsNonneg
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

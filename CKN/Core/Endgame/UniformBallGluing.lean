@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.HolderGluing
+module
+
+public import CKN.Core.Endgame.HolderGluing
 
 /-! # Uniform Hölder gluing on compact sets
 
@@ -9,6 +11,8 @@ A finite cover by half-radius balls gives an explicit close-pair radius.
 The final bound depends only on the common local radius and norm bound,
 not on the number of balls or the representatives chosen on them.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open CKN.Foundation.Parabolic

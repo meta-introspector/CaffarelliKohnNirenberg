@@ -1,17 +1,21 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Ambient.Euclidean
-import CKN.Foundation.Parabolic.Basic
-import CKN.Foundation.Parabolic.Topology
-import CKN.Foundation.Sobolev.Cutoff.Ball
-import Mathlib.Analysis.Calculus.ContDiff.Bounds
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.Tactic.FunProp
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
+module
+
+public import CKN.Foundation.Ambient.Euclidean
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Foundation.Parabolic.Topology
+public import CKN.Foundation.Sobolev.Cutoff.Ball
+public import Mathlib.Analysis.Calculus.ContDiff.Bounds
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Tactic.FunProp
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 open Set Filter
 open scoped Topology
@@ -55,7 +59,7 @@ private theorem affine_iteratedFDeriv_bound (c : ℝ) (x₀ : Vec3)
             iteratedFDeriv_const_of_ne (Nat.succ_ne_zero _)]
           simp
 
-private def fixedCutoff : Vec3 → ℝ :=
+def fixedCutoff : Vec3 → ℝ :=
   canonicalBallCutoff (0 : Vec3) (13 / 20) (3 / 4)
 
 private theorem fixedCutoff_smooth :

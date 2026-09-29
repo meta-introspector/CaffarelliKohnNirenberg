@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedMarginCost
-import CKN.Core.Step4.PressureGradientOriginClauseBudget
+module
+
+public import CKN.Core.Step4.PressureGradientGluedMarginCost
+public import CKN.Core.Step4.PressureGradientOriginClauseBudget
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal

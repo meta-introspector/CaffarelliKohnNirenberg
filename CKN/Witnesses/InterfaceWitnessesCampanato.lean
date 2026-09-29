@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Campanato
-import CKN.Foundation.Parabolic.CampanatoHolder
+module
+
+public import CKN.Foundation.Parabolic.Campanato
+public import CKN.Foundation.Parabolic.CampanatoHolder
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

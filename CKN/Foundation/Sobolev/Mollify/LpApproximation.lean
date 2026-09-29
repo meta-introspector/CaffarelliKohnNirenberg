@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Mollify.LpConvolution
-import Mathlib.MeasureTheory.Function.ContinuousMapDense
-import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
-import CKN.Foundation.Sobolev.Mollify.SupportThickening
+module
+
+public import CKN.Foundation.Sobolev.Mollify.LpConvolution
+public import Mathlib.MeasureTheory.Function.ContinuousMapDense
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+public import CKN.Foundation.Sobolev.Mollify.SupportThickening
 
 /-!
 # Global and local `Lᵖ` approximation by mollification
@@ -12,6 +14,8 @@ import CKN.Foundation.Sobolev.Mollify.SupportThickening
 The three results below separate translation continuity, the normalized-kernel
 estimate, and the compact-localization step used for interior convergence.
 -/
+
+@[expose] public section
 
 open Function Set Filter MeasureTheory Topology
 open scoped ENNReal Convolution Pointwise

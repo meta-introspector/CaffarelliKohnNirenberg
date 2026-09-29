@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.AdamsConstants
-import CKN.Foundation.Parabolic.Morrey.MaximalMorrey
-import CKN.Foundation.Parabolic.Morrey.Minkowski
-import CKN.Foundation.Parabolic.Morrey.Cylinders
+module
+
+public import CKN.Core.Endgame.AdamsConstants
+public import CKN.Foundation.Parabolic.Morrey.MaximalMorrey
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+public import CKN.Foundation.Parabolic.Morrey.Cylinders
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric
 open scoped ENNReal NNReal Topology

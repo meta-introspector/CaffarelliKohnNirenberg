@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.MeasureTheory.Covering.Vitali
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.MeasureTheory.Covering.Vitali
 
 /-!
 # A fivefold parabolic covering selection
@@ -14,6 +16,8 @@ original set.  This is the selection display used by the covering step of
 Theorem C; the measure estimate of `CKN/Foundation/Parabolic/Covering.lean`
 consumes the same selection internally but does not export it.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

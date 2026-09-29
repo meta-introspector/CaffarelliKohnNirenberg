@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Sobolev.Cutoff.Ball
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Analysis.Calculus.Deriv.Add
-import Mathlib.Analysis.Calculus.Deriv.Comp
-import Mathlib.Analysis.Calculus.Deriv.Mul
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
+module
+
+public import CKN.Foundation.Sobolev.Cutoff.Ball
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.Deriv.Add
+public import Mathlib.Analysis.Calculus.Deriv.Comp
+public import Mathlib.Analysis.Calculus.Deriv.Mul
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
 
 /-!
 # Space-time cutoffs
@@ -32,13 +34,15 @@ one-dimensional time cutoff in the `CKN` namespace.
   `spaceTimeCutoff_support_subset` give the product cutoff properties.
 -/
 
+@[expose] public section
+
 open Set
 
 noncomputable section
 
 namespace CKN
 
-private def timeGap (r R : ℝ) : ℝ :=
+def timeGap (r R : ℝ) : ℝ :=
   R ^ 2 - r ^ 2
 
 private theorem timeGap_pos {r R : ℝ}
@@ -51,13 +55,13 @@ private theorem timeGap_pos {r R : ℝ}
   dsimp [timeGap]
   nlinarith only [hprod]
 
-private def timeCutoffLeft
+def timeCutoffLeft
     (t₀ r R t : ℝ) : ℝ :=
   smoothTransitionProfile
     ((t - (t₀ - R ^ 2 + timeGap r R / 2)) /
       (timeGap r R / 2))
 
-private def timeCutoffRight
+def timeCutoffRight
     (t₀ r R t : ℝ) : ℝ :=
   smoothTransitionProfile
     ((t₀ + timeGap r R / 2 - t) /

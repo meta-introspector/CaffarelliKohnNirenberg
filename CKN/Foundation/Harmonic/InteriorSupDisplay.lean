@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorDisplays
-import CKN.Foundation.Sobolev.Cutoff.BallTopology
-import CKN.Foundation.Sobolev.Cutoff.NormTriangle
+module
+
+public import CKN.Foundation.Harmonic.InteriorDisplays
+public import CKN.Foundation.Sobolev.Cutoff.BallTopology
+public import CKN.Foundation.Sobolev.Cutoff.NormTriangle
 
 /-!
 # The interior supremum bound for weakly harmonic `L^{3/2}` functions
@@ -26,6 +28,8 @@ everywhere on `B_{ρ/8}(y)`, and by localizing the resulting null sets: a set
 that is null in a neighbourhood of each of its points is null in a
 second-countable space.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open CKN.Foundation.Parabolic

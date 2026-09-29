@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.UniformBallGluing
-import CKN.Core.Endgame.BallRepresentativeBound
-import CKN.Core.Endgame.SourceCoefficient
-import CKN.Core.Endgame.CompactBall
-import CKN.Core.Parameters
+module
+
+public import CKN.Core.Endgame.UniformBallGluing
+public import CKN.Core.Endgame.BallRepresentativeBound
+public import CKN.Core.Endgame.SourceCoefficient
+public import CKN.Core.Endgame.CompactBall
+public import CKN.Core.Parameters
 
 /-! # Quantitative endgame from uniform local source bounds
 
@@ -14,6 +16,8 @@ velocity L^(10/3) bound controls the absolute value of the representative;
 source Morrey bounds control its seminorm. Fixed-radius gluing preserves
 this dependence on every prescribed inner ball.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

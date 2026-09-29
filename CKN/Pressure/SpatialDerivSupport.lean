@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.LeibnizLaplacian
-import Mathlib.Analysis.Calculus.FDeriv.Const
+module
+
+public import CKN.Pressure.LeibnizLaplacian
+public import Mathlib.Analysis.Calculus.FDeriv.Const
+
+@[expose] public section
 
 open CKN.Foundation.Parabolic
 

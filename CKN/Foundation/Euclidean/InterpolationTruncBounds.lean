@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.InterpolationBasic
+module
+
+public import CKN.Foundation.Euclidean.InterpolationBasic
 
 /-!
 # Pointwise truncation bounds
@@ -18,6 +20,8 @@ Above the level the first inequality bounds the modulus itself by
 scalar comparison of `|f x|` with `l`; the exponents `l ^ (1 - p)` and
 `l ^ (2 - p)` are real powers.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

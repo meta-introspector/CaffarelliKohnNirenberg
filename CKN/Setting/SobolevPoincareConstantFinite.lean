@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.SobolevPoincareBall
-import Mathlib.Tactic.Finiteness
+module
+
+public import CKN.Setting.SobolevPoincareBall
+public import Mathlib.Tactic.Finiteness
+
+@[expose] public section
 
 open scoped ENNReal
 

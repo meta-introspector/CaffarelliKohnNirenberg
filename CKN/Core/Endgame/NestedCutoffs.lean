@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.CutoffDerivatives
+module
+
+public import CKN.Core.Endgame.CutoffDerivatives
 
 /-! # Nested one-sided cutoffs at arbitrary interior radii
 
@@ -10,6 +12,8 @@ in a larger cylinder. Its domain adaptation agrees with the fixed function
 as a germ at every nonpositive time, so all past derivative bounds remain
 independent of the domain and of its future-time collar.
 -/
+
+@[expose] public section
 
 open Set Metric Filter
 open scoped Topology

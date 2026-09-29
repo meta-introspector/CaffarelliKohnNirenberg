@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.DegreeOneSymbol
-import CKN.Foundation.Heat.Basic
+module
+
+public import CKN.Foundation.Euclidean.DegreeOneSymbol
+public import CKN.Foundation.Heat.Basic
 
 /-!
 # The spatial Fourier multiplier applied to the heat kernel
@@ -22,6 +24,8 @@ the fact that the defining frequency integral converges absolutely for every
 symbol of the class.  The three pointwise estimates themselves are the content
 of the external input and are not proved here.
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open Set MeasureTheory

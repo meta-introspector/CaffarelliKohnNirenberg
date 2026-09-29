@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.Causality
-import CKN.Core.HeatPotential.GeneralSymbolHeatNearProof
+module
+
+public import CKN.Core.Endgame.Causality
+public import CKN.Core.HeatPotential.GeneralSymbolHeatNearProof
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Distributions
 

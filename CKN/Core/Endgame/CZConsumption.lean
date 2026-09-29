@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.CZInputs
-import CKN.Core.Endgame.ExtensionNormTransport
+module
+
+public import CKN.Foundation.Euclidean.CZInputs
+public import CKN.Core.Endgame.ExtensionNormTransport
 
 /-! # Conditional norm transport to a selected extension representative
 
@@ -12,6 +14,8 @@ gradient bound. The weak-gradient construction in `WeakCZConsumption`
 supplies the separate distributional pairing and does not identify a rough
 classical representative.
 -/
+
+@[expose] public section
 
 open MeasureTheory Filter
 open scoped ENNReal

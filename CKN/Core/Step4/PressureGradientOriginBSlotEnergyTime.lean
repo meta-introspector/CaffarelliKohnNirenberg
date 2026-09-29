@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergyHolder
-import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
-import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+module
+
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergyHolder
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
 
 /-! # Time masses of slice majorants for `prop:bootstrap`
 
@@ -16,6 +18,8 @@ shape `c₁ * (a * d) + c₂ * a ^ 2 + c₃ * F`.
 
 Every constant here is explicit, and no estimate below depends on the solution.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal BigOperators

@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientCorrectedSWS
-import CKN.Foundation.Sobolev.WeakGradientGluing
-import CKN.Foundation.Sobolev.WeakGradientGluingTBounds
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientCorrectedSWS
+public import CKN.Foundation.Sobolev.WeakGradientGluing
+public import CKN.Foundation.Sobolev.WeakGradientGluingTBounds
 
 /-!
 # Identification of cell-selected pressure gradients
@@ -12,6 +14,8 @@ On each cell, a locally selected weak pressure gradient and the fixed glued
 gradient are weak derivatives of the same pressure. Uniqueness identifies
 them almost everywhere, preserving the cell's own quantitative bound.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

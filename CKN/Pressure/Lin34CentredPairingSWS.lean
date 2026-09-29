@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Measure.SliceDistribution
-import CKN.Pressure.Lin34CentredPairing
-import CKN.Pressure.PkBoundsCylinder
-import CKN.Pressure.PkBoundsUnconditionalCore
+module
+
+public import CKN.Foundation.Measure.SliceDistribution
+public import CKN.Pressure.Lin34CentredPairing
+public import CKN.Pressure.PkBoundsCylinder
+public import CKN.Pressure.PkBoundsUnconditionalCore
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.LpExtensionPairingKernel
-import CKN.Foundation.Euclidean.LpExtensionPairingPotential
-import CKN.Foundation.Euclidean.LpExtensionPairingDensity
-import CKN.Foundation.Euclidean.LpExtensionPairingSmooth
+module
+
+public import CKN.Foundation.Euclidean.LpExtensionPairingKernel
+public import CKN.Foundation.Euclidean.LpExtensionPairingPotential
+public import CKN.Foundation.Euclidean.LpExtensionPairingDensity
+public import CKN.Foundation.Euclidean.LpExtensionPairingSmooth
 
 /-! # Pairing the first derivative potential with the completed operator
 
@@ -28,6 +30,8 @@ of the extension and Hölder against `ψ ∈ L⁶`, the right through Hölder ag
 the Newtonian potential `N * ∂ᵢ∂ⱼψ ∈ L⁶`.  Density of smooth compactly
 supported classes in `L^(6/5)` closes the argument.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

@@ -22,6 +22,12 @@ HEADER = (
     "-- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.\n"
     "-- Released under Apache 2.0 license."
 )
+# Files moved from the Escauriaza–Seregin–Šverák formalization keep their
+# original copyright line.
+HEADERS = (
+    HEADER,
+    "-- Copyright (c) 2026 Scott Armstrong.\n-- Released under Apache 2.0 license.",
+)
 
 
 def source_files() -> list[Path]:
@@ -36,6 +42,28 @@ def source_files() -> list[Path]:
     except Exception:
         files.extend(sorted((ROOT / "CKN").rglob("*.lean")))
     return [path for path in files if path.is_file()]
+
+
+MAX_LINES = 10_000
+
+
+def module_rule_errors(relative: str, text: str) -> list[str]:
+    """Every Lean file except lakefile.lean is a module of at most 10,000 lines."""
+    if Path(relative).name == "lakefile.lean":
+        return []
+    errors = []
+    if check_axioms.strip_comments(text).split()[:1] != ["module"]:
+        errors.append(f"{relative}: `module` must be the first token after leading comments")
+    if len(text.splitlines()) > MAX_LINES:
+        errors.append(f"{relative}: exceeds {MAX_LINES} lines")
+    return errors
+
+
+def all_tracked_lean() -> list[Path]:
+    import subprocess
+    out = subprocess.run(["git", "ls-files", "--", "*.lean"], cwd=ROOT, capture_output=True,
+                         text=True, check=True).stdout.split("\n")
+    return [ROOT / p for p in out if p.endswith(".lean") and (ROOT / p).is_file()]
 
 
 def line_number(text: str, offset: int) -> int:
@@ -203,7 +231,7 @@ def check_file(path: Path, errors: list[str]) -> None:
         errors.append(f"{relative}: cannot read file: {exc}")
         return
 
-    if not text.startswith(HEADER):
+    if not text.startswith(HEADERS):
         errors.append(f"{relative}: missing copyright header")
     if len(text.splitlines()) > 1500:
         errors.append(f"{relative}: exceeds 1500 lines")
@@ -266,6 +294,9 @@ def main(argv: list[str] | None = None) -> int:
     files = selected_files(args.files)
     for path in files:
         check_file(path, errors)
+    for path in (all_tracked_lean() if args.files is None else files):
+        errors.extend(module_rule_errors(
+            path.relative_to(ROOT).as_posix(), path.read_text(encoding="utf-8")))
     errors.extend(prop_interface_errors(files))
     baseline_findings = (
         new_clause_issues(ROOT, files)

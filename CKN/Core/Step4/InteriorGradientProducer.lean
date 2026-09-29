@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.InteriorGradientProducerTransport
-import CKN.Core.Endgame.TheoremAClosersInstancesQ
-import CKN.Core.Step4.PressureGradientOriginASlotFinal
-import CKN.Core.Step4.PressureGradientOriginBSlotInstances
+module
+
+public import CKN.Core.Step4.InteriorGradientProducerTransport
+public import CKN.Core.Endgame.TheoremAClosersInstancesQ
+public import CKN.Core.Step4.PressureGradientOriginASlotFinal
+public import CKN.Core.Step4.PressureGradientOriginBSlotInstances
 
 /-! # The quantitative pressure gradient on the two interior past collars
 
@@ -26,6 +28,8 @@ All of the constants are chosen from the force exponent, the data bound and
 the two Morrey bounds alone, before any domain, any time interval and any
 solution.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal BigOperators

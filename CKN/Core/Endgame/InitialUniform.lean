@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.TheoremA.Route
+module
+
+public import CKN.Core.TheoremA.Route
 
 /-! # Uniform initial bounds from the three displayed inequalities
 
@@ -9,6 +11,8 @@ The positive smallness threshold and all numerical norm bounds precede the
 domain and the solution. The proof consumes the actual start and iteration
 route on the wider cylinder needed for the first localization.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

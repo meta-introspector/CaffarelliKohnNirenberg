@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierKernel
-import CKN.Core.HeatPotential.Kernel
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierKernel
+public import CKN.Core.HeatPotential.Kernel
+
+@[expose] public section
 
 open scoped BigOperators
 

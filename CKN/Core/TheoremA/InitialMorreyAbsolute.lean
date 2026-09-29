@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.TheoremA.ScaleIterationFaithful
-import CKN.Core.Endgame.OneSidedGradient
+module
+
+public import CKN.Core.TheoremA.ScaleIterationFaithful
+public import CKN.Core.Endgame.OneSidedGradient
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

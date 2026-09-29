@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step2.MorreyDecay
-import CKN.Core.Step2.ThetaDecayAbsoluteConstant
+module
+
+public import CKN.Core.Step2.MorreyDecay
+public import CKN.Core.Step2.ThetaDecayAbsoluteConstant
 
 /-!
 # Morrey decay on a neighbourhood, with an absolute leading constant
@@ -19,6 +21,8 @@ takes the one-step decay display with its two constants as a hypothesis, and
 before `q`.  Combining the two gives the display in the paper's order of
 quantifiers.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

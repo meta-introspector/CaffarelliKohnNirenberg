@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientBase
-import CKN.Core.Endgame.WeakPressureSlice
-import CKN.Foundation.Sobolev.WeakDerivative
+module
+
+public import CKN.Core.Step4.PressureGradientBase
+public import CKN.Core.Endgame.WeakPressureSlice
+public import CKN.Foundation.Sobolev.WeakDerivative
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

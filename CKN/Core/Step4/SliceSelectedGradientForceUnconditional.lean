@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientAssembly
-import CKN.Core.Step4.SliceSelectedGradientScaling
-import CKN.Core.Step4.SliceSelectedGradientForceP8
-import CKN.Core.Step4.SliceSelectedGradientForceSlices
-import CKN.Pressure.PkBoundsUnconditionalConstants
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientAssembly
+public import CKN.Core.Step4.SliceSelectedGradientScaling
+public import CKN.Core.Step4.SliceSelectedGradientForceP8
+public import CKN.Core.Step4.SliceSelectedGradientForceSlices
+public import CKN.Pressure.PkBoundsUnconditionalConstants
 
 /-! # The force potentials of a slice carry a weak gradient, with no condition on `div f`
 
@@ -23,6 +25,8 @@ far-field gradient bound of `eq:har-Ck` at order one; its classical gradient
 there is its weak gradient.  Adding the two produces one slice field, in
 `L^{6/5}` of the inner ball with the `ρ^{-1/2}` weight of display (3.5).
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

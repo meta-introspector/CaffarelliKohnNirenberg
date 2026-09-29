@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.CampanatoHolder
-import CKN.Foundation.Parabolic.Integration.Slice
-import CKN.Core.HeatPotential.GeneralSymbolHeatNear
-import CKN.Core.HeatPotential.GeneralSymbolCharacterizationFinal
+module
+
+public import CKN.Foundation.Parabolic.CampanatoHolder
+public import CKN.Foundation.Parabolic.Integration.Slice
+public import CKN.Core.HeatPotential.GeneralSymbolHeatNear
+public import CKN.Core.HeatPotential.GeneralSymbolCharacterizationFinal
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

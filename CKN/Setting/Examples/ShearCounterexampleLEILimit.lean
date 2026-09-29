@@ -1,15 +1,19 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearCounterexample.LEIHelpers
-import CKN.Setting.Examples.ShearCounterexampleDivergenceLimit
-import CKN.Setting.Examples.ShearCounterexampleMomentumLimit
-import CKN.Setting.Examples.ShearCounterexampleSupportBridge
-import CKN.Statements.SpaceTimeTestFunction
-import CKN.Foundation.Parabolic.Integration.Average
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.LEIHelpers
+public import CKN.Setting.Examples.ShearCounterexampleDivergenceLimit
+public import CKN.Setting.Examples.ShearCounterexampleMomentumLimit
+public import CKN.Setting.Examples.ShearCounterexampleSupportBridge
+public import CKN.Statements.SpaceTimeTestFunction
+public import CKN.Foundation.Parabolic.Integration.Average
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
 
 /-! # Local energy identities for the rough parabolic shear. -/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

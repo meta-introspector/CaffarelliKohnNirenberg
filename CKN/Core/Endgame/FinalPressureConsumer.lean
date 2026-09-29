@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.FinalCutoffConsumer
-import CKN.Core.Endgame.LocalBoxRestriction
+module
+
+public import CKN.Core.Endgame.FinalCutoffConsumer
+public import CKN.Core.Endgame.LocalBoxRestriction
 
 /-! # `thm:endgame` on the one-sided cylinder
 
@@ -17,6 +19,8 @@ Hölder representative on the closed half cylinder with exponent
 the pressure gradient, not a uniform bound at later times, is used to
 justify that representation.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal Topology

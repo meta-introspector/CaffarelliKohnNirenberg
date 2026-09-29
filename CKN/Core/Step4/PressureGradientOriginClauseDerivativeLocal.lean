@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTDecompositionMorrey
-import CKN.Core.Step4.PressureGradientOriginClauseGrowth
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTDecompositionMorrey
+public import CKN.Core.Step4.PressureGradientOriginClauseGrowth
 
 /-!
 # Fixed derivative decomposition on backward local cylinders
@@ -12,6 +14,8 @@ including cylinders ending at the final carrier time. The source argument
 specializes the same-repository fixed-source Morrey estimates to this geometry.
 The selected derivative is retained in the signed Riesz and remainder identity.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology BigOperators

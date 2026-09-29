@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Tail
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Tail
 
 /-!
 # Maximal-majorant interface for the Hedberg estimate
@@ -10,6 +12,8 @@ The maximal theorem is deliberately not reproved here.  This module gives
 the parameter property used by the pointwise potential argument and records
 the exponent identities needed by its eventual proof.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric
 open scoped ENNReal NNReal Topology

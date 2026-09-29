@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step2.MorreyForm
-import CKN.Core.Step2.MorreyFormFixedScale
+module
+
+public import CKN.Core.Step2.MorreyForm
+public import CKN.Core.Step2.MorreyFormFixedScale
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology
@@ -14,37 +18,37 @@ noncomputable section
 
 namespace CKN
 
-private noncomputable def uniformVelocitySmallConstant (M : ℝ) : ℝ≥0∞ :=
+noncomputable def uniformVelocitySmallConstant (M : ℝ) : ℝ≥0∞ :=
   ENNReal.ofReal ((8 : ℝ) ^ (2 : ℝ) *
     (2 * gagliardoConstant * (M * (8 : ℝ) ^ (2 / 5 : ℝ))) ^ 3)
 
-private noncomputable def uniformGradientSmallConstant (M : ℝ) : ℝ≥0∞ :=
+noncomputable def uniformGradientSmallConstant (M : ℝ) : ℝ≥0∞ :=
   ENNReal.ofReal (M ^ 2 * (8 : ℝ) ^ (9 / 5 : ℝ))
 
-private noncomputable def uniformPressureSmallConstant (M : ℝ) : ℝ≥0∞ :=
+noncomputable def uniformPressureSmallConstant (M : ℝ) : ℝ≥0∞ :=
   ENNReal.ofReal (M ^ (3 / 2 : ℝ) * (8 : ℝ) ^ (13 / 5 : ℝ))
 
-private noncomputable def uniformVelocityReferenceIntegral (M r₂ : ℝ) : ℝ≥0∞ :=
+noncomputable def uniformVelocityReferenceIntegral (M r₂ : ℝ) : ℝ≥0∞ :=
   ENNReal.ofReal ((r₂ / 2) ^ (2 : ℝ) *
     (2 * gagliardoConstant * (M * (r₂ / 2) ^ (2 / 5 : ℝ))) ^ 3)
 
-private noncomputable def uniformGradientReferenceIntegral (M r₂ : ℝ) : ℝ≥0∞ :=
+noncomputable def uniformGradientReferenceIntegral (M r₂ : ℝ) : ℝ≥0∞ :=
   ENNReal.ofReal (M ^ 2 * (r₂ / 2) ^ (9 / 5 : ℝ))
 
-private noncomputable def uniformPressureReferenceIntegral (M r₂ : ℝ) : ℝ≥0∞ :=
+noncomputable def uniformPressureReferenceIntegral (M r₂ : ℝ) : ℝ≥0∞ :=
   ENNReal.ofReal (M ^ (3 / 2 : ℝ) * (r₂ / 2) ^ (13 / 5 : ℝ))
 
-private noncomputable def uniformVelocityLargeConstant (M r₂ : ℝ) : ℝ≥0∞ :=
+noncomputable def uniformVelocityLargeConstant (M r₂ : ℝ) : ℝ≥0∞ :=
   max ((uniformVelocitySmallConstant M) ^ (1 / 3 : ℝ))
     ((ENNReal.ofReal (r₂ / 128)) ^ (-(5 * (1 / 3 - 1 / (25 / 3 : ℝ)))) *
       (uniformVelocityReferenceIntegral M r₂) ^ (1 / 3 : ℝ))
 
-private noncomputable def uniformGradientLargeConstant (M r₂ : ℝ) : ℝ≥0∞ :=
+noncomputable def uniformGradientLargeConstant (M r₂ : ℝ) : ℝ≥0∞ :=
   max ((uniformGradientSmallConstant M) ^ (1 / 2 : ℝ))
     ((ENNReal.ofReal (r₂ / 128)) ^ (-(5 * (1 / 2 - 1 / (25 / 8 : ℝ)))) *
       (uniformGradientReferenceIntegral M r₂) ^ (1 / 2 : ℝ))
 
-private noncomputable def uniformPressureLargeConstant (M r₂ : ℝ) : ℝ≥0∞ :=
+noncomputable def uniformPressureLargeConstant (M r₂ : ℝ) : ℝ≥0∞ :=
   max ((uniformPressureSmallConstant M) ^ (2 / 3 : ℝ))
     ((ENNReal.ofReal (r₂ / 128)) ^ (-(5 * (1 / (3 / 2) - 1 / (25 / 8 : ℝ)))) *
       (uniformPressureReferenceIntegral M r₂) ^ (2 / 3 : ℝ))

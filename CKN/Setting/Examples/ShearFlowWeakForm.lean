@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearFlowEnergyDensity
+module
+
+public import CKN.Setting.Examples.ShearFlowEnergyDensity
 
 /-! # Divergence and momentum identities for the viscous shear -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic CKN.ShearCalculus

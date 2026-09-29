@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.AdamsM4
-import CKN.Core.Endgame.PotentialFiniteness
+module
+
+public import CKN.Foundation.Parabolic.Morrey.AdamsM4
+public import CKN.Core.Endgame.PotentialFiniteness
+
+@[expose] public section
 
 open MeasureTheory
 open CKN.Foundation.Parabolic CKN.Foundation.Parabolic.Morrey

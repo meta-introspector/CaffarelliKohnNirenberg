@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOneSided
+module
+
+public import CKN.Core.Step4.PressureGradientOneSided
 
 /-!
 # The space-time weak pressure gradient on a whole time interval
@@ -19,6 +21,8 @@ overlapping windows agree with the same slice derivative at almost every time.
 This module records the gluing construction and the geometric facts about the
 unit domain hypothesis of the one-sided pressure estimate.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

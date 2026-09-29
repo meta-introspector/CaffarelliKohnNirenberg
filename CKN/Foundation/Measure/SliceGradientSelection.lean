@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Measure.SliceGradientBumps
-import CKN.Foundation.Measure.SliceMollifierIdentity
-import CKN.Foundation.Measure.SliceProductMeasurability
-import CKN.Statements.SpatialPartial
+module
+
+public import CKN.Foundation.Measure.SliceGradientBumps
+public import CKN.Foundation.Measure.SliceMollifierIdentity
+public import CKN.Foundation.Measure.SliceProductMeasurability
+public import CKN.Statements.SpatialPartial
 
 /-!
 # A jointly measurable space-time weak gradient from slice-wise weak gradients
@@ -49,6 +51,8 @@ the conclusions on `B'` are used.
 Space-time points use the ordinary product space `Vec3 × ℝ` of docs/DESIGN_NOTES.md, the
 carrier on which `spatialPartial` and `spaceTimeTestFunction` are stated.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped Topology ENNReal

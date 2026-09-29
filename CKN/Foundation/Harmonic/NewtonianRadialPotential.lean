@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Potentials
-import Mathlib.Analysis.InnerProductSpace.Projection.Reflection
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+module
+
+public import CKN.Pressure.Potentials
+public import Mathlib.Analysis.InnerProductSpace.Projection.Reflection
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+
+@[expose] public section
 
 open MeasureTheory
 open CKN.Foundation.Parabolic
@@ -21,12 +25,12 @@ point of the same radius.
 
 namespace CKN.Foundation.Harmonic
 
-private abbrev EuclideanVec3 := WithLp 2 Vec3
+abbrev EuclideanVec3 := WithLp 2 Vec3
 
-private def toEuclideanVec3 : Vec3 ≃ᵐ EuclideanVec3 :=
+def toEuclideanVec3 : Vec3 ≃ᵐ EuclideanVec3 :=
   MeasurableEquiv.toLp 2 Vec3
 
-private def linearIsometryMeasurableEquiv
+def linearIsometryMeasurableEquiv
     (e : EuclideanVec3 ≃ₗᵢ[ℝ] EuclideanVec3) :
     EuclideanVec3 ≃ᵐ EuclideanVec3 :=
   { toFun := e
@@ -36,7 +40,7 @@ private def linearIsometryMeasurableEquiv
     measurable_toFun := e.continuous.measurable
     measurable_invFun := e.symm.continuous.measurable }
 
-private def transportedIsometry
+def transportedIsometry
     (e : EuclideanVec3 ≃ₗᵢ[ℝ] EuclideanVec3) : Vec3 ≃ᵐ Vec3 :=
   (toEuclideanVec3.trans (linearIsometryMeasurableEquiv e)).trans
     toEuclideanVec3.symm

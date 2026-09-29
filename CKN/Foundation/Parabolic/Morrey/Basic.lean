@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Integration.Scaling
-import CKN.Foundation.Parabolic.Doubling
-import Mathlib.Analysis.Normed.Group.Indicator
-import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
-import Mathlib.MeasureTheory.Integral.MeanInequalities
+module
+
+public import CKN.Foundation.Parabolic.Integration.Scaling
+public import CKN.Foundation.Parabolic.Doubling
+public import Mathlib.Analysis.Normed.Group.Indicator
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
 
 /-!
 # Parabolic Morrey cells and norms
@@ -16,6 +18,8 @@ metric-ball version is kept alongside it; the two versions are compared by
 the inclusions between cylinders and metric balls.
 -/
 
+@[expose] public section
+
 open MeasureTheory MeasureTheory.Measure Set Metric
 open scoped ENNReal NNReal Topology
 
@@ -25,7 +29,7 @@ noncomputable section
 
 namespace CKN.Foundation.Parabolic.Morrey
 
-private abbrev Q := (5 : ℝ)
+abbrev Q := (5 : ℝ)
 
 /-- The integral part of a Morrey cell on a parabolic cylinder. -/
 def cylinderPowerIntegral (p : ℝ) (f : ParabolicPoint → ℝ)

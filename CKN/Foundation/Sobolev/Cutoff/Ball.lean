@@ -1,18 +1,20 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Sobolev.Cutoff.Basic
-import CKN.Foundation.Sobolev.Cutoff.Profile
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Analysis.Calculus.FDeriv.Add
-import Mathlib.Analysis.Calculus.FDeriv.Mul
-import Mathlib.Analysis.Calculus.FDeriv.Pow
-import Mathlib.Analysis.Calculus.LocalExtr.Basic
-import Mathlib.MeasureTheory.Constructions.BorelSpace.Basic
-import Mathlib.Topology.MetricSpace.Pseudo.Pi
-import Mathlib.Tactic.FunProp
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
+module
+
+public import CKN.Foundation.Sobolev.Cutoff.Basic
+public import CKN.Foundation.Sobolev.Cutoff.Profile
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import Mathlib.Analysis.Calculus.FDeriv.Pow
+public import Mathlib.Analysis.Calculus.LocalExtr.Basic
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Basic
+public import Mathlib.Topology.MetricSpace.Pseudo.Pi
+public import Mathlib.Tactic.FunProp
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
 
 /-!
 # Quantitative smooth cutoffs for round balls
@@ -35,6 +37,8 @@ explicit Euclidean squared distance.
 * `canonicalBallCutoff_gradient_bound` gives the explicit bound
   `32 / (R - r)`.
 -/
+
+@[expose] public section
 
 open Set
 
@@ -143,7 +147,7 @@ def canonicalBallCutoff {d : ℕ}
   smoothTransitionProfile ∘
     ballCutoffArgument x₀ r (ballCutoffMidRadius r R)
 
-private def ballCutoffWithSupportRadius {d : ℕ}
+def ballCutoffWithSupportRadius {d : ℕ}
     (x₀ : Vec d) (r s : ℝ) : Vec d → ℝ :=
   smoothTransitionProfile ∘ ballCutoffArgument x₀ r s
 

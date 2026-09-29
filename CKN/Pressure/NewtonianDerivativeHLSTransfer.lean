@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.NewtonianDerivativeHLS
-import CKN.Foundation.Euclidean.InterpolationLpChar
-import CKN.Foundation.Harmonic.InteriorBasic
+module
+
+public import CKN.Pressure.NewtonianDerivativeHLS
+public import CKN.Foundation.Euclidean.InterpolationLpChar
+public import CKN.Foundation.Harmonic.InteriorBasic
+
+@[expose] public section
 
 open MeasureTheory Filter
 open scoped ENNReal

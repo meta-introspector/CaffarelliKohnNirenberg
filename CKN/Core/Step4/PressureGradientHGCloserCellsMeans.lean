@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientInputsCentred
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientInputsCentred
 
 /-! # Temporal bounds for the centring velocity
 
@@ -9,6 +11,8 @@ The local kinetic-energy essential supremum controls the spatial velocity
 mean. Thus centring the tensor introduces bounded temporal coefficients,
 not an additional assumption on the suitable solution.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.Consumers
+module
+
+public import CKN.Core.Caccioppoli.Consumers
 
 /-! # Fixed constants for the initial gamma estimate
 
@@ -9,6 +11,8 @@ The gamma estimate uses its own numerical velocity constant. The force
 constant is the same explicit q-dependent constant as in Caccioppoli.
 Neither constant depends on the domain or the solution.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

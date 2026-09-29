@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Maximal.StrongType
-import CKN.Foundation.Parabolic.Campanato
-import CKN.Foundation.Parabolic.BallDisplays
-import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+module
+
+public import CKN.Foundation.Parabolic.Maximal.StrongType
+public import CKN.Foundation.Parabolic.Campanato
+public import CKN.Foundation.Parabolic.BallDisplays
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
 
 /-!
 # The centred parabolic maximal theorem
@@ -12,6 +14,8 @@ import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
 This file assembles the centred maximal estimates and differentiation theorem
 for the parabolic metric balls.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 
@@ -23,7 +27,7 @@ noncomputable section
 
 namespace CKN.Foundation.Parabolic
 
-private def centeredParabolicHomeomorphSnow : ParabolicPoint ≃ₜ L2Vec3 × SnowTime :=
+def centeredParabolicHomeomorphSnow : ParabolicPoint ≃ₜ L2Vec3 × SnowTime :=
   { parabolicMeasurableEquiv with
     continuous_toFun := continuous_induced_dom
     continuous_invFun := by
@@ -33,7 +37,7 @@ private def centeredParabolicHomeomorphSnow : ParabolicPoint ≃ₜ L2Vec3 × Sn
       simp only [parabolicMeasurableEquiv, Snowflaking.toSnowflaking]
       exact continuous_fst.prodMk continuous_snd }
 
-private def centeredParabolicHomeomorphReal : ParabolicPoint ≃ₜ L2Vec3 × ℝ :=
+def centeredParabolicHomeomorphReal : ParabolicPoint ≃ₜ L2Vec3 × ℝ :=
   centeredParabolicHomeomorphSnow.trans
     (Homeomorph.prodCongr (Homeomorph.refl L2Vec3) Metric.Snowflaking.homeomorph)
 
@@ -66,7 +70,7 @@ private theorem centered_parabolic_closedBall_compact {z : ParabolicPoint} {r : 
     · exact hsub
   exact (centeredParabolicHomeomorphReal.isCompact_image).mp (by simpa using himage)
 
-private def centeredParabolicMaximal (g : ParabolicPoint → ℝ)
+def centeredParabolicMaximal (g : ParabolicPoint → ℝ)
     (z : ParabolicPoint) : ℝ≥0∞ :=
     ⨆ r : {r : ℝ // 0 < r},
     ⨍⁻ w in Metric.ball z r.1, ENNReal.ofReal |g w| ∂volume

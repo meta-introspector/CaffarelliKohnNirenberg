@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.SliceMultiplierConvolution
+module
+
+public import CKN.Foundation.Heat.SliceMultiplierConvolution
 
 /-!
 # The general-symbol heat potential and what it is a potential of
@@ -26,6 +28,8 @@ The space-time variable is the product `Vec3 × ℝ`, as it is for the distribut
 `heatKernelPlusDistribution`, and not the parabolic metric type; the two carry the same
 measure and the same topology.
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open MeasureTheory

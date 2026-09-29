@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.Admissibility
-import CKN.Setting.Energy.Calculus
-import Mathlib.Analysis.Calculus.FDeriv.Pi
+module
+
+public import CKN.Core.Caccioppoli.Admissibility
+public import CKN.Setting.Energy.Calculus
+public import Mathlib.Analysis.Calculus.FDeriv.Pi
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

@@ -1,878 +1,882 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import CKN.Foundation.Parabolic.Covering
-import CKN.Covering.TheoremCReduction
-import CKN.Foundation.Sobolev.WeakDerivative
-import CKN.Foundation.Sobolev.Cutoff.Profile
-import CKN.Foundation.Sobolev.Cutoff.Basic
-import CKN.Foundation.Sobolev.Cutoff.Ball
-import CKN.Foundation.Sobolev.Cutoff.SpaceTime
-import CKN.Foundation.Sobolev.W1p.Basic
-import CKN.Foundation.Sobolev.H1.Basic
-import CKN.Foundation.Ambient.Euclidean
-import CKN.Foundation.Parabolic.Integration.Average
-import CKN.Foundation.Parabolic.Integration.Slice
-import CKN.Foundation.Parabolic.Integration.Scaling
-import CKN.Foundation.Sobolev.Mollify.Transport
-import CKN.Foundation.Sobolev.Inequalities.Smooth
-import CKN.Foundation.Sobolev.Inequalities.Seeley
-import CKN.Foundation.Sobolev.Inequalities.SeeleyBounds
-import CKN.Foundation.Sobolev.Inequalities.SeeleyEnergy
-import CKN.Foundation.Sobolev.Inequalities.SeeleySplit
-import CKN.Foundation.Sobolev.Inequalities.SeeleyGradient
-import CKN.Foundation.Sobolev.Inequalities.SeeleyC1
-import CKN.Foundation.Sobolev.Inequalities.SeeleyPoincare
-import CKN.Foundation.Sobolev.Inequalities.SeeleyScaling
-import CKN.Foundation.Sobolev.Inequalities.SeeleyL1
-import CKN.Foundation.Sobolev.WeakDerivative.Product
-import CKN.Foundation.Sobolev.WeakDerivative.ProductH1
-import CKN.Foundation.Sobolev.Mollify.LpConvolution
-import CKN.Foundation.Sobolev.Mollify.LpApproximation
-import CKN.Foundation.Sobolev.Inequalities.H1
-import CKN.Foundation.Measure.SliceGradientSelection
-import CKN.Foundation.Measure.SliceDistributionKernel
-import CKN.Foundation.Measure.SliceDistributionMollifyBounds
-import CKN.Foundation.Measure.SliceDistributionTransport
-import CKN.Foundation.Measure.SliceDistributionLocal
-import CKN.Foundation.Measure.SliceDistributionSwap
-import CKN.Foundation.Measure.SliceDistributionCore
-import CKN.Foundation.Measure.SliceDistribution
-import CKN.Foundation.Parabolic.Doubling
-import CKN.Foundation.Parabolic.Maximal.HardyLittlewood
-import CKN.Foundation.Parabolic.Maximal.StrongType
-import CKN.Foundation.Euclidean.Maximal.HardyLittlewood
-import CKN.Foundation.Euclidean.Maximal.StrongType
-import CKN.Foundation.Euclidean.Hedberg
-import CKN.Foundation.Euclidean.HLS
-import CKN.Foundation.Parabolic.Holder
-import CKN.Foundation.Parabolic.Campanato
-import CKN.Foundation.Parabolic.CampanatoHolder
-import CKN.Foundation.Parabolic.CampanatoHolderFinal
-import CKN.Foundation.Parabolic.CampanatoHolderCorollaries
-import CKN.Foundation.Parabolic.Morrey.Basic
-import CKN.Foundation.Parabolic.Morrey.Cylinders
-import CKN.Foundation.Parabolic.Morrey.Inclusions
-import CKN.Foundation.Sobolev.Cutoff.BallTopology
-import CKN.Foundation.Sobolev.Cutoff.BallMemLp
-import CKN.Foundation.Parabolic.OffCentreInclusion
-import CKN.Foundation.Parabolic.Morrey.VecMem
-import CKN.Foundation.Parabolic.Morrey.BallVariants
-import CKN.Foundation.Parabolic.Integration.SingletonNull
-import CKN.Foundation.Parabolic.Integration.ProdSwap
-import CKN.Foundation.Measure.SupportRestrict
-import CKN.Foundation.Heat.PolyExpBounds
-import CKN.Foundation.Euclidean.RpowSquares
-import CKN.Core.Step4.OneSidedMorreyMonotone
-import CKN.Core.Step4.GrowthExponentArithmetic
-import CKN.Setting.ScalingQuantityNonneg
-import CKN.Foundation.Sobolev.Ambient.CoordDeriv
-import CKN.Setting.SobolevPoincareConstantFinite
-import CKN.Foundation.Parabolic.Vec3Norm
-import CKN.Foundation.Parabolic.BallBasics
-import CKN.Foundation.Parabolic.Morrey.Indicator
-import CKN.Foundation.Parabolic.Morrey.Neg
-import CKN.Foundation.Parabolic.Morrey.LowerBounds
-import CKN.Pressure.SpatialDerivSupport
-import CKN.Foundation.Parabolic.Morrey.Zero
-import CKN.Foundation.Euclidean.OperatorConstantNonneg
-import CKN.Core.Step4.KappaCapArithmetic
-import CKN.Foundation.Parabolic.Morrey.Minkowski
-import CKN.Foundation.Parabolic.Morrey.Kernel
-import CKN.Foundation.Parabolic.Morrey.Tail
-import CKN.Foundation.Parabolic.Morrey.Hedberg
-import CKN.Foundation.Parabolic.Morrey.Adams
-import CKN.Foundation.Parabolic.Morrey.AdamsEndpoints
-import CKN.Foundation.Parabolic.Morrey.AdamsBridge
-import CKN.Foundation.Parabolic.Morrey.AdamsM4
-import CKN.Foundation.Heat.Basic
-import CKN.Foundation.Heat.Smooth
-import CKN.Foundation.Heat.TestFunction
-import CKN.Foundation.Heat.Bounds
-import CKN.Foundation.Heat.HigherBounds
-import CKN.Foundation.Heat.Subordination
-import CKN.Foundation.Heat.Integrability
-import CKN.Foundation.Heat.Convolution
-import CKN.Foundation.Heat.IntegralBounds
-import CKN.Foundation.Heat.BackwardPotentialIdentity
-import CKN.Foundation.Heat.Cylinder
-import CKN.Core.HeatPotential.Kernel
-import CKN.Core.HeatPotential.Exponents
-import CKN.Core.HeatPotential.Morrey
-import CKN.Core.HeatPotential.Campanato
-import CKN.Core.Step3.LocalEquationRepresentation
-import CKN.Core.Step3.DuhamelAdjoint
-import CKN.Core.Step3.LocalizedEquationDuhamelFinish
-import CKN.Core.Step3.LocalizedEquationConvectionTransfer
-import CKN.Core.Step3.PressureDecay
-import CKN.Core.Step3.ThetaDecay
-import CKN.Core.Step3.PressureDecayMeasurability
-import CKN.Core.Step3.PressureDecayTShape
-import CKN.Core.Step3.ThetaDecayTShape
-import CKN.Core.Step4.PointwisePotential
-import CKN.Core.Step4.SourceMorreyData
-import CKN.Core.Step4.SourceMorreyKernels
-import CKN.Core.Step4.SourceMorreyGradient
-import CKN.Core.Step4.SourceMorreyGradientPackage
-import CKN.Core.Step4.SourceMorreyGradientNumerical
-import CKN.Core.Step4.SourceMorreyGradientInstances
-import CKN.Core.Step4.SourceMorreySlice
-import CKN.Core.Step4.Bootstrap
-import CKN.Core.Step4.Decay
-import CKN.Core.Step4.RoundA
-import CKN.Core.Step4.PressureGradient
-import CKN.Core.Step4.PressureGradientProduct
-import CKN.Core.Step4.PressureGradientDecay
-import CKN.Core.Step4.PressureGradientMorrey
-import CKN.Core.Step4.PressureGradientSWS
-import CKN.Core.Step4.PressureGradientSliceCZ
-import CKN.Core.Step4.PressureGradientMorreyBridge
-import CKN.Core.Step4.RouteAAssembly
-import CKN.Core.Step4.RouteAOneRound
-import CKN.Core.Step4.PressureGradientOneSided
-import CKN.Core.Step4.PressureGradientOneSidedCell
-import CKN.Core.Step4.PressureGradientOneSidedOrigin
-import CKN.Core.Step4.PressureGradientSymmetricCell
-import CKN.Core.Endgame.QuantitativeHolderNumericalTarget
-import CKN.Core.Endgame.ForceSlotNumerical
-import CKN.Core.Endgame.ForceSlotNumericalSelected
-import CKN.Core.Endgame.ForceSlotNumericalProducer
-import CKN.Core.Endgame.ForceSlotNumericalPressureTransport
-import CKN.Core.Endgame.ForceSlotNumericalNormalizedData
-import CKN.Core.Endgame.ForceSlotNumericalBootstrap
-import CKN.Core.Endgame.ForceSlotNumericalTarget
-import CKN.Core.Endgame.ForceSlotNumericalPressureScaling
-import CKN.Core.Endgame.ForceSlotNumericalNormalization
-import CKN.Core.Endgame.ForceSlotNumericalEnergy
-import CKN.Core.Endgame.ForceSlotNumericalScaling
-import CKN.Core.Endgame.ForceSlotNumericalCutoff
-import CKN.Core.Endgame.ForceSlotNumericalSupport
-import CKN.Core.Endgame.ForceSlotNumericalData
-import CKN.Core.Endgame.UniformCutoffFamilyTimeProfile
-import CKN.Core.Endgame.UniformCutoffFamilySeparated
-import CKN.Core.Endgame.UniformCutoffFamilyGeometry
-import CKN.Core.Endgame.UniformCutoffFamilyScaled
-import CKN.Core.Endgame.UniformCutoffFamily
-import CKN.Core.Endgame.TheoremBAdaptersCZSource
-import CKN.Core.Endgame.TheoremBAdaptersVelocitySlice
-import CKN.Core.Endgame.TheoremBAdaptersCZ
-import CKN.Core.TheoremA.Start
-import CKN.Core.TheoremA.Scaling
-import CKN.Core.TheoremA.Route
-import CKN.Core.TheoremA.StartLin34
-import CKN.Core.TheoremA.StartLin34Unconditional
-import CKN.Core.Iteration.Arithmetic
-import CKN.Core.Iteration.ThetaDecayPressurePart
-import CKN.Core.Iteration.ThetaDecayEnergyPart
-import CKN.Core.Iteration.UpperSemicontinuityBasic
-import CKN.Core.Iteration.UpperSemicontinuity
-import CKN.Core.Iteration.ThetaUpperSemicontinuityBasic
-import CKN.Core.Iteration.ThetaUpperSemicontinuityAlpha
-import CKN.Core.Step2.Interpolation
-import CKN.Core.Step2.MorreyBalls
-import CKN.Core.Step2.MorreyForm
-import CKN.Core.Step2.MorreyFormUniform
-import CKN.Core.Step2.MorreyDecay
-import CKN.Foundation.Harmonic.Newtonian
-import CKN.Foundation.Harmonic.NewtonianRepresentation
-import CKN.Foundation.Harmonic.InteriorBasic
-import CKN.Foundation.Harmonic.Interior
-import CKN.Foundation.Harmonic.InteriorEstimatesBasic
-import CKN.Foundation.Harmonic.InteriorEstimates
-import CKN.Foundation.Harmonic.InteriorGradient
-import CKN.Foundation.Harmonic.InteriorWeak
-import CKN.Foundation.Harmonic.InteriorRepresentative
-import CKN.Foundation.Harmonic.InteriorRegularity
-import CKN.Foundation.Harmonic.InteriorSmooth
-import CKN.Foundation.Harmonic.Liouville
-import CKN.Foundation.Harmonic.Commutator.KernelsBasic
-import CKN.Foundation.Euclidean.HessianL2
-import CKN.Foundation.Euclidean.RieszSecondL2Global
-import CKN.Foundation.Euclidean.Dyadic
-import CKN.Foundation.Euclidean.CZDecomposition
-import CKN.Foundation.Euclidean.CZDecompositionExistence
-import CKN.Foundation.Euclidean.RieszSecond
-import CKN.Foundation.Euclidean.RieszSecondBadPart
-import CKN.Foundation.Euclidean.RieszSecondWeakAssembly
-import CKN.Foundation.Euclidean.RieszSecondWeakCountable
-import CKN.Foundation.Euclidean.RieszSecondWeakExterior
-import CKN.Foundation.Euclidean.RieszSecondWeakConcrete
-import CKN.Foundation.Euclidean.RieszSecondWeakCertificate
-import CKN.Foundation.Euclidean.RieszSecondOperator
-import CKN.Foundation.Euclidean.RieszSecondStrong
-import CKN.Foundation.Euclidean.InterpolationRestricted
-import CKN.Foundation.Euclidean.CZInputs
-import CKN.Foundation.Euclidean.LpExtensionCZ
-import CKN.Foundation.Euclidean.LpExtensionExterior
-import CKN.Foundation.Euclidean.CZUnconditional
-import CKN.Foundation.Euclidean.CZCylinderBridge
-import CKN.Foundation.Euclidean.LpExtensionPairingHeat
-import CKN.Foundation.Euclidean.LpExtensionPairing
-import CKN.Foundation.Euclidean.LpExtensionPairingKernel
-import CKN.Foundation.Euclidean.LpExtensionPairingPotential
-import CKN.Foundation.Euclidean.LpExtensionPairingDensity
-import CKN.Foundation.Euclidean.LpExtensionPairingSmooth
-import CKN.Foundation.Euclidean.LpExtensionPairingMain
+module
 
-import CKN.Statements.SpaceTimeSet
-import CKN.Statements.SuitableWeakSolutionIntegrable
-import CKN.Statements.SuitableWeakSolution
-import CKN.Statements.RegularPoint
-import CKN.Statements.SingularSet
-import CKN.Statements.Alpha
-import CKN.Statements.Beta
-import CKN.Statements.Gamma
-import CKN.Statements.Delta
-import CKN.Statements.Lambda
-import CKN.Statements.Theta
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Foundation.Parabolic.Covering
+public import CKN.Covering.TheoremCReduction
+public import CKN.Foundation.Sobolev.WeakDerivative
+public import CKN.Foundation.Sobolev.Cutoff.Profile
+public import CKN.Foundation.Sobolev.Cutoff.Basic
+public import CKN.Foundation.Sobolev.Cutoff.Ball
+public import CKN.Foundation.Sobolev.Cutoff.SpaceTime
+public import CKN.Foundation.Sobolev.W1p.Basic
+public import CKN.Foundation.Sobolev.H1.Basic
+public import CKN.Foundation.Ambient.Euclidean
+public import CKN.Foundation.Parabolic.Integration.Average
+public import CKN.Foundation.Parabolic.Integration.Slice
+public import CKN.Foundation.Parabolic.Integration.Scaling
+public import CKN.Foundation.Sobolev.Mollify.Transport
+public import CKN.Foundation.Sobolev.Inequalities.Smooth
+public import CKN.Foundation.Sobolev.Inequalities.Seeley
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyBounds
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyEnergy
+public import CKN.Foundation.Sobolev.Inequalities.SeeleySplit
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyGradient
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyC1
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyPoincare
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyScaling
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyL1
+public import CKN.Foundation.Sobolev.WeakDerivative.Product
+public import CKN.Foundation.Sobolev.WeakDerivative.ProductH1
+public import CKN.Foundation.Sobolev.Mollify.LpConvolution
+public import CKN.Foundation.Sobolev.Mollify.LpApproximation
+public import CKN.Foundation.Sobolev.Inequalities.H1
+public import CKN.Foundation.Measure.SliceGradientSelection
+public import CKN.Foundation.Measure.SliceDistributionKernel
+public import CKN.Foundation.Measure.SliceDistributionMollifyBounds
+public import CKN.Foundation.Measure.SliceDistributionTransport
+public import CKN.Foundation.Measure.SliceDistributionLocal
+public import CKN.Foundation.Measure.SliceDistributionSwap
+public import CKN.Foundation.Measure.SliceDistributionCore
+public import CKN.Foundation.Measure.SliceDistribution
+public import CKN.Foundation.Parabolic.Doubling
+public import CKN.Foundation.Parabolic.Maximal.HardyLittlewood
+public import CKN.Foundation.Parabolic.Maximal.StrongType
+public import CKN.Foundation.Euclidean.Maximal.HardyLittlewood
+public import CKN.Foundation.Euclidean.Maximal.StrongType
+public import CKN.Foundation.Euclidean.Hedberg
+public import CKN.Foundation.Euclidean.HLS
+public import CKN.Foundation.Parabolic.Holder
+public import CKN.Foundation.Parabolic.Campanato
+public import CKN.Foundation.Parabolic.CampanatoHolder
+public import CKN.Foundation.Parabolic.CampanatoHolderFinal
+public import CKN.Foundation.Parabolic.CampanatoHolderCorollaries
+public import CKN.Foundation.Parabolic.Morrey.Basic
+public import CKN.Foundation.Parabolic.Morrey.Cylinders
+public import CKN.Foundation.Parabolic.Morrey.Inclusions
+public import CKN.Foundation.Sobolev.Cutoff.BallTopology
+public import CKN.Foundation.Sobolev.Cutoff.BallMemLp
+public import CKN.Foundation.Parabolic.OffCentreInclusion
+public import CKN.Foundation.Parabolic.Morrey.VecMem
+public import CKN.Foundation.Parabolic.Morrey.BallVariants
+public import CKN.Foundation.Parabolic.Integration.SingletonNull
+public import CKN.Foundation.Parabolic.Integration.ProdSwap
+public import CKN.Foundation.Measure.SupportRestrict
+public import CKN.Foundation.Heat.PolyExpBounds
+public import CKN.Foundation.Euclidean.RpowSquares
+public import CKN.Core.Step4.OneSidedMorreyMonotone
+public import CKN.Core.Step4.GrowthExponentArithmetic
+public import CKN.Setting.ScalingQuantityNonneg
+public import CKN.Foundation.Sobolev.Ambient.CoordDeriv
+public import CKN.Setting.SobolevPoincareConstantFinite
+public import CKN.Foundation.Parabolic.Vec3Norm
+public import CKN.Foundation.Parabolic.BallBasics
+public import CKN.Foundation.Parabolic.Morrey.Indicator
+public import CKN.Foundation.Parabolic.Morrey.Neg
+public import CKN.Foundation.Parabolic.Morrey.LowerBounds
+public import CKN.Pressure.SpatialDerivSupport
+public import CKN.Foundation.Parabolic.Morrey.Zero
+public import CKN.Foundation.Euclidean.OperatorConstantNonneg
+public import CKN.Core.Step4.KappaCapArithmetic
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+public import CKN.Foundation.Parabolic.Morrey.Kernel
+public import CKN.Foundation.Parabolic.Morrey.Tail
+public import CKN.Foundation.Parabolic.Morrey.Hedberg
+public import CKN.Foundation.Parabolic.Morrey.Adams
+public import CKN.Foundation.Parabolic.Morrey.AdamsEndpoints
+public import CKN.Foundation.Parabolic.Morrey.AdamsBridge
+public import CKN.Foundation.Parabolic.Morrey.AdamsM4
+public import CKN.Foundation.Heat.Basic
+public import CKN.Foundation.Heat.Smooth
+public import CKN.Foundation.Heat.TestFunction
+public import CKN.Foundation.Heat.Bounds
+public import CKN.Foundation.Heat.HigherBounds
+public import CKN.Foundation.Heat.Subordination
+public import CKN.Foundation.Heat.Integrability
+public import CKN.Foundation.Heat.Convolution
+public import CKN.Foundation.Heat.IntegralBounds
+public import CKN.Foundation.Heat.BackwardPotentialIdentity
+public import CKN.Foundation.Heat.Cylinder
+public import CKN.Core.HeatPotential.Kernel
+public import CKN.Core.HeatPotential.Exponents
+public import CKN.Core.HeatPotential.Morrey
+public import CKN.Core.HeatPotential.Campanato
+public import CKN.Core.Step3.LocalEquationRepresentation
+public import CKN.Core.Step3.DuhamelAdjoint
+public import CKN.Core.Step3.LocalizedEquationDuhamelFinish
+public import CKN.Core.Step3.LocalizedEquationConvectionTransfer
+public import CKN.Core.Step3.PressureDecay
+public import CKN.Core.Step3.ThetaDecay
+public import CKN.Core.Step3.PressureDecayMeasurability
+public import CKN.Core.Step3.PressureDecayTShape
+public import CKN.Core.Step3.ThetaDecayTShape
+public import CKN.Core.Step4.PointwisePotential
+public import CKN.Core.Step4.SourceMorreyData
+public import CKN.Core.Step4.SourceMorreyKernels
+public import CKN.Core.Step4.SourceMorreyGradient
+public import CKN.Core.Step4.SourceMorreyGradientPackage
+public import CKN.Core.Step4.SourceMorreyGradientNumerical
+public import CKN.Core.Step4.SourceMorreyGradientInstances
+public import CKN.Core.Step4.SourceMorreySlice
+public import CKN.Core.Step4.Bootstrap
+public import CKN.Core.Step4.Decay
+public import CKN.Core.Step4.RoundA
+public import CKN.Core.Step4.PressureGradient
+public import CKN.Core.Step4.PressureGradientProduct
+public import CKN.Core.Step4.PressureGradientDecay
+public import CKN.Core.Step4.PressureGradientMorrey
+public import CKN.Core.Step4.PressureGradientSWS
+public import CKN.Core.Step4.PressureGradientSliceCZ
+public import CKN.Core.Step4.PressureGradientMorreyBridge
+public import CKN.Core.Step4.RouteAAssembly
+public import CKN.Core.Step4.RouteAOneRound
+public import CKN.Core.Step4.PressureGradientOneSided
+public import CKN.Core.Step4.PressureGradientOneSidedCell
+public import CKN.Core.Step4.PressureGradientOneSidedOrigin
+public import CKN.Core.Step4.PressureGradientSymmetricCell
+public import CKN.Core.Endgame.QuantitativeHolderNumericalTarget
+public import CKN.Core.Endgame.ForceSlotNumerical
+public import CKN.Core.Endgame.ForceSlotNumericalSelected
+public import CKN.Core.Endgame.ForceSlotNumericalProducer
+public import CKN.Core.Endgame.ForceSlotNumericalPressureTransport
+public import CKN.Core.Endgame.ForceSlotNumericalNormalizedData
+public import CKN.Core.Endgame.ForceSlotNumericalBootstrap
+public import CKN.Core.Endgame.ForceSlotNumericalTarget
+public import CKN.Core.Endgame.ForceSlotNumericalPressureScaling
+public import CKN.Core.Endgame.ForceSlotNumericalNormalization
+public import CKN.Core.Endgame.ForceSlotNumericalEnergy
+public import CKN.Core.Endgame.ForceSlotNumericalScaling
+public import CKN.Core.Endgame.ForceSlotNumericalCutoff
+public import CKN.Core.Endgame.ForceSlotNumericalSupport
+public import CKN.Core.Endgame.ForceSlotNumericalData
+public import CKN.Core.Endgame.UniformCutoffFamilyTimeProfile
+public import CKN.Core.Endgame.UniformCutoffFamilySeparated
+public import CKN.Core.Endgame.UniformCutoffFamilyGeometry
+public import CKN.Core.Endgame.UniformCutoffFamilyScaled
+public import CKN.Core.Endgame.UniformCutoffFamily
+public import CKN.Core.Endgame.TheoremBAdaptersCZSource
+public import CKN.Core.Endgame.TheoremBAdaptersVelocitySlice
+public import CKN.Core.Endgame.TheoremBAdaptersCZ
+public import CKN.Core.TheoremA.Start
+public import CKN.Core.TheoremA.Scaling
+public import CKN.Core.TheoremA.Route
+public import CKN.Core.TheoremA.StartLin34
+public import CKN.Core.TheoremA.StartLin34Unconditional
+public import CKN.Core.Iteration.Arithmetic
+public import CKN.Core.Iteration.ThetaDecayPressurePart
+public import CKN.Core.Iteration.ThetaDecayEnergyPart
+public import CKN.Core.Iteration.UpperSemicontinuityBasic
+public import CKN.Core.Iteration.UpperSemicontinuity
+public import CKN.Core.Iteration.ThetaUpperSemicontinuityBasic
+public import CKN.Core.Iteration.ThetaUpperSemicontinuityAlpha
+public import CKN.Core.Step2.Interpolation
+public import CKN.Core.Step2.MorreyBalls
+public import CKN.Core.Step2.MorreyForm
+public import CKN.Core.Step2.MorreyFormUniform
+public import CKN.Core.Step2.MorreyDecay
+public import CKN.Foundation.Harmonic.Newtonian
+public import CKN.Foundation.Harmonic.NewtonianRepresentation
+public import CKN.Foundation.Harmonic.InteriorBasic
+public import CKN.Foundation.Harmonic.Interior
+public import CKN.Foundation.Harmonic.InteriorEstimatesBasic
+public import CKN.Foundation.Harmonic.InteriorEstimates
+public import CKN.Foundation.Harmonic.InteriorGradient
+public import CKN.Foundation.Harmonic.InteriorWeak
+public import CKN.Foundation.Harmonic.InteriorRepresentative
+public import CKN.Foundation.Harmonic.InteriorRegularity
+public import CKN.Foundation.Harmonic.InteriorSmooth
+public import CKN.Foundation.Harmonic.Liouville
+public import CKN.Foundation.Harmonic.Commutator.KernelsBasic
+public import CKN.Foundation.Euclidean.HessianL2
+public import CKN.Foundation.Euclidean.RieszSecondL2Global
+public import CKN.Foundation.Euclidean.Dyadic
+public import CKN.Foundation.Euclidean.CZDecomposition
+public import CKN.Foundation.Euclidean.CZDecompositionExistence
+public import CKN.Foundation.Euclidean.RieszSecond
+public import CKN.Foundation.Euclidean.RieszSecondBadPart
+public import CKN.Foundation.Euclidean.RieszSecondWeakAssembly
+public import CKN.Foundation.Euclidean.RieszSecondWeakCountable
+public import CKN.Foundation.Euclidean.RieszSecondWeakExterior
+public import CKN.Foundation.Euclidean.RieszSecondWeakConcrete
+public import CKN.Foundation.Euclidean.RieszSecondWeakCertificate
+public import CKN.Foundation.Euclidean.RieszSecondOperator
+public import CKN.Foundation.Euclidean.RieszSecondStrong
+public import CKN.Foundation.Euclidean.InterpolationRestricted
+public import CKN.Foundation.Euclidean.CZInputs
+public import CKN.Foundation.Euclidean.LpExtensionCZ
+public import CKN.Foundation.Euclidean.LpExtensionExterior
+public import CKN.Foundation.Euclidean.CZUnconditional
+public import CKN.Foundation.Euclidean.CZCylinderBridge
+public import CKN.Foundation.Euclidean.LpExtensionPairingHeat
+public import CKN.Foundation.Euclidean.LpExtensionPairing
+public import CKN.Foundation.Euclidean.LpExtensionPairingKernel
+public import CKN.Foundation.Euclidean.LpExtensionPairingPotential
+public import CKN.Foundation.Euclidean.LpExtensionPairingDensity
+public import CKN.Foundation.Euclidean.LpExtensionPairingSmooth
+public import CKN.Foundation.Euclidean.LpExtensionPairingMain
 
-import CKN.Statements.SpaceTimeTestFunction
-import CKN.Statements.LocalLp
-import CKN.Statements.LocalVecLp
-import CKN.Statements.LocalBox
-import CKN.Statements.SpatialPartial
-import CKN.Statements.TimePartial
-import CKN.Statements.SpatialSecondPartial
-import CKN.Statements.SpatialGradient
-import CKN.Statements.SpatialGradientSq
-import CKN.Statements.ParabolicHolderVecOn
-import CKN.Statements.ParabolicHolderVecNormLE
-import CKN.Statements.MorreyVecMem
+public import CKN.Statements.SpaceTimeSet
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+public import CKN.Statements.SuitableWeakSolution
+public import CKN.Statements.RegularPoint
+public import CKN.Statements.SingularSet
+public import CKN.Statements.Alpha
+public import CKN.Statements.Beta
+public import CKN.Statements.Gamma
+public import CKN.Statements.Delta
+public import CKN.Statements.Lambda
+public import CKN.Statements.Theta
 
-import CKN.Setting.VectorInequalities
-import CKN.Setting.Cutoff
-import CKN.Setting.InterpolationBall
-import CKN.Setting.SobolevPoincareBall
-import CKN.Setting.SobolevPoincareBallWeak
-import CKN.Setting.PoincareSobolevL1
-import CKN.Setting.PoincareSobolevL1Ball
-import CKN.Setting.PoincareSobolevL1Vec
-import CKN.Setting.PoincareSobolevL1Slice
-import CKN.Setting.PoincareSobolevL1SliceBasic
-import CKN.Setting.ScalingInvariance
+public import CKN.Statements.SpaceTimeTestFunction
+public import CKN.Statements.LocalLp
+public import CKN.Statements.LocalVecLp
+public import CKN.Statements.LocalBox
+public import CKN.Statements.SpatialPartial
+public import CKN.Statements.TimePartial
+public import CKN.Statements.SpatialSecondPartial
+public import CKN.Statements.SpatialGradient
+public import CKN.Statements.SpatialGradientSq
+public import CKN.Statements.ParabolicHolderVecOn
+public import CKN.Statements.ParabolicHolderVecNormLE
+public import CKN.Statements.MorreyVecMem
 
-import CKN.Setting.Energy.PointwiseEnergy
-import CKN.Setting.Energy.Calculus
-import CKN.Setting.Energy.Integrability
-import CKN.Setting.Energy.TimeCutoff
-import CKN.Setting.Energy.AELocalEnergy
-import CKN.Setting.Finiteness
-import CKN.Setting.DivergenceFreeSlice
-import CKN.Setting.ShearMeanExcess
-import CKN.Setting.PressureGaugeSlices
-import CKN.Setting.PressureGaugeInvariance
-import CKN.ClassEquivalence.Data
-import CKN.ClassEquivalence.TestSupport
-import CKN.ClassEquivalence.CompactLp
-import CKN.ClassEquivalence.BallCover
-import CKN.ClassEquivalence.VelocityTenThirds
-import CKN.ClassEquivalence.DivergenceFreeIntegrand
-import CKN.ClassEquivalence.MomentumIntegrand
-import CKN.ClassEquivalence.DissipationIntegrand
-import CKN.ClassEquivalence.EnergyIntegrand
-import CKN.ClassEquivalence.Constructor
-import CKN.ClassEquivalence.MainTheorems
-import CKN.Pressure.Slices
-import CKN.Pressure.ParamExtension
-import CKN.Pressure.SliceIdentity
-import CKN.Pressure.Decomposition
-import CKN.Pressure.Potentials
-import CKN.Pressure.DecompositionPotentials
-import CKN.Pressure.PkBoundsBasic
-import CKN.Pressure.PkBoundsP234
-import CKN.Pressure.PkBoundsP56
-import CKN.Pressure.PkBoundsP8
-import CKN.Pressure.PkBoundsP7
-import CKN.Pressure.PkBoundsCylinder
-import CKN.Pressure.DecompositionIdentity
-import CKN.Pressure.DecompositionSWS
-import CKN.Pressure.OscillationHarmonic
-import CKN.Pressure.HarmonicPartDerivatives
-import CKN.Pressure.HarmonicPartBounds
-import CKN.Pressure.HarmonicPartBoundsAE
-import CKN.Pressure.ForceCancellation
-import CKN.Pressure.ForceCancellationUnconditional
-import CKN.Pressure.ForceDivergenceFreeBridge
-import CKN.Pressure.OscillationLin34
-import CKN.Pressure.Lin34Slices
-import CKN.Pressure.OscillationLin34Solution
-import CKN.Pressure.Lin34SliceHolder
-import CKN.Pressure.Lin34SliceFubini
-import CKN.Pressure.Lin34SliceMeanFree
-import CKN.Pressure.Lin34SliceCore
-import CKN.Pressure.Lin34SlicePointwise
-import CKN.Pressure.Lin34SliceForceLp
-import CKN.Pressure.Lin34SliceForceCylinder
-import CKN.Pressure.Lin34SliceQuantities
-import CKN.Pressure.Lin34SliceIntegrated
-import CKN.Pressure.HarmonicRemainderSlice
-import CKN.Pressure.HarmonicRemainderForceTerms
-import CKN.Pressure.HarmonicRemainderSliceSWS
-import CKN.Pressure.Identification
-import CKN.Pressure.IdentificationWholeSpace
-import CKN.Pressure.IdentificationExtension
-import CKN.Pressure.IdentificationExtensionGrowth
-import CKN.Pressure.IdentificationExtensionGrowthSWS
-import CKN.Pressure.IdentificationExtensionUnconditional
-import CKN.Pressure.SliceVelocityCube
-import CKN.Pressure.IdentificationCZP1Unconditional
-import CKN.Pressure.IdentificationCZP1LocalGrowth
-import CKN.Pressure.CZP1Closer
-import CKN.Pressure.IdentificationCZP1Final
-import CKN.Pressure.CZP1UnconditionalAssembly
-import CKN.Pressure.IdentificationExtensionPairingKernel
-import CKN.Pressure.IdentificationExtensionPairingSource
-import CKN.Pressure.IdentificationExtensionPairingSlice
-import CKN.Pressure.IdentificationExtensionPairingExterior
-import CKN.Pressure.IdentificationExtensionPairingSwap
-import CKN.Pressure.IdentificationExtensionPairingWholeSpace
-import CKN.Pressure.IdentificationExtensionPairing
-import CKN.Pressure.IdentificationExtensionPairingCylinder
-import CKN.Pressure.PotentialDecayUnitBall
-import CKN.Pressure.PotentialDecayShell
-import CKN.Pressure.PotentialDecayGeometry
-import CKN.Pressure.PotentialDecayGrowthSum
-import CKN.Pressure.PotentialDecay
-import CKN.Pressure.PotentialDecayFarField
-import CKN.Pressure.PotentialDecayPotentials
-import CKN.Pressure.CZHarmonicCorollaryParts
-import CKN.Pressure.CZHarmonicCorollaryIdentification
-import CKN.Pressure.CZHarmonicCorollaryForceSlice
-import CKN.Pressure.CZHarmonicCorollaryForceLocal
-import CKN.Pressure.CZHarmonicCorollaryForce
-import CKN.Pressure.CZHarmonicCorollary
-import CKN.Pressure.CZStartBridgeSource
-import CKN.Pressure.Lin34CentredSource
-import CKN.Pressure.Lin34CentredCorrection
-import CKN.Pressure.Lin34CentredPairing
-import CKN.Pressure.Lin34CentredPairingSWS
-import CKN.Pressure.Lin34CentredPotentialSource
-import CKN.Pressure.Lin34CentredPotentialGrowth
-import CKN.Pressure.Lin34CentredCZ
-import CKN.Pressure.Lin34CentredCZResidual
-import CKN.Pressure.Lin34CentredResidual
-import CKN.Foundation.Euclidean.PotentialLocalLpKernel
-import CKN.Foundation.Euclidean.PotentialLocalLpExponents
-import CKN.Foundation.Euclidean.PotentialLocalLpMeasure
-import CKN.Foundation.Euclidean.PotentialLocalLp
-import CKN.Foundation.Euclidean.PotentialLocalLpGrowth
-import CKN.Foundation.Euclidean.PotentialLocalLpP8
-import CKN.Core.Caccioppoli.Caccioppoli
-import CKN.Core.Caccioppoli.Consumers
-import CKN.Foundation.Harmonic.KernelAllOrders
-import CKN.Foundation.Euclidean.RieszSecondExterior
-import CKN.Core.Step4.SliceSelectedGradientPotential
-import CKN.Core.Step4.SliceSelectedGradientRemainder
-import CKN.Core.Step4.SliceSelectedGradientScaling
-import CKN.Core.Step4.SliceSelectedGradientAssembly
-import CKN.Core.Step4.SliceSelectedGradient
-import CKN.Core.Step4.SliceSelectedGradientRegularity
-import CKN.Core.Step4.SliceSelectedGradientForce
-import CKN.Core.Step4.SliceSelectedGradientIdentification
-import CKN.Core.Step4.SliceSelectedGradientSWS
-import CKN.Core.Step4.SliceSelectedGradientForceP8
-import CKN.Core.Step4.SliceSelectedGradientForceSlices
-import CKN.Core.Step4.SliceSelectedGradientForceUnconditional
-import CKN.Core.Step4.SliceSelectedGradientForceHolder
-import CKN.Core.Step4.SliceSelectedGradientSWSUnconditional
-import CKN.Core.Step4.SliceSelectedGradientSWSFinal
-import CKN.Core.Step4.SliceSelectedGradientInputs
-import CKN.Core.Step4.SliceSelectedGradientCentredSource
-import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensorDef
-import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensor
-import CKN.Core.Step4.SliceSelectedGradientTensorSourcePairing
-import CKN.Core.Step4.SliceSelectedGradientTensorSource
-import CKN.Core.Step4.SliceSelectedGradientInputsCentred
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSFinal
-import CKN.Core.Step4.SliceSelectedGradientCorrectedSWS
-import CKN.Core.Step4.SliceSelectedGradientCellIdentification
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSSource
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSBounds
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSData
-import CKN.Core.Step4.SourceMorreyFirstRoundSupport
-import CKN.Core.Step4.SourceMorreyFirstRoundCutoff
-import CKN.Core.Step4.SourceMorreyFirstRoundNorms
-import CKN.Core.Step4.SourceMorreyFirstRound
-import CKN.Core.Step4.RouteAFirstRoundConsumer
-import CKN.Core.Step3.GradientSlotDuhamelAtoms
-import CKN.Core.Step3.GradientSlotDuhamelTransfers
-import CKN.Core.Step3.GradientSlotDuhamelSplit
-import CKN.Core.Step3.GradientSlotDuhamelTested
-import CKN.Core.Step3.GradientSlotDuhamel
-import CKN.Core.Step4.RouteAGradientProducerUniformExponents
-import CKN.Core.Step4.RouteAGradientProducerUniformMorrey
-import CKN.Core.Step4.RouteAGradientProducerUniform
-import CKN.Core.Step4.PressureGradientHGCloserTransfer
-import CKN.Core.Step4.PressureGradientHGCloserTimeBounds
-import CKN.Core.Step4.SliceSelectedGradientSymmetricGeometry
-import CKN.Core.Step4.SliceSelectedGradientSymmetricBox
-import CKN.Core.Endgame.GAAdapters
-import CKN.Core.Endgame.GAAdaptersCell
-import CKN.Core.Endgame.TheoremAAdaptersLin34
-import CKN.Core.Endgame.TheoremAAdaptersCZ
-import CKN.Core.Step4.PressureGradientOriginCellProducerSlice
-import CKN.Core.Step4.PressureGradientGluedPartition
-import CKN.Core.Step4.PressureGradientGluedSupport
-import CKN.Core.Step4.PressureGradientGluedSelectionCore
-import CKN.Core.Step4.PressureGradientGluedLocality
-import CKN.Core.Step4.PressureGradientGluedUnion
-import CKN.Foundation.Sobolev.WeakGradientGluing
-import CKN.Foundation.Sobolev.WeakGradientGluingTMeasurable
-import CKN.Foundation.Sobolev.WeakGradientGluingTBounds
-import CKN.Core.Step4.PressureGradientGluedGeometry
-import CKN.Core.Step4.PressureGradientGluedSlice
-import CKN.Core.Step4.PressureGradientGluedTwoRegime
-import CKN.Core.Step4.PressureGradientGluedCell
-import CKN.Core.Step4.PressureGradientLargeCells
-import CKN.Core.Step4.PressureGradientGluedTwoRegimeMorrey
-import CKN.Core.Step4.PressureGradientGluedMarginGeometry
-import CKN.Core.Step4.PressureGradientGluedMarginCost
-import CKN.Core.Step4.PressureGradientGluedOriginTransfer
-import CKN.Core.Step4.PressureGradientGluedSmallCell
-import CKN.Core.Step4.PressureGradientOriginClauseDoubling
-import CKN.Core.Step4.PressureGradientGluedTimeBounds
-import CKN.Core.Step4.PressureGradientGluedRemainderBounds
-import CKN.Core.Step4.PressureGradientOriginClauseGauge
-import CKN.Core.Step4.PressureGradientOriginClauseGrowth
-import CKN.Core.Step4.BootstrapStep2SourceConstruction
-import CKN.Setting.InterpolationInstancesDisplay
-import CKN.Setting.InterpolationInstancesSharpness
-import CKN.Core.Endgame.CausalHalfCylinderFinal
-import CKN.Core.HeatPotential.PastSourcesStep2
-import CKN.Core.HeatPotential.PastSourcesSourceAdapter
-import CKN.Core.HeatPotential.CoordinateMultiplierBridge
-import CKN.Core.HeatPotential.HeatMorreyHolder
-import CKN.Core.Endgame.CausalHalfCylinderAssembly
-import CKN.Core.HeatPotential.HeatLinfty
-import CKN.Core.HeatPotential.HeatHolder
-import CKN.Core.HeatPotential.HeatMorreyHolderOfConclusion2
-import CKN.Core.Step4.InteriorGradientProducerStep2
-import CKN.Core.Step4.InteriorGradientProducer
-import CKN.Core.Step4.InteriorGradientProducerTransport
-import CKN.Core.Step4.InteriorGradientProducerScaling
-import CKN.Setting.Examples.ShearCounterexample.SWSLocalDataWitness
-import CKN.Setting.Examples.ShearCounterexampleFinal
-import CKN.Setting.Examples.ShearCounterexampleEnergyDecay
-import CKN.Setting.Examples.ShearCounterexample
-import CKN.Setting.Examples.ShearCounterexampleLEILimit
-import CKN.Setting.Examples.ShearCounterexampleSupportBridge
-import CKN.Setting.Examples.ShearCounterexample.LEIHelpers
-import CKN.Setting.Examples.ShearCounterexample.FiniteLEI
-import CKN.Setting.Examples.ShearCounterexampleDivergenceLimit
-import CKN.Setting.Examples.ShearCounterexampleMomentumLimit
-import CKN.Setting.Examples.ShearCounterexample.FiniteMomentumIntegral
-import CKN.Setting.Examples.ShearCounterexample.FiniteMomentum
-import CKN.Setting.Examples.ShearCounterexample.FactorIBP
-import CKN.Setting.Examples.ShearCounterexample.SmoothIBP
-import CKN.Setting.Examples.ShearCounterexample.FiniteApproxCalculus
-import CKN.Setting.Examples.ShearCounterexample.FiniteHeatIdentity
-import CKN.Setting.Examples.ShearCounterexample.ReducedFiniteDerivatives
-import CKN.Setting.Examples.ShearCounterexample.SmoothSecondDerivative
-import CKN.Setting.Examples.ShearCounterexample.FiniteSmooth
-import CKN.Setting.Examples.ShearCounterexample.ReducedSpatialFinite
-import CKN.Setting.Examples.ShearCounterexample.SeriesApprox
-import CKN.Setting.Examples.ShearCounterexample.GradientSeparation
-import CKN.Setting.Examples.ShearCounterexample.MomentumMajorant
-import CKN.Setting.Examples.ShearCounterexample.TestSupport
-import CKN.Setting.Examples.ShearCounterexample.FactorDerivative
-import CKN.Setting.Examples.ShearCounterexample.SWSLocalData
-import CKN.Setting.Examples.ShearCounterexample.VectorLocal
-import CKN.Setting.Examples.ShearCounterexample.SliceEnergy
-import CKN.Setting.Examples.ShearCounterexample.SliceSpatialUniform
-import CKN.Setting.Examples.ShearCounterexample.SliceSpatialLp
-import CKN.Setting.Examples.ShearCounterexample.SliceAE
-import CKN.Setting.Examples.ShearCounterexample.SliceFullWeak
-import CKN.Setting.Examples.ShearCounterexample.SliceDerivative
-import CKN.Setting.Examples.ShearCounterexample.SliceFinite
-import CKN.Setting.Examples.ShearCounterexample.FullFields
-import CKN.Setting.Examples.ShearCounterexample.ForceL2
-import CKN.Setting.Examples.ShearCounterexample.ScaleSupport
-import CKN.Setting.Examples.ShearCounterexample.LocalConstDeriv
-import CKN.Setting.Examples.ShearCounterexample.ScaleL3
-import CKN.Setting.Examples.ShearCounterexample.ScaleSeries
-import CKN.Setting.Examples.ShearCounterexample.ShearWeightedProfile
-import CKN.Setting.Examples.ShearCounterexample.WeightSummable
-import CKN.Setting.Examples.ShearCounterexample.LpTsum
-import CKN.Setting.Examples.ShearCounterexample.ScaleDerivatives
-import CKN.Setting.Examples.ShearCounterexample.ScaleBounds
-import CKN.Setting.Examples.ShearCounterexample.LocalTestBox
-import CKN.Setting.Examples.ShearCounterexampleCoordinateEnergy
-import CKN.Setting.Examples.ShearCounterexample.AmbientLp
-import CKN.Setting.Examples.ShearCounterexample.ShearCoordinates
-import CKN.Core.HeatPotential.HeatFarStripBound
-import CKN.Foundation.Parabolic.Morrey.StripMass
-import CKN.Witnesses.RouteAGradientProducer
-import CKN.Witnesses.DyadicCubeWitness
-import CKN.Core.HeatPotential.PastSourcesBridge
-import CKN.Core.HeatPotential.PastSourcesNear
-import CKN.Core.HeatPotential.GeneralSymbolHeatConclusionAssembly
-import CKN.Core.HeatPotential.GeneralSymbolHeatConclusion
-import CKN.Setting.SuitableSliceTimeNormBounds
-import CKN.Core.Step3.LocalizedEquationDisplay
-import CKN.Pressure.DecompSolenoidal
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelCrossZero
-import CKN.Core.HeatPotential.GeneralSymbolHeatNearProof
-import CKN.Setting.Examples.ShearFlowSuitable
-import CKN.Setting.Examples.ShearFlowLocalData
-import CKN.Setting.Examples.ShearFlowEnergy
-import CKN.Setting.Examples.ShearFlowWeakForm
-import CKN.Setting.Examples.ShearFlowEnergyDensity
-import CKN.Setting.Examples.ShearFlow
-import CKN.Setting.Examples.ShearFlowIBP
-import CKN.Core.HeatPotential.GeneralSymbolHeatNear
-import CKN.Core.HeatPotential.GeneralSymbolHeatNearOscillation
-import CKN.Pressure.NewtonianDerivativeHLSTransfer
-import CKN.Pressure.NewtonianDerivativeHLS
-import CKN.Pressure.NewtonianDerivativeAeIntegrable
-import CKN.Pressure.KernelMeasurability
-import CKN.Core.HeatPotential.GeneralSymbolHeatKernelSplit
-import CKN.Core.HeatPotential.GeneralSymbolHeatKernelSplitData
-import CKN.Core.HeatPotential.GeneralSymbolCharacterizationFinal
-import CKN.Core.HeatPotential.GeneralSymbolCharacterizationAE
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelLocalIntegrable
-import CKN.Core.HeatPotential.GeneralSymbolPairings
-import CKN.Core.HeatPotential.GeneralSymbolCharacterization
-import CKN.Core.HeatPotential.GeneralSymbol
-import CKN.Core.Step3.PressureDecayProducer
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBoundsAssembly
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelTimeDerivative
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelSpatialDerivative
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelScaling
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelUnitBound
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelLowFrequency
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelHighFrequencyFourier
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelL1
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelOscillatory
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBoundsProof
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelGaussianDerivativeBounds
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelHighSymbolBounds
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBounds
-import CKN.Foundation.Harmonic.SolidBallMeanValueOriginCore
-import CKN.Foundation.Harmonic.SolidBallGradientSlice
-import CKN.Foundation.Harmonic.SolidBallGradientParametric
-import CKN.Foundation.Harmonic.SolidBallMeanValueOrigin
-import CKN.Foundation.Harmonic.RadialBumpDensities
-import CKN.Foundation.Harmonic.LocalZeroMeanPairing
-import CKN.Foundation.Harmonic.SmoothEuclideanCutoff
-import CKN.Foundation.Harmonic.RadialZeroMeanPairing
-import CKN.Foundation.Harmonic.CompactTestPairing
-import CKN.Foundation.Harmonic.NewtonianRadialSupport
-import CKN.Foundation.Harmonic.NewtonianRadialODE
-import CKN.Foundation.Harmonic.NewtonianRadialPotential
-import CKN.Foundation.Sobolev.Lipschitz.Ball
-import CKN.Foundation.Sobolev.Lipschitz.Domain
-import CKN.Foundation.Heat.HeatKernelFundamentalSolution
-import CKN.Foundation.Heat.CausalDistribution
-import CKN.Foundation.Euclidean.PressureMultiplierSymbol
-import CKN.Setting.BetaSqLimsup
-import CKN.Pressure.PkBoundsP8Sharp
-import CKN.Covering.DefectRadiusOfLimsup
-import CKN.Setting.CylinderSliceEnergyS1
-import CKN.Pressure.HlsRieszPotentialFinite
-import CKN.Pressure.PressureTestCommonNullSet
-import CKN.Pressure.DeltaPCentredMeanFreeAllTests
-import CKN.Setting.ExtSobolevBallTime
-import CKN.Core.TheoremA.ThmAMorreyAbsoluteAdapter
-import CKN.Core.TheoremA.InitialMorreyAbsolute
-import CKN.Setting.ExtSobolevBallSupported
-import CKN.Setting.SobolevGlobalL6
-import CKN.Setting.SobolevGlobalH2
-import CKN.Setting.SobolevGlobalH2Core
-import CKN.Core.Endgame.EndgameHolderNormOfMorreyData
-import CKN.Foundation.Euclidean.NewtonianRepresentationGeneralCore
-import CKN.Foundation.Euclidean.NewtonianRepresentationGeneral
-import CKN.Core.Endgame.TheoremAUnconditional
-import CKN.Covering.SphericalGaugeFull
-import CKN.Core.Step4.PressureGradientOriginASlotFinal
-import CKN.Core.Step4.PressureGradientOriginASlotM2InstancesCorrection
-import CKN.Foundation.Euclidean.RieszSecondAllExponentsPaper
-import CKN.Foundation.Euclidean.RieszSecondL2Symmetry
-import CKN.Setting.DivergenceFreeSliceC1
-import CKN.Setting.CylinderL3PointwisePaperCore
-import CKN.Foundation.Parabolic.Maximal.CentredFaithful
-import CKN.Setting.CylinderL3PointwisePaper
-import CKN.Setting.CylinderL3PointwiseFaithful
-import CKN.Core.Step4.PressureGradientOriginASlotCorrectionAssembly
-import CKN.Core.Step4.PressureGradientOriginASlotThinAssemblyQ
-import CKN.Core.Step4.PressureGradientOriginASlotThinCells
-import CKN.Core.Step4.PressureGradientOriginASlotThinCellsGeometry
-import CKN.Core.Step4.WeakGradientGluingTMeasurableFourTermAssembly
-import CKN.Core.Step4.WeakGradientGluingTEnvelopeInstances
-import CKN.Core.Step4.WeakGradientGluingTHarmonicMassEnvelope
-import CKN.Core.Step4.PressureGradientOriginGapHarmonicMoment
-import CKN.Core.Step4.WeakGradientGluingTForceMassEnvelope
-import CKN.Core.Step4.WeakGradientGluingTGapForceAffine
-import CKN.Setting.SpatialSliceNormsIdentifyDisplay
-import CKN.Setting.SliceNormBoundsPaperDisplay
-import CKN.Setting.SliceNormBoundsPaperForce
-import CKN.Setting.SpatialSliceNormIdentifyForce
-import CKN.Setting.SliceNormBoundsPaperPressure
-import CKN.Setting.SpatialSliceNormIdentifyPressure
-import CKN.Setting.SliceNormBoundsPaperGradient
-import CKN.Setting.SpatialSliceNormIdentifyGradient
-import CKN.Setting.SliceNormBoundsPaperVelocity
-import CKN.Setting.SliceTimeNormVelocityEq
-import CKN.Setting.SpatialSliceNormIdentifyVelocity
-import CKN.Setting.SliceTimeNormForce
-import CKN.Setting.SliceTimeNormPressure
-import CKN.Setting.SliceTimeNormGradient
-import CKN.Setting.Energy.FiniteDirichletCompact
-import CKN.Core.Step4.WeakGradientGluingTFourTermMass
-import CKN.Core.Step4.WeakGradientGluingTFourTermIdentification
-import CKN.Core.Step4.WeakGradientGluingTGapForceIncrement
-import CKN.Core.Endgame.TheoremAClosersInstancesQ
-import CKN.Core.Step4.WeakGradientGluingTInstanceInteriorCollar
-import CKN.Setting.RadiusMonotonicityFinite
-import CKN.Setting.ScalingQuantitiesPaper
-import CKN.Pressure.CZHarmonicCorollaryLocal
-import CKN.Pressure.Lin34CentredSetupFaithful
-import CKN.Core.Step3.LocalizedDuhamelSelected
-import CKN.Foundation.Parabolic.Morrey.RieszPotentialDpar
-import CKN.Core.Step2.ThetaDecay2Faithful
-import CKN.Core.Step4.PressureGradientOriginBSlotThreshold
-import CKN.Core.TheoremA.ScaleIterationFaithful
-import CKN.Setting.ScalingInvarianceS4Faithful
-import CKN.Pressure.PkP7GainFaithful
-import CKN.Core.Step3.LocalizedDuhamelProducer
-import CKN.Core.Endgame.TheoremAClosersInstances
-import CKN.Pressure.Lin34IntegratedFaithful
-import CKN.Foundation.Parabolic.Morrey.AdamsCorollaryFaithful
-import CKN.Foundation.Harmonic.InteriorSupSmoothBound
-import CKN.Foundation.Harmonic.InteriorSupSmoothBoundSupport
-import CKN.Pressure.PressureDecompositionFull
-import CKN.Pressure.PressureDecompositionRiesz
-import CKN.Pressure.DecompositionGlobalDistribution
-import CKN.Pressure.DecompositionAllSpaceTests
-import CKN.Pressure.CZHarmonicCorollaryFaithful
-import CKN.Core.Step4.WeakGradientGluingTActualPressureIdentification
-import CKN.Core.Step4.WeakGradientGluingTCentredSourceCorrection
-import CKN.Core.Step2.MorreyDescentFaithful
-import CKN.Setting.ScalingQuantitiesFullOnCylinder
-import CKN.Pressure.Lin34IntegratedLocalSource
-import CKN.Foundation.Parabolic.CampanatoHolderFaithful
-import CKN.Core.Step4.PressureGradientOriginKPHarmonicSmallCells
-import CKN.Core.Step4.PressureGradientOriginKPHarmonicCells
-import CKN.Core.Step4.PressureGradientOriginKPHarmonicMoment
-import CKN.Core.Step4.WeakGradientGluingTCaccioppoliQuantitative
-import CKN.Core.Step4.BootstrapFaithfulProp
-import CKN.Core.Step4.BootstrapFaithfulPotential
-import CKN.Core.Step2.MorreyDecayFaithful
-import CKN.Core.Step2.ThetaDecayFaithful
-import CKN.Pressure.CZHarmonicResidualIdentification
-import CKN.Foundation.Parabolic.Morrey.MinkowskiBallSpatial
-import CKN.Foundation.Parabolic.Morrey.MinkowskiBallDiameter
-import CKN.Foundation.Parabolic.Morrey.AdamsFiniteDisplay
-import CKN.Foundation.Harmonic.InteriorDisplaysOuter
-import CKN.Core.Step2.MorreyDecayAbsoluteConstant
-import CKN.Pressure.ForceCancellationSolenoidalDisplay
-import CKN.Pressure.Lin34Solution
-import CKN.Core.Step4.WeakGradientGluingTRieszSourceQuantitative
-import CKN.Core.Endgame.TheoremAClosersThreshold
-import CKN.Foundation.Parabolic.ParabolicCutoffPair
-import CKN.Foundation.Parabolic.Morrey.MaximalMorreyCore
-import CKN.Foundation.Heat.GaussianCutoffHeatIdentity
-import CKN.Foundation.Heat.GaussianSmooth
-import CKN.Pressure.IdentificationExtensionGrowthLocalBoxGrowth
-import CKN.Pressure.IdentificationExtensionGrowthLocalBoxSupport
-import CKN.Core.Step4.WeakGradientGluingTRemainderMajorantQuantitative
-import CKN.Core.Endgame.TheoremACloser
-import CKN.Core.Step4.PressureGradientOriginLatticeCover
-import CKN.Foundation.Harmonic.InteriorSupThreeQuarters
-import CKN.Foundation.Harmonic.InteriorSupDisplay
-import CKN.Foundation.Parabolic.CampanatoHolderConverseScope
-import CKN.Pressure.ForceCancellationLocalSpacetime
-import CKN.Core.Endgame.TheoremAFullSumAssembly
-import CKN.Foundation.Parabolic.Morrey.MinkowskiFaithful
-import CKN.Foundation.Parabolic.Morrey.MaximalMorrey
-import CKN.Setting.SobolevPoincareRescale
-import CKN.Pressure.CutoffFullStatement
-import CKN.Core.Step4.PressureGradientOriginKPAffineSource
-import CKN.Foundation.Heat.CylinderCenteredGradient
-import CKN.Setting.SobolevPoincareConstantPos
-import CKN.Foundation.Heat.GradPsiDisplay
-import CKN.Setting.SobolevPoincareBallFaithful
-import CKN.Setting.SobolevPoincareBallFaithfulL1
-import CKN.Setting.SobolevPoincareBallFaithfulL1Local
-import CKN.Setting.Energy.LocalEnergyAffineRampFaithful
-import CKN.Foundation.Heat.GaussianDisplayFaithful
-import CKN.Setting.InterpolationCylinderSource
-import CKN.Pressure.NewtonianRepresentationSource
-import CKN.Foundation.Parabolic.CampanatoHolderFull
-import CKN.Pressure.IdentificationExtensionGrowthLocalBox
-import CKN.Covering.FivefoldDisjointSubfamily
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTranslatedSlice
-import CKN.Pressure.CutoffAllOrdersFaithful
-import CKN.Core.Step2.MorreyFixedScaleTransferFaithful
-import CKN.Foundation.Parabolic.FivefoldCoverFaithful
-import CKN.Covering.CylinderRadiusContent
-import CKN.Pressure.DeltaPCentredMeanFreeSWS
-import CKN.Pressure.LaplacianMultiplierPairing
-import CKN.Pressure.PkBoundsP78SumOfNorms
-import CKN.Setting.InterpolationBallPublic
-import CKN.Foundation.Parabolic.CoveringLocalFinite
-import CKN.Setting.SpatialSliceNorms
-import CKN.Setting.CylinderSliceEnergy
-import CKN.Core.Step4.PressureGradientOriginClauseDerivativeShared
-import CKN.Core.Step4.WeakGradientGluingTRemainderMajorant
-import CKN.Core.Endgame.Lin34Faithful
-import CKN.Core.Endgame.TheoremBCloser
-import CKN.Core.Endgame.TheoremBUnconditional
-import CKN.Core.Endgame.TheoremACarrierTime
-import CKN.Core.Step4.PressureGradientOriginClauseDerivative
-import CKN.Core.Step4.PressureGradientOriginClauseDerivativeGeometry
-import CKN.Core.Step4.PressureGradientOriginClauseDerivativeLocal
-import CKN.Covering.TheoremCDefectFaithful
-import CKN.Pressure.LeibnizLaplacianCommuteFaithful
-import CKN.Foundation.Parabolic.BallsVsCylindersFaithful
-import CKN.Core.Step4.PressureGradientOriginCellInstanceWholeTime
-import CKN.Core.Step4.PressureGradientOriginCellInstanceSourceTime
-import CKN.Core.Step4.PressureGradientOriginCellInstanceForceGradientTime
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTermTime
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTermMeasurable
-import CKN.Core.Step4.PressureGradientOriginCellInstanceHarmonicForceTime
-import CKN.Core.Step4.PressureGradientOriginCellInstancePotentialTime
-import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalForce
-import CKN.Core.Step4.PressureGradientOriginCellInstanceForceTime
-import CKN.Core.Step4.PressureGradientOriginCellInstanceForceEnvelope
-import CKN.Core.Step4.PressureGradientOriginCellInstanceForceGrowth
-import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalSource
-import CKN.Core.Step4.PressureGradientOriginCellInstanceSourceObligations
-import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalMoments
-import CKN.Core.Step4.PressureGradientOriginCellInstanceWholeFinite
-import CKN.Core.Step4.PressureGradientOriginCellInstanceMeanNorm
-import CKN.Core.Step4.PressureGradientOriginCellInstanceCenteredSource
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTensorTime
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeHolder
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
-import CKN.Core.Step4.WeakGradientGluingTCollarAssembly
-import CKN.Covering.TheoremCReductionClosed
-import CKN.Core.Step4.PressureGradientOneSidedKP
-import CKN.Foundation.Sobolev.WeakGradientGluingTPressureMean
-import CKN.Core.Step4.WeakGradientGluingTFixedPairing
-import CKN.Core.Step4.WeakGradientGluingTDecompositionMorrey
-import CKN.Core.Step4.WeakGradientGluingTFixedRieszMorrey
-import CKN.Core.Step4.WeakGradientGluingTFixedForceMorrey
-import CKN.Core.Step4.WeakGradientGluingTFixedSourceMorrey
-import CKN.Core.Step4.WeakGradientGluingTFixedRemainderMorrey
-import CKN.Core.Step4.WeakGradientGluingTBoundedRepresentative
-import CKN.Core.Step4.WeakGradientGluingTFixedSelection
-import CKN.Core.Step4.WeakGradientGluingTFixedField
-import CKN.Core.Step4.WeakGradientGluingTSuitableSelection
-import CKN.Core.Step4.WeakGradientGluingTSuitableRiesz
-import CKN.Core.Step4.WeakGradientGluingTWindowSelection
-import CKN.Core.Step4.WeakGradientGluingTSourceMeasurable
-import CKN.Core.Step4.WeakGradientGluingTSuitableIdentification
-import CKN.Core.Step4.WeakGradientGluingTRieszIdentification
-import CKN.Core.Step4.WeakGradientGluingTRieszSelection
-import CKN.Foundation.Sobolev.WeakGradientGluingTGlobalSelection
-import CKN.Core.Endgame.TheoremABudgetBridge
-import CKN.Core.Step4.PressureGradientOriginKPComparison
-import CKN.Core.Step4.PressureGradientGaugeMajorantShift
-import CKN.Core.HeatPotential.ExponentFormulas
-import CKN.Setting.CombinedMonotonicity
-import CKN.Core.Step4.PressureGradientGaugeMajorantHolder
-import CKN.Core.Step4.PressureGradientGaugeMajorantExponents
-import CKN.Core.Step4.PressureGradientGluedOriginClause
-import CKN.Core.Step4.PressureGradientOriginCellInstanceSource
-import CKN.Core.Step4.PressureGradientOriginCellInstanceSlice
-import CKN.Core.Step4.PressureGradientOriginCellInstancePressure
-import CKN.Core.Step4.PressureGradientGluedTransferClause
-import CKN.Core.Step4.PressureGradientOriginClauseGeometry
-import CKN.Core.Step4.PressureGradientOriginClauseProduct
-import CKN.Core.Step4.PressureGradientOriginClauseExhaustion
-import CKN.Core.Step4.PressureGradientOriginClausePairing
-import CKN.Core.Step4.PressureGradientOriginClauseGlue
-import CKN.Core.Step4.PressureGradientOriginClauseField
-import CKN.Core.Step4.PressureGradientOriginClauseBounds
-import CKN.Core.Step4.PressureGradientOriginClauseBudget
-import CKN.Core.Step4.PressureGradientOriginBudgetSufficient
-import CKN.Core.Step4.PressureGradientOriginBudget
-import CKN.Foundation.Sobolev.Cutoff.NormTriangle
-import CKN.Pressure.PkConstantsNonneg
-import CKN.Foundation.Sobolev.Mollify.SupportThickening
-import CKN.Foundation.Heat.SpaceSecondDeriv
-import CKN.Pressure.UTensorNormFactor
-import CKN.Pressure.SpatialGradientSqENorm
-import CKN.Pressure.MemLpThreeHalvesLift
-import CKN.Foundation.Sobolev.Cutoff.NormLeVecEuclidean
-import CKN.Foundation.Parabolic.TsupportSpatialBox
-import CKN.Foundation.Parabolic.TsupportProduct
-import CKN.Foundation.Parabolic.Morrey.AdamsConstantFinite
-import CKN.Foundation.Parabolic.Morrey.AdamsCoefficientFinite
-import CKN.Foundation.Parabolic.BallOrigin
-import CKN.Foundation.Measure.WeightedKernelIdentity
-import CKN.Foundation.Measure.LayerCake
-import CKN.Foundation.Measure.HolderTripleProducts
-import CKN.Foundation.Measure.ENNRealHalfScale
-import CKN.Foundation.Heat.GaussianDisplay
-import CKN.Foundation.Heat.CylinderCenteredPartialLink
-import CKN.Foundation.Heat.CylinderCenteredGlobal
-import CKN.Foundation.Harmonic.NewtonianKernelIntegrability
-import CKN.Foundation.Euclidean.LpExtensionInputCast
-import CKN.Foundation.Sobolev.Measure.CompactMultiplier
-import CKN.Core.Step4.PressureGradientOriginKPAffineSlot
-import CKN.Covering.DefectLimsupOfSingular
-import CKN.Covering.SumRadiiDefectBalls
-import CKN.Covering.ThmCMeasureContent
-import CKN.Core.BootstrapConditionRange
-import CKN.Core.Step2.ThetaDecayAbsoluteConstant
-import CKN.Core.Step2.IterationAbsoluteConstant
-import CKN.Core.Endgame.TheoremBAbsoluteThreshold
-import CKN.Foundation.Parabolic.Morrey.HedbergDisplay
-import CKN.Core.Step4.PressureGradientOriginASlotLargeCellsGeometry
-import CKN.Core.Step4.PressureGradientOriginASlotLargeCells
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergyHolder
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergyTime
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergySlices
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergyMajorant
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergy
-import CKN.Core.Step4.PressureGradientOriginBSlotInstancesCollar
-import CKN.Core.Step4.PressureGradientOriginBSlotInstances
-import CKN.Core.Step4.PressureGradientOriginASlotHarmonicHolder
-import CKN.Core.Step4.PressureGradientOriginASlotHarmonic
-import CKN.Core.Step4.PressureGradientOriginASlotSourceCorrectionSupport
-import CKN.Core.Step4.PressureGradientOriginASlotM1Instances
-import CKN.Core.Step4.PressureGradientOriginASlotM2MeanFree
-import CKN.Core.Step4.PressureGradientOriginASlotM2Riesz
-import CKN.Core.Step4.PressureGradientOriginASlotM2Split
-import CKN.Core.Step4.PressureGradientOriginASlotM2Data
-import CKN.Core.Step4.PressureGradientOriginASlotM2EnergyMean
-import CKN.Core.Endgame.ForceSlotNumericalClosure
-import CKN.Foundation.Heat.SpatialSliceMultiplier
-import CKN.Foundation.Heat.SliceMultiplierConvolution
-import CKN.Core.HeatPotential.MultiplierPotentialBridge
-import CKN.Main.TheoremAPaper
-import CKN.Main.TheoremBPaper
-import CKN.Main.TheoremCPaper
-import CKN.Statements.TheoremA
-import CKN.Statements.TheoremB
-import CKN.Statements.TheoremC
-import CKN.Witnesses.CarrierGeometry
-import CKN.Witnesses.InterfaceWitnessesCampanato
-import CKN.Witnesses.InterfaceWitnessesFoundation
-import CKN.Witnesses.InterfaceWitnessesStep4
-import CKN.Witnesses.LpExtensionExteriorConsumers
-import CKN.Witnesses.NonIntegrableBox
-import CKN.Witnesses.PressureGradientOriginCellInstanceCarrier
-import CKN.Witnesses.PressureGradientOriginClauseSatisfiable
-import CKN.Witnesses.PressureGradientSliceInputFromCorrected
-import CKN.Witnesses.RepresentationWitnesses
-import CKN.Witnesses.TheoremACoverBudget
-import CKN.Witnesses.TrivialSolution
-import CKN.Core.Step4.PressureGradientOriginClauseMajorantArith
-import CKN.Core.HeatPotential.HeatFarAssemblyGeometry
-import CKN.Core.HeatPotential.HeatFarAssemblyKernel
-import CKN.Core.HeatPotential.HeatFarAssemblySlots
-import CKN.Core.HeatPotential.HeatFarAssembly
-import CKN.Core.HeatPotential.HeatConclusionAssembly
-import CKN.Core.HeatPotential.HeatHolderOfConclusion
-import CKN.Core.HeatPotential.HeatLinftyOfHolder
-import CKN.Core.HeatPotential.HeatLinftyCore
-import CKN.Core.HeatPotential.HeatHolderBridge
-import CKN.Core.HeatPotential.HeatHolderComplex
-import CKN.Core.HeatPotential.HeatHolderCampanato
+public import CKN.Setting.VectorInequalities
+public import CKN.Setting.Cutoff
+public import CKN.Setting.InterpolationBall
+public import CKN.Setting.SobolevPoincareBall
+public import CKN.Setting.SobolevPoincareBallWeak
+public import CKN.Setting.PoincareSobolevL1
+public import CKN.Setting.PoincareSobolevL1Ball
+public import CKN.Setting.PoincareSobolevL1Vec
+public import CKN.Setting.PoincareSobolevL1Slice
+public import CKN.Setting.PoincareSobolevL1SliceBasic
+public import CKN.Setting.ScalingInvariance
+
+public import CKN.Setting.Energy.PointwiseEnergy
+public import CKN.Setting.Energy.Calculus
+public import CKN.Setting.Energy.Integrability
+public import CKN.Setting.Energy.TimeCutoff
+public import CKN.Setting.Energy.AELocalEnergy
+public import CKN.Setting.Finiteness
+public import CKN.Setting.DivergenceFreeSlice
+public import CKN.Setting.ShearMeanExcess
+public import CKN.Setting.PressureGaugeSlices
+public import CKN.Setting.PressureGaugeInvariance
+public import CKN.ClassEquivalence.Data
+public import CKN.ClassEquivalence.TestSupport
+public import CKN.ClassEquivalence.CompactLp
+public import CKN.ClassEquivalence.BallCover
+public import CKN.ClassEquivalence.VelocityTenThirds
+public import CKN.ClassEquivalence.DivergenceFreeIntegrand
+public import CKN.ClassEquivalence.MomentumIntegrand
+public import CKN.ClassEquivalence.DissipationIntegrand
+public import CKN.ClassEquivalence.EnergyIntegrand
+public import CKN.ClassEquivalence.Constructor
+public import CKN.ClassEquivalence.MainTheorems
+public import CKN.Pressure.Slices
+public import CKN.Pressure.ParamExtension
+public import CKN.Pressure.SliceIdentity
+public import CKN.Pressure.Decomposition
+public import CKN.Pressure.Potentials
+public import CKN.Pressure.DecompositionPotentials
+public import CKN.Pressure.PkBoundsBasic
+public import CKN.Pressure.PkBoundsP234
+public import CKN.Pressure.PkBoundsP56
+public import CKN.Pressure.PkBoundsP8
+public import CKN.Pressure.PkBoundsP7
+public import CKN.Pressure.PkBoundsCylinder
+public import CKN.Pressure.DecompositionIdentity
+public import CKN.Pressure.DecompositionSWS
+public import CKN.Pressure.OscillationHarmonic
+public import CKN.Pressure.HarmonicPartDerivatives
+public import CKN.Pressure.HarmonicPartBounds
+public import CKN.Pressure.HarmonicPartBoundsAE
+public import CKN.Pressure.ForceCancellation
+public import CKN.Pressure.ForceCancellationUnconditional
+public import CKN.Pressure.ForceDivergenceFreeBridge
+public import CKN.Pressure.OscillationLin34
+public import CKN.Pressure.Lin34Slices
+public import CKN.Pressure.OscillationLin34Solution
+public import CKN.Pressure.Lin34SliceHolder
+public import CKN.Pressure.Lin34SliceFubini
+public import CKN.Pressure.Lin34SliceMeanFree
+public import CKN.Pressure.Lin34SliceCore
+public import CKN.Pressure.Lin34SlicePointwise
+public import CKN.Pressure.Lin34SliceForceLp
+public import CKN.Pressure.Lin34SliceForceCylinder
+public import CKN.Pressure.Lin34SliceQuantities
+public import CKN.Pressure.Lin34SliceIntegrated
+public import CKN.Pressure.HarmonicRemainderSlice
+public import CKN.Pressure.HarmonicRemainderForceTerms
+public import CKN.Pressure.HarmonicRemainderSliceSWS
+public import CKN.Pressure.Identification
+public import CKN.Pressure.IdentificationWholeSpace
+public import CKN.Pressure.IdentificationExtension
+public import CKN.Pressure.IdentificationExtensionGrowth
+public import CKN.Pressure.IdentificationExtensionGrowthSWS
+public import CKN.Pressure.IdentificationExtensionUnconditional
+public import CKN.Pressure.SliceVelocityCube
+public import CKN.Pressure.IdentificationCZP1Unconditional
+public import CKN.Pressure.IdentificationCZP1LocalGrowth
+public import CKN.Pressure.CZP1Closer
+public import CKN.Pressure.IdentificationCZP1Final
+public import CKN.Pressure.CZP1UnconditionalAssembly
+public import CKN.Pressure.IdentificationExtensionPairingKernel
+public import CKN.Pressure.IdentificationExtensionPairingSource
+public import CKN.Pressure.IdentificationExtensionPairingSlice
+public import CKN.Pressure.IdentificationExtensionPairingExterior
+public import CKN.Pressure.IdentificationExtensionPairingSwap
+public import CKN.Pressure.IdentificationExtensionPairingWholeSpace
+public import CKN.Pressure.IdentificationExtensionPairing
+public import CKN.Pressure.IdentificationExtensionPairingCylinder
+public import CKN.Pressure.PotentialDecayUnitBall
+public import CKN.Pressure.PotentialDecayShell
+public import CKN.Pressure.PotentialDecayGeometry
+public import CKN.Pressure.PotentialDecayGrowthSum
+public import CKN.Pressure.PotentialDecay
+public import CKN.Pressure.PotentialDecayFarField
+public import CKN.Pressure.PotentialDecayPotentials
+public import CKN.Pressure.CZHarmonicCorollaryParts
+public import CKN.Pressure.CZHarmonicCorollaryIdentification
+public import CKN.Pressure.CZHarmonicCorollaryForceSlice
+public import CKN.Pressure.CZHarmonicCorollaryForceLocal
+public import CKN.Pressure.CZHarmonicCorollaryForce
+public import CKN.Pressure.CZHarmonicCorollary
+public import CKN.Pressure.CZStartBridgeSource
+public import CKN.Pressure.Lin34CentredSource
+public import CKN.Pressure.Lin34CentredCorrection
+public import CKN.Pressure.Lin34CentredPairing
+public import CKN.Pressure.Lin34CentredPairingSWS
+public import CKN.Pressure.Lin34CentredPotentialSource
+public import CKN.Pressure.Lin34CentredPotentialGrowth
+public import CKN.Pressure.Lin34CentredCZ
+public import CKN.Pressure.Lin34CentredCZResidual
+public import CKN.Pressure.Lin34CentredResidual
+public import CKN.Foundation.Euclidean.PotentialLocalLpKernel
+public import CKN.Foundation.Euclidean.PotentialLocalLpExponents
+public import CKN.Foundation.Euclidean.PotentialLocalLpMeasure
+public import CKN.Foundation.Euclidean.PotentialLocalLp
+public import CKN.Foundation.Euclidean.PotentialLocalLpGrowth
+public import CKN.Foundation.Euclidean.PotentialLocalLpP8
+public import CKN.Core.Caccioppoli.Caccioppoli
+public import CKN.Core.Caccioppoli.Consumers
+public import CKN.Foundation.Harmonic.KernelAllOrders
+public import CKN.Foundation.Euclidean.RieszSecondExterior
+public import CKN.Core.Step4.SliceSelectedGradientPotential
+public import CKN.Core.Step4.SliceSelectedGradientRemainder
+public import CKN.Core.Step4.SliceSelectedGradientScaling
+public import CKN.Core.Step4.SliceSelectedGradientAssembly
+public import CKN.Core.Step4.SliceSelectedGradient
+public import CKN.Core.Step4.SliceSelectedGradientRegularity
+public import CKN.Core.Step4.SliceSelectedGradientForce
+public import CKN.Core.Step4.SliceSelectedGradientIdentification
+public import CKN.Core.Step4.SliceSelectedGradientSWS
+public import CKN.Core.Step4.SliceSelectedGradientForceP8
+public import CKN.Core.Step4.SliceSelectedGradientForceSlices
+public import CKN.Core.Step4.SliceSelectedGradientForceUnconditional
+public import CKN.Core.Step4.SliceSelectedGradientForceHolder
+public import CKN.Core.Step4.SliceSelectedGradientSWSUnconditional
+public import CKN.Core.Step4.SliceSelectedGradientSWSFinal
+public import CKN.Core.Step4.SliceSelectedGradientInputs
+public import CKN.Core.Step4.SliceSelectedGradientCentredSource
+public import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensorDef
+public import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensor
+public import CKN.Core.Step4.SliceSelectedGradientTensorSourcePairing
+public import CKN.Core.Step4.SliceSelectedGradientTensorSource
+public import CKN.Core.Step4.SliceSelectedGradientInputsCentred
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSFinal
+public import CKN.Core.Step4.SliceSelectedGradientCorrectedSWS
+public import CKN.Core.Step4.SliceSelectedGradientCellIdentification
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSSource
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSBounds
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSData
+public import CKN.Core.Step4.SourceMorreyFirstRoundSupport
+public import CKN.Core.Step4.SourceMorreyFirstRoundCutoff
+public import CKN.Core.Step4.SourceMorreyFirstRoundNorms
+public import CKN.Core.Step4.SourceMorreyFirstRound
+public import CKN.Core.Step4.RouteAFirstRoundConsumer
+public import CKN.Core.Step3.GradientSlotDuhamelAtoms
+public import CKN.Core.Step3.GradientSlotDuhamelTransfers
+public import CKN.Core.Step3.GradientSlotDuhamelSplit
+public import CKN.Core.Step3.GradientSlotDuhamelTested
+public import CKN.Core.Step3.GradientSlotDuhamel
+public import CKN.Core.Step4.RouteAGradientProducerUniformExponents
+public import CKN.Core.Step4.RouteAGradientProducerUniformMorrey
+public import CKN.Core.Step4.RouteAGradientProducerUniform
+public import CKN.Core.Step4.PressureGradientHGCloserTransfer
+public import CKN.Core.Step4.PressureGradientHGCloserTimeBounds
+public import CKN.Core.Step4.SliceSelectedGradientSymmetricGeometry
+public import CKN.Core.Step4.SliceSelectedGradientSymmetricBox
+public import CKN.Core.Endgame.GAAdapters
+public import CKN.Core.Endgame.GAAdaptersCell
+public import CKN.Core.Endgame.TheoremAAdaptersLin34
+public import CKN.Core.Endgame.TheoremAAdaptersCZ
+public import CKN.Core.Step4.PressureGradientOriginCellProducerSlice
+public import CKN.Core.Step4.PressureGradientGluedPartition
+public import CKN.Core.Step4.PressureGradientGluedSupport
+public import CKN.Core.Step4.PressureGradientGluedSelectionCore
+public import CKN.Core.Step4.PressureGradientGluedLocality
+public import CKN.Core.Step4.PressureGradientGluedUnion
+public import CKN.Foundation.Sobolev.WeakGradientGluing
+public import CKN.Foundation.Sobolev.WeakGradientGluingTMeasurable
+public import CKN.Foundation.Sobolev.WeakGradientGluingTBounds
+public import CKN.Core.Step4.PressureGradientGluedGeometry
+public import CKN.Core.Step4.PressureGradientGluedSlice
+public import CKN.Core.Step4.PressureGradientGluedTwoRegime
+public import CKN.Core.Step4.PressureGradientGluedCell
+public import CKN.Core.Step4.PressureGradientLargeCells
+public import CKN.Core.Step4.PressureGradientGluedTwoRegimeMorrey
+public import CKN.Core.Step4.PressureGradientGluedMarginGeometry
+public import CKN.Core.Step4.PressureGradientGluedMarginCost
+public import CKN.Core.Step4.PressureGradientGluedOriginTransfer
+public import CKN.Core.Step4.PressureGradientGluedSmallCell
+public import CKN.Core.Step4.PressureGradientOriginClauseDoubling
+public import CKN.Core.Step4.PressureGradientGluedTimeBounds
+public import CKN.Core.Step4.PressureGradientGluedRemainderBounds
+public import CKN.Core.Step4.PressureGradientOriginClauseGauge
+public import CKN.Core.Step4.PressureGradientOriginClauseGrowth
+public import CKN.Core.Step4.BootstrapStep2SourceConstruction
+public import CKN.Setting.InterpolationInstancesDisplay
+public import CKN.Setting.InterpolationInstancesSharpness
+public import CKN.Core.Endgame.CausalHalfCylinderFinal
+public import CKN.Core.HeatPotential.PastSourcesStep2
+public import CKN.Core.HeatPotential.PastSourcesSourceAdapter
+public import CKN.Core.HeatPotential.CoordinateMultiplierBridge
+public import CKN.Core.HeatPotential.HeatMorreyHolder
+public import CKN.Core.Endgame.CausalHalfCylinderAssembly
+public import CKN.Core.HeatPotential.HeatLinfty
+public import CKN.Core.HeatPotential.HeatHolder
+public import CKN.Core.HeatPotential.HeatMorreyHolderOfConclusion2
+public import CKN.Core.Step4.InteriorGradientProducerStep2
+public import CKN.Core.Step4.InteriorGradientProducer
+public import CKN.Core.Step4.InteriorGradientProducerTransport
+public import CKN.Core.Step4.InteriorGradientProducerScaling
+public import CKN.Setting.Examples.ShearCounterexample.SWSLocalDataWitness
+public import CKN.Setting.Examples.ShearCounterexampleFinal
+public import CKN.Setting.Examples.ShearCounterexampleEnergyDecay
+public import CKN.Setting.Examples.ShearCounterexample
+public import CKN.Setting.Examples.ShearCounterexampleLEILimit
+public import CKN.Setting.Examples.ShearCounterexampleSupportBridge
+public import CKN.Setting.Examples.ShearCounterexample.LEIHelpers
+public import CKN.Setting.Examples.ShearCounterexample.FiniteLEI
+public import CKN.Setting.Examples.ShearCounterexampleDivergenceLimit
+public import CKN.Setting.Examples.ShearCounterexampleMomentumLimit
+public import CKN.Setting.Examples.ShearCounterexample.FiniteMomentumIntegral
+public import CKN.Setting.Examples.ShearCounterexample.FiniteMomentum
+public import CKN.Setting.Examples.ShearCounterexample.FactorIBP
+public import CKN.Setting.Examples.ShearCounterexample.SmoothIBP
+public import CKN.Setting.Examples.ShearCounterexample.FiniteApproxCalculus
+public import CKN.Setting.Examples.ShearCounterexample.FiniteHeatIdentity
+public import CKN.Setting.Examples.ShearCounterexample.ReducedFiniteDerivatives
+public import CKN.Setting.Examples.ShearCounterexample.SmoothSecondDerivative
+public import CKN.Setting.Examples.ShearCounterexample.FiniteSmooth
+public import CKN.Setting.Examples.ShearCounterexample.ReducedSpatialFinite
+public import CKN.Setting.Examples.ShearCounterexample.SeriesApprox
+public import CKN.Setting.Examples.ShearCounterexample.GradientSeparation
+public import CKN.Setting.Examples.ShearCounterexample.MomentumMajorant
+public import CKN.Setting.Examples.ShearCounterexample.TestSupport
+public import CKN.Setting.Examples.ShearCounterexample.FactorDerivative
+public import CKN.Setting.Examples.ShearCounterexample.SWSLocalData
+public import CKN.Setting.Examples.ShearCounterexample.VectorLocal
+public import CKN.Setting.Examples.ShearCounterexample.SliceEnergy
+public import CKN.Setting.Examples.ShearCounterexample.SliceSpatialUniform
+public import CKN.Setting.Examples.ShearCounterexample.SliceSpatialLp
+public import CKN.Setting.Examples.ShearCounterexample.SliceAE
+public import CKN.Setting.Examples.ShearCounterexample.SliceFullWeak
+public import CKN.Setting.Examples.ShearCounterexample.SliceDerivative
+public import CKN.Setting.Examples.ShearCounterexample.SliceFinite
+public import CKN.Setting.Examples.ShearCounterexample.FullFields
+public import CKN.Setting.Examples.ShearCounterexample.ForceL2
+public import CKN.Setting.Examples.ShearCounterexample.ScaleSupport
+public import CKN.Setting.Examples.ShearCounterexample.LocalConstDeriv
+public import CKN.Setting.Examples.ShearCounterexample.ScaleL3
+public import CKN.Setting.Examples.ShearCounterexample.ScaleSeries
+public import CKN.Setting.Examples.ShearCounterexample.ShearWeightedProfile
+public import CKN.Setting.Examples.ShearCounterexample.WeightSummable
+public import CKN.Setting.Examples.ShearCounterexample.LpTsum
+public import CKN.Setting.Examples.ShearCounterexample.ScaleDerivatives
+public import CKN.Setting.Examples.ShearCounterexample.ScaleBounds
+public import CKN.Setting.Examples.ShearCounterexample.LocalTestBox
+public import CKN.Setting.Examples.ShearCounterexampleCoordinateEnergy
+public import CKN.Setting.Examples.ShearCounterexample.AmbientLp
+public import CKN.Setting.Examples.ShearCounterexample.ShearCoordinates
+public import CKN.Core.HeatPotential.HeatFarStripBound
+public import CKN.Foundation.Parabolic.Morrey.StripMass
+public import CKN.Witnesses.RouteAGradientProducer
+public import CKN.Witnesses.DyadicCubeWitness
+public import CKN.Core.HeatPotential.PastSourcesBridge
+public import CKN.Core.HeatPotential.PastSourcesNear
+public import CKN.Core.HeatPotential.GeneralSymbolHeatConclusionAssembly
+public import CKN.Core.HeatPotential.GeneralSymbolHeatConclusion
+public import CKN.Setting.SuitableSliceTimeNormBounds
+public import CKN.Core.Step3.LocalizedEquationDisplay
+public import CKN.Pressure.DecompSolenoidal
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelCrossZero
+public import CKN.Core.HeatPotential.GeneralSymbolHeatNearProof
+public import CKN.Setting.Examples.ShearFlowSuitable
+public import CKN.Setting.Examples.ShearFlowLocalData
+public import CKN.Setting.Examples.ShearFlowEnergy
+public import CKN.Setting.Examples.ShearFlowWeakForm
+public import CKN.Setting.Examples.ShearFlowEnergyDensity
+public import CKN.Setting.Examples.ShearFlow
+public import CKN.Setting.Examples.ShearFlowIBP
+public import CKN.Core.HeatPotential.GeneralSymbolHeatNear
+public import CKN.Core.HeatPotential.GeneralSymbolHeatNearOscillation
+public import CKN.Pressure.NewtonianDerivativeHLSTransfer
+public import CKN.Pressure.NewtonianDerivativeHLS
+public import CKN.Pressure.NewtonianDerivativeAeIntegrable
+public import CKN.Pressure.KernelMeasurability
+public import CKN.Core.HeatPotential.GeneralSymbolHeatKernelSplit
+public import CKN.Core.HeatPotential.GeneralSymbolHeatKernelSplitData
+public import CKN.Core.HeatPotential.GeneralSymbolCharacterizationFinal
+public import CKN.Core.HeatPotential.GeneralSymbolCharacterizationAE
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelLocalIntegrable
+public import CKN.Core.HeatPotential.GeneralSymbolPairings
+public import CKN.Core.HeatPotential.GeneralSymbolCharacterization
+public import CKN.Core.HeatPotential.GeneralSymbol
+public import CKN.Core.Step3.PressureDecayProducer
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBoundsAssembly
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelTimeDerivative
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelSpatialDerivative
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelScaling
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelUnitBound
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelLowFrequency
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelHighFrequencyFourier
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelL1
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelOscillatory
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBoundsProof
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelGaussianDerivativeBounds
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelHighSymbolBounds
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBounds
+public import CKN.Foundation.Harmonic.SolidBallMeanValueOriginCore
+public import CKN.Foundation.Harmonic.SolidBallGradientSlice
+public import CKN.Foundation.Harmonic.SolidBallGradientParametric
+public import CKN.Foundation.Harmonic.SolidBallMeanValueOrigin
+public import CKN.Foundation.Harmonic.RadialBumpDensities
+public import CKN.Foundation.Harmonic.LocalZeroMeanPairing
+public import CKN.Foundation.Harmonic.SmoothEuclideanCutoff
+public import CKN.Foundation.Harmonic.RadialZeroMeanPairing
+public import CKN.Foundation.Harmonic.CompactTestPairing
+public import CKN.Foundation.Harmonic.NewtonianRadialSupport
+public import CKN.Foundation.Harmonic.NewtonianRadialODE
+public import CKN.Foundation.Harmonic.NewtonianRadialPotential
+public import CKN.Foundation.Sobolev.Lipschitz.Ball
+public import CKN.Foundation.Sobolev.Lipschitz.Domain
+public import CKN.Foundation.Heat.HeatKernelFundamentalSolution
+public import CKN.Foundation.Heat.CausalDistribution
+public import CKN.Foundation.Euclidean.PressureMultiplierSymbol
+public import CKN.Setting.BetaSqLimsup
+public import CKN.Pressure.PkBoundsP8Sharp
+public import CKN.Covering.DefectRadiusOfLimsup
+public import CKN.Setting.CylinderSliceEnergyS1
+public import CKN.Pressure.HlsRieszPotentialFinite
+public import CKN.Pressure.PressureTestCommonNullSet
+public import CKN.Pressure.DeltaPCentredMeanFreeAllTests
+public import CKN.Setting.ExtSobolevBallTime
+public import CKN.Core.TheoremA.ThmAMorreyAbsoluteAdapter
+public import CKN.Core.TheoremA.InitialMorreyAbsolute
+public import CKN.Setting.ExtSobolevBallSupported
+public import CKN.Setting.SobolevGlobalL6
+public import CKN.Setting.SobolevGlobalH2
+public import CKN.Setting.SobolevGlobalH2Core
+public import CKN.Core.Endgame.EndgameHolderNormOfMorreyData
+public import CKN.Foundation.Euclidean.NewtonianRepresentationGeneralCore
+public import CKN.Foundation.Euclidean.NewtonianRepresentationGeneral
+public import CKN.Core.Endgame.TheoremAUnconditional
+public import CKN.Covering.SphericalGaugeFull
+public import CKN.Core.Step4.PressureGradientOriginASlotFinal
+public import CKN.Core.Step4.PressureGradientOriginASlotM2InstancesCorrection
+public import CKN.Foundation.Euclidean.RieszSecondAllExponentsPaper
+public import CKN.Foundation.Euclidean.RieszSecondL2Symmetry
+public import CKN.Setting.DivergenceFreeSliceC1
+public import CKN.Setting.CylinderL3PointwisePaperCore
+public import CKN.Foundation.Parabolic.Maximal.CentredFaithful
+public import CKN.Setting.CylinderL3PointwisePaper
+public import CKN.Setting.CylinderL3PointwiseFaithful
+public import CKN.Core.Step4.PressureGradientOriginASlotCorrectionAssembly
+public import CKN.Core.Step4.PressureGradientOriginASlotThinAssemblyQ
+public import CKN.Core.Step4.PressureGradientOriginASlotThinCells
+public import CKN.Core.Step4.PressureGradientOriginASlotThinCellsGeometry
+public import CKN.Core.Step4.WeakGradientGluingTMeasurableFourTermAssembly
+public import CKN.Core.Step4.WeakGradientGluingTEnvelopeInstances
+public import CKN.Core.Step4.WeakGradientGluingTHarmonicMassEnvelope
+public import CKN.Core.Step4.PressureGradientOriginGapHarmonicMoment
+public import CKN.Core.Step4.WeakGradientGluingTForceMassEnvelope
+public import CKN.Core.Step4.WeakGradientGluingTGapForceAffine
+public import CKN.Setting.SpatialSliceNormsIdentifyDisplay
+public import CKN.Setting.SliceNormBoundsPaperDisplay
+public import CKN.Setting.SliceNormBoundsPaperForce
+public import CKN.Setting.SpatialSliceNormIdentifyForce
+public import CKN.Setting.SliceNormBoundsPaperPressure
+public import CKN.Setting.SpatialSliceNormIdentifyPressure
+public import CKN.Setting.SliceNormBoundsPaperGradient
+public import CKN.Setting.SpatialSliceNormIdentifyGradient
+public import CKN.Setting.SliceNormBoundsPaperVelocity
+public import CKN.Setting.SliceTimeNormVelocityEq
+public import CKN.Setting.SpatialSliceNormIdentifyVelocity
+public import CKN.Setting.SliceTimeNormForce
+public import CKN.Setting.SliceTimeNormPressure
+public import CKN.Setting.SliceTimeNormGradient
+public import CKN.Setting.Energy.FiniteDirichletCompact
+public import CKN.Core.Step4.WeakGradientGluingTFourTermMass
+public import CKN.Core.Step4.WeakGradientGluingTFourTermIdentification
+public import CKN.Core.Step4.WeakGradientGluingTGapForceIncrement
+public import CKN.Core.Endgame.TheoremAClosersInstancesQ
+public import CKN.Core.Step4.WeakGradientGluingTInstanceInteriorCollar
+public import CKN.Setting.RadiusMonotonicityFinite
+public import CKN.Setting.ScalingQuantitiesPaper
+public import CKN.Pressure.CZHarmonicCorollaryLocal
+public import CKN.Pressure.Lin34CentredSetupFaithful
+public import CKN.Core.Step3.LocalizedDuhamelSelected
+public import CKN.Foundation.Parabolic.Morrey.RieszPotentialDpar
+public import CKN.Core.Step2.ThetaDecay2Faithful
+public import CKN.Core.Step4.PressureGradientOriginBSlotThreshold
+public import CKN.Core.TheoremA.ScaleIterationFaithful
+public import CKN.Setting.ScalingInvarianceS4Faithful
+public import CKN.Pressure.PkP7GainFaithful
+public import CKN.Core.Step3.LocalizedDuhamelProducer
+public import CKN.Core.Endgame.TheoremAClosersInstances
+public import CKN.Pressure.Lin34IntegratedFaithful
+public import CKN.Foundation.Parabolic.Morrey.AdamsCorollaryFaithful
+public import CKN.Foundation.Harmonic.InteriorSupSmoothBound
+public import CKN.Foundation.Harmonic.InteriorSupSmoothBoundSupport
+public import CKN.Pressure.PressureDecompositionFull
+public import CKN.Pressure.PressureDecompositionRiesz
+public import CKN.Pressure.DecompositionGlobalDistribution
+public import CKN.Pressure.DecompositionAllSpaceTests
+public import CKN.Pressure.CZHarmonicCorollaryFaithful
+public import CKN.Core.Step4.WeakGradientGluingTActualPressureIdentification
+public import CKN.Core.Step4.WeakGradientGluingTCentredSourceCorrection
+public import CKN.Core.Step2.MorreyDescentFaithful
+public import CKN.Setting.ScalingQuantitiesFullOnCylinder
+public import CKN.Pressure.Lin34IntegratedLocalSource
+public import CKN.Foundation.Parabolic.CampanatoHolderFaithful
+public import CKN.Core.Step4.PressureGradientOriginKPHarmonicSmallCells
+public import CKN.Core.Step4.PressureGradientOriginKPHarmonicCells
+public import CKN.Core.Step4.PressureGradientOriginKPHarmonicMoment
+public import CKN.Core.Step4.WeakGradientGluingTCaccioppoliQuantitative
+public import CKN.Core.Step4.BootstrapFaithfulProp
+public import CKN.Core.Step4.BootstrapFaithfulPotential
+public import CKN.Core.Step2.MorreyDecayFaithful
+public import CKN.Core.Step2.ThetaDecayFaithful
+public import CKN.Pressure.CZHarmonicResidualIdentification
+public import CKN.Foundation.Parabolic.Morrey.MinkowskiBallSpatial
+public import CKN.Foundation.Parabolic.Morrey.MinkowskiBallDiameter
+public import CKN.Foundation.Parabolic.Morrey.AdamsFiniteDisplay
+public import CKN.Foundation.Harmonic.InteriorDisplaysOuter
+public import CKN.Core.Step2.MorreyDecayAbsoluteConstant
+public import CKN.Pressure.ForceCancellationSolenoidalDisplay
+public import CKN.Pressure.Lin34Solution
+public import CKN.Core.Step4.WeakGradientGluingTRieszSourceQuantitative
+public import CKN.Core.Endgame.TheoremAClosersThreshold
+public import CKN.Foundation.Parabolic.ParabolicCutoffPair
+public import CKN.Foundation.Parabolic.Morrey.MaximalMorreyCore
+public import CKN.Foundation.Heat.GaussianCutoffHeatIdentity
+public import CKN.Foundation.Heat.GaussianSmooth
+public import CKN.Pressure.IdentificationExtensionGrowthLocalBoxGrowth
+public import CKN.Pressure.IdentificationExtensionGrowthLocalBoxSupport
+public import CKN.Core.Step4.WeakGradientGluingTRemainderMajorantQuantitative
+public import CKN.Core.Endgame.TheoremACloser
+public import CKN.Core.Step4.PressureGradientOriginLatticeCover
+public import CKN.Foundation.Harmonic.InteriorSupThreeQuarters
+public import CKN.Foundation.Harmonic.InteriorSupDisplay
+public import CKN.Foundation.Parabolic.CampanatoHolderConverseScope
+public import CKN.Pressure.ForceCancellationLocalSpacetime
+public import CKN.Core.Endgame.TheoremAFullSumAssembly
+public import CKN.Foundation.Parabolic.Morrey.MinkowskiFaithful
+public import CKN.Foundation.Parabolic.Morrey.MaximalMorrey
+public import CKN.Setting.SobolevPoincareRescale
+public import CKN.Pressure.CutoffFullStatement
+public import CKN.Core.Step4.PressureGradientOriginKPAffineSource
+public import CKN.Foundation.Heat.CylinderCenteredGradient
+public import CKN.Setting.SobolevPoincareConstantPos
+public import CKN.Foundation.Heat.GradPsiDisplay
+public import CKN.Setting.SobolevPoincareBallFaithful
+public import CKN.Setting.SobolevPoincareBallFaithfulL1
+public import CKN.Setting.SobolevPoincareBallFaithfulL1Local
+public import CKN.Setting.Energy.LocalEnergyAffineRampFaithful
+public import CKN.Foundation.Heat.GaussianDisplayFaithful
+public import CKN.Setting.InterpolationCylinderSource
+public import CKN.Pressure.NewtonianRepresentationSource
+public import CKN.Foundation.Parabolic.CampanatoHolderFull
+public import CKN.Pressure.IdentificationExtensionGrowthLocalBox
+public import CKN.Covering.FivefoldDisjointSubfamily
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTranslatedSlice
+public import CKN.Pressure.CutoffAllOrdersFaithful
+public import CKN.Core.Step2.MorreyFixedScaleTransferFaithful
+public import CKN.Foundation.Parabolic.FivefoldCoverFaithful
+public import CKN.Covering.CylinderRadiusContent
+public import CKN.Pressure.DeltaPCentredMeanFreeSWS
+public import CKN.Pressure.LaplacianMultiplierPairing
+public import CKN.Pressure.PkBoundsP78SumOfNorms
+public import CKN.Setting.InterpolationBallPublic
+public import CKN.Foundation.Parabolic.CoveringLocalFinite
+public import CKN.Setting.SpatialSliceNorms
+public import CKN.Setting.CylinderSliceEnergy
+public import CKN.Core.Step4.PressureGradientOriginClauseDerivativeShared
+public import CKN.Core.Step4.WeakGradientGluingTRemainderMajorant
+public import CKN.Core.Endgame.Lin34Faithful
+public import CKN.Core.Endgame.TheoremBCloser
+public import CKN.Core.Endgame.TheoremBUnconditional
+public import CKN.Core.Endgame.TheoremACarrierTime
+public import CKN.Core.Step4.PressureGradientOriginClauseDerivative
+public import CKN.Core.Step4.PressureGradientOriginClauseDerivativeGeometry
+public import CKN.Core.Step4.PressureGradientOriginClauseDerivativeLocal
+public import CKN.Covering.TheoremCDefectFaithful
+public import CKN.Pressure.LeibnizLaplacianCommuteFaithful
+public import CKN.Foundation.Parabolic.BallsVsCylindersFaithful
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceWholeTime
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceSourceTime
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceForceGradientTime
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTermTime
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTermMeasurable
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceHarmonicForceTime
+public import CKN.Core.Step4.PressureGradientOriginCellInstancePotentialTime
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalForce
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceForceTime
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceForceEnvelope
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceForceGrowth
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalSource
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceSourceObligations
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalMoments
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceWholeFinite
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceMeanNorm
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceCenteredSource
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTensorTime
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeHolder
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
+public import CKN.Core.Step4.WeakGradientGluingTCollarAssembly
+public import CKN.Covering.TheoremCReductionClosed
+public import CKN.Core.Step4.PressureGradientOneSidedKP
+public import CKN.Foundation.Sobolev.WeakGradientGluingTPressureMean
+public import CKN.Core.Step4.WeakGradientGluingTFixedPairing
+public import CKN.Core.Step4.WeakGradientGluingTDecompositionMorrey
+public import CKN.Core.Step4.WeakGradientGluingTFixedRieszMorrey
+public import CKN.Core.Step4.WeakGradientGluingTFixedForceMorrey
+public import CKN.Core.Step4.WeakGradientGluingTFixedSourceMorrey
+public import CKN.Core.Step4.WeakGradientGluingTFixedRemainderMorrey
+public import CKN.Core.Step4.WeakGradientGluingTBoundedRepresentative
+public import CKN.Core.Step4.WeakGradientGluingTFixedSelection
+public import CKN.Core.Step4.WeakGradientGluingTFixedField
+public import CKN.Core.Step4.WeakGradientGluingTSuitableSelection
+public import CKN.Core.Step4.WeakGradientGluingTSuitableRiesz
+public import CKN.Core.Step4.WeakGradientGluingTWindowSelection
+public import CKN.Core.Step4.WeakGradientGluingTSourceMeasurable
+public import CKN.Core.Step4.WeakGradientGluingTSuitableIdentification
+public import CKN.Core.Step4.WeakGradientGluingTRieszIdentification
+public import CKN.Core.Step4.WeakGradientGluingTRieszSelection
+public import CKN.Foundation.Sobolev.WeakGradientGluingTGlobalSelection
+public import CKN.Core.Endgame.TheoremABudgetBridge
+public import CKN.Core.Step4.PressureGradientOriginKPComparison
+public import CKN.Core.Step4.PressureGradientGaugeMajorantShift
+public import CKN.Core.HeatPotential.ExponentFormulas
+public import CKN.Setting.CombinedMonotonicity
+public import CKN.Core.Step4.PressureGradientGaugeMajorantHolder
+public import CKN.Core.Step4.PressureGradientGaugeMajorantExponents
+public import CKN.Core.Step4.PressureGradientGluedOriginClause
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceSource
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceSlice
+public import CKN.Core.Step4.PressureGradientOriginCellInstancePressure
+public import CKN.Core.Step4.PressureGradientGluedTransferClause
+public import CKN.Core.Step4.PressureGradientOriginClauseGeometry
+public import CKN.Core.Step4.PressureGradientOriginClauseProduct
+public import CKN.Core.Step4.PressureGradientOriginClauseExhaustion
+public import CKN.Core.Step4.PressureGradientOriginClausePairing
+public import CKN.Core.Step4.PressureGradientOriginClauseGlue
+public import CKN.Core.Step4.PressureGradientOriginClauseField
+public import CKN.Core.Step4.PressureGradientOriginClauseBounds
+public import CKN.Core.Step4.PressureGradientOriginClauseBudget
+public import CKN.Core.Step4.PressureGradientOriginBudgetSufficient
+public import CKN.Core.Step4.PressureGradientOriginBudget
+public import CKN.Foundation.Sobolev.Cutoff.NormTriangle
+public import CKN.Pressure.PkConstantsNonneg
+public import CKN.Foundation.Sobolev.Mollify.SupportThickening
+public import CKN.Foundation.Heat.SpaceSecondDeriv
+public import CKN.Pressure.UTensorNormFactor
+public import CKN.Pressure.SpatialGradientSqENorm
+public import CKN.Pressure.MemLpThreeHalvesLift
+public import CKN.Foundation.Sobolev.Cutoff.NormLeVecEuclidean
+public import CKN.Foundation.Parabolic.TsupportSpatialBox
+public import CKN.Foundation.Parabolic.TsupportProduct
+public import CKN.Foundation.Parabolic.Morrey.AdamsConstantFinite
+public import CKN.Foundation.Parabolic.Morrey.AdamsCoefficientFinite
+public import CKN.Foundation.Parabolic.BallOrigin
+public import CKN.Foundation.Measure.WeightedKernelIdentity
+public import CKN.Foundation.Measure.LayerCake
+public import CKN.Foundation.Measure.HolderTripleProducts
+public import CKN.Foundation.Measure.ENNRealHalfScale
+public import CKN.Foundation.Heat.GaussianDisplay
+public import CKN.Foundation.Heat.CylinderCenteredPartialLink
+public import CKN.Foundation.Heat.CylinderCenteredGlobal
+public import CKN.Foundation.Harmonic.NewtonianKernelIntegrability
+public import CKN.Foundation.Euclidean.LpExtensionInputCast
+public import CKN.Foundation.Sobolev.Measure.CompactMultiplier
+public import CKN.Core.Step4.PressureGradientOriginKPAffineSlot
+public import CKN.Covering.DefectLimsupOfSingular
+public import CKN.Covering.SumRadiiDefectBalls
+public import CKN.Covering.ThmCMeasureContent
+public import CKN.Core.BootstrapConditionRange
+public import CKN.Core.Step2.ThetaDecayAbsoluteConstant
+public import CKN.Core.Step2.IterationAbsoluteConstant
+public import CKN.Core.Endgame.TheoremBAbsoluteThreshold
+public import CKN.Foundation.Parabolic.Morrey.HedbergDisplay
+public import CKN.Core.Step4.PressureGradientOriginASlotLargeCellsGeometry
+public import CKN.Core.Step4.PressureGradientOriginASlotLargeCells
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergyHolder
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergyTime
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergySlices
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergyMajorant
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergy
+public import CKN.Core.Step4.PressureGradientOriginBSlotInstancesCollar
+public import CKN.Core.Step4.PressureGradientOriginBSlotInstances
+public import CKN.Core.Step4.PressureGradientOriginASlotHarmonicHolder
+public import CKN.Core.Step4.PressureGradientOriginASlotHarmonic
+public import CKN.Core.Step4.PressureGradientOriginASlotSourceCorrectionSupport
+public import CKN.Core.Step4.PressureGradientOriginASlotM1Instances
+public import CKN.Core.Step4.PressureGradientOriginASlotM2MeanFree
+public import CKN.Core.Step4.PressureGradientOriginASlotM2Riesz
+public import CKN.Core.Step4.PressureGradientOriginASlotM2Split
+public import CKN.Core.Step4.PressureGradientOriginASlotM2Data
+public import CKN.Core.Step4.PressureGradientOriginASlotM2EnergyMean
+public import CKN.Core.Endgame.ForceSlotNumericalClosure
+public import CKN.Foundation.Heat.SpatialSliceMultiplier
+public import CKN.Foundation.Heat.SliceMultiplierConvolution
+public import CKN.Core.HeatPotential.MultiplierPotentialBridge
+public import CKN.Main.TheoremAPaper
+public import CKN.Main.TheoremBPaper
+public import CKN.Main.TheoremCPaper
+public import CKN.Statements.TheoremA
+public import CKN.Statements.TheoremB
+public import CKN.Statements.TheoremC
+public import CKN.Witnesses.CarrierGeometry
+public import CKN.Witnesses.InterfaceWitnessesCampanato
+public import CKN.Witnesses.InterfaceWitnessesFoundation
+public import CKN.Witnesses.InterfaceWitnessesStep4
+public import CKN.Witnesses.LpExtensionExteriorConsumers
+public import CKN.Witnesses.NonIntegrableBox
+public import CKN.Witnesses.PressureGradientOriginCellInstanceCarrier
+public import CKN.Witnesses.PressureGradientOriginClauseSatisfiable
+public import CKN.Witnesses.PressureGradientSliceInputFromCorrected
+public import CKN.Witnesses.RepresentationWitnesses
+public import CKN.Witnesses.TheoremACoverBudget
+public import CKN.Witnesses.TrivialSolution
+public import CKN.Core.Step4.PressureGradientOriginClauseMajorantArith
+public import CKN.Core.HeatPotential.HeatFarAssemblyGeometry
+public import CKN.Core.HeatPotential.HeatFarAssemblyKernel
+public import CKN.Core.HeatPotential.HeatFarAssemblySlots
+public import CKN.Core.HeatPotential.HeatFarAssembly
+public import CKN.Core.HeatPotential.HeatConclusionAssembly
+public import CKN.Core.HeatPotential.HeatHolderOfConclusion
+public import CKN.Core.HeatPotential.HeatLinftyOfHolder
+public import CKN.Core.HeatPotential.HeatLinftyCore
+public import CKN.Core.HeatPotential.HeatHolderBridge
+public import CKN.Core.HeatPotential.HeatHolderComplex
+public import CKN.Core.HeatPotential.HeatHolderCampanato
 
 /-!
 # Caffarelli–Kohn–Nirenberg formalization
 -/
+
+@[expose] public section

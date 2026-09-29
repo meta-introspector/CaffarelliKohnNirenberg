@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.WeakGradientGluingTEnvelopeInstances
-import CKN.Core.Step4.WeakGradientGluingTRieszSourceQuantitative
-import CKN.Core.Step4.PressureGradientOriginASlotM1Instances
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTEnvelopeInstances
+public import CKN.Core.Step4.WeakGradientGluingTRieszSourceQuantitative
+public import CKN.Core.Step4.PressureGradientOriginASlotM1Instances
 
 /-! # The actual pressure mass from measurable envelopes
 
@@ -10,6 +12,8 @@ Harmonic and force slice masses are dominated by measurable envelopes.
 Only the final centred-source correction needs a mass bound without any
 joint measurability assumption.
 -/
+
+@[expose] public section
 open MeasureTheory Set
 open scoped ENNReal BigOperators
 open CKN CKN.Foundation.Parabolic CKN.Foundation.Parabolic.Morrey CKN.Foundation.Euclidean CKN.Foundation.Heat

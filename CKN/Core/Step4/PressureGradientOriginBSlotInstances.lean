@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginBSlotInstancesCollar
-import CKN.Core.Step4.PressureGradientOriginBSlotThreshold
-import CKN.Core.Step4.PressureGradientOriginCellInstanceMeasurable
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergy
+module
+
+public import CKN.Core.Step4.PressureGradientOriginBSlotInstancesCollar
+public import CKN.Core.Step4.PressureGradientOriginBSlotThreshold
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceMeasurable
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergy
 
 /-! # The whole-carrier pressure-gradient time mass of `prop:bootstrap`
 
@@ -18,6 +20,8 @@ The route is: transfer the binder's field to the interior measurable weak
 gradient of `eq:pressure-gradient-morrey`, cover the carrier by the fixed finite
 lattice of collars of radius `1/8`, and add the collar estimates.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology BigOperators

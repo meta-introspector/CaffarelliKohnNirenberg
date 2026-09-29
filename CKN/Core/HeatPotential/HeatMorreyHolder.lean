@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.HeatLinfty
-import CKN.Core.HeatPotential.HeatMorreyHolderOfConclusion2
+module
+
+public import CKN.Core.HeatPotential.HeatLinfty
+public import CKN.Core.HeatPotential.HeatMorreyHolderOfConclusion2
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric Filter
 open scoped ENNReal NNReal Topology

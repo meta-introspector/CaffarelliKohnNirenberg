@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginClauseGeometry
-import CKN.Core.Step4.PressureGradientOriginClauseProduct
+module
+
+public import CKN.Core.Step4.PressureGradientOriginClauseGeometry
+public import CKN.Core.Step4.PressureGradientOriginClauseProduct
 
 /-!
 # Carrier cell bounds from slicewise bounds on the pressure
@@ -22,6 +24,8 @@ cell ball with the carrier ball, and its two time integrals are taken over the
 clipped windows.  Nothing here refers to the gradient at a time outside the
 time factor of the unit cylinder.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelTimeDerivative
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelTimeDerivative
 
 /-!
 # Bounds for degree-one multiplier heat kernels
@@ -9,6 +11,8 @@ import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelTimeDerivative
 The frequency representation gives the size, spatial-gradient, and time-derivative
 bounds for every smooth degree-one symbol, with one symbol-dependent constant.
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 

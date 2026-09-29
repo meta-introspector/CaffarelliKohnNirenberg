@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.UniformCutoffFamily
+module
+
+public import CKN.Core.Endgame.UniformCutoffFamily
 
 /-!
 # Uniform bounds for all localization coefficients
@@ -10,6 +12,8 @@ The explicit parabolic cutoff controls its value, time derivative, first
 spatial derivatives, and spatial Laplacian with a single radius-dependent
 constant. This is the common coefficient bound needed by both source slots.
 -/
+
+@[expose] public section
 
 open Set Metric
 open CKN.Foundation.Parabolic

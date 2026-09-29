@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.ScalingInvarianceBasic
-import CKN.Setting.ScalingInvarianceWeak
-import CKN.Setting.ScalingInvarianceS2
-import CKN.Setting.ScalingInvarianceS3S4
-import CKN.Foundation.Parabolic.Integration.Scaling
+module
+
+public import CKN.Setting.ScalingInvarianceBasic
+public import CKN.Setting.ScalingInvarianceWeak
+public import CKN.Setting.ScalingInvarianceS2
+public import CKN.Setting.ScalingInvarianceS3S4
+public import CKN.Foundation.Parabolic.Integration.Scaling
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology Pointwise
@@ -17,7 +21,7 @@ noncomputable section
 
 namespace CKN
 
-private def scalingHomeomorph (μ : ℝ) (hμ : 0 < μ) (z₀ : ParabolicPoint) :
+def scalingHomeomorph (μ : ℝ) (hμ : 0 < μ) (z₀ : ParabolicPoint) :
     (Vec3 × ℝ) ≃ₜ (Vec3 × ℝ) :=
   Homeomorph.prodCongr
     ((Homeomorph.smulOfNeZero μ hμ.ne').trans (Homeomorph.addLeft z₀.1))
@@ -34,7 +38,7 @@ private theorem scalingHomeomorph_measurable (μ : ℝ) (hμ : 0 < μ)
   rw [← scalingHomeomorph_eq μ hμ z₀]
   exact (scalingHomeomorph μ hμ z₀).measurable
 
-private def spatialHomeomorph (μ : ℝ) (hμ : 0 < μ) (x₀ : Vec3) :
+def spatialHomeomorph (μ : ℝ) (hμ : 0 < μ) (x₀ : Vec3) :
     Vec3 ≃ₜ Vec3 :=
   (Homeomorph.smulOfNeZero μ hμ.ne').trans (Homeomorph.addLeft x₀)
 
@@ -43,7 +47,7 @@ private theorem spatialHomeomorph_eq (μ : ℝ) (hμ : 0 < μ) (x₀ : Vec3) :
   funext x
   rfl
 
-private def temporalHomeomorph (μ : ℝ) (hμ : 0 < μ) (t₀ : ℝ) :
+def temporalHomeomorph (μ : ℝ) (hμ : 0 < μ) (t₀ : ℝ) :
     ℝ ≃ₜ ℝ :=
   (Homeomorph.smulOfNeZero (μ ^ 2) (sq_pos_of_pos hμ).ne').trans
     (Homeomorph.addLeft t₀)

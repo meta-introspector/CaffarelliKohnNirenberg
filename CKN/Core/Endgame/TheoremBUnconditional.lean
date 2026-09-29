@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.TheoremBCloser
-import CKN.Core.Step4.WeakGradientGluingTCollarAssembly
-import CKN.Core.Step4.WeakGradientGluingTRemainderMajorant
+module
+
+public import CKN.Core.Endgame.TheoremBCloser
+public import CKN.Core.Step4.WeakGradientGluingTCollarAssembly
+public import CKN.Core.Step4.WeakGradientGluingTRemainderMajorant
 
 /-! # The gradient regularity criterion for suitable weak solutions -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

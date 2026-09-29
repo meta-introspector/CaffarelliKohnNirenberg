@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.LocalZeroMeanPairing
-import CKN.Foundation.Harmonic.RadialBumpDensities
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
-import Mathlib.MeasureTheory.Integral.PeakFunction
+module
+
+public import CKN.Foundation.Harmonic.LocalZeroMeanPairing
+public import CKN.Foundation.Harmonic.RadialBumpDensities
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Integral.PeakFunction
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped Topology ENNReal
@@ -52,9 +56,9 @@ theorem spatialLaplacian_comp_add_left (f : Vec3 → ℝ) (x z : Vec3) :
   rw [fderiv_comp_add_left]
   rfl
 
-private def solidApproxInner (n : ℕ) : ℝ := 1 - ((n : ℝ) + 2)⁻¹
+def solidApproxInner (n : ℕ) : ℝ := 1 - ((n : ℝ) + 2)⁻¹
 
-private def solidApproxRadius (s : ℝ) (n : ℕ) : ℝ :=
+def solidApproxRadius (s : ℝ) (n : ℕ) : ℝ :=
   s * solidApproxInner n
 
 private lemma solidApproxInner_pos (n : ℕ) : 0 < solidApproxInner n := by

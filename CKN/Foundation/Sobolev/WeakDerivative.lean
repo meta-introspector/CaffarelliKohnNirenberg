@@ -1,14 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Measure.RestrictedVolume
-import CKN.Foundation.Sobolev.TestFunction
-import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Analysis.Calculus.FDeriv.Add
-import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
-import Mathlib.MeasureTheory.Integral.Bochner.Set
+module
+
+public import CKN.Foundation.Sobolev.Measure.RestrictedVolume
+public import CKN.Foundation.Sobolev.TestFunction
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
 
 /-!
 # Weak first derivatives on native vector domains
@@ -18,6 +20,8 @@ permission. This port preserves the raw integration-by-parts predicates,
 a.e. uniqueness, restriction, and smooth-function constructors, while using
 the `CKN` namespace and the reduced weak-derivative dependency surface.
 -/
+
+@[expose] public section
 
 namespace CKN
 

@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginASlotThinCells
-import CKN.Core.Endgame.TheoremAClosersInstances
+module
+
+public import CKN.Core.Step4.PressureGradientOriginASlotThinCells
+public import CKN.Core.Endgame.TheoremAClosersInstances
 
 /-! # The instance A-slot interface with exponent-dependent thresholds
 
@@ -10,6 +12,8 @@ The base threshold may depend on the force exponent alone.
 The analytic estimate is restricted to the common half-collar radius.
 The finite cover restores the exact cell range of the pressure adapter.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal BigOperators

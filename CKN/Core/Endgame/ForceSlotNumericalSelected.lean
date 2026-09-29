@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ForceSlotNumericalBootstrap
-import CKN.Core.Endgame.ForceSlotNumericalNormalizedData
-import CKN.Core.Endgame.ForceSlotNumericalPressureTransport
+module
+
+public import CKN.Core.Endgame.ForceSlotNumericalBootstrap
+public import CKN.Core.Endgame.ForceSlotNumericalNormalizedData
+public import CKN.Core.Endgame.ForceSlotNumericalPressureTransport
 
 /-!
 # Uniform velocity and pressure bounds on the physical source collar
@@ -12,6 +14,8 @@ The two normalized pressure estimates and the intervening velocity bootstrap
 are transported back to the fixed endgame radius. Every numerical bound is
 chosen before the domain, fields, and localization centre.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

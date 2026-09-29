@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.OneSidedMorrey
+module
+
+public import CKN.Core.Endgame.OneSidedMorrey
 
 /-!
 # The scale cost of measuring the one-sided constant at the margin
@@ -15,6 +17,8 @@ the explicit scale ratio `(ρ₁ / ρ₀) ^ (5 * (1 - P / τ))`. The second
 statement is the form in which a comparison against an explicit majorant
 stated at the carrier radius is transported down to the margin scale.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

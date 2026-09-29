@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Covering.TheoremCDefectFaithful
+module
+
+public import CKN.Covering.TheoremCDefectFaithful
 
 /-! # Radius selection from positive normalized mass
 
 The lower limsup bound gives arbitrarily small cylinders carrying more than
 half the threshold times their radius, as in `eq:defect-r`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

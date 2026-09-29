@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceGlue
-import CKN.Core.Step4.PressureGradientOriginCellInstanceExhaustion
-import CKN.Core.Step4.PressureGradientOriginCellInstancePairing
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceGlue
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceExhaustion
+public import CKN.Core.Step4.PressureGradientOriginCellInstancePairing
 
 /-!
 # The pressure-gradient field on the origin carrier
@@ -23,6 +25,8 @@ changes neither the pairing identity, since the test functions vanish there,
 nor the slice bounds.  The output also records the identification of the field
 with every slice weak gradient, which is what pins it almost everywhere.
 -/
+
+@[expose] public section
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology
 open CKN.Foundation.Parabolic

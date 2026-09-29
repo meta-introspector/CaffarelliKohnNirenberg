@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.SuitableWeakSolutionIntegrable
-import CKN.Setting.Monotonicity
-import CKN.Setting.ScalingQuantities
-import CKN.Foundation.Parabolic.Topology
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+module
+
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+public import CKN.Setting.Monotonicity
+public import CKN.Setting.ScalingQuantities
+public import CKN.Foundation.Parabolic.Topology
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric Filter
 open scoped ENNReal NNReal Topology

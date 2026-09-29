@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorDisplays
-import CKN.Pressure.HarmonicPartDerivatives
-import CKN.Pressure.Lin34Slices
-import CKN.Pressure.OscillationLin34Solution
+module
+
+public import CKN.Foundation.Harmonic.InteriorDisplays
+public import CKN.Pressure.HarmonicPartDerivatives
+public import CKN.Pressure.Lin34Slices
+public import CKN.Pressure.OscillationLin34Solution
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

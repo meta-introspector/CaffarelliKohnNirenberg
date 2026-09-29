@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSFinal
-import CKN.Core.Step4.WeakGradientGluingTRieszSelection
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSFinal
+public import CKN.Core.Step4.WeakGradientGluingTRieszSelection
 
 /-! # Measurability of the fixed localized pressure sources
 
@@ -10,6 +12,8 @@ The spatial mean is taken on the fixed localization ball. Both sources are
 restricted to the fixed time window and spatial ball before the completed
 operators are selected.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal BigOperators Topology

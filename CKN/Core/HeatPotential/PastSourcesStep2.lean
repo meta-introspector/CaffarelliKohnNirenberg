@@ -1,19 +1,23 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.CoordinateMultiplierBridge
-import CKN.Core.HeatPotential.PastSourcesBridge
-import CKN.Core.HeatPotential.PastSourcesSourceAdapter
-import CKN.Core.Step4.InteriorGradientProducerStep2
-import CKN.Core.Endgame.NestedCutoffs
-import CKN.Core.Endgame.ForceSlotNumericalSupport
-import CKN.Core.Endgame.CausalGradientMorrey
-import CKN.Core.Endgame.CausalDerivativeSource
-import CKN.Core.Endgame.CausalPressureExtension
-import CKN.Core.Endgame.CausalBootstrap
-import CKN.Core.Endgame.SourceExponents
-import CKN.Core.Endgame.LocalBoxRestriction
-import CKN.Core.Step3.GradientSlotDuhamel
+module
+
+public import CKN.Core.HeatPotential.CoordinateMultiplierBridge
+public import CKN.Core.HeatPotential.PastSourcesBridge
+public import CKN.Core.HeatPotential.PastSourcesSourceAdapter
+public import CKN.Core.Step4.InteriorGradientProducerStep2
+public import CKN.Core.Endgame.NestedCutoffs
+public import CKN.Core.Endgame.ForceSlotNumericalSupport
+public import CKN.Core.Endgame.CausalGradientMorrey
+public import CKN.Core.Endgame.CausalDerivativeSource
+public import CKN.Core.Endgame.CausalPressureExtension
+public import CKN.Core.Endgame.CausalBootstrap
+public import CKN.Core.Endgame.SourceExponents
+public import CKN.Core.Endgame.LocalBoxRestriction
+public import CKN.Core.Step3.GradientSlotDuhamel
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Distributions
 

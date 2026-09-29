@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Cutoff
+module
+
+public import CKN.Setting.Cutoff
 
 /-! # A single cutoff with all annulus properties
 
@@ -9,6 +11,8 @@ The uniform derivative bounds and annular vanishing belong to the same
 smooth compactly supported cutoff. Continuity of each derivative extends
 its vanishing from the inner open ball to the closed inner ball.
 -/
+
+@[expose] public section
 
 open Set Filter
 open scoped Topology

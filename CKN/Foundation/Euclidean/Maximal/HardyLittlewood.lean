@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.MeasureTheory.Covering.Vitali
-import Mathlib.MeasureTheory.Integral.Average
-import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.MeasureTheory.Covering.Vitali
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
 
 /-!
 # The Euclidean Hardy--Littlewood maximal function
@@ -12,6 +14,8 @@ import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
 This module defines the uncentred maximal function on `Vec3` and proves its
 weak `(1,1)` estimate by the metric Vitali covering theorem.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 
@@ -25,16 +29,16 @@ namespace CKN.Foundation.Euclidean
 
 open CKN.Foundation.Parabolic
 
-private abbrev metricBall (c : Vec3) (r : ℝ) : Set Vec3 := Metric.ball c r
+abbrev metricBallHL (c : Vec3) (r : ℝ) : Set Vec3 := Metric.ball c r
 
 /-- The uncentred Hardy--Littlewood maximal function on `Vec3`. -/
 def maximalFunction (f : Vec3 → ℝ≥0∞) (z : Vec3) : ℝ≥0∞ :=
   ⨆ c : Vec3, ⨆ r : ℝ,
-    (metricBall c r).indicator
-      (fun _ ↦ ⨍⁻ y in metricBall c r, f y ∂volume) z
+    (metricBallHL c r).indicator
+      (fun _ ↦ ⨍⁻ y in metricBallHL c r, f y ∂volume) z
 
 private lemma volume_metricBall (x : Vec3) {r : ℝ} (hr : 0 < r) :
-    volume (metricBall x r) = ENNReal.ofReal ((2 * r) ^ 3) := by
+    volume (metricBallHL x r) = ENNReal.ofReal ((2 * r) ^ 3) := by
   rw [MeasureTheory.volume_pi_ball x hr]
   simp only [Real.volume_ball, Finset.prod_const]
   norm_num [Fintype.card_fin]
@@ -48,8 +52,8 @@ theorem volume_metricBall_eq {x : Vec3} {r : ℝ} (hr : 0 < r) :
   exact volume_metricBall x hr
 
 private lemma volume_metricBall_five_mul_le {x : Vec3} {r : ℝ} (hr : 0 < r) :
-    volume (metricBall x (5 * r)) ≤
-      ENNReal.ofReal (5 ^ 3) * volume (metricBall x r) := by
+    volume (metricBallHL x (5 * r)) ≤
+      ENNReal.ofReal (5 ^ 3) * volume (metricBallHL x r) := by
   rw [volume_metricBall x (by linarith only [hr]), volume_metricBall x hr]
   calc
     ENNReal.ofReal ((2 * (5 * r)) ^ 3) =
@@ -61,8 +65,8 @@ private lemma volume_metricBall_five_mul_le {x : Vec3} {r : ℝ} (hr : 0 < r) :
     _ ≤ ENNReal.ofReal (5 ^ 3) * ENNReal.ofReal ((2 * r) ^ 3) := le_rfl
 
 theorem maximalFunction_average_le {f : Vec3 → ℝ≥0∞}
-    {c z : Vec3} {r : ℝ} (hz : z ∈ metricBall c r) :
-    ⨍⁻ y in metricBall c r, f y ∂volume ≤ maximalFunction f z := by
+    {c z : Vec3} {r : ℝ} (hz : z ∈ metricBallHL c r) :
+    ⨍⁻ y in metricBallHL c r, f y ∂volume ≤ maximalFunction f z := by
   apply le_iSup₂_of_le c r
   simp only [indicator_of_mem hz]
   exact le_rfl
@@ -71,7 +75,7 @@ theorem lowerSemicontinuous_maximalFunction (f : Vec3 → ℝ≥0∞) :
     LowerSemicontinuous (maximalFunction f) := by
   intro z s hzs
   obtain ⟨c, r, h⟩ := exists_lt_of_lt_ciSup₂' hzs
-  have hz : z ∈ metricBall c r :=
+  have hz : z ∈ metricBallHL c r :=
     mem_of_indicator_ne_zero (h.trans_le' bot_le |>.ne.symm)
   rw [indicator_of_mem hz] at h
   apply eventually_of_mem
@@ -85,24 +89,24 @@ theorem measurable_maximalFunction (f : Vec3 → ℝ≥0∞) :
   (lowerSemicontinuous_maximalFunction f).measurable
 
 private lemma metricBall_measurable (c : Vec3) (r : ℝ) :
-    MeasurableSet (metricBall c r) :=
+    MeasurableSet (metricBallHL c r) :=
   Metric.isOpen_ball.measurableSet
 
 private lemma metricBall_nonempty {c : Vec3} {r : ℝ} (hr : 0 < r) :
-    (metricBall c r).Nonempty :=
+    (metricBallHL c r).Nonempty :=
   Metric.nonempty_ball.mpr hr
 
 private lemma maximalAverage_condition_of_mem
     {f : Vec3 → ℝ≥0∞} {l : ℝ≥0∞}
     {c : Vec3} {r : ℝ} (hr : 0 < r)
-    (havg : l < ⨍⁻ y in metricBall c r, f y ∂volume) :
-    l * volume (metricBall c r) ≤
-      ∫⁻ y in metricBall c r, f y := by
+    (havg : l < ⨍⁻ y in metricBallHL c r, f y ∂volume) :
+    l * volume (metricBallHL c r) ≤
+      ∫⁻ y in metricBallHL c r, f y := by
   rw [setLAverage_eq] at havg
-  have hvol0 : volume (metricBall c r) ≠ 0 := by
+  have hvol0 : volume (metricBallHL c r) ≠ 0 := by
     rw [volume_metricBall c hr]
     exact (ENNReal.ofReal_pos.mpr (by positivity)).ne'
-  have hvoltop : volume (metricBall c r) ≠ ∞ := by
+  have hvoltop : volume (metricBallHL c r) ≠ ∞ := by
     rw [volume_metricBall c hr]
     exact ENNReal.ofReal_ne_top
   apply (ENNReal.le_div_iff_mul_le
@@ -114,9 +118,9 @@ private theorem measure_biUnion_le_lintegral
     (hpos : ∀ i ∈ T, 0 < i.2)
     (hbounded : ∃ R : ℝ, ∀ i ∈ T, i.2 ≤ R)
     (hcondition : ∀ i ∈ T,
-      l * volume (metricBall i.1 i.2) ≤
-        ∫⁻ y in metricBall i.1 i.2, f y) :
-    l * volume (⋃ i ∈ T, metricBall i.1 i.2) ≤
+      l * volume (metricBallHL i.1 i.2) ≤
+        ∫⁻ y in metricBallHL i.1 i.2, f y) :
+    l * volume (⋃ i ∈ T, metricBallHL i.1 i.2) ≤
       ENNReal.ofReal (5 ^ 3) * ∫⁻ y, f y := by
   obtain ⟨R, hR⟩ := hbounded
   obtain ⟨u, huT, hdisj, hcover⟩ :=
@@ -128,9 +132,9 @@ private theorem measure_biUnion_le_lintegral
   set_option linter.style.haveILetI false in
     letI : Countable u := hu_countable.to_subtype
   let enlarged : Vec3 × ℝ → Set Vec3 :=
-    fun i ↦ metricBall i.1 (5 * i.2)
+    fun i ↦ metricBallHL i.1 (5 * i.2)
   have hcover_union :
-      (⋃ i ∈ T, metricBall i.1 i.2) ⊆ ⋃ i ∈ u, enlarged i := by
+      (⋃ i ∈ T, metricBallHL i.1 i.2) ⊆ ⋃ i ∈ u, enlarged i := by
     intro z hz
     rcases mem_iUnion₂.mp hz with ⟨i, hiT, hzi⟩
     obtain ⟨j, hju, hsubset⟩ := hcover i hiT
@@ -138,17 +142,17 @@ private theorem measure_biUnion_le_lintegral
     exact hsubset hzi
   have henlarged_measure (i : u) :
       volume (enlarged i) ≤
-        ENNReal.ofReal (5 ^ 3) * volume (metricBall i.1.1 i.1.2) := by
+        ENNReal.ofReal (5 ^ 3) * volume (metricBallHL i.1.1 i.1.2) := by
     exact volume_metricBall_five_mul_le (hpos i (huT i.property))
   have hdisj_subtype : Pairwise (Function.onFun Disjoint
-      (fun i : u ↦ metricBall i.1.1 i.1.2)) := by
+      (fun i : u ↦ metricBallHL i.1.1 i.1.2)) := by
     intro i j hij
     exact hdisj i.property j.property (Subtype.coe_ne_coe.mpr hij)
   have hsum_integral :
-      (∑' i : u, ∫⁻ y in metricBall i.1.1 i.1.2, f y) ≤ ∫⁻ y, f y := by
+      (∑' i : u, ∫⁻ y in metricBallHL i.1.1 i.1.2, f y) ≤ ∫⁻ y, f y := by
     calc
-      (∑' i : u, ∫⁻ y in metricBall i.1.1 i.1.2, f y) =
-          ∫⁻ y in ⋃ i : u, metricBall i.1.1 i.1.2, f y := by
+      (∑' i : u, ∫⁻ y in metricBallHL i.1.1 i.1.2, f y) =
+          ∫⁻ y in ⋃ i : u, metricBallHL i.1.1 i.1.2, f y := by
             symm
             apply lintegral_iUnion
             · exact fun i ↦ metricBall_measurable i.1.1 i.1.2
@@ -157,31 +161,31 @@ private theorem measure_biUnion_le_lintegral
         gcongr
         exact MeasureTheory.Measure.restrict_le_self
   calc
-    l * volume (⋃ i ∈ T, metricBall i.1 i.2) ≤
+    l * volume (⋃ i ∈ T, metricBallHL i.1 i.2) ≤
         l * volume (⋃ i ∈ u, enlarged i) := by
       gcongr
     _ ≤ l * ∑' i : u, volume (enlarged i) := by
       gcongr
       exact measure_biUnion_le volume hu_countable enlarged
     _ ≤ l * ∑' i : u,
-        ENNReal.ofReal (5 ^ 3) * volume (metricBall i.1.1 i.1.2) := by
+        ENNReal.ofReal (5 ^ 3) * volume (metricBallHL i.1.1 i.1.2) := by
       gcongr with i
       exact henlarged_measure i
     _ = ENNReal.ofReal (5 ^ 3) *
-        ∑' i : u, l * volume (metricBall i.1.1 i.1.2) := by
+        ∑' i : u, l * volume (metricBallHL i.1.1 i.1.2) := by
       rw [ENNReal.tsum_mul_left, ENNReal.tsum_mul_left]
       ac_rfl
     _ ≤ ENNReal.ofReal (5 ^ 3) *
-        ∑' i : u, ∫⁻ y in metricBall i.1.1 i.1.2, f y := by
+        ∑' i : u, ∫⁻ y in metricBallHL i.1.1 i.1.2, f y := by
       gcongr with i
       exact hcondition i.1 (huT i.2)
     _ ≤ ENNReal.ofReal (5 ^ 3) * ∫⁻ y, f y := by
       gcongr
 
-private def maximalLevelBalls (f : Vec3 → ℝ≥0∞)
+def maximalLevelBalls (f : Vec3 → ℝ≥0∞)
     (l : ℝ≥0∞) (n : ℕ) : Set (Vec3 × ℝ) :=
   {i | 0 < i.2 ∧ i.2 ≤ (n : ℝ) ∧
-    l < ⨍⁻ y in metricBall i.1 i.2, f y ∂volume}
+    l < ⨍⁻ y in metricBallHL i.1 i.2, f y ∂volume}
 
 /-- The weak `(1,1)` estimate for the Euclidean maximal function. -/
 theorem measure_maximalFunction_lt_le
@@ -192,13 +196,13 @@ theorem measure_maximalFunction_lt_le
   · simp [hltop]
   have hlevel :
       {z | l < maximalFunction f z} =
-        ⋃ n, ⋃ i ∈ maximalLevelBalls f l n, metricBall i.1 i.2 := by
+        ⋃ n, ⋃ i ∈ maximalLevelBalls f l n, metricBallHL i.1 i.2 := by
     ext z
     constructor
     · intro hz
       change l < maximalFunction f z at hz
       obtain ⟨c, r, h⟩ := exists_lt_of_lt_ciSup₂' hz
-      have hzball : z ∈ metricBall c r :=
+      have hzball : z ∈ metricBallHL c r :=
         mem_of_indicator_ne_zero (h.trans_le' bot_le |>.ne.symm)
       rw [indicator_of_mem hzball] at h
       have hr : 0 < r := by
@@ -211,14 +215,14 @@ theorem measure_maximalFunction_lt_le
       rcases mem_iUnion₂.mp hz with ⟨i, hi, hzi⟩
       exact lt_of_lt_of_le hi.2.2 (maximalFunction_average_le hzi)
   have hmono : Monotone (fun n : ℕ ↦
-      ⋃ i ∈ maximalLevelBalls f l n, metricBall i.1 i.2) := by
+      ⋃ i ∈ maximalLevelBalls f l n, metricBallHL i.1 i.2) := by
     intro m n hmn z hz
     rcases mem_iUnion₂.mp hz with ⟨i, hi, hzi⟩
     refine mem_iUnion₂.mpr ⟨i, ?_, hzi⟩
     exact ⟨hi.1, hi.2.1.trans (by exact_mod_cast hmn), hi.2.2⟩
   have hlevel_bound (n : ℕ) :
       l * volume (⋃ i ∈ maximalLevelBalls f l n,
-        metricBall i.1 i.2) ≤ ENNReal.ofReal (5 ^ 3) * ∫⁻ y, f y := by
+        metricBallHL i.1 i.2) ≤ ENNReal.ofReal (5 ^ 3) * ∫⁻ y, f y := by
     apply measure_biUnion_le_lintegral
     · intro i hi
       exact hi.1

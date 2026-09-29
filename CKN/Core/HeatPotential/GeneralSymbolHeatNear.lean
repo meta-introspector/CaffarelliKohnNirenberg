@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.GeneralSymbolHeatKernelSplit
-import CKN.Core.HeatPotential.GeneralSymbolHeatNearOscillation
-import CKN.Core.HeatPotential.SubordinatedNear
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelLocalIntegrable
+module
+
+public import CKN.Core.HeatPotential.GeneralSymbolHeatKernelSplit
+public import CKN.Core.HeatPotential.GeneralSymbolHeatNearOscillation
+public import CKN.Core.HeatPotential.SubordinatedNear
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelLocalIntegrable
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Distributions
 

@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginASlotThinAssemblyQ
-import CKN.Core.Step4.WeakGradientGluingTMeasurableFourTermAssembly
+module
+
+public import CKN.Core.Step4.PressureGradientOriginASlotThinAssemblyQ
+public import CKN.Core.Step4.WeakGradientGluingTMeasurableFourTermAssembly
 
 /-! # The A slot from its homogeneous centred-source correction
 
@@ -10,6 +12,8 @@ The other three terms, their measurable envelopes, and the finite-cell
 transfer are supplied internally. Only the displayed correction estimate
 remains as the analytic input of this reduction.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal BigOperators

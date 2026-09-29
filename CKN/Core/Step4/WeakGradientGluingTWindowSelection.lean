@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTRieszSelection
-import CKN.Core.Step4.SliceSelectedGradientSymmetricGeometry
-import CKN.Foundation.Parabolic.BallBasics
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTRieszSelection
+public import CKN.Core.Step4.SliceSelectedGradientSymmetricGeometry
+public import CKN.Foundation.Parabolic.BallBasics
 
 /-! # Time and space restrictions of measurable Riesz sources
 
@@ -11,6 +13,8 @@ A source restricted to a measurable spatial ball and time window has globally
 integrable slices almost everywhere when the original slices are integrable
 on that window. Its completed Riesz representative is selected on all times.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

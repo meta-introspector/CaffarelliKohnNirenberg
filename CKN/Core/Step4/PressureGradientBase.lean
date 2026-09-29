@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.Decay
-import CKN.Foundation.Harmonic.InteriorSmooth
-import CKN.Foundation.Sobolev.WeakDerivative.ProductH1
-import CKN.Pressure.DeltaPCentred
-import CKN.Pressure.Potentials
+module
+
+public import CKN.Core.Step4.Decay
+public import CKN.Foundation.Harmonic.InteriorSmooth
+public import CKN.Foundation.Sobolev.WeakDerivative.ProductH1
+public import CKN.Pressure.DeltaPCentred
+public import CKN.Pressure.Potentials
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

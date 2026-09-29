@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.MeasureTheory.Integral.Average
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.MeasureTheory.Measure.OpenPos
-import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
-import Mathlib.Tactic.FunProp
-import Mathlib.Tactic.Linarith
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Measure.OpenPos
+public import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
+public import Mathlib.Tactic.FunProp
+public import Mathlib.Tactic.Linarith
 
 /-!
 # Integration and averages on parabolic cylinders
@@ -18,6 +20,8 @@ the product-measure formulas used on balls and parabolic cylinders.
 The source-facing scale-invariant quantities are intentionally not defined
 here.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set
 open scoped ENNReal

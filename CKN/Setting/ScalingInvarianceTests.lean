@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.ScalingInvarianceBasic
-import CKN.Setting.ScalingQuantities
-import CKN.Setting.Energy.Calculus
-import CKN.Foundation.Parabolic.Integration.Scaling
+module
+
+public import CKN.Setting.ScalingInvarianceBasic
+public import CKN.Setting.ScalingQuantities
+public import CKN.Setting.Energy.Calculus
+public import CKN.Foundation.Parabolic.Integration.Scaling
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology Pointwise
@@ -16,7 +20,7 @@ noncomputable section
 
 namespace CKN
 
-private def testSpatialHomeomorph (μ : ℝ) (hμ : 0 < μ) (x₀ : Vec3) :
+def testSpatialHomeomorph (μ : ℝ) (hμ : 0 < μ) (x₀ : Vec3) :
     Vec3 ≃ₜ Vec3 :=
   (Homeomorph.smulOfNeZero μ hμ.ne').trans (Homeomorph.addLeft x₀)
 

@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.SpatialSliceNormIdentifyPressure
-import CKN.Setting.SliceTimeNormPressure
+module
+
+public import CKN.Setting.SpatialSliceNormIdentifyPressure
+public import CKN.Setting.SliceTimeNormPressure
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

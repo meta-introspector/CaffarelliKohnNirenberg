@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Finiteness
-import CKN.Core.Caccioppoli.Finiteness
+module
+
+public import CKN.Setting.Finiteness
+public import CKN.Core.Caccioppoli.Finiteness
 
 /-! # Combined monotonicity of the five scale quantities
 
@@ -10,6 +12,8 @@ For a suitable weak solution, all five radius comparisons hold together on
 an admissible cylinder. The pressure comparison uses the squared quantity;
 the required finiteness of the integrals follows from suitability.
 -/
+
+@[expose] public section
 
 open Set
 open CKN.Foundation.Parabolic

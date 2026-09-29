@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Mollify.Basic
-import Mathlib.Topology.MetricSpace.Thickening
+module
+
+public import CKN.Foundation.Sobolev.Mollify.Basic
+public import Mathlib.Topology.MetricSpace.Thickening
 
 /-!
 # Translated mollifiers as spatial test functions
@@ -15,6 +17,8 @@ compactly supported with topological support the closed ball `closedBall y ε`,
 and its coordinate derivative is the translate of the coordinate derivative of
 the kernel.
 -/
+
+@[expose] public section
 
 open MeasureTheory Metric
 

@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step2.Interpolation
-import CKN.Core.Caccioppoli.Finiteness
+module
+
+public import CKN.Core.Step2.Interpolation
+public import CKN.Core.Caccioppoli.Finiteness
 
 /-!
 # Cylinder energy estimates from decay
@@ -11,6 +13,8 @@ These estimates apply on backward cylinders, including cylinders with a fixed
 top time. Their constants depend only on the given decay constant. They are
 the scalar integral inputs for extension by zero across the top time face.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

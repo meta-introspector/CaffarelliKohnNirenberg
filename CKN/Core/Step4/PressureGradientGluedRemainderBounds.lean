@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedTimeBounds
-import CKN.Core.Step4.PressureGradientHGCloserCellsSourceMorrey
-import CKN.Core.Step4.PressureGradientHGCloserCellsRieszMorrey
-import CKN.Foundation.Parabolic.Morrey.AdamsBridge
+module
+
+public import CKN.Core.Step4.PressureGradientGluedTimeBounds
+public import CKN.Core.Step4.PressureGradientHGCloserCellsSourceMorrey
+public import CKN.Core.Step4.PressureGradientHGCloserCellsRieszMorrey
+public import CKN.Foundation.Parabolic.Morrey.AdamsBridge
 
 /-! # Time bounds for localized pressure sources
 
@@ -12,6 +14,8 @@ The spatial `6/5` norm on a cell has a finite `6/5` time moment from
 Morrey control. Intersecting the time window and spatial ball with carriers
 preserves the estimate, with the explicit radius power `5 * (1 - (6/5)/κ)`.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

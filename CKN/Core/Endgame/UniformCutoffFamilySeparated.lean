@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.SpatialSecondPartial
-import CKN.Statements.TimePartial
-import CKN.Pressure.LeibnizLaplacian
-import Mathlib.Analysis.Calculus.FDeriv.Mul
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Topology.Algebra.Support
+module
+
+public import CKN.Statements.SpatialSecondPartial
+public import CKN.Statements.TimePartial
+public import CKN.Pressure.LeibnizLaplacian
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Topology.Algebra.Support
 
 /-!
 # Derivatives of a separated space-time product
@@ -18,6 +20,8 @@ time derivatives through the derivatives of the two factors.  It also places
 the support and the topological support of the product inside the product of
 the corresponding one-factor sets.
 -/
+
+@[expose] public section
 
 open Set
 open CKN.Foundation.Parabolic

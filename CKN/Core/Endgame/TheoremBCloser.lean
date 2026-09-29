@@ -1,27 +1,29 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedTransferClause
-import CKN.Core.Step4.PressureGradientGluedSmallCell
-import CKN.Core.Step4.SliceSelectedGradientCorrectedSWS
-import CKN.Core.Step4.PressureGradientGluedSlice
-import CKN.Core.Step4.SliceSelectedGradientSWS
-import CKN.Core.Step4.PressureGradientOriginCellInstancePairing
-import CKN.Core.Step3.ThetaDecayTShape
-import CKN.Core.Endgame.Neighborhood
-import CKN.Core.Endgame.ProducerRegularity
-import CKN.Core.Step4.SourceMorreyGradientInstances
-import CKN.Core.Step4.RouteAOneRoundFinal
-import CKN.Core.Step4.RouteAFirstRoundConsumer
-import CKN.Core.Parameters
-import CKN.Statements.ParabolicHolderVecOn
-import CKN.Statements.RegularPoint
-import CKN.Statements.SpatialGradientSq
-import CKN.Statements.SpaceTimeSet
-import CKN.Statements.SuitableWeakSolutionIntegrable
-import CKN.Core.Endgame.TheoremBAdaptersCZ
-import CKN.Core.Endgame.TheoremBAdaptersCZSource
-import CKN.Core.Step3.GradientSlotDuhamel
+module
+
+public import CKN.Core.Step4.PressureGradientGluedTransferClause
+public import CKN.Core.Step4.PressureGradientGluedSmallCell
+public import CKN.Core.Step4.SliceSelectedGradientCorrectedSWS
+public import CKN.Core.Step4.PressureGradientGluedSlice
+public import CKN.Core.Step4.SliceSelectedGradientSWS
+public import CKN.Core.Step4.PressureGradientOriginCellInstancePairing
+public import CKN.Core.Step3.ThetaDecayTShape
+public import CKN.Core.Endgame.Neighborhood
+public import CKN.Core.Endgame.ProducerRegularity
+public import CKN.Core.Step4.SourceMorreyGradientInstances
+public import CKN.Core.Step4.RouteAOneRoundFinal
+public import CKN.Core.Step4.RouteAFirstRoundConsumer
+public import CKN.Core.Parameters
+public import CKN.Statements.ParabolicHolderVecOn
+public import CKN.Statements.RegularPoint
+public import CKN.Statements.SpatialGradientSq
+public import CKN.Statements.SpaceTimeSet
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+public import CKN.Core.Endgame.TheoremBAdaptersCZ
+public import CKN.Core.Endgame.TheoremBAdaptersCZSource
+public import CKN.Core.Step3.GradientSlotDuhamel
 
 /-! # The gradient regularity criterion from a small-cell majorant
 
@@ -30,6 +32,8 @@ pressure gradient. The slice majorant in `sec:pressure` transfers to this
 field by uniqueness. Finite covering supplies its whole-carrier integral,
 and the two cell regimes give the pressure-gradient input of the criterion.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

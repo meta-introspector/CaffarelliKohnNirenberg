@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Analysis.SpecialFunctions.Pow.Integral
+module
+
+public import Mathlib.Analysis.SpecialFunctions.Pow.Integral
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal

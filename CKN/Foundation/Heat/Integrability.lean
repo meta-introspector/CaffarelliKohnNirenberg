@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.Bounds
-import CKN.Foundation.Heat.TestFunction
-import CKN.Foundation.Heat.PolyExpBounds
-import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+module
+
+public import CKN.Foundation.Heat.Bounds
+public import CKN.Foundation.Heat.TestFunction
+public import CKN.Foundation.Heat.PolyExpBounds
+public import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.FactorDerivative
-import CKN.Setting.Examples.ShearCounterexample.SmoothIBP
-import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.FactorDerivative
+public import CKN.Setting.Examples.ShearCounterexample.SmoothIBP
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
 
 /-! # Integration by parts for space-time factors. -/
+
+@[expose] public section
 
 open MeasureTheory
 open CKN.Foundation.Parabolic

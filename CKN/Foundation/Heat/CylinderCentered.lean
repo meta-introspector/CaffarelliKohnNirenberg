@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.Cylinder
-import CKN.Statements.SpatialSecondPartial
-import CKN.Statements.TimePartial
-import Mathlib.Analysis.Calculus.FDeriv.Pi
+module
+
+public import CKN.Foundation.Heat.Cylinder
+public import CKN.Statements.SpatialSecondPartial
+public import CKN.Statements.TimePartial
+public import Mathlib.Analysis.Calculus.FDeriv.Pi
 
 /-!
 # The backward Gaussian test function at a general base point
@@ -17,6 +19,8 @@ translated test function and proves the statements of `eq:psi-backward`,
 `paper/ckn.tex` at an arbitrary base point, keeping the constants of the
 canonical-center statements exactly.
 -/
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

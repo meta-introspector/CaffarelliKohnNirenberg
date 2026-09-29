@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Integration.Average
-import Mathlib.Analysis.SpecialFunctions.NonIntegrable
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.MeasureTheory.Measure.Filter
-import Mathlib.MeasureTheory.Measure.Prod
+module
+
+public import CKN.Foundation.Parabolic.Integration.Average
+public import Mathlib.Analysis.SpecialFunctions.NonIntegrable
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Measure.Filter
+public import Mathlib.MeasureTheory.Measure.Prod
 
 /-!
 # A non-integrability witness on parabolic boxes
@@ -21,6 +23,8 @@ Mathlib's standard non-integrability of the reciprocal.
 The statement is a refutation witness: it shows that no argument may treat
 such a weight as an integrable function on the box.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 

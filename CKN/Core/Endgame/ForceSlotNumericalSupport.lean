@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SourceMorreyGradient
-import CKN.Core.Endgame.CutoffDerivatives
-import CKN.Core.Endgame.OneSidedMeasurability
+module
+
+public import CKN.Core.Step4.SourceMorreyGradient
+public import CKN.Core.Endgame.CutoffDerivatives
+public import CKN.Core.Endgame.OneSidedMeasurability
 
 /-!
 # Measurability and support of the full localized sources
@@ -13,6 +15,8 @@ and force. Local integrability of the selected pressure gradient suffices
 for both full source slots to be globally measurable and compactly supported.
 No numerical source bound is used in this step.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped Topology BigOperators

@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.AdamsConstants
+module
+
+public import CKN.Core.Endgame.AdamsConstants
 
 /-! # Almost-everywhere finiteness of subcritical potentials
 
@@ -10,6 +12,8 @@ integral. The maximal estimate and the unoptimized Hedberg estimate then
 give finiteness of the extended-real potential almost everywhere, before
 any use of its real-valued conversion.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal

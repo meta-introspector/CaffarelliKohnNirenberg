@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Parabolic.Morrey.Basic
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.MeasureTheory.Integral.MeanInequalities
+module
+
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Parabolic.Morrey.Basic
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
 
 /-!
 # Spatial convolution on parabolic metric balls
@@ -12,6 +14,8 @@ import Mathlib.MeasureTheory.Integral.MeanInequalities
 This module records the real-kernel Minkowski estimate for the metric-ball
 Morrey seminorm.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric
 open scoped ENNReal NNReal Topology

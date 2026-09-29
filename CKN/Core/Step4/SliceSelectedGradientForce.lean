@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.ForceCancellationUnconditional
-import CKN.Core.Step4.SliceSelectedGradientRemainder
+module
+
+public import CKN.Pressure.ForceCancellationUnconditional
+public import CKN.Core.Step4.SliceSelectedGradientRemainder
 
 /-! # The force potentials of a slice carry a vanishing weak gradient
 
@@ -16,6 +18,8 @@ The cancellation itself is the whole-space harmonic uniqueness statement of
 the force section; this file only converts it into the weak-gradient shape
 that display (3.5) consumes.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

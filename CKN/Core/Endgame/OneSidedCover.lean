@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.OneSidedGeometry
-import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
+module
+
+public import CKN.Core.Endgame.OneSidedGeometry
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
 
 /-!
 # Finite one-sided coverings and total integral estimates
@@ -11,6 +13,8 @@ A finite metric-ball cover of the closed intermediate cylinder gives a
 finite backward-cylinder cover after truncating the forward time shifts.
 All centers and the number of cylinders are chosen before the integrand.
 -/
+
+@[expose] public section
 
 open Set Metric MeasureTheory
 open scoped ENNReal BigOperators

@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginASlotLargeCellsGeometry
+module
+
+public import CKN.Core.Step4.PressureGradientOriginASlotLargeCellsGeometry
 
 /-! # An absolute lattice cover for thin pressure collars
 
 The doubled cells have radius `1/512`, below both prescribed half-collars.
 The existing shifted-centre construction keeps every centre in the carrier.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal BigOperators

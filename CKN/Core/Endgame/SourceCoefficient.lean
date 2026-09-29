@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.HeatRepresentative
+module
+
+public import CKN.Core.Endgame.HeatRepresentative
 
 /-!
 # Uniform bounds for heat Hölder coefficients
@@ -10,6 +12,8 @@ The scalar coefficient is linear in the source Morrey norms. Factoring
 its numerical weights and taking absolute values gives a uniform vector
 bound from finite bounds on the scalar source norms.
 -/
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory

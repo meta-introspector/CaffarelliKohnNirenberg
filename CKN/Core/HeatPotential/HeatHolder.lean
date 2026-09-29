@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.HeatConclusionAssembly
-import CKN.Core.HeatPotential.HeatHolderOfConclusion
+module
+
+public import CKN.Core.HeatPotential.HeatConclusionAssembly
+public import CKN.Core.HeatPotential.HeatHolderOfConclusion
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric Filter
 open scoped ENNReal NNReal Topology

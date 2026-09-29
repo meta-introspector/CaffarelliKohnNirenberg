@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.KernelAllOrdersSmooth
-import CKN.Foundation.Harmonic.KernelAllOrdersOpen
-import CKN.Foundation.Harmonic.KernelAllOrdersSphere
-import Mathlib.Analysis.Calculus.ContDiff.Bounds
+module
+
+public import CKN.Foundation.Harmonic.KernelAllOrdersSmooth
+public import CKN.Foundation.Harmonic.KernelAllOrdersOpen
+public import CKN.Foundation.Harmonic.KernelAllOrdersSphere
+public import Mathlib.Analysis.Calculus.ContDiff.Bounds
+
+@[expose] public section
 
 open scoped BigOperators Topology
 open CKN.Foundation.Parabolic

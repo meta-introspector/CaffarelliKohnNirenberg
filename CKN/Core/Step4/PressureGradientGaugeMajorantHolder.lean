@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Basic
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Basic
 
 /-!
 # A power-mean estimate for time majorants
@@ -10,6 +12,8 @@ An extended-real estimate used when a slice majorant is integrated in time over
 the backward window of a parabolic cell: a power-mean bound that trades a
 sub-unit power for the total mass.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal

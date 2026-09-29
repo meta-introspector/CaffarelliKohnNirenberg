@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceCenteredSource
-import CKN.Core.Step4.PressureGradientOriginCellInstanceMeanNorm
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSData
-import CKN.Core.Step4.PressureGradientOriginCellInstanceSourceObligations
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceCenteredSource
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceMeanNorm
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSData
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceSourceObligations
 
 /-!
 # Centered source control on arbitrary interior time boxes
@@ -12,6 +14,8 @@ import CKN.Core.Step4.PressureGradientOriginCellInstanceSourceObligations
 The source estimate in `eq:pressure-gradient-morrey` is valid on any local
 box of `def:sws`, not only on a backward cylinder's time window.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Energy.AELocalEnergy
-import CKN.Setting.Energy.PointwiseEnergy
+module
+
+public import CKN.Setting.Energy.AELocalEnergy
+public import CKN.Setting.Energy.PointwiseEnergy
 
 /-!
 # The fixed-scale local energy inequality against the affine backward ramp
@@ -34,6 +36,8 @@ of `I`, where every term vanishes, or above all of `I`, where the half-line
 integrals are the full ones and the inequality is the global energy inequality
 `CKN.suitableWeakSolution_energyInequality` for `φ` itself.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

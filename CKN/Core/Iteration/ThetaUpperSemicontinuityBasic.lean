@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Iteration.UpperSemicontinuity
-import CKN.Pressure.SliceIntegrability
-import CKN.Setting.SliceNormBounds
-import CKN.Foundation.Parabolic.Morrey.Cylinders
-import Mathlib.MeasureTheory.Measure.ContinuousPreimage
-import Mathlib.MeasureTheory.Group.Prod
+module
+
+public import CKN.Core.Iteration.UpperSemicontinuity
+public import CKN.Pressure.SliceIntegrability
+public import CKN.Setting.SliceNormBounds
+public import CKN.Foundation.Parabolic.Morrey.Cylinders
+public import Mathlib.MeasureTheory.Measure.ContinuousPreimage
+public import Mathlib.MeasureTheory.Group.Prod
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology
@@ -19,7 +23,7 @@ noncomputable section
 
 namespace CKN
 
-private def subtractMapProd (z : ParabolicPoint) :
+def subtractMapProd (z : ParabolicPoint) :
     C(Vec3 × ℝ, Vec3 × ℝ) :=
   ContinuousMap.mk (fun w : Vec3 × ℝ => (w.1 - z.1, w.2 - z.2))
     (by

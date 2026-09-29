@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierKernel
-import Mathlib.Analysis.SpecialFunctions.Gaussian.FourierTransform
-import Mathlib.MeasureTheory.Integral.Pi
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierKernel
+public import Mathlib.Analysis.SpecialFunctions.Gaussian.FourierTransform
+public import Mathlib.MeasureTheory.Integral.Pi
 
 /-!
 # The spatial Fourier multiplier acting slice by slice
@@ -42,6 +44,8 @@ where both sides vanish.  Its proof contains the spatial Gaussian transform
 one-dimensional Gaussian Fourier integral and the product structure of Lebesgue
 measure on `Fin 3 → ℝ`.
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open MeasureTheory
@@ -111,7 +115,7 @@ theorem spatialFourierIntegral_at_zero (g : Vec3 → ℂ) :
 /-! ### The spatial Gaussian transform in the ambient type -/
 
 /-- One coordinate factor of the Gaussian carrying the forward phase. -/
-private def gaussianPhaseFactor (t c u : ℝ) : ℂ :=
+def gaussianPhaseFactor (t c u : ℝ) : ℂ :=
   (((4 * Real.pi * t) ^ (-(1 : ℝ) / 2) : ℝ) : ℂ) *
       Complex.exp (-((1 / (4 * t) : ℝ) : ℂ) * (u : ℂ) ^ 2) *
     Complex.exp (-(Complex.I * ((u * c : ℝ) : ℂ)))

@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.HeatFarAssemblyKernel
-import CKN.Core.HeatPotential.MorreySources
+module
+
+public import CKN.Core.HeatPotential.HeatFarAssemblyKernel
+public import CKN.Core.HeatPotential.MorreySources
 
 /-!
 # The two kernel slots of the far-shell oscillation
@@ -18,6 +20,8 @@ For the scalar slot the separate part is empty: the causal heat kernel is
 compared across the interface directly.  For a multiplier slot it is the
 moving time strip, and the established thin-strip estimate supplies its mass.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology BigOperators

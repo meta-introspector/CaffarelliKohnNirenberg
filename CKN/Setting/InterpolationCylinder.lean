@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.InterpolationBall
-import CKN.Setting.VectorNormAggregation
-import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+module
+
+public import CKN.Setting.InterpolationBall
+public import CKN.Setting.VectorNormAggregation
+public import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

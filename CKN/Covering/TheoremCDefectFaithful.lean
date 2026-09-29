@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Covering.TheoremCReduction
-import CKN.Foundation.Parabolic.BallsVsCylindersFaithful
+module
+
+public import CKN.Covering.TheoremCReduction
+public import CKN.Foundation.Parabolic.BallsVsCylindersFaithful
 
 /-!
 # The defect inequalities at a singular point
@@ -15,6 +17,8 @@ states them: at a singular point the normalised gradient `limsup` is at least
 cylinder sits inside the domain and carries more than half of the critical
 gradient mass.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

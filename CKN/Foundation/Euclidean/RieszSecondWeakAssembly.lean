@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.RieszSecondOperator
-import CKN.Foundation.Euclidean.RieszSecondBadPart
-import CKN.Foundation.Euclidean.InterpolationLpChar
-import CKN.Foundation.Euclidean.InterpolationRestricted
+module
+
+public import CKN.Foundation.Euclidean.RieszSecondOperator
+public import CKN.Foundation.Euclidean.RieszSecondBadPart
+public import CKN.Foundation.Euclidean.InterpolationLpChar
+public import CKN.Foundation.Euclidean.InterpolationRestricted
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology
@@ -17,10 +21,10 @@ namespace CKN.Foundation.Euclidean
 
 open CKN
 
-private def czGood {level : ℝ} (F : Vec3 → ℝ) (D : CZDecomposition F level) : Vec3 → ℝ :=
+def czGood {level : ℝ} (F : Vec3 → ℝ) (D : CZDecomposition F level) : Vec3 → ℝ :=
   dyadicGoodPart F D.cubes
 
-private def czBad {level : ℝ} (F : Vec3 → ℝ) (D : CZDecomposition F level)
+def czBad {level : ℝ} (F : Vec3 → ℝ) (D : CZDecomposition F level)
     (Q : {Q // Q ∈ D.cubes}) : Vec3 → ℝ :=
   dyadicBadPart F Q.1
 
@@ -397,7 +401,7 @@ theorem rieszSecond_bad_part_interface_of_cube
     (Measure.restrict_mono hsubset le_rfl)
   refine ⟨Tbad, hmeas', hIntegrable, hbound⟩
 
-private lemma measurableSet_rieszSecondCubeStar_assembly (Q : DyadicIndex) :
+lemma measurableSet_rieszSecondCubeStar_assembly (Q : DyadicIndex) :
     MeasurableSet (rieszSecondCubeStar Q) := by
   have hc : Continuous (fun x : Vec3 =>
       vec3EuclideanNorm (x - dyadicCubeCenter Q.scale Q.corner)) := by
@@ -405,7 +409,7 @@ private lemma measurableSet_rieszSecondCubeStar_assembly (Q : DyadicIndex) :
     fun_prop
   exact (isClosed_Iic.preimage hc).measurableSet
 
-private lemma dyadicL1Norm_lt_top_of_integrable {F : Vec3 → ℝ}
+lemma dyadicL1Norm_lt_top_of_integrable {F : Vec3 → ℝ}
     (hF : Integrable F volume) : dyadicL1Norm F < ∞ := by
   dsimp [dyadicL1Norm]
   have hne := (lintegral_ofReal_ne_top_iff_integrable

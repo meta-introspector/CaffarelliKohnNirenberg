@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginClauseDerivativeLocal
-import CKN.Core.Step4.PressureGradientOriginClauseDerivativeGeometry
-import CKN.Foundation.Parabolic.Morrey.AdamsBridge
+module
+
+public import CKN.Core.Step4.PressureGradientOriginClauseDerivativeLocal
+public import CKN.Core.Step4.PressureGradientOriginClauseDerivativeGeometry
+public import CKN.Foundation.Parabolic.Morrey.AdamsBridge
 
 /-! # Clipped origin growth from the fixed derivative decomposition
 
@@ -14,6 +16,8 @@ weak gradient. Its actual clipped spatial norms supply the growth estimate.
 The finite-cover argument uses the same-repository collar assembly pattern;
 its backward patches include the final time without requiring future Morrey data.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

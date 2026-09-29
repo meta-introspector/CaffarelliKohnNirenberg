@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.PotentialLocalLp
-import CKN.Pressure.PotentialDecay
-import CKN.Pressure.PotentialDecayFarField
+module
+
+public import CKN.Foundation.Euclidean.PotentialLocalLp
+public import CKN.Pressure.PotentialDecay
+public import CKN.Pressure.PotentialDecayFarField
 
 /-!
 # Local `L^{3/2}` membership and linear growth for Newtonian potentials
@@ -24,6 +26,8 @@ profile `‖x‖⁻¹` has `L^{3/2}` norm proportional to `ρ` on the ball of ra
 All the estimates are stated for exponents `q ≥ 6/5`, which covers the exponent `3/2` of the
 pressure and the exponents `q > 5/2` of the force datum of `def:sws`.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

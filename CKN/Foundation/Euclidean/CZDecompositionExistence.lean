@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.CZDecomposition
+module
+
+public import CKN.Foundation.Euclidean.CZDecomposition
 
 /-!
 # Existence of the dyadic Calderón--Zygmund decomposition
@@ -10,6 +12,8 @@ This module turns the maximal-cube estimates into the consumer-facing
 decomposition structure.  The good and bad parts are integrated directly over
 the disjoint cube family.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.RieszSecond
-import CKN.Foundation.Harmonic.Commutator.Kernels
-import CKN.Foundation.Harmonic.Interior
-import CKN.Foundation.Harmonic.KernelAllOrders
+module
+
+public import CKN.Foundation.Euclidean.RieszSecond
+public import CKN.Foundation.Harmonic.Commutator.Kernels
+public import CKN.Foundation.Harmonic.Interior
+public import CKN.Foundation.Harmonic.KernelAllOrders
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology
@@ -22,16 +26,16 @@ def rieszSecondKernelC₂ : ℝ := 72 / (4 * Real.pi)
 def rieszSecondKernel (i j : Fin 3) (z : Vec3) : ℝ :=
   CKN.spatialDeriv (CKN.spatialDeriv CKN.Foundation.Heat.newtonianKernel i) j z
 
-private def heatSecondFormula (i j : Fin 3) (z : Vec3) : ℝ :=
+def heatSecondFormula (i j : Fin 3) (z : Vec3) : ℝ :=
   3 * z i * z j * CKN.Foundation.Heat.q z ^ (-(5 : ℝ) / 2) -
     (if i = j then 1 else 0) * CKN.Foundation.Heat.q z ^ (-(3 : ℝ) / 2)
 
-private def heatQDerivative (p : ℝ) (x : Vec3) : Vec3 →L[ℝ] ℝ :=
+def heatQDerivative (p : ℝ) (x : Vec3) : Vec3 →L[ℝ] ℝ :=
   (p * CKN.Foundation.Heat.q x ^ (p - 1)) •
     ∑ k : Fin 3, (2 * x k) •
       (ContinuousLinearMap.proj k : Vec3 →L[ℝ] ℝ)
 
-private def heatSecondDerivative (i j : Fin 3) (x : Vec3) : Vec3 →L[ℝ] ℝ :=
+def heatSecondDerivative (i j : Fin 3) (x : Vec3) : Vec3 →L[ℝ] ℝ :=
   3 • ((x i * x j) • heatQDerivative (-(5 : ℝ) / 2) x +
     (CKN.Foundation.Heat.q x ^ (-(5 : ℝ) / 2)) •
       (x i • (ContinuousLinearMap.proj j : Vec3 →L[ℝ] ℝ) +

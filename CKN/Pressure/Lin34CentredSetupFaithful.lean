@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Lin34SliceCore
-import CKN.Pressure.DeltaPCentred
-import CKN.Pressure.ForceCancellationLocalSpacetime
-import CKN.Pressure.HarmonicRemainderForceTerms
-import CKN.Pressure.SliceIntegrability
-import CKN.Pressure.PkBoundsCylinder
+module
+
+public import CKN.Pressure.Lin34SliceCore
+public import CKN.Pressure.DeltaPCentred
+public import CKN.Pressure.ForceCancellationLocalSpacetime
+public import CKN.Pressure.HarmonicRemainderForceTerms
+public import CKN.Pressure.SliceIntegrability
+public import CKN.Pressure.PkBoundsCylinder
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

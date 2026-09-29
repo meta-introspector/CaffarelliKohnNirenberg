@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTInstanceInteriorCollar
-import CKN.Core.Step4.PressureGradientOriginASlotHarmonic
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTInstanceInteriorCollar
+public import CKN.Core.Step4.PressureGradientOriginASlotHarmonic
 
 /-! # The force increment on an interior pressure collar
 
@@ -10,6 +12,8 @@ The difference of the two classical gradients is the gradient of the
 annular force potential. Its coefficient is uniform for collars of radius
 at least one over 128, without an additive data-independent remainder.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology BigOperators

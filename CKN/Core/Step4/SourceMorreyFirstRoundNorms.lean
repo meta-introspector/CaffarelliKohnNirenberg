@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SourceMorreyFirstRoundSupport
-import CKN.Core.Step4.SourceMorreyGradientPackage
+module
+
+public import CKN.Core.Step4.SourceMorreyFirstRoundSupport
+public import CKN.Core.Step4.SourceMorreyGradientPackage
 
 /-!
 # Source norms of the first velocity-improvement round
@@ -18,6 +20,8 @@ The derivative slot `localizedGradientSourceH` is a bounded multiple of the
 velocity itself, so its integrability exponent stays at `3`: it is estimated
 in `M^{3,25/6}` directly, by lowering only the Morrey exponent from `25/3`.
 -/
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Metric Filter

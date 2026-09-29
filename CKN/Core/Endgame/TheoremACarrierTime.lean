@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceWholeTime
-import CKN.Setting.ScalingInvariance
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceWholeTime
+public import CKN.Setting.ScalingInvariance
 
 /-!
 # Time integrability from a finite spatial slice estimate
@@ -11,6 +13,8 @@ The component estimates for `eq:pressure-gradient-morrey` supply all temporal
 obligations on compactly interior source balls. A finite spatial estimate
 then transfers them to the entire carrier in `prop:bootstrap`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

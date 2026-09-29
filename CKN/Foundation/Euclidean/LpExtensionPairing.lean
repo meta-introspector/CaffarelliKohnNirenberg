@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.LpExtensionPairingHeat
-import CKN.Foundation.Euclidean.HessianL2
-import CKN.Pressure.DerivativeAdjoint
-import CKN.Foundation.Heat.IntegralBounds
-import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
-import Mathlib.Analysis.Real.Pi.Bounds
+module
+
+public import CKN.Foundation.Euclidean.LpExtensionPairingHeat
+public import CKN.Foundation.Euclidean.HessianL2
+public import CKN.Pressure.DerivativeAdjoint
+public import CKN.Foundation.Heat.IntegralBounds
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Real.Pi.Bounds
 
 /-! # The first-order Newtonian adjoint and the smooth pairing
 
@@ -25,6 +27,8 @@ integrations by parts gives, for smooth compactly supported data `G`,
 which is the smooth case of the distributional adjointness used for the
 `L^(6/5)` Calderón--Zygmund endpoint.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

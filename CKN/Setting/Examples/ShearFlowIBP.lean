@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.SuitableWeakSolutionIntegrable
-import Mathlib.Analysis.Calculus.FDeriv.Prod
-import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+module
+
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+public import Mathlib.Analysis.Calculus.FDeriv.Prod
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
 
 /-!
 # Smooth space-time integration by parts
@@ -11,6 +13,8 @@ import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
 Directional integration by parts for a smooth field and a compactly supported
 test on the raw product of space and time, expressed using factor derivatives.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

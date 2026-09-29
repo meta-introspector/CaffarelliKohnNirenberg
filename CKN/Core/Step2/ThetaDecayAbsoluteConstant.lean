@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationCZP1Final
-import CKN.Pressure.PkConstantsNonneg
-import CKN.Core.Step2.Iteration
-import CKN.Setting.ScalingQuantityNonneg
+module
+
+public import CKN.Pressure.IdentificationCZP1Final
+public import CKN.Pressure.PkConstantsNonneg
+public import CKN.Core.Step2.Iteration
+public import CKN.Setting.ScalingQuantityNonneg
 
 /-!
 # The combined decay inequality with an absolute leading constant
@@ -26,6 +28,8 @@ produced before `q` is introduced.  The Calderón–Zygmund input of
 
 Following `conv:kappa` the displays are taken at `κ = iterationKappa C₂₇`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

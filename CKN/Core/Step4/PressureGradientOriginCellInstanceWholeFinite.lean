@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceQuantitative
-import CKN.Core.Step4.PressureGradientOriginCellInstanceExhaustion
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceQuantitative
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceExhaustion
 
 /-!
 # Finiteness of the centered majorant on a local box
@@ -11,6 +13,8 @@ The source membership required in `eq:pressure-gradient-morrey` follows on
 any local box from the spatial Sobolev data of `def:sws`, at almost every
 time of that box.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

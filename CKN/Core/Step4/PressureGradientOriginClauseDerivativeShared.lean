@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginClauseDerivative
+module
+
+public import CKN.Core.Step4.PressureGradientOriginClauseDerivative
 
 /-! # Origin growth from the common temporal remainder input
 
@@ -10,6 +12,8 @@ whole time axis. The backward origin cover then applies with the same half
 ball and the same cylinder scale. No symmetric enlargement of the time window
 or additional pressure estimate is needed.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

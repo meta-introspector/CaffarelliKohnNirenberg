@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.GeneralSymbolCharacterization
-import CKN.Core.HeatPotential.GeneralSymbolPairings
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelLocalIntegrable
+module
+
+public import CKN.Core.HeatPotential.GeneralSymbolCharacterization
+public import CKN.Core.HeatPotential.GeneralSymbolPairings
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelLocalIntegrable
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

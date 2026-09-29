@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Iteration.UpperSemicontinuity
-import CKN.Pressure.SliceIntegrability
-import CKN.Setting.SliceNormBounds
-import CKN.Foundation.Parabolic.Morrey.Cylinders
-import Mathlib.MeasureTheory.Measure.ContinuousPreimage
-import Mathlib.MeasureTheory.Group.Prod
-import CKN.Core.Iteration.ThetaUpperSemicontinuityBasic
-import CKN.Core.Iteration.ThetaUpperSemicontinuityAlpha
+module
+
+public import CKN.Core.Iteration.UpperSemicontinuity
+public import CKN.Pressure.SliceIntegrability
+public import CKN.Setting.SliceNormBounds
+public import CKN.Foundation.Parabolic.Morrey.Cylinders
+public import Mathlib.MeasureTheory.Measure.ContinuousPreimage
+public import Mathlib.MeasureTheory.Group.Prod
+public import CKN.Core.Iteration.ThetaUpperSemicontinuityBasic
+public import CKN.Core.Iteration.ThetaUpperSemicontinuityAlpha
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology

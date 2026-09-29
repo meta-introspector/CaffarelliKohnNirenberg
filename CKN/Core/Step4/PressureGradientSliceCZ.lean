@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientSWS
-import CKN.Core.Endgame.ConcreteRieszConsumption
-import CKN.Foundation.Euclidean.CZUnconditional
+module
+
+public import CKN.Core.Step4.PressureGradientSWS
+public import CKN.Core.Endgame.ConcreteRieszConsumption
+public import CKN.Foundation.Euclidean.CZUnconditional
 
 /-! # The slice pressure-gradient bound with the explicit endpoint constant
 
@@ -16,6 +18,8 @@ and the numerical bound, with the explicit constant
 family at that constant and the resulting slice bound, so the pressure
 gradient on a slice is controlled with no Calderón--Zygmund premise.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

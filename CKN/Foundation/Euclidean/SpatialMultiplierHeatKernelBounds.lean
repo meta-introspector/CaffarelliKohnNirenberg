@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierKernel
-import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
-import Mathlib.Analysis.Calculus.ContDiff.Bounds
-import Mathlib.Analysis.Complex.OperatorNorm
-import Mathlib.Analysis.Fourier.FourierTransformDeriv
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierKernel
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.Analysis.Calculus.ContDiff.Bounds
+public import Mathlib.Analysis.Complex.OperatorNorm
+public import Mathlib.Analysis.Fourier.FourierTransformDeriv
 
 /-!
 # Bounds for the spatial multiplier heat kernel
@@ -15,6 +17,8 @@ Proposition `prop:heat-morrey-hoelder` are the pointwise bounds for a smooth,
 degree-one homogeneous spatial Fourier symbol applied to the forward heat
 kernel.  The paper passage is `paper/ckn.tex`, label `eq:heat-kernel-bounds`.
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open Set MeasureTheory
@@ -306,7 +310,7 @@ theorem frequencyPairingCLM_norm_le (ξ : Vec3) :
       simp [Finset.sum_const, Fintype.card_fin]
       ring
 
-private def frequencyArgumentCLM (ξ : Vec3) : Vec3 →L[ℝ] ℂ :=
+def frequencyArgumentCLM (ξ : Vec3) : Vec3 →L[ℝ] ℂ :=
   ((ContinuousLinearMap.mul ℝ ℂ) Complex.I).comp
     (Complex.ofRealCLM.comp (frequencyPairingCLM ξ))
 

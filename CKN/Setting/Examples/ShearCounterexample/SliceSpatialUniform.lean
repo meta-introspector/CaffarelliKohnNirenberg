@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.SliceSpatialLp
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.SliceSpatialLp
+public import Mathlib.Analysis.SpecificLimits.Basic
 
 /-! # Uniform spatial slice estimates for the shear profile. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory

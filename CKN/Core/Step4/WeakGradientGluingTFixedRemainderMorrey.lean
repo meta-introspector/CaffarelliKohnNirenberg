@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTBoundedRepresentative
-import CKN.Core.Step4.PressureGradientHGCloserCellsRemainderGlobal
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTBoundedRepresentative
+public import CKN.Core.Step4.PressureGradientHGCloserCellsRemainderGlobal
 
 /-! # Morrey control from almost-everywhere remainder slice bounds
 
@@ -10,6 +12,8 @@ An almost-everywhere spatial bound is sufficient for the measurable
 remainder selected by weak derivative uniqueness. A bounded representative
 satisfies the pointwise consumer and preserves the original Morrey class.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

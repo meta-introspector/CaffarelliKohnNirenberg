@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Potentials
-import Mathlib.MeasureTheory.Function.LpSpace.Basic
-import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+module
+
+public import CKN.Pressure.Potentials
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
 
 /-! # Weak pressure gradients from indexed extension bounds
 
@@ -11,6 +13,8 @@ The negatively signed extension supplies a weak gradient of the first
 Newtonian derivative potential. Only distributional pairings and Lp bounds
 are used; no classical derivative of a rough representative is identified.
 -/
+
+@[expose] public section
 
 open MeasureTheory Filter
 open scoped ENNReal BigOperators

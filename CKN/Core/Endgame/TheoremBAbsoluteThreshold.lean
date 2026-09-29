@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.TheoremBUnconditional
-import CKN.Core.Step2.ThetaDecayAbsoluteConstant
+module
+
+public import CKN.Core.Endgame.TheoremBUnconditional
+public import CKN.Core.Step2.ThetaDecayAbsoluteConstant
 
 /-!
 # The gradient regularity criterion with an absolute threshold
@@ -20,6 +22,8 @@ theorem below is the same chain with the decay input taken from
 threshold `ε₁ = iterationEpsilonStar C₂₇` is then fixed before `q`, as
 printed.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

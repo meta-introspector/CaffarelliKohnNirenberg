@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.H1.Basic
-import CKN.Foundation.Parabolic.Basic
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Foundation.Sobolev.H1.Basic
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Foundation.Parabolic.Vec3Norm
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

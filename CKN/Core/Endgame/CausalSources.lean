@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.CutoffDerivatives
-import CKN.Core.Step4.SourceMorreyGradient
+module
+
+public import CKN.Core.Endgame.CutoffDerivatives
+public import CKN.Core.Step4.SourceMorreyGradient
 
 /-! # Past-time invariance of the localized gradient-slot sources
 
@@ -11,6 +13,8 @@ times. Their actual truncated equation sources therefore agree, including
 the pressure gradient in the order-two slot. This is an identity of formulas;
 it does not assert the still-needed localized representation theorem.
 -/
+
+@[expose] public section
 
 open Set Filter
 open scoped Topology

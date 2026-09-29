@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Finiteness
-import CKN.Foundation.Sobolev.Cutoff.Ball
+module
+
+public import CKN.Setting.Finiteness
+public import CKN.Foundation.Sobolev.Cutoff.Ball
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

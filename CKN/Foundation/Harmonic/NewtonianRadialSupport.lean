@@ -1,16 +1,20 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.HessianL2
-import CKN.Foundation.Harmonic.NewtonianRadialPotential
-import CKN.Foundation.Harmonic.NewtonianRadialODE
-import CKN.Foundation.Harmonic.Commutator.SphereTransport
-import CKN.Pressure.PotentialDecayFarField
-import Mathlib.Analysis.Calculus.Deriv.Comp
-import Mathlib.Analysis.Calculus.Deriv.Mul
-import Mathlib.Analysis.Calculus.ContDiff.Deriv
-import Mathlib.Analysis.SpecialFunctions.Sqrt
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+module
+
+public import CKN.Foundation.Euclidean.HessianL2
+public import CKN.Foundation.Harmonic.NewtonianRadialPotential
+public import CKN.Foundation.Harmonic.NewtonianRadialODE
+public import CKN.Foundation.Harmonic.Commutator.SphereTransport
+public import CKN.Pressure.PotentialDecayFarField
+public import Mathlib.Analysis.Calculus.Deriv.Comp
+public import Mathlib.Analysis.Calculus.Deriv.Mul
+public import Mathlib.Analysis.Calculus.ContDiff.Deriv
+public import Mathlib.Analysis.SpecialFunctions.Sqrt
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+
+@[expose] public section
 
 open Set Filter MeasureTheory
 open scoped Topology BigOperators Interval
@@ -28,7 +32,7 @@ set_option autoImplicit false
 noncomputable section
 namespace CKN.Foundation.Harmonic
 
-private def axis : Vec3 := CKN.basisVec 0
+def axis : Vec3 := CKN.basisVec 0
 
 private lemma axis_norm : vec3EuclideanNorm axis = 1 := by
   unfold axis vec3EuclideanNorm

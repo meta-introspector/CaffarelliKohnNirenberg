@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.RouteAAssembly
-import CKN.Core.Step4.PressureGradientMorreyBridge
-import CKN.Core.Step4.PressureGradientOneSided
-import CKN.Core.Step4.SliceSelectedGradient
-import CKN.Core.Step3.LocalizedEquationBasics
-import CKN.Core.Endgame.Localization
-import CKN.Foundation.Parabolic.BallDisplays
+module
+
+public import CKN.Core.Step4.RouteAAssembly
+public import CKN.Core.Step4.PressureGradientMorreyBridge
+public import CKN.Core.Step4.PressureGradientOneSided
+public import CKN.Core.Step4.SliceSelectedGradient
+public import CKN.Core.Step3.LocalizedEquationBasics
+public import CKN.Core.Endgame.Localization
+public import CKN.Foundation.Parabolic.BallDisplays
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

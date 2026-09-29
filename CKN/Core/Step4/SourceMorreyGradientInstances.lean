@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SourceMorreyGradientPackage
-import CKN.Core.Endgame.ProducerRegularity
-import CKN.Core.Endgame.Bootstrap
-import CKN.Core.Endgame.BootstrapSourceBounds
-import CKN.Core.Endgame.BootstrapDerivativeSource
-import CKN.Core.Endgame.SourceComponents
+module
+
+public import CKN.Core.Step4.SourceMorreyGradientPackage
+public import CKN.Core.Endgame.ProducerRegularity
+public import CKN.Core.Endgame.Bootstrap
+public import CKN.Core.Endgame.BootstrapSourceBounds
+public import CKN.Core.Endgame.BootstrapDerivativeSource
+public import CKN.Core.Endgame.SourceComponents
+
+@[expose] public section
 
 open MeasureTheory Set Metric
 open scoped ENNReal

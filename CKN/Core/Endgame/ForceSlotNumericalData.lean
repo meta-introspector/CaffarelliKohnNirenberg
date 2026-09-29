@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step2.MorreyFormUniform
-import CKN.Core.Endgame.QuantitativeEndgame
-import CKN.Foundation.Parabolic.Morrey.Cylinders
+module
+
+public import CKN.Core.Step2.MorreyFormUniform
+public import CKN.Core.Endgame.QuantitativeEndgame
+public import CKN.Foundation.Parabolic.Morrey.Cylinders
 
 /-!
 # Step 2 data on the endgame source carrier
@@ -12,6 +14,8 @@ The initial velocity and gradient bounds are chosen before the solution.
 Restriction to each local source ball preserves those bounds, and comparison
 with cylinder Morrey norms introduces no additional constant.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

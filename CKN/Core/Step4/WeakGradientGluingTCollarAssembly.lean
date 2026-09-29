@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTFixedPairing
-import CKN.Core.Step4.WeakGradientGluingTDecompositionMorrey
-import CKN.Core.Step4.PressureGradientGluedRemainderBounds
-import CKN.Core.Step4.PressureGradientGluedSlice
-import CKN.Core.Step4.SliceSelectedGradientCorrectedSWS
-import CKN.Foundation.Parabolic.Morrey.VecMem
-import CKN.Core.Endgame.CompactBall
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTFixedPairing
+public import CKN.Core.Step4.WeakGradientGluingTDecompositionMorrey
+public import CKN.Core.Step4.PressureGradientGluedRemainderBounds
+public import CKN.Core.Step4.PressureGradientGluedSlice
+public import CKN.Core.Step4.SliceSelectedGradientCorrectedSWS
+public import CKN.Foundation.Parabolic.Morrey.VecMem
+public import CKN.Core.Endgame.CompactBall
 
 /-! # Fixed-collar assembly of the pressure slice majorant
 
@@ -16,6 +18,8 @@ of the enlarged cell carrier. Weak-derivative uniqueness transfers those
 bounds to one measurable field. The only external analytic input is the
 fixed harmonic and far-force remainder's temporal majorant.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology BigOperators

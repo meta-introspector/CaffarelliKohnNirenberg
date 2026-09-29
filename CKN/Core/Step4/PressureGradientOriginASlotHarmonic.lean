@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginASlotHarmonicHolder
-import CKN.Core.Step4.WeakGradientGluingTRemainderMajorantQuantitative
-import CKN.Core.Step4.PressureGradientOriginKPAffineSlot
-import CKN.Core.Step4.PressureGradientGaugeMajorantExponents
+module
+
+public import CKN.Core.Step4.PressureGradientOriginASlotHarmonicHolder
+public import CKN.Core.Step4.WeakGradientGluingTRemainderMajorantQuantitative
+public import CKN.Core.Step4.PressureGradientOriginKPAffineSlot
+public import CKN.Core.Step4.PressureGradientGaugeMajorantExponents
 
 /-!
 # The near-force remainder on a margin cell of `prop:bootstrap`
@@ -35,6 +37,8 @@ power of its source term `(c·3X)^{6/5} ≥ (3c)^{6/5}·ε^{6/(5q)}`.  No additi
 absolute constant survives, so the estimate is compatible with a vanishing
 slot at vanishing data.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal BigOperators

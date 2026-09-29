@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Basic
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Basic
 
 /-! # Large-cell normalization for pressure gradients
 
@@ -15,6 +17,8 @@ The indicator versions hold for every cell centre, including cells crossing
 the carrier boundary. Both the origin past cylinder and the symmetric
 parabolic metric ball are treated without any small-cell estimate.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

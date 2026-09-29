@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.BootstrapPressureConsumer
-import CKN.Core.Step4.PressureGradientOneSidedCell
+module
+
+public import CKN.Core.Endgame.BootstrapPressureConsumer
+public import CKN.Core.Step4.PressureGradientOneSidedCell
 
 /-!
 # Uniform bootstrap and the final selected pressure gradient
@@ -11,6 +13,8 @@ The initial and final calls use precisely the one-sided pressure-gradient
 interface. The heat representation is supplied as the standard localized
 representation identity. All Morrey bounds are chosen before the solution fields.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

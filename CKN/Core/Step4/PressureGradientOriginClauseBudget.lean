@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOneSided
-import CKN.Core.Step4.OneSidedMorreyMonotone
+module
+
+public import CKN.Core.Step4.PressureGradientOneSided
+public import CKN.Core.Step4.OneSidedMorreyMonotone
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal

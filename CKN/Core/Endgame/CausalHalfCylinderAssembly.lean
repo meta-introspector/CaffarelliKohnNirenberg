@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.CausalHalfCylinder
-import CKN.Core.HeatPotential.HeatHolderOfConclusion
-import CKN.Core.HeatPotential.GeneralSymbolHeatConclusionAssembly
-import CKN.Core.HeatPotential.HeatFarAssembly
+module
+
+public import CKN.Core.Endgame.CausalHalfCylinder
+public import CKN.Core.HeatPotential.HeatHolderOfConclusion
+public import CKN.Core.HeatPotential.GeneralSymbolHeatConclusionAssembly
+public import CKN.Core.HeatPotential.HeatFarAssembly
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Distributions
 
@@ -37,7 +41,7 @@ private theorem vec3EuclideanNorm_le_sum_abs (v : Vec3) :
     have h12 := mul_nonneg (abs_nonneg (v 1)) (abs_nonneg (v 2))
     nlinarith only [h0, h1, h2, h01, h02, h12]
 
-private def causalHalfCylinderBound (ε₀ : ℝ) (Kσ : ℝ) : ℝ :=
+def causalHalfCylinderBound (ε₀ : ℝ) (Kσ : ℝ) : ℝ :=
   2 * Kσ +
     ((volume (parabolicCylinder 0 0 (1 / 2))).toReal⁻¹ * ε₀) ^ (1 / 3 : ℝ)
 

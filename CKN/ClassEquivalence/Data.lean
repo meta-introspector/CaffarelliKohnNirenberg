@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.SuitableWeakSolutionIntegrable
+module
+
+public import CKN.Statements.SuitableWeakSolutionIntegrable
 
 /-!
 # The data part of a suitable weak solution
@@ -24,6 +26,8 @@ should take `IsSuitableWeakSolutionData` rather than the full class.  A lemma
 stated that way can be used while the identity clauses of the class are still
 being established, which a lemma stated with the full class cannot.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

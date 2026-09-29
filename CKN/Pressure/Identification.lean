@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.Liouville
-import CKN.Pressure.DecompositionSWS
+module
+
+public import CKN.Foundation.Harmonic.Liouville
+public import CKN.Pressure.DecompositionSWS
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

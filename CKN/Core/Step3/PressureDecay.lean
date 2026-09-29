@@ -1,16 +1,20 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Analysis.Real.Sqrt
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.FinCases
-import CKN.Foundation.Parabolic.Covering
-import CKN.Pressure.PkBoundsCylinder
-import CKN.Foundation.Euclidean.RpowSquares
+module
+
+public import Mathlib.Analysis.Real.Sqrt
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
+public import Mathlib.Tactic.FinCases
+public import CKN.Foundation.Parabolic.Covering
+public import CKN.Pressure.PkBoundsCylinder
+public import CKN.Foundation.Euclidean.RpowSquares
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 open MeasureTheory Set Filter

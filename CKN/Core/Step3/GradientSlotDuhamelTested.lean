@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step3.GradientSlotDuhamelAtoms
-import CKN.Core.Step3.GradientSlotDuhamelTransfers
-import CKN.Core.Step3.GradientSlotDuhamelSplit
-import CKN.Core.Step3.LocalizedEquationConvectionTransfer
+module
+
+public import CKN.Core.Step3.GradientSlotDuhamelAtoms
+public import CKN.Core.Step3.GradientSlotDuhamelTransfers
+public import CKN.Core.Step3.GradientSlotDuhamelSplit
+public import CKN.Core.Step3.LocalizedEquationConvectionTransfer
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Metric Filter

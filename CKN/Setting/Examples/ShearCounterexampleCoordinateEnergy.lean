@@ -2,12 +2,16 @@
 -- Released under Apache 2.0 license.
 
 
-import CKN.Setting.Examples.ShearCounterexample.ShearCoordinates
-import CKN.Setting.Examples.ShearCounterexample.AmbientLp
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.MeasureTheory.Integral.Prod
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.ShearCoordinates
+public import CKN.Setting.Examples.ShearCounterexample.AmbientLp
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.MeasureTheory.Integral.Prod
 
 /-! # A passive-coordinate estimate for the rough shear energy. -/
+
+@[expose] public section
 
 
 set_option autoImplicit false

@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensorDef
-import CKN.Core.Step4.SliceSelectedGradientSWSFinal
-import CKN.Core.Step4.SliceSelectedGradientInputs
-import CKN.Foundation.Euclidean.CZUnconditional
-import CKN.Foundation.Parabolic.Integration.Slice
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensorDef
+public import CKN.Core.Step4.SliceSelectedGradientSWSFinal
+public import CKN.Core.Step4.SliceSelectedGradientInputs
+public import CKN.Foundation.Euclidean.CZUnconditional
+public import CKN.Foundation.Parabolic.Integration.Slice
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

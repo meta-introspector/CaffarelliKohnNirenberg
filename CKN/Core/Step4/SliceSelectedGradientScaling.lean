@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Sobolev.Cutoff.Ball
+module
+
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Sobolev.Cutoff.Ball
 
 /-!
 # Volume scaling for the interior harmonic gradient display
@@ -18,6 +20,8 @@ factor appearing in display (3.5) of the paper.
 The only input is the closed formula for the volume of a Euclidean ball in
 three dimensions, `volume_vec3Ball_eq`.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 

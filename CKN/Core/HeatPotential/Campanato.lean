@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.Exponents
-import CKN.Core.HeatPotential.Kernel
-import CKN.Foundation.Parabolic.CampanatoHolderCorollaries
-import Mathlib.Analysis.Normed.Group.InfiniteSum
+module
+
+public import CKN.Core.HeatPotential.Exponents
+public import CKN.Core.HeatPotential.Kernel
+public import CKN.Foundation.Parabolic.CampanatoHolderCorollaries
+public import Mathlib.Analysis.Normed.Group.InfiniteSum
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

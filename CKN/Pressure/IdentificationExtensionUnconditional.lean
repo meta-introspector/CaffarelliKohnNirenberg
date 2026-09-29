@@ -1,15 +1,19 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationExtension
-import CKN.Foundation.Euclidean.RieszSecondWeakCertificate
-import CKN.Foundation.Euclidean.CZUnconditional
-import CKN.Pressure.PotentialDecayGrowthSum
-import CKN.Pressure.IdentificationExtensionPairingExterior
-import CKN.Pressure.IdentificationExtensionPairingSlice
-import CKN.Pressure.IdentificationExtensionPairingSwap
-import CKN.Pressure.IdentificationExtensionPairing
-import Mathlib.Geometry.Manifold.PartitionOfUnity
+module
+
+public import CKN.Pressure.IdentificationExtension
+public import CKN.Foundation.Euclidean.RieszSecondWeakCertificate
+public import CKN.Foundation.Euclidean.CZUnconditional
+public import CKN.Pressure.PotentialDecayGrowthSum
+public import CKN.Pressure.IdentificationExtensionPairingExterior
+public import CKN.Pressure.IdentificationExtensionPairingSlice
+public import CKN.Pressure.IdentificationExtensionPairingSwap
+public import CKN.Pressure.IdentificationExtensionPairing
+public import Mathlib.Geometry.Manifold.PartitionOfUnity
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology
@@ -22,7 +26,7 @@ namespace CKN
 
 open CKN.Foundation.Euclidean
 
-private def pressureExponent : ℝ≥0∞ := ENNReal.ofReal (3 / 2 : ℝ)
+def pressureExponent : ℝ≥0∞ := ENNReal.ofReal (3 / 2 : ℝ)
 
 /- The global extension is already an `L^(3/2)` function.  This adapter
    records the restriction and subtraction estimates in the exact local

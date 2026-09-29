@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Ambient.Euclidean
-import CKN.Foundation.Sobolev.Cutoff.Ball
-import CKN.Foundation.Sobolev.Mollify.Basic
-import Mathlib.Analysis.Calculus.FDeriv.Equiv
-import Mathlib.Analysis.Normed.Lp.PiLp
+module
+
+public import CKN.Foundation.Ambient.Euclidean
+public import CKN.Foundation.Sobolev.Cutoff.Ball
+public import CKN.Foundation.Sobolev.Mollify.Basic
+public import Mathlib.Analysis.Calculus.FDeriv.Equiv
+public import Mathlib.Analysis.Normed.Lp.PiLp
 
 /-!
 # A smooth ball cut-off with two derivative bounds
@@ -16,6 +18,8 @@ The bump is chosen with a slightly smaller inherited-metric radius so that
 its Euclidean support has a strict collar in the native carrier.  This keeps
 the stated Euclidean radii literal while avoiding an implicit change of norm.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory Metric
 open scoped Convolution
@@ -51,7 +55,7 @@ private lemma euclideanBall_measurable (x₀ : Vec 3) (R : ℝ) :
   exact measurableSet_Iio.preimage
     (contDiff_euclideanSqDist_left x₀).continuous.measurable
 
-private def ballIndicator (x₀ : Vec 3) (R : ℝ) : Vec 3 → ℝ :=
+def ballIndicator (x₀ : Vec 3) (R : ℝ) : Vec 3 → ℝ :=
   (euclideanBall x₀ R).indicator (fun _ => 1)
 
 private lemma ballIndicator_locallyIntegrable (x₀ : Vec 3) (R : ℝ) :
@@ -59,7 +63,7 @@ private lemma ballIndicator_locallyIntegrable (x₀ : Vec 3) (R : ℝ) :
   exact (locallyIntegrable_const (1 : ℝ)).indicator
     (euclideanBall_measurable x₀ R)
 
-private def unitBallCutoff : Vec 3 → ℝ :=
+def unitBallCutoff : Vec 3 → ℝ :=
   mollify (ballIndicator 0 (7 / 10)) (1 / 100) (by norm_num)
 
 private lemma unitBallCutoff_smooth :

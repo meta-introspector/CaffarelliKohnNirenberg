@@ -2,11 +2,15 @@
 -- Released under Apache 2.0 license.
 
 
-import CKN.Foundation.Parabolic.Topology
-import CKN.Foundation.Parabolic.Integration.Average
-import CKN.Statements.SpaceTimeTestFunction
+module
+
+public import CKN.Foundation.Parabolic.Topology
+public import CKN.Foundation.Parabolic.Integration.Average
+public import CKN.Statements.SpaceTimeTestFunction
 
 /-! # Support and product-measure transfer identities for parabolic tests. -/
+
+@[expose] public section
 
 
 set_option autoImplicit false

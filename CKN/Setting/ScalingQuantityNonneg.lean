@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.Theta
-import CKN.Statements.Gamma
-import CKN.Statements.Lambda
+module
+
+public import CKN.Statements.Theta
+public import CKN.Statements.Gamma
+public import CKN.Statements.Lambda
+
+@[expose] public section
 
 open MeasureTheory
 open scoped ENNReal

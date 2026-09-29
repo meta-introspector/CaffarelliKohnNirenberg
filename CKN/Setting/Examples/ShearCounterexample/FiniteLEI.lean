@@ -1,23 +1,27 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.FiniteMomentumIntegral
-import CKN.Setting.Examples.ShearCounterexample.FactorIBP
-import CKN.Setting.Examples.ShearCounterexample.TestSupport
-import CKN.Foundation.Parabolic.Topology
-import CKN.Statements.TimePartial
-import CKN.Statements.SpatialSecondPartial
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.FiniteMomentumIntegral
+public import CKN.Setting.Examples.ShearCounterexample.FactorIBP
+public import CKN.Setting.Examples.ShearCounterexample.TestSupport
+public import CKN.Foundation.Parabolic.Topology
+public import CKN.Statements.TimePartial
+public import CKN.Statements.SpatialSecondPartial
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
 
 /-! # Finite-scale local energy identities for the shear. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open MeasureTheory CKN.Foundation.Parabolic Finset
 namespace CKN
 
-private def leiTimePartial (g : Vec3 × ℝ → ℝ) (z : Vec3 × ℝ) : ℝ :=
+def leiTimePartial (g : Vec3 × ℝ → ℝ) (z : Vec3 × ℝ) : ℝ :=
   timePartial (show ParabolicPoint → ℝ from g) z
 
-private def leiSpatialPartial (g : Vec3 × ℝ → ℝ) (i : Fin 3)
+def leiSpatialPartial (g : Vec3 × ℝ → ℝ) (i : Fin 3)
     (z : Vec3 × ℝ) : ℝ :=
   spatialPartial (show ParabolicPoint → ℝ from g) i z
 

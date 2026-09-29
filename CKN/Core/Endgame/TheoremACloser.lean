@@ -1,23 +1,25 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step3.ThetaDecayTShape
-import CKN.Core.Endgame.InitialUniform
-import CKN.Core.Endgame.BootstrapPressureConsumer
-import CKN.Core.Endgame.FinalPressureConsumer
-import CKN.Core.Endgame.CarrierRestriction
-import CKN.Core.Endgame.StartCaccioppoli
-import CKN.Core.Endgame.TheoremABudgetBridge
-import CKN.Core.Step4.WeakGradientGluingTRemainderMajorant
-import CKN.Core.Step4.PressureGradientOriginClauseDerivativeShared
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTranslatedSlice
-import CKN.Core.Step3.GradientSlotDuhamel
-import CKN.Core.Step4.PressureGradientOneSided
-import CKN.Core.Step4.PressureGradientOriginKPAffineSlot
-import CKN.Core.Endgame.GAAdaptersCell
-import CKN.Core.Endgame.TheoremBAdaptersCZSource
-import CKN.Core.Endgame.TheoremAAdaptersLin34
-import CKN.Core.Endgame.TheoremAAdaptersCZ
+module
+
+public import CKN.Core.Step3.ThetaDecayTShape
+public import CKN.Core.Endgame.InitialUniform
+public import CKN.Core.Endgame.BootstrapPressureConsumer
+public import CKN.Core.Endgame.FinalPressureConsumer
+public import CKN.Core.Endgame.CarrierRestriction
+public import CKN.Core.Endgame.StartCaccioppoli
+public import CKN.Core.Endgame.TheoremABudgetBridge
+public import CKN.Core.Step4.WeakGradientGluingTRemainderMajorant
+public import CKN.Core.Step4.PressureGradientOriginClauseDerivativeShared
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTranslatedSlice
+public import CKN.Core.Step3.GradientSlotDuhamel
+public import CKN.Core.Step4.PressureGradientOneSided
+public import CKN.Core.Step4.PressureGradientOriginKPAffineSlot
+public import CKN.Core.Endgame.GAAdaptersCell
+public import CKN.Core.Endgame.TheoremBAdaptersCZSource
+public import CKN.Core.Endgame.TheoremAAdaptersLin34
+public import CKN.Core.Endgame.TheoremAAdaptersCZ
 
 /-! # Composition of the small-data regularity theorem
 
@@ -66,6 +68,8 @@ symmetric ball about any point of that set contains times after it.
 The numerical majorant is `oneSidedPressureGradientKPAffine`, and all
 numerical constants are fixed before the solution fields.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

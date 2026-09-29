@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.GeneralSymbolCharacterizationAE
-import CKN.Foundation.Heat.CausalDistribution
+module
+
+public import CKN.Core.HeatPotential.GeneralSymbolCharacterizationAE
+public import CKN.Foundation.Heat.CausalDistribution
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Distributions
 

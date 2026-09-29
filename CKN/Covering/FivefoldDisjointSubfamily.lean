@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.MeasureTheory.Covering.Vitali
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.MeasureTheory.Covering.Vitali
 
 /-! # Fivefold covering by a selected disjoint family
 
@@ -10,6 +12,8 @@ The selected centres form a countable set, possibly empty or finite. Radii
 are inherited from the prescribed family, so any property already established
 for each original radius remains available after selection.
 -/
+
+@[expose] public section
 
 open Set Metric
 

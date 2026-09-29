@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearCounterexample.FactorDerivative
-import CKN.Setting.Energy.Calculus
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.Analysis.Calculus.FDeriv.Const
-import Mathlib.Analysis.Calculus.FDeriv.Mul
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.FactorDerivative
+public import CKN.Setting.Energy.Calculus
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.Analysis.Calculus.FDeriv.Const
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
 
 /-! # Support and derivative facts for compactly supported tests. -/
+
+@[expose] public section
 
 set_option autoImplicit false
 open MeasureTheory

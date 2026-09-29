@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.Analysis.Calculus.FDeriv.Add
-import CKN.Foundation.Sobolev.Ambient.Basis
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import CKN.Foundation.Sobolev.Ambient.Basis
+
+@[expose] public section
 
 open CKN.Foundation.Parabolic
 

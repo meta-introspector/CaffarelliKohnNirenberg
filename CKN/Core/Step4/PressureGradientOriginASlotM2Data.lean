@@ -1,14 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.WeakGradientGluingTSourceMeasurable
-import CKN.Core.Step4.PressureGradientOriginClauseField
-import CKN.Core.Step4.PressureGradientOriginKPComparison
-import CKN.Core.Step4.PressureGradientMorrey
-import CKN.Core.Step4.PressureGradientOriginASlotM2MeanFree
-import CKN.Core.Step4.PressureGradientOriginASlotM2Split
-import CKN.Foundation.Parabolic.Vec3Norm
-import CKN.Foundation.Parabolic.Morrey.AdamsBridge
-import CKN.Core.Step4.WeakGradientGluingTCentredSourceCorrection
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTSourceMeasurable
+public import CKN.Core.Step4.PressureGradientOriginClauseField
+public import CKN.Core.Step4.PressureGradientOriginKPComparison
+public import CKN.Core.Step4.PressureGradientMorrey
+public import CKN.Core.Step4.PressureGradientOriginASlotM2MeanFree
+public import CKN.Core.Step4.PressureGradientOriginASlotM2Split
+public import CKN.Foundation.Parabolic.Vec3Norm
+public import CKN.Foundation.Parabolic.Morrey.AdamsBridge
+public import CKN.Core.Step4.WeakGradientGluingTCentredSourceCorrection
 
 /-! # Data for the centred source correction on the half-gap collar
 
@@ -16,6 +18,8 @@ Joint measurability of the velocity, its gradient, the force and the spatial
 slice mean; the divergence source's Morrey budget on any carrier inside the
 outer cylinder; and the gradient-shaped budget for the mean-free velocity.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal BigOperators

@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorRegularity
-import Mathlib.Analysis.Calculus.ContDiff.FiniteDimension
+module
+
+public import CKN.Foundation.Harmonic.InteriorRegularity
+public import Mathlib.Analysis.Calculus.ContDiff.FiniteDimension
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Convolution
 open MeasureTheory MeasureTheory.Measure Set Filter

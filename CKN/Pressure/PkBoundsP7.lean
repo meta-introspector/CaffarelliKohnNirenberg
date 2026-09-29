@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.HLS
-import CKN.Pressure.PkBoundsBasic
+module
+
+public import CKN.Foundation.Euclidean.HLS
+public import CKN.Pressure.PkBoundsBasic
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

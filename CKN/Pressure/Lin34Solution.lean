@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.Lin34Faithful
+module
+
+public import CKN.Core.Endgame.Lin34Faithful
+
+@[expose] public section
 
 open MeasureTheory
 open CKN.Foundation.Parabolic Set

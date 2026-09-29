@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.Basic
-import CKN.Foundation.Sobolev.Ambient.Basis
-import Mathlib.Analysis.Calculus.Deriv.Inv
-import Mathlib.Analysis.Calculus.FDeriv.Pi
-import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+module
+
+public import CKN.Foundation.Heat.Basic
+public import CKN.Foundation.Sobolev.Ambient.Basis
+public import Mathlib.Analysis.Calculus.Deriv.Inv
+public import Mathlib.Analysis.Calculus.FDeriv.Pi
+public import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
 
 /-!
 # Differentiation formulas for the heat kernel
@@ -14,6 +16,8 @@ The coordinate formulas below use the standard coordinate directions of
 `Fin 3 → ℝ`.  They do not use the function space's ambient norm; all spatial
 quadratic expressions are finite sums.
 -/
+
+@[expose] public section
 
 open scoped BigOperators ENNReal Topology
 

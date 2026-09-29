@@ -1,16 +1,20 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Parabolic.Morrey.Basic
-import CKN.Statements.MorreyVecMem
-import CKN.Setting.Finiteness
-import CKN.Setting.PoincareSobolevL1Slice
-import CKN.Setting.VectorNormAggregation
-import CKN.Pressure.SliceIntegrability
-import CKN.Foundation.Parabolic.Topology
-import CKN.Setting.SliceNormBounds
-import CKN.Foundation.Parabolic.Integration.ProdSwap
+module
+
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Parabolic.Morrey.Basic
+public import CKN.Statements.MorreyVecMem
+public import CKN.Setting.Finiteness
+public import CKN.Setting.PoincareSobolevL1Slice
+public import CKN.Setting.VectorNormAggregation
+public import CKN.Pressure.SliceIntegrability
+public import CKN.Foundation.Parabolic.Topology
+public import CKN.Setting.SliceNormBounds
+public import CKN.Foundation.Parabolic.Integration.ProdSwap
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric Filter
 open scoped ENNReal NNReal Topology BigOperators

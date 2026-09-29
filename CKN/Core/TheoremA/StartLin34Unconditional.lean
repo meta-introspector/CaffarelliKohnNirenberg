@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.TheoremA.StartLin34
-import CKN.Pressure.Lin34CentredCZResidual
-import CKN.Pressure.Lin34CentredResidual
+module
+
+public import CKN.Core.TheoremA.StartLin34
+public import CKN.Pressure.Lin34CentredCZResidual
+public import CKN.Pressure.Lin34CentredResidual
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

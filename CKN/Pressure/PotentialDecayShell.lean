@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.PotentialDecayUnitBall
+module
+
+public import CKN.Pressure.PotentialDecayUnitBall
 
 /-!
 # The radial weight `‖x‖ ^ (-3/2)` on balls
@@ -13,6 +15,8 @@ bound by the supremum of the weight times the volume of the ball would only give
 `ρ ^ 3`, which is too weak.  The scaling identity below replaces the dyadic shell
 sum by a single change of variables.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology

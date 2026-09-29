@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step3.LocalizedDuhamelProducer
+module
+
+public import CKN.Core.Step3.LocalizedDuhamelProducer
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped BigOperators ENNReal

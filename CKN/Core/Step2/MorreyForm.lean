@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Parabolic.Morrey.Cylinders
-import CKN.Core.Step2.MorreyBalls
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Cylinders
+public import CKN.Core.Step2.MorreyBalls
+
+@[expose] public section
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology
 open CKN.Foundation.Parabolic
@@ -15,9 +19,9 @@ private theorem morreyBallNorm_le_of_cell_bound' {P τ : ℝ} {g : ParabolicPoin
     morreyBallNorm P τ g ≤ K := by
   unfold morreyBallNorm
   refine iSup_le fun z => iSup_le fun r => hcell z r.1 r.2
-private def pressureSmallConstant (M : ℝ) : ℝ≥0∞ := ENNReal.ofReal (M ^ (3 / 2 : ℝ) * (8 : ℝ) ^ (13 / 5 : ℝ))
-private def gradientSmallConstant (M : ℝ) : ℝ≥0∞ := ENNReal.ofReal (M ^ 2 * (8 : ℝ) ^ (9 / 5 : ℝ))
-private def velocitySmallConstant (M : ℝ) : ℝ≥0∞ := ((ENNReal.ofReal ((3 : ℝ) ^ ((3 : ℝ) / 2 - 1)) * 3) *
+def pressureSmallConstant (M : ℝ) : ℝ≥0∞ := ENNReal.ofReal (M ^ (3 / 2 : ℝ) * (8 : ℝ) ^ (13 / 5 : ℝ))
+def gradientSmallConstant (M : ℝ) : ℝ≥0∞ := ENNReal.ofReal (M ^ 2 * (8 : ℝ) ^ (9 / 5 : ℝ))
+def velocitySmallConstant (M : ℝ) : ℝ≥0∞ := ((ENNReal.ofReal ((3 : ℝ) ^ ((3 : ℝ) / 2 - 1)) * 3) *
     localSobolevConstant ^ (3 / 2 : ℝ)) * ENNReal.ofReal (M ^ 3 * (2 : ℝ) ^ (1 / 2 : ℝ) *
       ((2 : ℝ) ^ (27 / 10 : ℝ) + (32 : ℝ) ^ (3 / 2 : ℝ) * (2 : ℝ) ^ (27 / 10 : ℝ)) * (4 : ℝ) ^ (16 / 5 : ℝ))
 private theorem negative_scale {r₀ r d : ℝ} (hr₀ : 0 < r₀) (hrr : r₀ ≤ r) (hd : 0 ≤ d) :

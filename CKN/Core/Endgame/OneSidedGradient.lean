@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.OneSidedSources
-import CKN.Core.Endgame.OneSidedCover
+module
+
+public import CKN.Core.Endgame.OneSidedSources
+public import CKN.Core.Endgame.OneSidedCover
 
 /-!
 # Uniform one-sided gradient Morrey bounds
@@ -11,6 +13,8 @@ A finite geometric cover bounds the total gradient integral using only
 the small-cylinder decay constant. The cover is selected before the
 solution, so no solution-dependent large-scale integral enters the bound.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

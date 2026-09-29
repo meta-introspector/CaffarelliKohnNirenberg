@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Equation
-import CKN.Setting.DivergenceFreeSlice
+module
+
+public import CKN.Pressure.Equation
+public import CKN.Setting.DivergenceFreeSlice
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

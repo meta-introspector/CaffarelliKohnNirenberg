@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelOscillatory
-import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelOscillatory
+public import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
 
 /-!
 # Uniform integrability estimates for damped homogeneous symbols
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open MeasureTheory Set Module

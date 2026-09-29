@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.WeakGradientGluingTRemainderMajorantQuantitative
-import CKN.Core.Step4.PressureGradientHGCloserCellsRemainder
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTRemainderMajorantQuantitative
+public import CKN.Core.Step4.PressureGradientHGCloserCellsRemainder
+
+@[expose] public section
 open MeasureTheory Set Filter
 open scoped ENNReal
 open CKN.Foundation.Parabolic CKN.Foundation.Heat

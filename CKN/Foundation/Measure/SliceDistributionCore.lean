@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Measure.SliceDistributionKernel
-import CKN.Foundation.Measure.SliceDistributionLocal
-import CKN.Foundation.Measure.SliceDistributionMollifyBounds
-import CKN.Foundation.Measure.SliceDistributionSwap
-import CKN.Foundation.Measure.SliceDistributionTransport
-import CKN.Foundation.Measure.SliceGradientBumps
+module
+
+public import CKN.Foundation.Measure.SliceDistributionKernel
+public import CKN.Foundation.Measure.SliceDistributionLocal
+public import CKN.Foundation.Measure.SliceDistributionMollifyBounds
+public import CKN.Foundation.Measure.SliceDistributionSwap
+public import CKN.Foundation.Measure.SliceDistributionTransport
+public import CKN.Foundation.Measure.SliceGradientBumps
 
 /-!
 # From a countable family of mollifier bumps to every test function
@@ -34,6 +36,8 @@ testing one test function at a time is replaced by a single null set valid for
 every test function.
 -/
 
+@[expose] public section
+
 open MeasureTheory Metric Filter Topology Set
 
 set_option autoImplicit false
@@ -43,7 +47,7 @@ noncomputable section
 namespace CKN
 
 /-- The `i`th coordinate derivative of the mollifier of radius `sliceRadius n`. -/
-private def sliceMollifierDeriv {d : ℕ} (n : ℕ) (i : Fin d) : Vec d → ℝ :=
+def sliceMollifierDeriv {d : ℕ} (n : ℕ) (i : Fin d) : Vec d → ℝ :=
   fun z => (fderiv ℝ (mollifier (d := d) (sliceRadius n) (sliceRadius_pos n)) z)
     (basisVec i)
 

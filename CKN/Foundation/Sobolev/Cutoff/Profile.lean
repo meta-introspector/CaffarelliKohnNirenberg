@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import Mathlib.Analysis.SpecialFunctions.SmoothTransition
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
+module
+
+public import Mathlib.Analysis.SpecialFunctions.SmoothTransition
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
 
 /-!
 # A quantitative smooth transition profile
@@ -26,6 +28,8 @@ permission. The namespace and imports are independent.
 * `smoothTransitionProfile.abs_deriv_le_eight`: the first derivative is
   bounded by `8`.
 -/
+
+@[expose] public section
 
 noncomputable section
 

@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.KernelAllOrders
-import CKN.Pressure.PkBoundsCylinder
-import CKN.Pressure.DecompositionPotentials
+module
+
+public import CKN.Foundation.Harmonic.KernelAllOrders
+public import CKN.Pressure.PkBoundsCylinder
+public import CKN.Pressure.DecompositionPotentials
 
 /-! # The inner-ball gradient of the second force potential `p₈`
 
@@ -23,6 +25,8 @@ section consumes exactly that: the classical gradient of `p₈` on the inner bal
 measured in the Euclidean norm, is controlled by the `L¹` size of the annular
 density with a constant that is uniform in the ball and its centre.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

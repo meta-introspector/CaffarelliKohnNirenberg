@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Iteration.Arithmetic
-import CKN.Core.Parameters
-import CKN.Setting.Finiteness
-import CKN.Statements.Theta
+module
+
+public import CKN.Core.Iteration.Arithmetic
+public import CKN.Core.Parameters
+public import CKN.Setting.Finiteness
+public import CKN.Statements.Theta
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

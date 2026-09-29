@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Inequalities.SeeleyBounds
-import CKN.Foundation.Sobolev.Inequalities.SeeleySplit
+module
+
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyBounds
+public import CKN.Foundation.Sobolev.Inequalities.SeeleySplit
 
 /-!
 # Change-of-variables energy bounds for the two-reflection extension
@@ -12,6 +14,8 @@ identities into explicit pullback estimates.  The statements are written for
 nonnegative extended-valued integrands, so no auxiliary measurability
 assumptions are needed at this stage.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal

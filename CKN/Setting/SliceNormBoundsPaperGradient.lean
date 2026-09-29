@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.SpatialSliceNormIdentifyGradient
-import CKN.Setting.SliceTimeNormGradient
+module
+
+public import CKN.Setting.SpatialSliceNormIdentifyGradient
+public import CKN.Setting.SliceTimeNormGradient
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

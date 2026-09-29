@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.GAAdapters
-import CKN.Core.Step4.PressureGradientOneSidedCell
+module
+
+public import CKN.Core.Endgame.GAAdapters
+public import CKN.Core.Step4.PressureGradientOneSidedCell
 
 /-! # The pressure-gradient boundary from a cell estimate on the origin cell
 
@@ -28,6 +30,8 @@ around the same point contains none.  Since the closed unit backward cylinder
 is itself a space-time product set, the domain hypothesis of `thm:A` does not
 imply the corresponding inclusion for any symmetric ball about the origin.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Metric
 open scoped ENNReal Topology

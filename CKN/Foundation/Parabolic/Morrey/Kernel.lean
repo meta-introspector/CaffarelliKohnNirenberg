@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Basic
-import CKN.Foundation.Parabolic.Integration.SingletonNull
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Basic
+public import CKN.Foundation.Parabolic.Integration.SingletonNull
 
 /-!
 # Parabolic Riesz kernels
@@ -11,6 +13,8 @@ The definitions in this module use the parabolic gauge appearing in the
 potential estimates and expose the dyadic shell geometry used by later
 integral estimates.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric
 open scoped ENNReal NNReal Topology
@@ -368,7 +372,7 @@ private lemma shell_kernel_integral_le {β : ℝ} (hβ : 0 < β) (hβ5 : β < 5)
               (ENNReal.ofReal (2 ^ 5) * volume (parabolicCylinder 0 0 1)) := by
           rw [shell_power_identity ha hβ.le hβ5.le]
 
-private def negativeShell (R : ℝ) (n : ℕ) (z : ParabolicPoint) : Set ParabolicPoint :=
+def negativeShell (R : ℝ) (n : ℕ) (z : ParabolicPoint) : Set ParabolicPoint :=
   parabolicRieszShell R (Int.negSucc n) z
 
 private lemma negativeShell_measurable (R : ℝ) (n : ℕ) (z : ParabolicPoint) :

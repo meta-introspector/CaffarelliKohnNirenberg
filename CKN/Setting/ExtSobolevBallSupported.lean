@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.InterpolationBall
-import CKN.Setting.SobolevPoincareBallFaithful
-import CKN.Foundation.Parabolic.Integration.ProdSwap
+module
+
+public import CKN.Setting.InterpolationBall
+public import CKN.Setting.SobolevPoincareBallFaithful
+public import CKN.Foundation.Parabolic.Integration.ProdSwap
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

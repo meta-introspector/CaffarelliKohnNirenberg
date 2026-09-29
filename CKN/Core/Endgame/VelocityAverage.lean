@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.RepresentativeBound
-import CKN.Core.Endgame.HolderGluing
-import CKN.Setting.ExcessComparisonCore
+module
+
+public import CKN.Core.Endgame.RepresentativeBound
+public import CKN.Core.Endgame.HolderGluing
+public import CKN.Setting.ExcessComparisonCore
 
 /-! # The velocity average supplied by the small-data hypothesis
 
@@ -12,6 +14,8 @@ cubic velocity average on the half-cylinder. This supplies the absolute-value
 part of the reanchored heat representative without any additional assumption
 on that average.
 -/
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory Set

@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.NewtonianRadialSupport
-import CKN.Foundation.Euclidean.SmoothIBP
+module
+
+public import CKN.Foundation.Harmonic.NewtonianRadialSupport
+public import CKN.Foundation.Euclidean.SmoothIBP
+
+@[expose] public section
 
 open MeasureTheory
 open scoped BigOperators Topology

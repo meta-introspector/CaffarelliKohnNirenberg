@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Kernel
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Kernel
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric
 open scoped ENNReal NNReal Topology
@@ -116,7 +120,7 @@ private lemma exists_positive_shell {z w : ParabolicPoint} {R : ℝ}
   have hmem : w ∈ parabolicRieszShell R k z := mem_parabolicRieszShell hinner houter
   exact ⟨k.toNat, by simpa [Int.toNat_of_nonneg hk] using hmem⟩
 
-private def positiveShell (R : ℝ) (n : ℕ) (z : ParabolicPoint) : Set ParabolicPoint :=
+def positiveShell (R : ℝ) (n : ℕ) (z : ParabolicPoint) : Set ParabolicPoint :=
   parabolicRieszShell R (n : ℤ) z
 
 private lemma positiveShell_measurable (R : ℝ) (n : ℕ) (z : ParabolicPoint) :

@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.SingularSet
-import CKN.Statements.SpaceTimeSet
+module
+
+public import CKN.Statements.SingularSet
+public import CKN.Statements.SpaceTimeSet
 
 /-!
 # Relative closedness of the singular set
@@ -14,6 +16,8 @@ neighbourhood that witnesses regularity at one point witnesses it at every
 point of that same neighbourhood; the singular set is then the trace on `𝒪`
 of the complement, a closed set.
 -/
+
+@[expose] public section
 
 open Set Filter
 

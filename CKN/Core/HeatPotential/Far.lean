@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.MorreySources
-import CKN.Core.HeatPotential.Campanato
-import CKN.Foundation.Sobolev.Poincare.GradientNorm
-import Mathlib.Analysis.Calculus.FDeriv.Pi
-import Mathlib.Analysis.Calculus.MeanValue
+module
+
+public import CKN.Core.HeatPotential.MorreySources
+public import CKN.Core.HeatPotential.Campanato
+public import CKN.Foundation.Sobolev.Poincare.GradientNorm
+public import Mathlib.Analysis.Calculus.FDeriv.Pi
+public import Mathlib.Analysis.Calculus.MeanValue
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

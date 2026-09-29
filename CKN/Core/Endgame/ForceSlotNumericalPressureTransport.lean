@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ForceSlotNumericalPressureScaling
-import CKN.Core.Endgame.ForceSlotNumericalNormalization
-import CKN.Core.Endgame.LocalBoxRestriction
-import CKN.Setting.Finiteness
+module
+
+public import CKN.Core.Endgame.ForceSlotNumericalPressureScaling
+public import CKN.Core.Endgame.ForceSlotNumericalNormalization
+public import CKN.Core.Endgame.LocalBoxRestriction
+public import CKN.Setting.Finiteness
 
 /-!
 # Pressure transport to the full localization collar
@@ -13,6 +15,8 @@ The selected normalized pressure gradient transports to the symmetric
 physical collar. Its weak identity is required only where it is supplied
 by the normalized pressure estimate.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped Topology

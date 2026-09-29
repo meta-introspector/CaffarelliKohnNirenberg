@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.InterpolationRestricted
-import CKN.Foundation.Measure.ENNRealHalfScale
+module
+
+public import CKN.Foundation.Euclidean.InterpolationRestricted
+public import CKN.Foundation.Measure.ENNRealHalfScale
 
 /-! # Restricted interpolation with almost-everywhere sublinearity
 
@@ -11,6 +13,8 @@ sets in sublinearity. The tail containment is interpreted modulo null sets;
 the truncations, layer-cake argument, and numerical constant are unchanged
 from `Foundation.Euclidean.InterpolationRestricted`.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Filter

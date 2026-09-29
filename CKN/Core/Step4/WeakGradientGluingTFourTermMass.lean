@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.PressureGradientOriginASlotLargeCells
+module
+
+public import CKN.Core.Step4.PressureGradientOriginASlotLargeCells
 
 /-! # Four-term pressure mass and affine absorption -/
+
+@[expose] public section
 open MeasureTheory Set
 open scoped ENNReal BigOperators
 open CKN.Foundation.Parabolic

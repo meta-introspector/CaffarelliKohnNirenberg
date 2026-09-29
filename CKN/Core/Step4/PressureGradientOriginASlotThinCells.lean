@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginASlotThinCellsGeometry
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
+module
+
+public import CKN.Core.Step4.PressureGradientOriginASlotThinCellsGeometry
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
 
 /-! # From the common half-collar scale to every clipped cell
 
@@ -10,6 +12,8 @@ Bounds at closed carrier centres for radii at most `1/256` imply the
 unrestricted clipped-cell bound. The explicit cover count is absorbed once
 into the affine pressure coefficient.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal BigOperators

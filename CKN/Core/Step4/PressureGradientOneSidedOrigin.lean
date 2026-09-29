@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOneSidedCell
-import CKN.Core.Endgame.OneSidedMorrey
-import CKN.Core.Step4.SliceSelectedGradient
+module
+
+public import CKN.Core.Step4.PressureGradientOneSidedCell
+public import CKN.Core.Endgame.OneSidedMorrey
+public import CKN.Core.Step4.SliceSelectedGradient
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

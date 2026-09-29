@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.PotentialLocalLpGrowth
-import CKN.Pressure.DecompositionPotentials
+module
+
+public import CKN.Foundation.Euclidean.PotentialLocalLpGrowth
+public import CKN.Pressure.DecompositionPotentials
 
 /-!
 # Local `L^{3/2}` membership and linear growth of the force potentials `p₇` and `p₈`
@@ -27,6 +29,8 @@ six data functions `(∂ⱼη) fⱼ(·, s)` and `η fⱼ(·, s)` is of class `L^
 vanishes off a closed ball.  The exponent range `6/5 ≤ q` contains the pressure exponent `3/2`
 and the force exponents `q > 5/2` of `def:sws`.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

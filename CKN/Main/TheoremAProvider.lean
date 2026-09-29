@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.TheoremAUnconditional
-import CKN.Core.Step3.ThetaDecayTShape
-import CKN.Core.Endgame.InitialUniform
-import CKN.Core.Endgame.BootstrapPressureConsumer
-import CKN.Core.Endgame.FinalPressureConsumer
-import CKN.Core.Endgame.CarrierRestriction
-import CKN.Core.Endgame.StartCaccioppoli
+module
+
+public import CKN.Core.Endgame.TheoremAUnconditional
+public import CKN.Core.Step3.ThetaDecayTShape
+public import CKN.Core.Endgame.InitialUniform
+public import CKN.Core.Endgame.BootstrapPressureConsumer
+public import CKN.Core.Endgame.FinalPressureConsumer
+public import CKN.Core.Endgame.CarrierRestriction
+public import CKN.Core.Endgame.StartCaccioppoli
 
 /-! # Quantitative small-data regularity from the displayed analytic estimates
 
@@ -16,6 +18,8 @@ estimates and the literal localized equation supply the velocity improvement
 and the final closed-cylinder estimate. Every remaining analytic input is
 displayed explicitly; no regularity conclusion is assumed.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

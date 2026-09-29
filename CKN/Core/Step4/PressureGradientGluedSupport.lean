@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.WeakDerivative
+module
+
+public import CKN.Foundation.Sobolev.WeakDerivative
 
 /-!
 # Support and almost-everywhere stability of weak partial derivatives
@@ -13,6 +15,8 @@ integrable function with a compactly supported continuous function is
 integrable on the domain; and a set integral of a function supported in a
 common subset does not see the ambient set.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 set_option autoImplicit false

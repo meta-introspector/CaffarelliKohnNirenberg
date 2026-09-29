@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.CarrierRestriction
-import CKN.Core.Step4.SourceMorreyFirstRoundCutoff
-import CKN.Core.Step4.SourceMorreyFirstRoundNorms
+module
+
+public import CKN.Core.Endgame.CarrierRestriction
+public import CKN.Core.Step4.SourceMorreyFirstRoundCutoff
+public import CKN.Core.Step4.SourceMorreyFirstRoundNorms
 
 /-!
 # The first-round source data on an arbitrary parabolic ball
@@ -20,6 +22,8 @@ both sources, the two source Morrey norms certified finite, and the vanishing
 of both sources outside the half ball.  The centre and radius are arbitrary
 and the carrier is the symmetric parabolic ball, not a one-sided cylinder.
 -/
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Metric Filter

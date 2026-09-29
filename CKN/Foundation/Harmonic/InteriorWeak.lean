@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorGradient
-import CKN.Foundation.Sobolev.Mollify.Basic
-import CKN.Foundation.Sobolev.Mollify.LpApproximation
-import Mathlib.Analysis.Calculus.ParametricIntegral
+module
+
+public import CKN.Foundation.Harmonic.InteriorGradient
+public import CKN.Foundation.Sobolev.Mollify.Basic
+public import CKN.Foundation.Sobolev.Mollify.LpApproximation
+public import Mathlib.Analysis.Calculus.ParametricIntegral
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Convolution
 open MeasureTheory MeasureTheory.Measure Set Filter

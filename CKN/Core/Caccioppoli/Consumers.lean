@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.Caccioppoli
-import CKN.Core.Caccioppoli.GammaAssembly
-import CKN.Core.Iteration.Arithmetic
+module
+
+public import CKN.Core.Caccioppoli.Caccioppoli
+public import CKN.Core.Caccioppoli.GammaAssembly
+public import CKN.Core.Iteration.Arithmetic
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

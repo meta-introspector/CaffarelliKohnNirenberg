@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.RouteAOneRound
-import CKN.Core.Step4.SourceMorreyGradientInstances
-import CKN.Core.Endgame.BallBootstrap
-import CKN.Core.Endgame.CarrierLocalAE
+module
+
+public import CKN.Core.Step4.RouteAOneRound
+public import CKN.Core.Step4.SourceMorreyGradientInstances
+public import CKN.Core.Endgame.BallBootstrap
+public import CKN.Core.Endgame.CarrierLocalAE
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

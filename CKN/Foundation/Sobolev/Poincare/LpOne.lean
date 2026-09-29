@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Poincare.Lp
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
+module
+
+public import CKN.Foundation.Sobolev.Poincare.Lp
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+
+@[expose] public section
 
 namespace CKN
 

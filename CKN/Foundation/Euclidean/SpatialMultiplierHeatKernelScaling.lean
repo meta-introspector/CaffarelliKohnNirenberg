@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelUnitBound
-import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelUnitBound
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
 
 /-!
 # Parabolic scaling for multiplier heat kernels
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open MeasureTheory

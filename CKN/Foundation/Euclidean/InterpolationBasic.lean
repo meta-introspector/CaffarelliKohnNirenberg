@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.MeasureTheory.Integral.Layercake
-import Mathlib.Analysis.SpecialFunctions.Pow.Integral
-import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
-import Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
-import Mathlib.MeasureTheory.Integral.Prod
-import CKN.Foundation.Measure.ENNRealHalfScale
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.MeasureTheory.Integral.Layercake
+public import Mathlib.Analysis.SpecialFunctions.Pow.Integral
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
+public import Mathlib.MeasureTheory.Integral.Prod
+public import CKN.Foundation.Measure.ENNRealHalfScale
 
 /-!
 # Marcinkiewicz interpolation between weak `(1,1)` and strong `(2,2)`
@@ -25,6 +27,8 @@ interpolation theorem itself, with the explicit constant
 The proof works throughout with Lebesgue integrals in `ℝ≥0∞`; measurability of
 the input function and of its image under `T` are explicit hypotheses.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 
@@ -56,7 +60,7 @@ private lemma measurable_rpowExt (a : ℝ) : Measurable (rpowExt a) := by
 
 /-! ### The high-frequency contribution -/
 
-private def weightedHighIntegrand (N : Vec3 → ℝ≥0∞) (p : ℝ) (t : ℝ) (x : Vec3) :
+def weightedHighIntegrand (N : Vec3 → ℝ≥0∞) (p : ℝ) (t : ℝ) (x : Vec3) :
     ℝ≥0∞ :=
   ENNReal.ofReal (rpowExt (p - 2) t) *
     (N ⁻¹' Ioi (ENNReal.ofReal (t / 2))).indicator N x
@@ -248,7 +252,7 @@ private lemma weighted_high_integral {N : Vec3 → ℝ≥0∞} (hN : Measurable 
 
 /-! ### The low-frequency contribution -/
 
-private def weightedLowIntegrand (N : Vec3 → ℝ≥0∞) (p : ℝ) (t : ℝ) (x : Vec3) :
+def weightedLowIntegrand (N : Vec3 → ℝ≥0∞) (p : ℝ) (t : ℝ) (x : Vec3) :
     ℝ≥0∞ :=
   ENNReal.ofReal (rpowExt (p - 3) t) *
     (N ⁻¹' Iic (ENNReal.ofReal (t / 2))).indicator (fun x ↦ N x ^ 2) x

@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.HeatFarAssemblySlots
-import CKN.Core.HeatPotential.GeneralSymbolHeatNear
+module
+
+public import CKN.Core.HeatPotential.HeatFarAssemblySlots
+public import CKN.Core.HeatPotential.GeneralSymbolHeatNear
 
 /-!
 # The far-shell oscillation of the general-symbol heat potential
@@ -21,6 +23,8 @@ exactly the shell factor after dividing by the kernel order.  The two
 observation points are ordered in time without loss of generality, because
 both sides of the estimate are symmetric in them.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology BigOperators

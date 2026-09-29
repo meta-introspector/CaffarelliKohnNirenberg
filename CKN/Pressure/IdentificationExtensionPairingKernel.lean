@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Measure.SliceDistributionTransport
-import CKN.Pressure.Equation
+module
+
+public import CKN.Foundation.Measure.SliceDistributionTransport
+public import CKN.Pressure.Equation
 
 /-!
 # Second-order transport identities for translated mollifier kernels
@@ -22,6 +24,8 @@ derivative of `ψ`.  The translation identities `spatialDeriv_sub_const` and
 `mixedSecond_sub_const` reduce the reflected derivative to the translate of the
 derivative, and the kernel vanishes outside its support ball.
 -/
+
+@[expose] public section
 
 open MeasureTheory Metric
 open CKN.Foundation.Parabolic

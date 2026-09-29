@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.InterpolationBall
-import CKN.Setting.InterpolationCylinder
-import CKN.Setting.SobolevPoincareBridge
-import CKN.Setting.Finiteness
-import CKN.Pressure.SliceIntegrability
-import CKN.Core.Caccioppoli.FinitenessComponentBounds
+module
+
+public import CKN.Setting.InterpolationBall
+public import CKN.Setting.InterpolationCylinder
+public import CKN.Setting.SobolevPoincareBridge
+public import CKN.Setting.Finiteness
+public import CKN.Pressure.SliceIntegrability
+public import CKN.Core.Caccioppoli.FinitenessComponentBounds
+
+@[expose] public section
 open MeasureTheory Set Filter CKN.Foundation.Parabolic CKN.Foundation.Parabolic.Integration
 open scoped ENNReal NNReal Topology
 set_option autoImplicit false

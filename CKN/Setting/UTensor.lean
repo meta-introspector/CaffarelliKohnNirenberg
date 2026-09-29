@@ -1,15 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Parabolic.Basic
-import CKN.Statements.SpatialGradientSq
-import CKN.Setting.Finiteness
-import CKN.Setting.SobolevPoincareBridge
-import CKN.Pressure.SliceIntegrability
-import Mathlib.MeasureTheory.Integral.Average
-import Mathlib.MeasureTheory.Integral.MeanInequalities
-import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+module
+
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Statements.SpatialGradientSq
+public import CKN.Setting.Finiteness
+public import CKN.Setting.SobolevPoincareBridge
+public import CKN.Pressure.SliceIntegrability
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
 
 /-!
 # The tensor `U` built from a mean-free velocity field
@@ -38,6 +40,8 @@ same-ball `L⁶` Sobolev–Poincaré inequality (equation
 field; everything else is the pointwise rank-one identity `|U| = |u| |v|`,
 Hölder's inequality, and the volume of `B_ρ`.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

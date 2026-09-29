@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.CaccioppoliAssembly
+module
+
+public import CKN.Core.Caccioppoli.CaccioppoliAssembly
 
 /-! The scalar normalization used by the centered Caccioppoli estimate. -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

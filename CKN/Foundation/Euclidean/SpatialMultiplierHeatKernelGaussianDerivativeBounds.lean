@@ -1,15 +1,19 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelHighSymbolBounds
-import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
-import Mathlib.Analysis.Calculus.ContDiff.Bounds
-import Mathlib.Analysis.Complex.OperatorNorm
-import Mathlib.Analysis.Fourier.FourierTransformDeriv
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelHighSymbolBounds
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.Analysis.Calculus.ContDiff.Bounds
+public import Mathlib.Analysis.Complex.OperatorNorm
+public import Mathlib.Analysis.Fourier.FourierTransformDeriv
 
 /-!
 # Derivative bounds for the frequency Gaussian
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open Set MeasureTheory
@@ -57,7 +61,7 @@ theorem complexEuclideanSquare_homogeneous :
     _ = Complex.ofReal (a ^ 2) * Complex.ofReal (vec3EuclideanNorm ξ ^ 2) :=
       Complex.ofReal_mul _ _
 
-private noncomputable def complexEuclideanSquareGrowth (k : ℕ) : ℝ :=
+noncomputable def complexEuclideanSquareGrowth (k : ℕ) : ℝ :=
   Classical.choose (exists_norm_iteratedFDeriv_growth 2 complexEuclideanSquare_contDiff.contDiffOn
     complexEuclideanSquare_homogeneous k)
 
@@ -76,7 +80,7 @@ private theorem complexEuclideanSquare_iteratedFDeriv_bound (k : ℕ) {ξ : Vec3
     complexEuclideanSquare_contDiff.contDiffOn
       complexEuclideanSquare_homogeneous k)).2 ξ hξ
 
-private noncomputable def complexExpDerivativeBound : ℝ :=
+noncomputable def complexExpDerivativeBound : ℝ :=
   1 + ∑ i ∈ Finset.range 8,
     ‖iteratedFDeriv ℝ i Complex.exp (0 : ℂ)‖
 
@@ -93,7 +97,7 @@ private theorem complexExp_iteratedFDeriv_at_zero_bound {i : ℕ} (hi : i ≤ 7)
     (Finset.mem_range.mpr (by omega : i < 8))
   exact hsum.trans (le_add_of_nonneg_left (by positivity))
 
-private def complexEuclideanSquareDifference (ξ y : Vec3) : ℂ :=
+def complexEuclideanSquareDifference (ξ y : Vec3) : ℂ :=
   -(complexEuclideanSquare y - complexEuclideanSquare ξ)
 
 private theorem complexEuclideanSquareDifference_contDiff (ξ : Vec3) :
@@ -209,7 +213,7 @@ private theorem complexEuclideanSquareDifference_iteratedFDeriv_bound
       _ = complexEuclideanSquareGrowth i * 2 ^ i *
           (1 + vec3EuclideanNorm ξ) := by ring)
 
-private noncomputable def complexEuclideanSquareDifferenceDerivativeConstant
+noncomputable def complexEuclideanSquareDifferenceDerivativeConstant
     (n : ℕ) : ℝ :=
   1 + ∑ i ∈ Finset.range (n + 1), complexEuclideanSquareGrowth i * 2 ^ i
 

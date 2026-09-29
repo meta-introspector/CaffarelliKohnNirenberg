@@ -1,19 +1,23 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.CylinderSliceEnergy
-import CKN.Setting.InterpolationCylinder
-import CKN.Setting.SliceNormBounds
-import CKN.Core.Caccioppoli.Finiteness
-import CKN.Core.Caccioppoli.FinitenessComponentBounds
-import CKN.Setting.PoincareSobolevL1Vec
-import CKN.Pressure.SpatialGradientSqENorm
+module
+
+public import CKN.Setting.CylinderSliceEnergy
+public import CKN.Setting.InterpolationCylinder
+public import CKN.Setting.SliceNormBounds
+public import CKN.Core.Caccioppoli.Finiteness
+public import CKN.Core.Caccioppoli.FinitenessComponentBounds
+public import CKN.Setting.PoincareSobolevL1Vec
+public import CKN.Pressure.SpatialGradientSqENorm
 
 /-! # Pointwise two-radius cubic interpolation
 
 This is the slice-wise two-radius `L³` estimate. Its scale powers follow the
 paper's convention `A(z,ρ) = alpha(z,ρ)^2`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology
@@ -24,7 +28,7 @@ set_option autoImplicit false
 noncomputable section
 namespace CKN
 
-private noncomputable def interpolationC₈ENN : ℝ≥0∞ :=
+noncomputable def interpolationC₈ENN : ℝ≥0∞ :=
   (81 * ENNReal.ofReal (Real.sqrt 3) *
       Classical.choose interpolationBall_three_finite) *
     ENNReal.ofReal (1 + 2 ^ (3 / 2 : ℝ) *

@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.LpDensity
-import CKN.Foundation.Euclidean.RieszSecondOperator
-import CKN.Foundation.Harmonic.KernelAllOrders
-import CKN.Foundation.Harmonic.KernelAllOrdersPotential
-import CKN.Foundation.Sobolev.Mollify.LpApproximation
-import CKN.Foundation.Sobolev.Mollify.SupportThickening
+module
+
+public import CKN.Foundation.Euclidean.LpDensity
+public import CKN.Foundation.Euclidean.RieszSecondOperator
+public import CKN.Foundation.Harmonic.KernelAllOrders
+public import CKN.Foundation.Harmonic.KernelAllOrdersPotential
+public import CKN.Foundation.Sobolev.Mollify.LpApproximation
+public import CKN.Foundation.Sobolev.Mollify.SupportThickening
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology Convolution Pointwise

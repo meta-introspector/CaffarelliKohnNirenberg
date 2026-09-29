@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedCell
-import CKN.Core.Step4.PressureGradientGluedMarginGeometry
-import CKN.Core.Step4.PressureGradientGluedTwoRegimeMorrey
-import CKN.Core.Step4.PressureGradientOriginCellProducerSlice
+module
+
+public import CKN.Core.Step4.PressureGradientGluedCell
+public import CKN.Core.Step4.PressureGradientGluedMarginGeometry
+public import CKN.Core.Step4.PressureGradientGluedTwoRegimeMorrey
+public import CKN.Core.Step4.PressureGradientOriginCellProducerSlice
 
 /-!
 # The small-cell regime: the slice estimate at twice the cell radius
@@ -28,6 +30,8 @@ what makes the doubled ball fit.
 Cells above the margin scale are **not** reached by this argument; they belong to
 the other regime and are bounded by the whole-carrier integral.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

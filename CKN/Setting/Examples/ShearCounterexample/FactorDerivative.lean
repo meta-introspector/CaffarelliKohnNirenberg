@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Statements.SpatialPartial
-import CKN.Statements.TimePartial
-import CKN.Statements.SpatialSecondPartial
-import Mathlib.Analysis.Calculus.FDeriv.Prod
-import Mathlib.Analysis.Calculus.ContDiff.Operations
+module
+
+public import CKN.Statements.SpatialPartial
+public import CKN.Statements.TimePartial
+public import CKN.Statements.SpatialSecondPartial
+public import Mathlib.Analysis.Calculus.FDeriv.Prod
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
 
 /-! # Factor derivative identities on space-time products. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic

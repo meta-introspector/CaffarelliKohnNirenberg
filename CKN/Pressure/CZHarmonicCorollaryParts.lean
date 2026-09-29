@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.HarmonicPartDerivatives
-import CKN.Pressure.OscillationLin34Solution
+module
+
+public import CKN.Pressure.HarmonicPartDerivatives
+public import CKN.Pressure.OscillationLin34Solution
 
 /-!
 # The three parts of the local pressure on the inner ball (`cor:CZ-harmonic`)
@@ -19,6 +21,8 @@ the pressure itself on the inner ball `B_{13ρ/20}(x₀)` (where the cutoff is
 identically one), and exports the statement of `cor:CZ-harmonic` that needs no
 further input: the harmonic part is weakly harmonic on that ball.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

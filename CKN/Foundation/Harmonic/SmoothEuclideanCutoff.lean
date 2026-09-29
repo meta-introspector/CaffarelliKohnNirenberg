@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorBasic
-import CKN.Foundation.Harmonic.Commutator.SphereTransport
-import CKN.Foundation.Sobolev.Cutoff.BallTopology
-import Mathlib.Analysis.Calculus.BumpFunction.Basic
-import Mathlib.Analysis.Calculus.ContDiff.WithLp
+module
+
+public import CKN.Foundation.Harmonic.InteriorBasic
+public import CKN.Foundation.Harmonic.Commutator.SphereTransport
+public import CKN.Foundation.Sobolev.Cutoff.BallTopology
+public import Mathlib.Analysis.Calculus.BumpFunction.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.WithLp
+
+@[expose] public section
 
 open Set
 open scoped Topology
@@ -23,9 +27,9 @@ closed ball and compact support in the larger closed ball.
 
 namespace CKN.Foundation.Harmonic
 
-private abbrev E3 := WithLp 2 Vec3
+abbrev E3 := WithLp 2 Vec3
 
-private def centeredHarmonicBump (a b : ℝ) (ha : 0 < a) (hab : a < b) :
+def centeredHarmonicBump (a b : ℝ) (ha : 0 < a) (hab : a < b) :
     ContDiffBump (0 : E3) := ⟨a, b, ha, hab⟩
 
 /-- A smooth cutoff equal to one on the closed ball of radius `a` and supported in the

@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.TheoremA.Start
-import CKN.Core.TheoremA.Scaling
-import CKN.Core.Endgame.OneSidedSources
-import CKN.Core.Endgame.OneSidedGradient
-import CKN.Core.Endgame.WideInitialMorrey
-import CKN.Core.Endgame.StartSmallness
-import CKN.Core.Step2.MorreyDecayAux
+module
+
+public import CKN.Core.TheoremA.Start
+public import CKN.Core.TheoremA.Scaling
+public import CKN.Core.Endgame.OneSidedSources
+public import CKN.Core.Endgame.OneSidedGradient
+public import CKN.Core.Endgame.WideInitialMorrey
+public import CKN.Core.Endgame.StartSmallness
+public import CKN.Core.Step2.MorreyDecayAux
 
 /-!
 # Small-data decay for Theorem A
@@ -29,6 +31,8 @@ that the radius is below `3/4`. The Hölder conclusion of `thm:A` is not
 here: it additionally requires the causal localization and source estimates
 of Step 3, through the top time face.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

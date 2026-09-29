@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.InteriorGradientProducerScaling
+module
+
+public import CKN.Core.Step4.InteriorGradientProducerScaling
 
 /-! # A selected pressure gradient transported back from a dilated solution
 
@@ -18,6 +20,8 @@ carrier, the space-time weak pairing against compactly supported smooth test
 functions, and a Morrey bound on the interior cylinder.  The Morrey bound
 picks up the explicit finite dilation factor recorded in the statement.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal BigOperators

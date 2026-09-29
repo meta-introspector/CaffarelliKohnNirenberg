@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelL1
-import Mathlib.Analysis.Fourier.FourierTransformDeriv
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelL1
+public import Mathlib.Analysis.Fourier.FourierTransformDeriv
 
 /-!
 # Fourier bounds for the damped high-frequency symbol
 -/
+
+@[expose] public section
 
 open scoped BigOperators FourierTransform
 open MeasureTheory

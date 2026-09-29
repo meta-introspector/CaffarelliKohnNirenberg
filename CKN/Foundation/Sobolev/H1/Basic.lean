@@ -1,6 +1,8 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Sobolev.W1p.Basic
+module
+
+public import CKN.Foundation.Sobolev.W1p.Basic
 
 /-!
 # Representative-level `H¹`
@@ -19,6 +21,8 @@ representative-level `W1pFunction` API.
 * `H1Function.restrict`: restriction to an open subset.
 * The conversion lemmas preserve values and gradients definitionally.
 -/
+
+@[expose] public section
 
 open scoped ENNReal
 

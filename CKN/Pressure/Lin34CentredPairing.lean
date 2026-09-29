@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationExtensionPairing
-import CKN.Pressure.Lin34CentredCorrection
-import CKN.Pressure.Lin34CentredSource
+module
+
+public import CKN.Pressure.IdentificationExtensionPairing
+public import CKN.Pressure.Lin34CentredCorrection
+public import CKN.Pressure.Lin34CentredSource
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

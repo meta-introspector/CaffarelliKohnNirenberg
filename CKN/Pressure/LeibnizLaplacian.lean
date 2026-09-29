@@ -1,15 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import CKN.Foundation.Sobolev.Ambient.Basis
-import CKN.Foundation.Sobolev.Measure.RestrictedVolume
-import Mathlib.Analysis.Calculus.FDeriv.Mul
-import Mathlib.Analysis.Calculus.FDeriv.Add
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.MeasureTheory.Integral.IntegrableOn
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Foundation.Sobolev.Ambient.Basis
+public import CKN.Foundation.Sobolev.Measure.RestrictedVolume
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.IntegrableOn
 
 /-!
 # The Leibniz rule for the spatial Laplacian, in weak form
@@ -25,6 +27,8 @@ Spatial partial derivatives are ordinary partial derivatives, expressed as the
 Fréchet derivative applied to a coordinate basis vector, matching the
 convention of `CKN.spatialPartial`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

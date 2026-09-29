@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationExtensionUnconditional
-import CKN.Pressure.MemLpThreeHalvesLift
-import CKN.Pressure.PkBoundsCylinder
-import CKN.Pressure.UTensorNormFactor
-import CKN.Setting.UTensor
+module
+
+public import CKN.Pressure.IdentificationExtensionUnconditional
+public import CKN.Pressure.MemLpThreeHalvesLift
+public import CKN.Pressure.PkBoundsCylinder
+public import CKN.Pressure.UTensorNormFactor
+public import CKN.Setting.UTensor
 
 /-! # Velocity slices and compact tensor sources
 
@@ -13,6 +15,8 @@ The slice Sobolev estimate and the nine-component tensor estimate supply
 `ext:CZ` in the proof of `thm:B`. These results develop the estimates in
 `CKN.Pressure.SliceVelocityCube` with explicit norm and power normalization.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

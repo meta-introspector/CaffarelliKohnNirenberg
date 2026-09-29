@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.ClassEquivalence.BallCover
-import CKN.Setting.ExtSobolevBallTime
-import CKN.Foundation.Sobolev.H1.Basic
+module
+
+public import CKN.ClassEquivalence.BallCover
+public import CKN.Setting.ExtSobolevBallTime
+public import CKN.Foundation.Sobolev.H1.Basic
 
 /-!
 # The velocity is locally `L^{10/3}`, hence locally `L³`
@@ -44,6 +46,8 @@ Both comparisons needed here are the easy direction of the equivalence of the tw
 norms: a component is bounded by the sup norm on the way into the interpolation,
 and the Euclidean norm is bounded by `√3` times the sup norm on the way out.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

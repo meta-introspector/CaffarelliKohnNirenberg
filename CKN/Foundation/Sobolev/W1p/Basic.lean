@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Sobolev.WeakDerivative
-import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+module
+
+public import CKN.Foundation.Sobolev.WeakDerivative
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
 
 /-!
 # Representative-level `W^{1,p}`
@@ -20,6 +22,8 @@ representatives and uses the `CKN` weak-gradient API.
 
 * `W1pFunction.restrict`: restriction to an open subset.
 -/
+
+@[expose] public section
 
 open scoped ENNReal
 

@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientProduct
-import CKN.Core.Step4.SourceMorreyData
-import CKN.Core.Endgame.SourceComponents
-import CKN.Foundation.Parabolic.Morrey.Minkowski
-import CKN.Foundation.Measure.HolderTripleProducts
+module
+
+public import CKN.Core.Step4.PressureGradientProduct
+public import CKN.Core.Step4.SourceMorreyData
+public import CKN.Core.Endgame.SourceComponents
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+public import CKN.Foundation.Measure.HolderTripleProducts
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

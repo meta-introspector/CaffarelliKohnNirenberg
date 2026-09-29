@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Covering.TheoremCDefectFaithful
-import CKN.Core.Endgame.TheoremBUnconditional
+module
+
+public import CKN.Covering.TheoremCDefectFaithful
+public import CKN.Core.Endgame.TheoremBUnconditional
 
 /-!
 # The defect inequality at a singular point
@@ -23,6 +25,8 @@ below depends on no analytic input beyond suitability.
 The normalising factor is written `(ENNReal.ofReal r)⁻¹`, the form used by
 `thm:B`; on the punctured neighbourhood `𝓝[>] 0` that is the paper's `1/r`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

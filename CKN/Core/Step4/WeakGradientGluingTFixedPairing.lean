@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTFixedSelection
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTFixedSelection
 
 /-! # Space-time pressure pairing for an identified slice field
 
 Integrability of the same selected field on the inner carrier upgrades its
 slice weak derivative identity to the full-space test-function pairing.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

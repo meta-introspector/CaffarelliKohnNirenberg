@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.RieszSecondWeakAssembly
-import CKN.Foundation.Euclidean.LpDensity
+module
+
+public import CKN.Foundation.Euclidean.RieszSecondWeakAssembly
+public import CKN.Foundation.Euclidean.LpDensity
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

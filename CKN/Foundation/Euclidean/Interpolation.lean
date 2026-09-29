@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.InterpolationBasic
+module
+
+public import CKN.Foundation.Euclidean.InterpolationBasic
 
 /-!
 # Marcinkiewicz interpolation between weak `(1,1)` and strong `(2,2)`
@@ -16,6 +18,8 @@ The analytic ingredients — the distribution-function estimate obtained by
 truncating at level `t/2`, and its layer-cake integral against the weight
 `p t^{p-1}` — are in `InterpolationBasic.lean`.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

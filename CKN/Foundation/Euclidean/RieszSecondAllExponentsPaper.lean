@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.RieszSecondL2Symmetry
-import CKN.Core.Endgame.RestrictedCZInterpolation
-import CKN.Foundation.Euclidean.RieszSecondWeakCertificate
+module
+
+public import CKN.Foundation.Euclidean.RieszSecondL2Symmetry
+public import CKN.Core.Endgame.RestrictedCZInterpolation
+public import CKN.Foundation.Euclidean.RieszSecondWeakCertificate
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology
@@ -14,10 +18,10 @@ noncomputable section
 
 namespace CKN.Foundation.Euclidean
 
-private def dualTruncSet (u : Vec3 → ℝ) (R : ℝ) : Set Vec3 :=
+def dualTruncSet (u : Vec3 → ℝ) (R : ℝ) : Set Vec3 :=
   Metric.closedBall 0 R ∩ {x | |u x| ≤ R}
 
-private def dualTruncField (u : Vec3 → ℝ) (p R : ℝ) : Vec3 → ℝ :=
+def dualTruncField (u : Vec3 → ℝ) (p R : ℝ) : Vec3 → ℝ :=
   (dualTruncSet u R).indicator (fun x => |u x| ^ (p - 2) * u x)
 
 private lemma measurable_abs_of_measurable {u : Vec3 → ℝ} (hu : Measurable u) :
@@ -125,7 +129,7 @@ private lemma dualTruncField_rpow_integral {u : Vec3 → ℝ} {p q R : ℝ}
   rw [integral_congr_ae (Filter.Eventually.of_forall hpoint),
     integral_indicator (dualTruncSet_measurable hu)]
 
-private theorem lpNorm_bound_of_eLpNorm
+private theorem lpNorm_bound_of_eLpNorm_paper
     {f g : Vec3 → ℝ} {p : ℝ} {K : ℝ≥0∞}
     (hK : K ≠ ∞) (hf : MemLp f (ENNReal.ofReal p) volume)
     (hbound : eLpNorm g (ENNReal.ofReal p) volume ≤
@@ -296,10 +300,10 @@ private theorem dualTrunc_energy_bound
       rw [hmul, Real.rpow_one]
     simpa only [u, A, Kq, hpower_eq] using hpower
 
-private def dualTruncENNSet (u : Vec3 → ℝ) (n : ℕ) : Set Vec3 :=
+def dualTruncENNSet (u : Vec3 → ℝ) (n : ℕ) : Set Vec3 :=
   dualTruncSet u ((n : ℝ) + 1)
 
-private def dualTruncENNPower (u : Vec3 → ℝ) (p : ℝ) (n : ℕ) : Vec3 → ℝ≥0∞ :=
+def dualTruncENNPower (u : Vec3 → ℝ) (p : ℝ) (n : ℕ) : Vec3 → ℝ≥0∞ :=
   (dualTruncENNSet u n).indicator (fun x => absE u x ^ p)
 
 private theorem raw_rieszSecond_memLp_of_duality
@@ -473,7 +477,7 @@ private lemma norm_toLp_neg {p : ℝ≥0∞} {f : Vec3 → ℝ}
     ‖(hf.neg).toLp (-f)‖ = ‖hf.toLp f‖ := by
   rw [Lp.norm_toLp, Lp.norm_toLp, eLpNorm_neg]
 
-private def negativeRawExtensionInput {i j : Fin 3} {p : ℝ≥0∞} {C : ℝ}
+def negativeRawExtensionInput {i j : Fin 3} {p : ℝ≥0∞} {C : ℝ}
     [Fact (1 ≤ p)] (hL2 : RieszSecondL2Input i j)
     (houtput : ∀ {f : Vec3 → ℝ}, MemLp f p volume →
       MemLp f (2 : ℝ≥0∞) volume →

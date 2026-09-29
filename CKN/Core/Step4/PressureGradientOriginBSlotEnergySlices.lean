@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
-import CKN.Foundation.Parabolic.Vec3Norm
-import CKN.Statements.SpatialGradientSq
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
+public import CKN.Foundation.Parabolic.Vec3Norm
+public import CKN.Statements.SpatialGradientSq
 
 /-! # Collar slice masses from the unit data of `thm:A`
 
@@ -16,6 +18,8 @@ or by the collar Dirichlet integral.
 
 No estimate here uses velocity or gradient Morrey data.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology BigOperators

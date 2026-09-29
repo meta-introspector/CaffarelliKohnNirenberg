@@ -1,15 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTRieszSourceQuantitative
-import CKN.Core.Step4.PressureGradientOriginLatticeCover
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergyMajorant
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergySlices
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergyTime
-import CKN.Core.Step4.WeakGradientGluingTSuitableRiesz
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSSource
-import CKN.Foundation.Harmonic.InteriorEstimatesBasic
-import CKN.Core.Step4.WeakGradientGluingTCaccioppoliQuantitative
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTRieszSourceQuantitative
+public import CKN.Core.Step4.PressureGradientOriginLatticeCover
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergyMajorant
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergySlices
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergyTime
+public import CKN.Core.Step4.WeakGradientGluingTSuitableRiesz
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSSource
+public import CKN.Foundation.Harmonic.InteriorEstimatesBasic
+public import CKN.Core.Step4.WeakGradientGluingTCaccioppoliQuantitative
 
 /-! # The fixed lattice cover of the whole carrier
 
@@ -19,6 +21,8 @@ covering and parent-inclusion properties, together with the volume bound for
 the radius-`1/8` ball, are the geometric inputs of the whole-carrier pressure
 mass.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic CKN.Foundation.Parabolic.Integration

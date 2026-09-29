@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearCounterexample.FiniteSmooth
-import CKN.Setting.Examples.ShearCounterexample.SmoothSecondDerivative
-import Mathlib.Analysis.Calculus.FDeriv.Prod
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.FiniteSmooth
+public import CKN.Setting.Examples.ShearCounterexample.SmoothSecondDerivative
+public import Mathlib.Analysis.Calculus.FDeriv.Prod
 
 /-! # Finite derivative estimates for the reduced shear series. -/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Iteration.ThetaUpperSemicontinuity
-import CKN.Setting.CombinedMonotonicity
+module
+
+public import CKN.Core.Iteration.ThetaUpperSemicontinuity
+public import CKN.Setting.CombinedMonotonicity
 
 /-!
 # Fixed-scale neighbourhood transfer for the iteration quantity
@@ -17,6 +19,8 @@ quantities and the base-point semicontinuity of `α`, `β`, `δ`.
 radius ratio `7/5`; the statement here is the transfer itself, for arbitrary
 positive `κ`, `η` and any radius ratio admitted by the displayed power bound.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 

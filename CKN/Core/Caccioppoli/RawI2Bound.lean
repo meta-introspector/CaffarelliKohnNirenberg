@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.RawI3
-import CKN.Setting.Finiteness
-import CKN.Setting.SliceNormBounds
+module
+
+public import CKN.Core.Caccioppoli.RawI3
+public import CKN.Setting.Finiteness
+public import CKN.Setting.SliceNormBounds
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

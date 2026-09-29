@@ -1,14 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationExtensionPairingCylinder
-import CKN.Pressure.IdentificationWholeSpace
-import CKN.Pressure.PotentialDecayPotentials
-import CKN.Pressure.PotentialDecayGrowthSum
-import CKN.Foundation.Euclidean.PotentialLocalLp
-import CKN.Foundation.Euclidean.PotentialLocalLpMeasure
-import CKN.Foundation.Euclidean.PotentialLocalLpExponents
-import CKN.Core.Step4.SliceSelectedGradientPotential
+module
+
+public import CKN.Pressure.IdentificationExtensionPairingCylinder
+public import CKN.Pressure.IdentificationWholeSpace
+public import CKN.Pressure.PotentialDecayPotentials
+public import CKN.Pressure.PotentialDecayGrowthSum
+public import CKN.Foundation.Euclidean.PotentialLocalLp
+public import CKN.Foundation.Euclidean.PotentialLocalLpMeasure
+public import CKN.Foundation.Euclidean.PotentialLocalLpExponents
+public import CKN.Core.Step4.SliceSelectedGradientPotential
 
 /-! # The first-order identification of the slice first pressure potential
 
@@ -27,6 +29,8 @@ displayed divergence-form source.  Their difference is therefore weakly
 harmonic on `ℝ³`, and the whole-space Liouville theorem with local `L^{3/2}`
 linear growth identifies them almost everywhere.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

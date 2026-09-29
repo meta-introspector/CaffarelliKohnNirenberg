@@ -1,19 +1,23 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.TheoremBUnconditional
-import CKN.Core.Step3.ThetaDecayTShape
-import CKN.Core.Endgame.Neighborhood
-import CKN.Core.Endgame.ProducerRegularity
-import CKN.Core.Step4.SourceMorreyGradientInstances
-import CKN.Core.Step4.RouteAOneRoundFinal
-import CKN.Core.Step4.RouteAFirstRoundConsumer
-import CKN.Core.Parameters
-import CKN.Statements.ParabolicHolderVecOn
-import CKN.Statements.RegularPoint
-import CKN.Statements.SpatialGradientSq
-import CKN.Statements.SpaceTimeSet
-import CKN.Statements.SuitableWeakSolutionIntegrable
+module
+
+public import CKN.Core.Endgame.TheoremBUnconditional
+public import CKN.Core.Step3.ThetaDecayTShape
+public import CKN.Core.Endgame.Neighborhood
+public import CKN.Core.Endgame.ProducerRegularity
+public import CKN.Core.Step4.SourceMorreyGradientInstances
+public import CKN.Core.Step4.RouteAOneRoundFinal
+public import CKN.Core.Step4.RouteAFirstRoundConsumer
+public import CKN.Core.Parameters
+public import CKN.Statements.ParabolicHolderVecOn
+public import CKN.Statements.RegularPoint
+public import CKN.Statements.SpatialGradientSq
+public import CKN.Statements.SpaceTimeSet
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.SourceCoefficient
-import CKN.Core.Endgame.SourceExponents
-import CKN.Core.Endgame.VelocityAverage
-import CKN.Core.Parameters
+module
+
+public import CKN.Core.Endgame.SourceCoefficient
+public import CKN.Core.Endgame.SourceExponents
+public import CKN.Core.Endgame.VelocityAverage
+public import CKN.Core.Parameters
 
 /-!
 # Uniform closed-half-cylinder control from concrete heat sources
@@ -14,6 +16,8 @@ seminorm. The original small-data condition controls the velocity average.
 Together they give a quantitative representative with constants chosen
 before the solution. Construction of the heat sources is a separate step.
 -/
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory Set

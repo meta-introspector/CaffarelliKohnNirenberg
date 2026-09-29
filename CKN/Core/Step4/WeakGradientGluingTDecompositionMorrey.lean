@@ -1,16 +1,20 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTFixedRemainderMorrey
-import CKN.Core.Step4.WeakGradientGluingTFixedRieszMorrey
-import CKN.Foundation.Parabolic.Morrey.Neg
-import CKN.Foundation.Parabolic.Morrey.Zero
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTFixedRemainderMorrey
+public import CKN.Core.Step4.WeakGradientGluingTFixedRieszMorrey
+public import CKN.Foundation.Parabolic.Morrey.Neg
+public import CKN.Foundation.Parabolic.Morrey.Zero
 
 /-! # Morrey membership of a signed measurable pressure decomposition
 
 Finite sums of the completed source fields and the measurable remainder
 control the same identified pressure field on its target carrier.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology BigOperators

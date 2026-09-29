@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.PressureGaugeSlices
+module
+
+public import CKN.Setting.PressureGaugeSlices
 
 /-!
 # The pressure of a suitable weak solution is fixed only up to a function of time
@@ -20,6 +22,8 @@ divergence-free clause (S2) makes the spatial pairing of `u(·,t)` with
 `∇ψ(·,t)` vanish for almost every time.  Both pairings are integrable by the
 slice bound coming from the essential supremum of the slice energies.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

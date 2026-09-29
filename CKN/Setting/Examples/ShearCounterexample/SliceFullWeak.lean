@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.SliceDerivative
-import CKN.Foundation.Sobolev.WeakDerivative
-import Mathlib.Analysis.Calculus.FDeriv.Pi
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.SliceDerivative
+public import CKN.Foundation.Sobolev.WeakDerivative
+public import Mathlib.Analysis.Calculus.FDeriv.Pi
 
 /-! # Weak spatial derivative identities for shear slices. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory

@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ForceSlotNumericalScaling
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+module
+
+public import CKN.Core.Endgame.ForceSlotNumericalScaling
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
 
 /-!
 # Numerical energy bounds for normalized fields
@@ -11,6 +13,8 @@ The pressure-gradient estimates take an integral bound on the unit cylinder.
 These estimates retain the amplitude and Jacobian of the parabolic change
 of variables and use the original scalar Lp bounds.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

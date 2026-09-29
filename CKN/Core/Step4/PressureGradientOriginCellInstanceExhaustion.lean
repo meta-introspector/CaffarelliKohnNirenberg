@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Algebra.Order.Archimedean.Basic
-import Mathlib.Topology.MetricSpace.Bounded
-import Mathlib.Topology.MetricSpace.Thickening
-import Mathlib.Topology.Order.IntermediateValue
+module
+
+public import Mathlib.Algebra.Order.Archimedean.Basic
+public import Mathlib.Topology.MetricSpace.Bounded
+public import Mathlib.Topology.MetricSpace.Thickening
+public import Mathlib.Topology.Order.IntermediateValue
+
+@[expose] public section
 
 open Set Metric
 
@@ -14,7 +18,7 @@ noncomputable section
 namespace CKN.Core.Step4.OriginInstance
 
 /-- The points of the closed interval `[-n, n]` whose closed `1/(n+1)`-ball lies in `I`. -/
-private def exhaustionCore (I : Set ℝ) (n : ℕ) : Set ℝ :=
+def exhaustionCore (I : Set ℝ) (n : ℕ) : Set ℝ :=
   Set.Icc (-(n : ℝ)) (n : ℝ) ∩ {t : ℝ | Metric.closedBall t (1 / ((n : ℝ) + 1)) ⊆ I}
 
 private lemma mem_exhaustionCore {I : Set ℝ} {n : ℕ} {t : ℝ} :

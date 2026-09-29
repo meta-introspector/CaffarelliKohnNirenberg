@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.PotentialLocalLpGrowth
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
+module
+
+public import CKN.Foundation.Euclidean.PotentialLocalLpGrowth
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
 
 /-!
 # Force-potential growth constants controlled by source norms
@@ -12,6 +14,8 @@ contains a local potential norm and a far-field mass. Both are bounded by
 the spatial `L^{6/5}` norm of the compactly supported source, with explicit
 fixed-radius coefficients. These estimates assert no shrinking-cell power.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Metric Filter
 open scoped ENNReal NNReal Topology

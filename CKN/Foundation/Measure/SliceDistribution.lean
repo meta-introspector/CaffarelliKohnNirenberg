@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Measure.SliceDistributionCore
-import CKN.Foundation.Parabolic.Basic
+module
+
+public import CKN.Foundation.Measure.SliceDistributionCore
+public import CKN.Foundation.Parabolic.Basic
 
 /-!
 # Space-time distributional identities restricted to time slices
@@ -24,6 +26,8 @@ The pairing covered is the spatial divergence pairing `∑ᵢ fᵢ ∂ᵢψ`.  I
 full-space form is exactly the slice hypothesis consumed by the pressure
 module's force-cancellation results.
 -/
+
+@[expose] public section
 
 open MeasureTheory Metric Filter Topology Set
 open CKN.Foundation.Parabolic

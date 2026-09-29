@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.LpExtensionPairingMain
-import CKN.Foundation.Euclidean.RieszSecondL2Input
+module
+
+public import CKN.Foundation.Euclidean.LpExtensionPairingMain
+public import CKN.Foundation.Euclidean.RieszSecondL2Input
 
 /-! # Symmetry of the completed second derivative -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

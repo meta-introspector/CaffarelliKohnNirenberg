@@ -1,16 +1,20 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.SliceEnergy
-import CKN.Setting.Examples.ShearCounterexample.VectorLocal
-import CKN.Statements.SuitableWeakSolutionIntegrable
-import CKN.Statements.SpaceTimeTestFunction
-import CKN.Statements.SpatialPartial
-import CKN.Statements.TimePartial
-import CKN.Statements.SpatialSecondPartial
-import CKN.Statements.SpatialGradientSq
-import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.SliceEnergy
+public import CKN.Setting.Examples.ShearCounterexample.VectorLocal
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+public import CKN.Statements.SpaceTimeTestFunction
+public import CKN.Statements.SpatialPartial
+public import CKN.Statements.TimePartial
+public import CKN.Statements.SpatialSecondPartial
+public import CKN.Statements.SpatialGradientSq
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
 
 /-! # Local suitable-solution data for the rough shear fields. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory Filter

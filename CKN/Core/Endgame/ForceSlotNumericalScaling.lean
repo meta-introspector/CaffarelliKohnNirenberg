@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.ScalingInvarianceBasic
-import CKN.Core.Endgame.MorreyScaling
+module
+
+public import CKN.Setting.ScalingInvarianceBasic
+public import CKN.Core.Endgame.MorreyScaling
 
 /-!
 # Morrey bounds under parabolic changes of variables
@@ -12,6 +14,8 @@ parabolic dilation transports their Morrey norms with the explicit factor
 `a ^ (-5 / τ)`. The estimate below takes the supremum over every centre and
 radius and does not impose integrability assumptions on the source.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

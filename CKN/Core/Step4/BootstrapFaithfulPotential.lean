@@ -1,32 +1,36 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.AdamsAEMeasurable
-import CKN.Core.Endgame.BootstrapPotential
-import CKN.Core.Step4.Bootstrap
-import CKN.Core.Endgame.CarrierLocalAE
-import CKN.Core.Endgame.CutoffDerivatives
-import CKN.Core.Endgame.SourceComponents
-import CKN.Core.Endgame.TheoremBCloser
-import CKN.Core.Endgame.CompactBall
-import CKN.Core.Step3.GradientSlotDuhamel
-import CKN.Core.Step3.LocalizedEquationBasics
-import CKN.Core.Step4.LocalizedEquationGradientData
-import CKN.Core.Step4.LocalizedEquationGradientMeasurability
-import CKN.Core.Step4.PointwisePotential
-import CKN.Core.Step4.RouteAGradientProducerUniform
-import CKN.Core.Step4.SourceMorreyGradientPackage
-import CKN.Core.Step4.SourceMorreyKernels
-import CKN.Core.Step4.SourceMorreyFirstRoundCutoff
-import CKN.Core.Step4.SourceMorreyFirstRoundSupport
-import CKN.Core.Step4.SourceMorreyData
-import CKN.Core.Step4.WeakGradientGluingTCollarAssembly
-import CKN.Core.Step4.WeakGradientGluingTRemainderMajorant
-import CKN.Foundation.Parabolic.Morrey.AdamsM4
-import CKN.Foundation.Parabolic.Morrey.BallVariants
-import CKN.Foundation.Parabolic.Morrey.LowerBounds
-import CKN.Foundation.Parabolic.Morrey.Neg
-import CKN.Foundation.Parabolic.Morrey.VecMem
+module
+
+public import CKN.Core.Endgame.AdamsAEMeasurable
+public import CKN.Core.Endgame.BootstrapPotential
+public import CKN.Core.Step4.Bootstrap
+public import CKN.Core.Endgame.CarrierLocalAE
+public import CKN.Core.Endgame.CutoffDerivatives
+public import CKN.Core.Endgame.SourceComponents
+public import CKN.Core.Endgame.TheoremBCloser
+public import CKN.Core.Endgame.CompactBall
+public import CKN.Core.Step3.GradientSlotDuhamel
+public import CKN.Core.Step3.LocalizedEquationBasics
+public import CKN.Core.Step4.LocalizedEquationGradientData
+public import CKN.Core.Step4.LocalizedEquationGradientMeasurability
+public import CKN.Core.Step4.PointwisePotential
+public import CKN.Core.Step4.RouteAGradientProducerUniform
+public import CKN.Core.Step4.SourceMorreyGradientPackage
+public import CKN.Core.Step4.SourceMorreyKernels
+public import CKN.Core.Step4.SourceMorreyFirstRoundCutoff
+public import CKN.Core.Step4.SourceMorreyFirstRoundSupport
+public import CKN.Core.Step4.SourceMorreyData
+public import CKN.Core.Step4.WeakGradientGluingTCollarAssembly
+public import CKN.Core.Step4.WeakGradientGluingTRemainderMajorant
+public import CKN.Foundation.Parabolic.Morrey.AdamsM4
+public import CKN.Foundation.Parabolic.Morrey.BallVariants
+public import CKN.Foundation.Parabolic.Morrey.LowerBounds
+public import CKN.Foundation.Parabolic.Morrey.Neg
+public import CKN.Foundation.Parabolic.Morrey.VecMem
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

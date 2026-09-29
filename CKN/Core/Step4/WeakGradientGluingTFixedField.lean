@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTSuitableRiesz
-import CKN.Core.Step4.WeakGradientGluingTSuitableIdentification
-import CKN.Core.Step4.WeakGradientGluingTSuitableSelection
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTSuitableRiesz
+public import CKN.Core.Step4.WeakGradientGluingTSuitableIdentification
+public import CKN.Core.Step4.WeakGradientGluingTSuitableSelection
 
 /-! # Identification of one measurable pressure remainder
 
@@ -11,6 +13,8 @@ The same selected pressure derivative is decomposed into completed Riesz
 fields and a measurable remainder. Weak derivative uniqueness identifies
 that remainder with the classical harmonic and far-force gradient on slices.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology BigOperators

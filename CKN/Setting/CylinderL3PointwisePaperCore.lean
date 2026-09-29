@@ -1,18 +1,22 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.CylinderL3PointwiseFaithful
-import CKN.Setting.Finiteness
-import CKN.Core.Caccioppoli.CaccioppoliMeanSubtraction
-import CKN.Setting.SliceNormBounds
-import CKN.Pressure.SpatialGradientSqENorm
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Setting.CylinderL3PointwiseFaithful
+public import CKN.Setting.Finiteness
+public import CKN.Core.Caccioppoli.CaccioppoliMeanSubtraction
+public import CKN.Setting.SliceNormBounds
+public import CKN.Pressure.SpatialGradientSqENorm
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-! # Pointwise cubic interpolation under local energy data
 
 The compact-cylinder hypothesis makes the time-slice energy quantity finite
 and allows the local weak-gradient data to be used on a slightly larger ball.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceForceTime
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceForceTime
 
 /-!
 # The harmonic force bound on interior time boxes
@@ -9,6 +11,8 @@ import CKN.Core.Step4.PressureGradientOriginCellInstanceForceTime
 The force term in `eq:pressure-gradient-morrey` is controlled almost
 everywhere by its measurable fixed-radius envelope on any local time box.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

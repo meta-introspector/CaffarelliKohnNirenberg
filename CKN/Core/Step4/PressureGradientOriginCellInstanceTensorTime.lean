@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Lin34SliceMeanFree
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeHolder
+module
+
+public import CKN.Pressure.Lin34SliceMeanFree
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeHolder
 
 /-!
 # Tensor energy estimates on spatial slices
@@ -11,6 +13,8 @@ The mean oscillation estimate behind `eq:Chat` controls the tensor energy
 in `eq:pressure-gradient-morrey` by the velocity cube. The mean oscillation
 argument follows the local estimate in `CKN.Pressure.Lin34SliceMeanFree`.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

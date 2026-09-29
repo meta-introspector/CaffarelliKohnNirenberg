@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.WeakCZConsumption
-import CKN.Core.Endgame.ExtensionNormTransport
-import CKN.Foundation.Euclidean.CZInputs
+module
+
+public import CKN.Core.Endgame.WeakCZConsumption
+public import CKN.Core.Endgame.ExtensionNormTransport
+public import CKN.Foundation.Euclidean.CZInputs
 
 /-! # Weak gradients selected from the actual indexed extension
 
@@ -11,6 +13,8 @@ The completed L^(6/5) operator supplies its own membership and numerical
 bound. Its positive pairing with the first potential selects the negatively
 signed weak gradient, without any classical representative identification.
 -/
+
+@[expose] public section
 
 open MeasureTheory Filter
 open scoped ENNReal

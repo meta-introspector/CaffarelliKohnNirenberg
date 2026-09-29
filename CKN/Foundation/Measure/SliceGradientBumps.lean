@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Mollify.Basic
+module
+
+public import CKN.Foundation.Sobolev.Mollify.Basic
 
 /-!
 # Mollifier radii and almost-everywhere convergence
@@ -15,6 +17,8 @@ almost-everywhere convergence theorem for mollifications of a locally
 integrable function therefore applies: for any `g`, the functions
 `mollify g (sliceRadius n) _` converge to `g` almost everywhere.
 -/
+
+@[expose] public section
 
 open MeasureTheory Filter Topology
 

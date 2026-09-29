@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import Mathlib.MeasureTheory.Function.LpSpace.InfiniteSum
+module
+
+public import Mathlib.MeasureTheory.Function.LpSpace.InfiniteSum
 
 /-! # Lp convergence of the shear series. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open MeasureTheory

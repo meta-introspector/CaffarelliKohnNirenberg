@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradient
-import CKN.Core.Step4.PressureGradientSourceMorrey
-import CKN.Core.Step3.LocalizedEquationBasics
-import CKN.Core.Endgame.ForceSource
-import CKN.Core.Endgame.OneSidedMorrey
-import CKN.Foundation.Parabolic.Morrey.Cylinders
-import CKN.Foundation.Harmonic.KernelAllOrdersSphere
-import CKN.Foundation.Parabolic.BallBasics
+module
+
+public import CKN.Core.Step4.PressureGradient
+public import CKN.Core.Step4.PressureGradientSourceMorrey
+public import CKN.Core.Step3.LocalizedEquationBasics
+public import CKN.Core.Endgame.ForceSource
+public import CKN.Core.Endgame.OneSidedMorrey
+public import CKN.Foundation.Parabolic.Morrey.Cylinders
+public import CKN.Foundation.Harmonic.KernelAllOrdersSphere
+public import CKN.Foundation.Parabolic.BallBasics
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

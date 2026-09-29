@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginClauseBounds
-import CKN.Core.Step4.PressureGradientGluedSmallCell
-import CKN.Core.Step4.PressureGradientOriginCellInstanceQuantitative
-import CKN.Core.Step4.PressureGradientOriginCellInstanceMeasurable
+module
+
+public import CKN.Core.Step4.PressureGradientOriginClauseBounds
+public import CKN.Core.Step4.PressureGradientGluedSmallCell
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceQuantitative
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceMeasurable
 
 /-!
 # Doubled source cylinders for clipped origin cells
@@ -16,6 +18,8 @@ carrier ball. The resulting time integral uses the clipped cell window.
 For centres in the closed origin cylinder, this construction is admissible
 through radius `(1 - R₁) / 2`, twice the origin margin scale.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

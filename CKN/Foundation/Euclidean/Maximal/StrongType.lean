@@ -1,14 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.Maximal.HardyLittlewood
-import CKN.Foundation.Measure.LayerCake
-import CKN.Foundation.Measure.WeightedKernelIdentity
-import Mathlib.Analysis.SpecialFunctions.Pow.Integral
-import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
-import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
-import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
+module
+
+public import CKN.Foundation.Euclidean.Maximal.HardyLittlewood
+public import CKN.Foundation.Measure.LayerCake
+public import CKN.Foundation.Measure.WeightedKernelIdentity
+public import Mathlib.Analysis.SpecialFunctions.Pow.Integral
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+public import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
 
 /-!
 # Strong maximal estimates
@@ -18,6 +20,8 @@ from the weak estimate in `HardyLittlewood`.  The proof uses truncation at
 half the level and Tonelli's theorem, so it does not depend on an abstract
 interpolation package.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 
@@ -38,10 +42,10 @@ def maximalStrongConstant (p : ℝ) : ℝ≥0∞ :=
 private abbrev metricBall (z : Vec3) (r : ℝ) : Set Vec3 :=
   Metric.ball z r
 
-private def highPart (f : Vec3 → ℝ≥0∞) (a : ℝ≥0∞) :
+def highPart (f : Vec3 → ℝ≥0∞) (a : ℝ≥0∞) :
     Vec3 → ℝ≥0∞ := {z | a < f z}.indicator f
 
-private def lowPart (f : Vec3 → ℝ≥0∞) (a : ℝ≥0∞) :
+def lowPart (f : Vec3 → ℝ≥0∞) (a : ℝ≥0∞) :
     Vec3 → ℝ≥0∞ := {z | f z ≤ a}.indicator f
 
 private lemma measurable_highPart {f : Vec3 → ℝ≥0∞} (hf : Measurable f)
@@ -167,10 +171,10 @@ private lemma maximalFunction_high_tail
       congr 1
       exact lintegral_indicator (measurableSet_Ioi.preimage hf) f
 
-private def positiveRpow (p t : ℝ) : ℝ :=
+def positiveRpow (p t : ℝ) : ℝ :=
   if 0 < t then Real.exp ((p - 2) * Real.log t) else 0
 
-private def weightedTailIntegrand (f : Vec3 → ℝ≥0∞) (p : ℝ)
+def weightedTailIntegrand (f : Vec3 → ℝ≥0∞) (p : ℝ)
     (t : ℝ) (z : Vec3) : ℝ≥0∞ :=
   ENNReal.ofReal (positiveRpow p t) *
     ({z | ENNReal.ofReal (t / 2) < f z}.indicator f) z

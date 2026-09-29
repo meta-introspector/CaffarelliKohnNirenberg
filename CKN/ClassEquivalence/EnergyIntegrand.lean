@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.ClassEquivalence.VelocityTenThirds
+module
+
+public import CKN.ClassEquivalence.VelocityTenThirds
 
 /-!
 # The right-hand integrand of the local energy inequality
@@ -38,6 +40,8 @@ available while those identities are still being established.  In particular the
 nonnegativity of the test function that the clause also assumes is not
 needed for integrability and is omitted here.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

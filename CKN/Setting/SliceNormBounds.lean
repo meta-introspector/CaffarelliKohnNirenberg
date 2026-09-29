@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.Conversions
-import CKN.Setting.Finiteness
-import Mathlib.MeasureTheory.Function.L1Space.Integrable
+module
+
+public import CKN.Core.Caccioppoli.Conversions
+public import CKN.Setting.Finiteness
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

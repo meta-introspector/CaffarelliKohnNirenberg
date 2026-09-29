@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceSource
-import CKN.Core.Step4.PressureGradientOriginCellInstancePressure
-import CKN.Core.Step4.SliceSelectedGradientSWSFinal
-import CKN.Core.Step4.SliceSelectedGradientInputs
-import CKN.Pressure.CZP1Closer
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceSource
+public import CKN.Core.Step4.PressureGradientOriginCellInstancePressure
+public import CKN.Core.Step4.SliceSelectedGradientSWSFinal
+public import CKN.Core.Step4.SliceSelectedGradientInputs
+public import CKN.Pressure.CZP1Closer
 
 /-!
 # Spatial pressure gradients from suitability
@@ -15,6 +17,8 @@ tensor source constructed from a suitable weak solution. Spatial gluing
 then produces weak derivatives on the whole origin ball for almost every
 time in the solution interval, as required by `prop:bootstrap`.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

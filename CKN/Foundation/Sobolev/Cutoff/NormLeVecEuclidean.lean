@@ -1,6 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Sobolev.Cutoff.Basic
+module
+
+public import CKN.Foundation.Sobolev.Cutoff.Basic
+
+@[expose] public section
 
 set_option autoImplicit false
 

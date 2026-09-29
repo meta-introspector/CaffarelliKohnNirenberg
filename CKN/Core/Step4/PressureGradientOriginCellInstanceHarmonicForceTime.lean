@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstancePotentialTime
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstancePotentialTime
 
 /-!
 # Compact-time integrability of the actual harmonic force constant
@@ -9,6 +11,8 @@ import CKN.Core.Step4.PressureGradientOriginCellInstancePotentialTime
 The harmonic force term in `eq:pressure-gradient-morrey`, including both
 potential-growth constants, is measurable and integrable on interior time boxes.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.I3
-import CKN.Foundation.Parabolic.Covering
+module
+
+public import CKN.Core.Caccioppoli.I3
+public import CKN.Foundation.Parabolic.Covering
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

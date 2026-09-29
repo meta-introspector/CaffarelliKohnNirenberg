@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Analysis.Calculus.ContDiff.Basic
-import CKN.Foundation.Parabolic.Basic
+module
+
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import CKN.Foundation.Parabolic.Basic
+
+@[expose] public section
 
 open scoped Topology
 open CKN.Foundation.Parabolic

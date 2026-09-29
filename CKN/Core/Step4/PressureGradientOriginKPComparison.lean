@@ -1,15 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginClauseBudget
-import CKN.Core.Step4.PressureGradientGluedMarginCost
-import CKN.Core.Step4.PressureGradientOneSidedCell
-import CKN.Core.Step4.PressureGradientOriginCellInstanceSourceTime
-import CKN.Setting.Finiteness
-import CKN.Core.Endgame.CarrierRestriction
-import CKN.Foundation.Parabolic.BallDisplays
-import Mathlib.Analysis.Real.Pi.Bounds
-import CKN.Core.Step4.PressureGradientGaugeMajorantHolder
+module
+
+public import CKN.Core.Step4.PressureGradientOriginClauseBudget
+public import CKN.Core.Step4.PressureGradientGluedMarginCost
+public import CKN.Core.Step4.PressureGradientOneSidedCell
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceSourceTime
+public import CKN.Setting.Finiteness
+public import CKN.Core.Endgame.CarrierRestriction
+public import CKN.Foundation.Parabolic.BallDisplays
+public import Mathlib.Analysis.Real.Pi.Bounds
+public import CKN.Core.Step4.PressureGradientGaugeMajorantHolder
 
 /-! # Numerical inputs for the origin pressure-gradient estimate
 
@@ -18,6 +20,8 @@ fixed-ball pressure and force time envelopes, are read off the data size and
 the velocity budgets. These are the numerical bounds a selected field is
 compared against.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal BigOperators

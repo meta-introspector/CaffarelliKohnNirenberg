@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSBounds
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSBounds
 
 /-!
 # Global centred-source estimates
@@ -9,6 +11,8 @@ import CKN.Core.Step4.SliceSelectedGradientCentredSWSBounds
 The local norm data of `def:sws` give compactly supported `L^{6/5}` sources
 and the explicit centred majorant used in `eq:pressure-gradient-decomposition`.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

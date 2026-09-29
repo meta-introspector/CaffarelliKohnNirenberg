@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.QuantitativeLocalizedEndgame
+module
+
+public import CKN.Core.Endgame.QuantitativeLocalizedEndgame
 
 /-! # Uniform Hölder bounds from a numerical source producer
 
@@ -9,6 +11,8 @@ The Hölder constant is chosen before the solution, domain, and center. The
 result remains conditional on uniform numerical estimates for the literal
 localized sources; it does not establish those analytic estimates.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

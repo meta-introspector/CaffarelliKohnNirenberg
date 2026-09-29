@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.HeatFarAssembly
-import CKN.Core.HeatPotential.GeneralSymbolHeatConclusionAssembly
+module
+
+public import CKN.Core.HeatPotential.HeatFarAssembly
+public import CKN.Core.HeatPotential.GeneralSymbolHeatConclusionAssembly
 
 /-!
 # The Campanato bound for the general-symbol heat potential
@@ -21,6 +23,8 @@ shell series is summed as a geometric series of ratio `2 ^ (γ - 1)`.  The
 far-shell input is the theorem of the preceding module, so no hypothesis is
 added here beyond those of the source.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology BigOperators

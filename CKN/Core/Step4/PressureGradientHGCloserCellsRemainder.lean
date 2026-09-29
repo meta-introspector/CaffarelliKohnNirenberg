@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellProducerSlice
-import CKN.Foundation.Parabolic.BallDisplays
-import Mathlib.MeasureTheory.Integral.MeanInequalities
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellProducerSlice
+public import CKN.Foundation.Parabolic.BallDisplays
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
 
 /-! # Cell estimates for spatially bounded pressure remainders
 
@@ -11,6 +13,8 @@ A spatial supremum controlled in `L^{3/2}` in time gives the cell-radius
 power needed for the harmonic part of the pressure gradient. The temporal
 Hölder factor is retained explicitly before the Morrey normalization.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

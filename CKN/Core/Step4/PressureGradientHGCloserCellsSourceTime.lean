@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientHGCloserCellsRemainder
+module
+
+public import CKN.Core.Step4.PressureGradientHGCloserCellsRemainder
 
 /-! # Time integration of spatial source masses
 
@@ -9,6 +11,8 @@ Spatial Hölder converts the `L^1` mass of a source on a ball into its
 `L^{6/5}` mass. Enlarging the time window to the ball's parabolic scale
 then makes the source's Morrey bound available for exterior kernel terms.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

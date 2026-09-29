@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.SpatialSliceNorms
-import CKN.Setting.SliceNormBounds
-import CKN.Pressure.PkBoundsUnconditionalCore
-import CKN.Foundation.Parabolic.Integration.Average
+module
+
+public import CKN.Setting.SpatialSliceNorms
+public import CKN.Setting.SliceNormBounds
+public import CKN.Pressure.PkBoundsUnconditionalCore
+public import CKN.Foundation.Parabolic.Integration.Average
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open CKN.Foundation.Parabolic

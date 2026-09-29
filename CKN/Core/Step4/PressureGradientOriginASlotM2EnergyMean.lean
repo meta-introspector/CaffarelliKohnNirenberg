@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientMorrey
-import CKN.Core.Step4.SliceSelectedGradientInputsCentred
-import CKN.Foundation.Parabolic.Morrey.Minkowski
-import CKN.Foundation.Measure.SliceProductMeasurability
+module
+
+public import CKN.Core.Step4.PressureGradientMorrey
+public import CKN.Core.Step4.SliceSelectedGradientInputsCentred
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+public import CKN.Foundation.Measure.SliceProductMeasurability
 
 /-! # The parabolic seminorm of a spatial mean
 
@@ -15,6 +17,8 @@ seminorm then bounds the mean's seminorm by that of the field itself, with
 the ratio of the two ball volumes as the only coefficient. No covering of
 the averaging ball by cells of the running radius is needed.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal BigOperators

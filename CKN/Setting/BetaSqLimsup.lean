@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.SliceNormBounds
-import CKN.Foundation.Parabolic.Topology
+module
+
+public import CKN.Setting.SliceNormBounds
+public import CKN.Foundation.Parabolic.Topology
 
 /-!
 # The beta-squared gradient limsup identity
@@ -13,6 +15,8 @@ solution, sufficiently small cylinders have compact closure in the domain.
 Their gradient integrals are finite, so the definition of beta gives an
 eventual equality of the two nonnegative extended-real quantities.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Mollify.Basic
+module
+
+public import CKN.Foundation.Sobolev.Mollify.Basic
 
 /-!
 # Interior transport of weak derivatives through mollification
@@ -16,6 +18,8 @@ with a compact-set wrapper. The general local `L^p` approximation theorem is
 not asserted here because the available Mathlib API does not provide the
 needed local convolution bound and translation-continuity package.
 -/
+
+@[expose] public section
 
 open scoped Convolution Topology
 open MeasureTheory

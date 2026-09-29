@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTSuitableIdentification
-import CKN.Core.Step4.WeakGradientGluingTRieszSourceQuantitative
-import CKN.Core.Step4.WeakGradientGluingTRemainderMajorantQuantitative
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergyMajorant
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergySlices
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergyTime
-import CKN.Core.Step4.WeakGradientGluingTCaccioppoliQuantitative
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTSuitableIdentification
+public import CKN.Core.Step4.WeakGradientGluingTRieszSourceQuantitative
+public import CKN.Core.Step4.WeakGradientGluingTRemainderMajorantQuantitative
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergyMajorant
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergySlices
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergyTime
+public import CKN.Core.Step4.WeakGradientGluingTCaccioppoliQuantitative
 
 /-! # The collar slice bound for the whole-carrier pressure gradient
 
@@ -22,6 +24,8 @@ on the component index.
 
 No velocity or gradient Morrey datum enters any estimate in this file.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology BigOperators

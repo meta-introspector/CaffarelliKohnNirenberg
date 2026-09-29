@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.CoordinateMultiplierBridge
-import CKN.Core.Endgame.CausalGradientMorrey
-import CKN.Core.Endgame.CausalDerivativeSource
-import CKN.Core.Endgame.CausalPressureExtension
-import CKN.Core.Endgame.ForceSlotNumericalSupport
-import CKN.Foundation.Parabolic.Covering
+module
+
+public import CKN.Core.HeatPotential.CoordinateMultiplierBridge
+public import CKN.Core.Endgame.CausalGradientMorrey
+public import CKN.Core.Endgame.CausalDerivativeSource
+public import CKN.Core.Endgame.CausalPressureExtension
+public import CKN.Core.Endgame.ForceSlotNumericalSupport
+public import CKN.Foundation.Parabolic.Covering
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

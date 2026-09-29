@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.PotentialMeasurability
-import CKN.Foundation.Parabolic.Morrey.Minkowski
+module
+
+public import CKN.Core.Endgame.PotentialMeasurability
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
 
 /-! # Adams estimates for almost-everywhere measurable sources
 
@@ -10,6 +12,8 @@ A measurable representative preserves the source Morrey norm and the Riesz
 potential at every evaluation point. Thus the scalar Adams estimate does not
 require pointwise measurability of the original source.
 -/
+
+@[expose] public section
 
 open MeasureTheory
 open scoped ENNReal

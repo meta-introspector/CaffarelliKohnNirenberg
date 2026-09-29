@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.PkBoundsBasic
-import CKN.Pressure.PotentialDecayGeometry
+module
+
+public import CKN.Pressure.PkBoundsBasic
+public import CKN.Pressure.PotentialDecayGeometry
 
 /-!
 # Far-field decay of Newtonian potentials about a general centre
@@ -17,6 +19,8 @@ These tail estimates are the decay-at-infinity input to the uniqueness half of t
 Newtonian representation `ext:newtonian` of the paper, where the difference of two
 representations is harmonic on all of space and tends to zero in the `L^{3/2}` average sense.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

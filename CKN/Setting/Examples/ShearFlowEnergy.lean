@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearFlowWeakForm
+module
+
+public import CKN.Setting.Examples.ShearFlowWeakForm
 
 /-!
 # The local energy identity for the viscous shear
@@ -9,6 +11,8 @@ import CKN.Setting.Examples.ShearFlowWeakForm
 Two spatial integrations by parts and one time integration by parts give
 the energy identity, hence the local energy inequality for nonnegative tests.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic CKN.ShearCalculus

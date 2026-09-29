@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SourceMorreyGradient
-import CKN.Core.Step4.SourceMorreyData
-import CKN.Core.Endgame.CutoffMorrey
-import CKN.Core.Endgame.SourceComponents
-import CKN.Foundation.Parabolic.Morrey.Minkowski
+module
+
+public import CKN.Core.Step4.SourceMorreyGradient
+public import CKN.Core.Step4.SourceMorreyData
+public import CKN.Core.Endgame.CutoffMorrey
+public import CKN.Core.Endgame.SourceComponents
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+
+@[expose] public section
 
 open MeasureTheory Set Metric
 open scoped BigOperators ENNReal NNReal Topology

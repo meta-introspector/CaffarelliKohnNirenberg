@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Covering
+module
+
+public import CKN.Foundation.Parabolic.Covering
 
 /-!
 # Local form of the parabolic covering estimate
@@ -13,6 +15,8 @@ Dirichlet integral **on the open set `U` alone**, rather than from finiteness of
 the integral over all of space.  This is the form in which the final measure
 step of the theory uses the covering estimate.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal
 

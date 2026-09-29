@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensorDef
-import CKN.Foundation.Parabolic.BallBasics
-import CKN.Core.Step4.PressureGradientMorrey
-import CKN.Core.Endgame.SourceComponents
-import CKN.Core.Endgame.MorreyScaling
-import CKN.Foundation.Parabolic.Morrey.Minkowski
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensorDef
+public import CKN.Foundation.Parabolic.BallBasics
+public import CKN.Core.Step4.PressureGradientMorrey
+public import CKN.Core.Endgame.SourceComponents
+public import CKN.Core.Endgame.MorreyScaling
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
 
 /-! # Morrey membership of the force-free centred tensor source
 
@@ -14,6 +16,8 @@ The convection term uses the product exponents `2` and `3`. The cutoff
 term uses two velocity factors. Bounded cutoff coefficients and the
 bounded source carrier preserve finiteness at the target exponent.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

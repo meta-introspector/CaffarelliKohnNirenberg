@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSData
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSData
 
 /-!
 # Quantitative bounds for the centred source
@@ -11,6 +13,8 @@ mean-component bounds, and the localized force estimate used in
 `eq:pressure-gradient-decomposition`.
 All coefficients are explicit and independent of the solution.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

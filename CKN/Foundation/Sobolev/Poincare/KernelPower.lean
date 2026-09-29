@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Poincare.KernelTime
+module
+
+public import CKN.Foundation.Sobolev.Poincare.KernelTime
+
+@[expose] public section
 namespace CKN
 
 open MeasureTheory Metric

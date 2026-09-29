@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step3.PressureDecayMeasurability
-import CKN.Core.Step3.PressureDecay
-import CKN.Pressure.PkBoundsUnconditionalP234
-import CKN.Pressure.PkBoundsUnconditionalP56
-import CKN.Pressure.PkBoundsUnconditionalP8
-import CKN.Pressure.PkBoundsP7SolutionBound
+module
+
+public import CKN.Core.Step3.PressureDecayMeasurability
+public import CKN.Core.Step3.PressureDecay
+public import CKN.Pressure.PkBoundsUnconditionalP234
+public import CKN.Pressure.PkBoundsUnconditionalP56
+public import CKN.Pressure.PkBoundsUnconditionalP8
+public import CKN.Pressure.PkBoundsP7SolutionBound
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

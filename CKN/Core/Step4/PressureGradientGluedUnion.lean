@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedLocality
-import CKN.Core.Step4.PressureGradientGluedSelectionCore
+module
+
+public import CKN.Core.Step4.PressureGradientGluedLocality
+public import CKN.Core.Step4.PressureGradientGluedSelectionCore
 
 /-!
 # Gluing weak partial derivatives over an open cover
@@ -19,6 +21,8 @@ open set has a neighbourhood on which `u` has a locally integrable `i`th weak
 partial derivative, then `u` has one on the whole set.  Second countability of
 `Fin d → ℝ` reduces the given family to a countable subfamily.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 set_option autoImplicit false

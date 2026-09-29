@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Topology
-import CKN.Statements.LocalBox
-import CKN.Statements.SpaceTimeTestFunction
-import Mathlib.Geometry.Manifold.PartitionOfUnity
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Positivity
+module
+
+public import CKN.Foundation.Parabolic.Topology
+public import CKN.Statements.LocalBox
+public import CKN.Statements.SpaceTimeTestFunction
+public import Mathlib.Geometry.Manifold.PartitionOfUnity
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Positivity
 
 /-!
 # Smooth localization inside a parabolic ball
@@ -14,6 +16,8 @@ import Mathlib.Tactic.Positivity
 A ball compactly inside the space-time domain admits a smooth cutoff and
 a compactly interior product box containing its support.
 -/
+
+@[expose] public section
 
 open Set Metric
 open scoped Topology

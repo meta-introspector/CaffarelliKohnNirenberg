@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Topology.Algebra.Support
-import Mathlib.Topology.Constructions.SumProd
+module
+
+public import Mathlib.Topology.Algebra.Support
+public import Mathlib.Topology.Constructions.SumProd
+
+@[expose] public section
 
 set_option autoImplicit false
 

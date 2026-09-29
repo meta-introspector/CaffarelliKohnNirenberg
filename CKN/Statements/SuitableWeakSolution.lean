@@ -1,18 +1,22 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.SpaceTimeSet
-import CKN.Statements.SpaceTimeTestFunction
-import CKN.Statements.LocalLp
-import CKN.Statements.LocalVecLp
-import CKN.Statements.LocalBox
-import CKN.Statements.SpatialPartial
-import CKN.Statements.TimePartial
-import CKN.Statements.SpatialSecondPartial
-import CKN.Statements.SpatialGradientSq
-import CKN.Foundation.Sobolev.WeakDerivative
-import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
+module
+
+public import CKN.Statements.SpaceTimeSet
+public import CKN.Statements.SpaceTimeTestFunction
+public import CKN.Statements.LocalLp
+public import CKN.Statements.LocalVecLp
+public import CKN.Statements.LocalBox
+public import CKN.Statements.SpatialPartial
+public import CKN.Statements.TimePartial
+public import CKN.Statements.SpatialSecondPartial
+public import CKN.Statements.SpatialGradientSq
+public import CKN.Foundation.Sobolev.WeakDerivative
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

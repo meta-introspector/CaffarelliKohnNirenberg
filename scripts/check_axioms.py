@@ -33,16 +33,32 @@ END = re.compile(rf"^[ \t]*end(?:[ \t]+{IDENT}(?:\.{IDENT})*)?[ \t]*$")
 DECL = re.compile(
     r"^[ \t]*(?:@\[[^\]\n]*\][ \t]*)*"
     r"(?:(?:(private|protected|scoped|local)\s+)|"
-    r"(?:noncomputable|unsafe|partial)\s+)*"
+    r"(?:public|meta|noncomputable|unsafe|partial|nonrec)\s+)*"
     r"(theorem|lemma|def|abbrev|opaque|structure|class|inductive|instance)\b"
     rf"(?:\s+({QUALIFIED}))?"
 )
+# Module-system imports: ``import M``, ``public import M``, ``import all M``,
+# ``public meta import M`` all name the module M.
+IMPORT = re.compile(
+    rf"^[ \t]*(?:public[ \t]+)?(?:meta[ \t]+)?import(?:[ \t]+all)?[ \t]+({QUALIFIED})[ \t]*$",
+    re.MULTILINE,
+)
+
+
+def imported_modules(text: str) -> list[str]:
+    """Modules imported by ``text`` in any (module-system) import form."""
+    return IMPORT.findall(strip_comments(text))
+
+
 AXIOMS = re.compile(
     rf"^[ \t]*(?:'(?P<quoted>{QUALIFIED})'|(?P<plain>{QUALIFIED}))"
     r"[ \t]+(?:(?:depends on axioms:[ \t]*\[(?P<body>.*?)\])|"
     r"does not depend on any axioms)",
     re.MULTILINE | re.DOTALL,
 )
+
+
+CHAR_LITERAL = re.compile(r"'(?:\\(?:x[0-9a-fA-F]{2}|u\{[0-9a-fA-F]+\}|.)|[^\\'\n])'")
 
 
 def strip_comments(text: str) -> str:
@@ -94,19 +110,16 @@ def strip_comments(text: str) -> str:
                 else:
                     index += 1
             blank(start, min(index, size))
-        elif text[index] == "'" and (
-            index == 0 or not (text[index - 1].isalnum() or text[index - 1] in "_'")
+        elif (
+            text[index] == "'"
+            and (index == 0 or not (text[index - 1].isalnum() or text[index - 1] in "_'"))
+            and CHAR_LITERAL.match(text, index)
         ):
-            start, index = index, index + 1
-            while index < size:
-                if text[index] == "\\":
-                    index += 2
-                elif text[index] == "'":
-                    index += 1
-                    break
-                else:
-                    index += 1
-            blank(start, min(index, size))
+            # A Lean character literal closes on the same line (`'a'`, `'\\n'`,
+            # `'\\x41'`, `'\\u{3b1}'`); a prime in notation such as `∑'` is not one.
+            end = CHAR_LITERAL.match(text, index).end()
+            blank(index, end)
+            index = end
         else:
             index += 1
     return "".join(out)

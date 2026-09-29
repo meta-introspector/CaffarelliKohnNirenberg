@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ForceSlotNumericalProducer
-import CKN.Core.Endgame.QuantitativeHolderNumericalTarget
+module
+
+public import CKN.Core.Endgame.ForceSlotNumericalProducer
+public import CKN.Core.Endgame.QuantitativeHolderNumericalTarget
 
 /-!
 # Numerical endgame estimates from quantitative pressure
@@ -11,6 +13,8 @@ The explicit cutoff family and numerical force producer supply the original
 source and Holder conclusions. Only the quantitative pressure estimate and
 the standard localized heat representation remain as producer inputs.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

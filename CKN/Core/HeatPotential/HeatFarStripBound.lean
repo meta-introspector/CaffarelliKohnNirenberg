@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelCrossZero
-import CKN.Foundation.Parabolic.Morrey.StripMass
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelCrossZero
+public import CKN.Foundation.Parabolic.Morrey.StripMass
 
 /-!
 # The causal thin-strip estimate on a far shell
@@ -35,6 +37,8 @@ is at most `parabolicDist w w' * (2 ^ j r) ^ (-5/θ)` because
 No hypothesis beyond the symbol class, measurability of the source and the
 finiteness of its Morrey seminorm enters the statement.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

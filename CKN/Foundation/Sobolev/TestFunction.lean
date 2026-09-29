@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Ambient.Basis
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Analysis.Calculus.FDeriv.Add
+module
+
+public import CKN.Foundation.Sobolev.Ambient.Basis
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.FDeriv.Add
 
 /-!
 # Weak-derivative test functions
@@ -12,6 +14,8 @@ Adapted from PDEFoundation (EllipticRegularity, 2026) with the author's
 permission. This port separates the bundled test-function facade from the
 weak-derivative predicates and uses the `CKN` namespace.
 -/
+
+@[expose] public section
 
 namespace CKN
 

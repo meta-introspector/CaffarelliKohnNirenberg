@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ForceSlotNumericalPressureTransport
-import CKN.Setting.ScalingInvariance
+module
+
+public import CKN.Core.Endgame.ForceSlotNumericalPressureTransport
+public import CKN.Setting.ScalingInvariance
 
 /-! # Parabolic dilations about the space-time origin
 
@@ -22,6 +24,8 @@ Only dilations by a factor at most one are used, so that the dilated unit
 cylinder lies inside the original one and no data outside the original unit
 cylinder is ever required.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal BigOperators

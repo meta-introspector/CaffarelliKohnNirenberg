@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.Localization
-import CKN.Foundation.Sobolev.Cutoff.Ball
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Positivity
+module
+
+public import CKN.Core.Endgame.Localization
+public import CKN.Foundation.Sobolev.Cutoff.Ball
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Positivity
 
 /-!
 # Geometry of parabolic balls in space-time coordinates
@@ -20,6 +22,8 @@ and records that the product box with radius `r` in space and time half-width
 The results are stated for the ambient `Vec3` and the parabolic metric used
 throughout the localization arguments.
 -/
+
+@[expose] public section
 
 open Set Metric
 open CKN.Foundation.Parabolic

@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginASlotHarmonic
-import CKN.Core.Step4.SliceSelectedGradientForceP8
-import CKN.Core.Step4.SliceSelectedGradientRegularity
-import CKN.Core.Step4.SliceSelectedGradientForceSlices
-import CKN.Core.Step4.SliceSelectedGradientInputsCentred
+module
+
+public import CKN.Core.Step4.PressureGradientOriginASlotHarmonic
+public import CKN.Core.Step4.SliceSelectedGradientForceP8
+public import CKN.Core.Step4.SliceSelectedGradientRegularity
+public import CKN.Core.Step4.SliceSelectedGradientForceSlices
+public import CKN.Core.Step4.SliceSelectedGradientInputsCentred
 
 /-!
 # The absolute coefficients of the far-force increment
@@ -27,6 +29,8 @@ factor `4π/3 ≤ 5`.  The three constants recorded here are the scale-free part
 of that coefficient, its collar-uniform value, and the Calderón–Zygmund
 threshold at which the affine slot pays for the increment.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

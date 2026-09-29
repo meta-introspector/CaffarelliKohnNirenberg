@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBoundsProof
-import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBoundsProof
+public import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
 
 /-!
 # Oscillatory estimates for homogeneous multiplier kernels
@@ -10,6 +12,8 @@ import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
 This module develops the integration-by-parts estimates for the smooth
 high-frequency part of a homogeneous multiplier.
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open MeasureTheory Set Module
@@ -135,7 +139,7 @@ private theorem integrable_one_add_euclideanNorm_pow_gaussian
         (Real.exp (-(t * r ^ 2)) + r ^ m * Real.exp (-(t * r ^ 2))) := by ring
   simpa [r] using hfinal
 
-private theorem exists_norm_iteratedFDeriv_scaledFrequencyGaussian_uniform
+theorem exists_norm_iteratedFDeriv_scaledFrequencyGaussian_uniform
     {i : ℕ} (hi : i ≤ 7) :
     ∃ C : ℝ, 0 ≤ C ∧ ∀ t : ℝ, 0 < t → t ≤ 1 → ∀ ξ : Vec3,
       ‖iteratedFDeriv ℝ i (scaledFrequencyGaussian t) ξ‖ ≤
@@ -254,7 +258,7 @@ private theorem exists_norm_iteratedFDeriv_scaledFrequencyGaussian_uniform
           (Real.exp_nonneg _)
     simpa [r, hsq] using hfinal
 
-private noncomputable def highFrequencySymbolDerivativeConstant
+noncomputable def highFrequencySymbolDerivativeConstant
     {τ : Vec3 → ℂ} (d k : ℕ)
     (hτ : ContDiffOn ℝ (⊤ : ℕ∞) τ ({0}ᶜ : Set Vec3))
     (hhom : ∀ a : ℝ, 0 < a → ∀ ξ : Vec3,
@@ -274,7 +278,7 @@ private theorem highFrequencySymbolDerivativeConstant_spec
   Classical.choose_spec (exists_norm_iteratedFDeriv_highFrequencySymbol_global_bound
     (τ := τ) d k hτ hhom)
 
-private noncomputable def scaledGaussianPolynomialConstant
+noncomputable def scaledGaussianPolynomialConstant
     (k : ℕ) (hk : k ≤ 7) (t : ℝ) (ht : 0 < t) : ℝ :=
   Classical.choose (exists_norm_iteratedFDeriv_scaledFrequencyGaussian_global hk t ht)
 
@@ -287,7 +291,7 @@ private theorem scaledGaussianPolynomialConstant_spec
             Real.exp (-(t * vec3EuclideanNorm ξ ^ 2)) :=
   Classical.choose_spec (exists_norm_iteratedFDeriv_scaledFrequencyGaussian_global hk t ht)
 
-private noncomputable def scaledGaussianUniformConstant (k : ℕ) (hk : k ≤ 7) : ℝ :=
+noncomputable def scaledGaussianUniformConstant (k : ℕ) (hk : k ≤ 7) : ℝ :=
   Classical.choose (exists_norm_iteratedFDeriv_scaledFrequencyGaussian_uniform hk)
 
 private theorem scaledGaussianUniformConstant_spec (k : ℕ) (hk : k ≤ 7) :
@@ -298,7 +302,7 @@ private theorem scaledGaussianUniformConstant_spec (k : ℕ) (hk : k ≤ 7) :
             Real.exp (-(t * vec3EuclideanNorm ξ ^ 2)) :=
   Classical.choose_spec (exists_norm_iteratedFDeriv_scaledFrequencyGaussian_uniform hk)
 
-private noncomputable def highFrequencySymbolAnnulusDerivativeConstant
+noncomputable def highFrequencySymbolAnnulusDerivativeConstant
     {τ : Vec3 → ℂ} (d k : ℕ)
     (hτ : ContDiffOn ℝ (⊤ : ℕ∞) τ ({0}ᶜ : Set Vec3))
     (hhom : ∀ a : ℝ, 0 < a → ∀ ξ : Vec3,
@@ -317,7 +321,7 @@ private theorem highFrequencySymbolAnnulusDerivativeConstant_spec
             vec3EuclideanNorm ξ ^ d / vec3EuclideanNorm ξ ^ k :=
   Classical.choose_spec (exists_norm_iteratedFDeriv_high_bound_on_annulus d k hτ hhom)
 
-private noncomputable def scaledGaussianAnnulusDerivativeConstant
+noncomputable def scaledGaussianAnnulusDerivativeConstant
     (k : ℕ) (hk : k ≤ 7) : ℝ :=
   Classical.choose (exists_norm_iteratedFDeriv_scaledFrequencyGaussian_le hk)
 
@@ -339,7 +343,7 @@ theorem highDampedFrequencyFunction_contDiff
     (t : ℝ) : ContDiff ℝ (⊤ : ℕ∞) (highDampedFrequencyFunction τ t) :=
   (highFrequencySymbol_contDiff hτ).mul (scaledFrequencyGaussian_contDiff t)
 
-private noncomputable def highDampedCompactDerivativeConstant
+noncomputable def highDampedCompactDerivativeConstant
     {τ : Vec3 → ℂ} (d n : ℕ) (hn : n ≤ 7)
     (hτ : ContDiffOn ℝ (⊤ : ℕ∞) τ ({0}ᶜ : Set Vec3))
     (hhom : ∀ a : ℝ, 0 < a → ∀ ξ : Vec3,
@@ -349,7 +353,7 @@ private noncomputable def highDampedCompactDerivativeConstant
       scaledGaussianUniformConstant (n - i) (by omega) *
         (3 : ℝ) ^ (d + (n - i))
 
-private noncomputable def highDampedTailDerivativeConstant
+noncomputable def highDampedTailDerivativeConstant
     {τ : Vec3 → ℂ} (d n : ℕ) (hn : n ≤ 7)
     (hτ : ContDiffOn ℝ (⊤ : ℕ∞) τ ({0}ᶜ : Set Vec3))
     (hhom : ∀ a : ℝ, 0 < a → ∀ ξ : Vec3,

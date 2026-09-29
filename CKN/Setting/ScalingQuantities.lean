@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Statements.Theta
-import CKN.Statements.Gamma
-import CKN.Statements.Lambda
+module
+
+public import CKN.Statements.Theta
+public import CKN.Statements.Gamma
+public import CKN.Statements.Lambda
 
 /-!
 # Scale invariance of the dimensionless quantities
@@ -18,6 +20,8 @@ exponents.  The essential supremum of the velocity `L²` energy is handled with
 the boundedness assumption that makes the transform of an essential supremum
 legitimate; every other quantity is unconditional.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set
 open scoped ENNReal Pointwise
@@ -58,13 +62,13 @@ noncomputable def rescaleGradient (μ : ℝ) (z₀ : ParabolicPoint)
 /-! ### The underlying affine map and its Jacobian -/
 
 /-- The spatial part `y ↦ x + a y` of the parabolic rescaling. -/
-private def spatialAffine (a : ℝ) (x : Vec3) : Vec3 → Vec3 := fun y => x + a • y
+def spatialAffine (a : ℝ) (x : Vec3) : Vec3 → Vec3 := fun y => x + a • y
 
 /-- The time part `s ↦ t + a² s` of the parabolic rescaling. -/
-private def timeAffine (a : ℝ) (t : ℝ) : ℝ → ℝ := fun s => t + a ^ 2 * s
+def timeAffine (a : ℝ) (t : ℝ) : ℝ → ℝ := fun s => t + a ^ 2 * s
 
 /-- The parabolic rescaling map `z ↦ (x₀ + μ z₁, t₀ + μ² z₂)`. -/
-private def parabolicAffine (a : ℝ) (x : Vec3) (t : ℝ) : ParabolicPoint → ParabolicPoint :=
+def parabolicAffine (a : ℝ) (x : Vec3) (t : ℝ) : ParabolicPoint → ParabolicPoint :=
   fun z => parabolicTranslate x t (parabolicScale a z)
 
 private theorem spatialAffine_measurableEmbedding (a : ℝ) (ha : 0 < a) (x : Vec3) :

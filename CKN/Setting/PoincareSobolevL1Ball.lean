@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.PoincareSobolevL1
+module
+
+public import CKN.Setting.PoincareSobolevL1
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal Pointwise
@@ -10,7 +14,7 @@ namespace CKN
 
 noncomputable section
 
-private def euclideanAffineMap (x₀ : Vec 3) (r : ℝ) (x : Vec 3) : Vec 3 :=
+def euclideanAffineMap (x₀ : Vec 3) (r : ℝ) (x : Vec 3) : Vec 3 :=
   x₀ + r • x
 
 private theorem euclideanBallAffine_image_unitBall (x₀ : Vec 3) {r : ℝ} (hr : 0 < r) :

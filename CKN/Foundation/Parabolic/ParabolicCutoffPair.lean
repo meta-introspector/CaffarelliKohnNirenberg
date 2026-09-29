@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.BallBasics
-import Mathlib.Geometry.Manifold.PartitionOfUnity
+module
+
+public import CKN.Foundation.Parabolic.BallBasics
+public import Mathlib.Geometry.Manifold.PartitionOfUnity
 
 /-!
 # Smooth cutoff pairs on parabolic balls
@@ -10,6 +12,8 @@ import Mathlib.Geometry.Manifold.PartitionOfUnity
 The cutoffs are smooth and compactly supported in a larger parabolic ball,
 with the second cutoff equal to one near the support of the first.
 -/
+
+@[expose] public section
 
 open Set Metric
 open scoped Topology
@@ -20,7 +24,7 @@ noncomputable section
 
 namespace CKN.Foundation.Parabolic
 
-private def parabolicHomeomorphL2Real : ParabolicPoint ≃ₜ L2Vec3 × ℝ :=
+def parabolicHomeomorphL2Real : ParabolicPoint ≃ₜ L2Vec3 × ℝ :=
   parabolicHomeomorph.trans
     (Homeomorph.prodCongr vec3Homeomorph (Homeomorph.refl ℝ))
 
