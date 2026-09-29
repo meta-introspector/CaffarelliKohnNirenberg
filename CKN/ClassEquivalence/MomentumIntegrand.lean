@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.ClassEquivalence.DivergenceFreeIntegrand
+module
+
+public import CKN.ClassEquivalence.DivergenceFreeIntegrand
 
 /-!
 # The integrand of the weak momentum identity
@@ -23,6 +25,8 @@ an integrable field times a bounded derivative of the test field.
 Nothing about the identities of `def:sws` is used, so the conclusion is
 available while those identities are still being established.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

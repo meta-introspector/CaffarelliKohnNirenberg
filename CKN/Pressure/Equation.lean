@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Slices
-import CKN.Pressure.ParamExtension
-import CKN.Pressure.SliceIntegrability
-import CKN.Foundation.Parabolic.TsupportSpatialBox
-import Mathlib.Analysis.Calculus.FDeriv.Symmetric
-import Mathlib.MeasureTheory.Function.L2Space
+module
+
+public import CKN.Pressure.Slices
+public import CKN.Pressure.ParamExtension
+public import CKN.Pressure.SliceIntegrability
+public import CKN.Foundation.Parabolic.TsupportSpatialBox
+public import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+public import Mathlib.MeasureTheory.Function.L2Space
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology
@@ -18,7 +22,7 @@ noncomputable section
 
 namespace CKN
 
-private def pressureTest (ψ : Vec3 → ℝ) (θ : ℝ → ℝ) : Vec3 × ℝ → Vec3 :=
+def pressureTest (ψ : Vec3 → ℝ) (θ : ℝ → ℝ) : Vec3 × ℝ → Vec3 :=
   fun z i => θ z.2 * spatialDeriv ψ i z.1
 
 /-- The product test field on the ordinary product carrier. -/

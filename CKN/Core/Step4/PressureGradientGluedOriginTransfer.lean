@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.OneSidedMorrey
+module
+
+public import CKN.Core.Endgame.OneSidedMorrey
 
 /-!
 # One-sided transfer with carrier-centred cells
@@ -14,6 +16,8 @@ fixed cylinder. The transfer still covers every cell, because cells whose
 centre is not met by the carrier contribute nothing, and cells at or above the
 fixed scale are handled by the total integral on the carrier.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

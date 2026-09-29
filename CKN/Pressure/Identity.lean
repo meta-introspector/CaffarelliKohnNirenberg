@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Equation
-import CKN.Pressure.ParamExtension
-import CKN.Foundation.Sobolev.Cutoff.SpaceTime
-import CKN.Foundation.Parabolic.TsupportSpatialBox
-import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
+module
+
+public import CKN.Pressure.Equation
+public import CKN.Pressure.ParamExtension
+public import CKN.Foundation.Sobolev.Cutoff.SpaceTime
+public import CKN.Foundation.Parabolic.TsupportSpatialBox
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology

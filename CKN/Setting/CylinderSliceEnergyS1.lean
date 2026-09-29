@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.CylinderL3PointwisePaperCore
-import CKN.Core.Caccioppoli.CaccioppoliMeanSubtraction
-import CKN.Setting.SliceNormBounds
-import Mathlib.Analysis.Real.Pi.Bounds
+module
+
+public import CKN.Setting.CylinderL3PointwisePaperCore
+public import CKN.Core.Caccioppoli.CaccioppoliMeanSubtraction
+public import CKN.Setting.SliceNormBounds
+public import Mathlib.Analysis.Real.Pi.Bounds
 
 /-! # Inner-ball slice energy from the local data clause
 
@@ -12,6 +14,8 @@ The local data clause supplies the slice weak gradients and the finite local
 energy needed by the vector Poincare estimate.  No equation or force data is
 used here.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

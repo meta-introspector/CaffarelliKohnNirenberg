@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientHGCloserCellsNormalization
+module
+
+public import CKN.Core.Step4.PressureGradientHGCloserCellsNormalization
 
 /-! # Parabolic Morrey bounds for the spatial pressure Riesz operator
 
@@ -9,6 +11,8 @@ For a spatially supported source, finitely many annuli suffice at every
 cell. The normalized bound is uniform in their number. It therefore bounds
 the Morrey seminorm of any measurable representative of the slice operator.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

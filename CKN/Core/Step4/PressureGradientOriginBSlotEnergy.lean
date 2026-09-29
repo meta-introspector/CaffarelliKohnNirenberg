@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import CKN.Core.Step4.PressureGradientOriginBSlotEnergyTime
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Core.Step4.PressureGradientOriginBSlotEnergyTime
 
 /-! # The whole-carrier pressure-gradient time mass of `prop:bootstrap`
 
@@ -21,6 +23,8 @@ absolute mass below a threshold `Cstar` is paid by the coefficient once
 `Cstar ≤ C_CZ`, on the whole admitted parameter range `5/2 < q`,
 `25/3 ≤ τ ≤ 25`, `0 < R₁ < 3/4`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal BigOperators

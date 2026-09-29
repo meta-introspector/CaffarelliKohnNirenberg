@@ -8,6 +8,8 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import check_axioms  # noqa: E402
 ROOT_FILES = {
     '.gitignore', 'CITATION.cff', 'CKN.lean', 'CONTRIBUTING.md', 'LICENSE',
     'README.md', 'formalization.yaml', 'lake-manifest.json', 'lakefile.toml',
@@ -30,6 +32,8 @@ def main() -> int:
         allowed = (
             path.parts[0] == 'CKN' and path.suffix == '.lean'
             or path.parts[0] == 'comparators' and path.suffix in {'.lean', '.md'}
+            # Each further comparator pair has its own configuration (one Palomar entry each).
+            or len(path.parts) == 3 and path.parts[0] == 'comparators' and path.name == 'comparator.json'
             or path.parts[0] == 'docs' and path.suffix == '.md'
             or path.parts[0] == 'paper' and path.suffix in {'.md', '.tex', '.bib', '.pdf'}
             or path.parts[0] == 'scripts' and path.suffix in {'.py', '.sh', '.txt'}
@@ -54,7 +58,7 @@ def main() -> int:
                 if not destination.is_relative_to(ROOT) or not destination.exists():
                     errors.append(f'{name}: missing local link {target}')
         if path.suffix == '.lean':
-            for module in re.findall(r'^import (CKN(?:\.[\w]+)*)$', text, re.M):
+            for module in [m for m in check_axioms.imported_modules(text) if m == 'CKN' or m.startswith('CKN.')]:
                 if module.replace('.', '/') + '.lean' not in files:
                     errors.append(f'{name}: missing import {module}')
     for error in errors:

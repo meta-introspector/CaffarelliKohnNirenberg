@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTSuitableIdentification
-import CKN.Foundation.Sobolev.WeakGradientGluingTPressureMean
-import CKN.Core.Step4.PressureGradientGluedTimeBounds
-import CKN.Pressure.HarmonicPartBoundsAE
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTSuitableIdentification
+public import CKN.Foundation.Sobolev.WeakGradientGluingTPressureMean
+public import CKN.Core.Step4.PressureGradientGluedTimeBounds
+public import CKN.Pressure.HarmonicPartBoundsAE
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-! # A temporal majorant for the fixed pressure remainder
 
@@ -14,6 +16,8 @@ and pressure slice norms. The far-force derivative is bounded by the spatial
 force integral. Their finite time moments follow from local suitability on
 one fixed cylinder, without a pressure oscillation estimate on smaller cells.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology BigOperators

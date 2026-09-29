@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearCounterexample.FiniteApproxCalculus
-import CKN.Setting.Examples.ShearCounterexample.FactorIBP
-import CKN.Statements.SpatialSecondPartial
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.FiniteApproxCalculus
+public import CKN.Setting.Examples.ShearCounterexample.FactorIBP
+public import CKN.Statements.SpatialSecondPartial
 
 /-! # Finite-scale momentum identities for the shear fields. -/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

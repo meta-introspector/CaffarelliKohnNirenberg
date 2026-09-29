@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearCounterexample.FiniteHeatIdentity
-import CKN.Setting.Examples.ShearCounterexample.TestSupport
-import CKN.Foundation.Parabolic.Topology
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.FiniteHeatIdentity
+public import CKN.Setting.Examples.ShearCounterexample.TestSupport
+public import CKN.Foundation.Parabolic.Topology
 
 /-! # Calculus identities for finite shear approximations. -/
+
+@[expose] public section
 
 set_option autoImplicit false
 open CKN.Foundation.Parabolic Finset

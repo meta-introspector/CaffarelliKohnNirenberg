@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceHarmonicForceTime
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceHarmonicForceTime
 
 /-!
 # Measurability of the centered slice terms
@@ -9,6 +11,8 @@ import CKN.Core.Step4.PressureGradientOriginCellInstanceHarmonicForceTime
 Spatial averaging and cutoff multiplication preserve product measurability
 of the tensor and divergence source in `eq:pressure-gradient-morrey`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

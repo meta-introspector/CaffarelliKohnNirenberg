@@ -1,18 +1,22 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.SolidBallMeanValueOrigin
-import CKN.Foundation.Harmonic.SolidBallGradientParametric
-import CKN.Foundation.Parabolic.BallBasics
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Sobolev.Cutoff.NormTriangle
-import Mathlib.Analysis.Calculus.ParametricIntegral
-import Mathlib.Analysis.Normed.Operator.BoundedLinearMaps
-import Mathlib.MeasureTheory.Constructions.Pi
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+module
+
+public import CKN.Foundation.Harmonic.SolidBallMeanValueOrigin
+public import CKN.Foundation.Harmonic.SolidBallGradientParametric
+public import CKN.Foundation.Parabolic.BallBasics
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Sobolev.Cutoff.NormTriangle
+public import Mathlib.Analysis.Calculus.ParametricIntegral
+public import Mathlib.Analysis.Normed.Operator.BoundedLinearMaps
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped Topology BigOperators Interval
@@ -30,11 +34,11 @@ The transverse sections are two-dimensional Euclidean balls.
 
 namespace CKN.Foundation.Harmonic
 
-private abbrev Vec2 := Fin 2 → ℝ
+abbrev Vec2 := Fin 2 → ℝ
 
-private def sumSq2 (w : Vec2) : ℝ := ∑ j, w j ^ 2
+def sumSq2 (w : Vec2) : ℝ := ∑ j, w j ^ 2
 
-private def sumSq3 (z : Vec3) : ℝ := ∑ k, z k ^ 2
+def sumSq3 (z : Vec3) : ℝ := ∑ k, z k ^ 2
 
 private lemma vec3Norm_eq_vecNorm (x : Vec3) :
     vec3EuclideanNorm x = vecEuclideanNorm x := by
@@ -46,10 +50,10 @@ private lemma euclideanBall_to_closedBall {x : Vec3} {r : ℝ} (hr : 0 < r) :
   apply (CKN.mem_euclideanClosedBall_iff_vecEuclideanNorm_le hr.le).2
   exact (CKN.mem_euclideanBall_iff_vecEuclideanNorm_lt hr).1 hy |>.le
 
-private def splitFin3 (i : Fin 3) : Vec3 ≃ᵐ ℝ × Vec2 :=
+def splitFin3 (i : Fin 3) : Vec3 ≃ᵐ ℝ × Vec2 :=
   MeasurableEquiv.piFinSuccAbove (fun _ : Fin 3 => ℝ) i
 
-private def splitBall (r : ℝ) : Set (ℝ × Vec2) :=
+def splitBall (r : ℝ) : Set (ℝ × Vec2) :=
   {p | p.1 ^ 2 + sumSq2 p.2 < r ^ 2}
 
 private lemma sumSq3_insertNth (i : Fin 3) (t : ℝ) (w : Vec2) :

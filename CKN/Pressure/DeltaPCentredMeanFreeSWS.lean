@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.DeltaPCentred
-import CKN.Pressure.SpatialDerivSupport
-import CKN.Setting.UTensor
+module
+
+public import CKN.Pressure.DeltaPCentred
+public import CKN.Pressure.SpatialDerivSupport
+public import CKN.Setting.UTensor
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

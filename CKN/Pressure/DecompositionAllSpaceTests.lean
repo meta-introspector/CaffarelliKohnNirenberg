@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Decomposition
-import CKN.Pressure.DecompositionSWSBasic
+module
+
+public import CKN.Pressure.Decomposition
+public import CKN.Pressure.DecompositionSWSBasic
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

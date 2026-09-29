@@ -1,14 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientTensorSource
-import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensor
-import CKN.Core.Step4.SliceSelectedGradientInputsCentred
-import CKN.Core.Step4.SliceSelectedGradientForceHolder
-import CKN.Pressure.SliceVelocityCube
-import CKN.Pressure.Lin34CentredPairingSWS
-import CKN.Foundation.Parabolic.Vec3Norm
-import CKN.Foundation.Parabolic.BallBasics
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientTensorSource
+public import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensor
+public import CKN.Core.Step4.SliceSelectedGradientInputsCentred
+public import CKN.Core.Step4.SliceSelectedGradientForceHolder
+public import CKN.Pressure.SliceVelocityCube
+public import CKN.Pressure.Lin34CentredPairingSWS
+public import CKN.Foundation.Parabolic.Vec3Norm
+public import CKN.Foundation.Parabolic.BallBasics
 
 /-!
 # Spatial slice data for the centred source
@@ -17,6 +19,8 @@ The regularity and incompressibility clauses of `def:sws` supply the local
 norms, weak gradients, and zero trace used in `eq:pressure-gradient-decomposition`.
 The exceptional set is chosen before quantifying over spatial test functions.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

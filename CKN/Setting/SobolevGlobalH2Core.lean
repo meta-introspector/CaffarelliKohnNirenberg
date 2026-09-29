@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Poincare.Lp
-import CKN.Foundation.Sobolev.Poincare.Geometry
-import CKN.Foundation.Parabolic.Basic
-import CKN.Foundation.Sobolev.Ambient.Basis
-import Mathlib.Analysis.SpecialFunctions.Pow.Integral
+module
+
+public import CKN.Foundation.Sobolev.Poincare.Lp
+public import CKN.Foundation.Sobolev.Poincare.Geometry
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Foundation.Sobolev.Ambient.Basis
+public import Mathlib.Analysis.SpecialFunctions.Pow.Integral
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology
@@ -15,7 +19,7 @@ namespace CKN
 
 noncomputable section
 
-private def h2CoreBall : Set Vec3 := Metric.ball (0 : Vec3) 2
+def h2CoreBall : Set Vec3 := Metric.ball (0 : Vec3) 2
 
 private lemma h2CoreBall_pos : 0 < volume h2CoreBall := by
   exact Metric.isOpen_ball.measure_pos volume ⟨0, by simp⟩

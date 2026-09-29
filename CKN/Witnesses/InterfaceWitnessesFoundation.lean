@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.CZDecomposition
-import CKN.Foundation.Sobolev.W1p.Basic
-import CKN.Statements.LocalLp
-import CKN.Setting.DivergenceFreeSlice
+module
+
+public import CKN.Foundation.Euclidean.CZDecomposition
+public import CKN.Foundation.Sobolev.W1p.Basic
+public import CKN.Statements.LocalLp
+public import CKN.Setting.DivergenceFreeSlice
+
+@[expose] public section
 
 open MeasureTheory
 open scoped ENNReal

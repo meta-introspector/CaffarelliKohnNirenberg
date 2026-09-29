@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorEstimates
-import CKN.Foundation.Parabolic.BallBasics
-import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
-import Mathlib.Topology.MetricSpace.Thickening
-import CKN.Foundation.Harmonic.InteriorSupThreeQuarters
-import CKN.Foundation.Harmonic.InteriorSupSmoothBoundSupport
+module
+
+public import CKN.Foundation.Harmonic.InteriorEstimates
+public import CKN.Foundation.Parabolic.BallBasics
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.Topology.MetricSpace.Thickening
+public import CKN.Foundation.Harmonic.InteriorSupThreeQuarters
+public import CKN.Foundation.Harmonic.InteriorSupSmoothBoundSupport
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Filter

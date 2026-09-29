@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginClauseBudget
-import CKN.Core.Step4.PressureGradientOriginClauseMajorantArith
-import CKN.Core.Step4.PressureGradientOriginClauseGeometry
-import CKN.Witnesses.TrivialSolution
-import CKN.Foundation.Parabolic.Morrey.Zero
+module
+
+public import CKN.Core.Step4.PressureGradientOriginClauseBudget
+public import CKN.Core.Step4.PressureGradientOriginClauseMajorantArith
+public import CKN.Core.Step4.PressureGradientOriginClauseGeometry
+public import CKN.Witnesses.TrivialSolution
+public import CKN.Foundation.Parabolic.Morrey.Zero
 
 /-!
 # Satisfiability of the clipped slicewise pressure data
@@ -26,6 +28,8 @@ does not secretly force its constant to vanish: it is satisfiable with room to
 spare as soon as the slice gradients are small compared with the numerical
 datum.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

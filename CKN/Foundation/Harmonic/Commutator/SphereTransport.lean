@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Cutoff.Basic
-import Mathlib.MeasureTheory.Constructions.HaarToSphere
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+module
+
+public import CKN.Foundation.Sobolev.Cutoff.Basic
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory
@@ -14,7 +18,7 @@ namespace CKN.Foundation.Harmonic.Commutator
 
 noncomputable section
 
-private abbrev E := WithLp 2 (CKN.Vec 3)
+abbrev E := WithLp 2 (CKN.Vec 3)
 
 /-- The native Euclidean length agrees with the transported \`L²\` norm. -/
 lemma vecEuclideanNorm_eq_l2 (z : CKN.Vec 3) :

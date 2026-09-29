@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.TheoremAFullSumAssembly
-import CKN.Core.Endgame.TheoremACloser
+module
+
+public import CKN.Core.Endgame.TheoremAFullSumAssembly
+public import CKN.Core.Endgame.TheoremACloser
 
 /-! # Absolute thresholds for the clipped pressure-gradient slots
 
 The two actual-integral estimates are used above one fixed absolute
 Calderón–Zygmund threshold. Their spatial and temporal clipping is preserved.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import Mathlib.Analysis.Calculus.ContDiff.Basic
-import Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries
+module
+
+public import Mathlib.Analysis.Calculus.ContDiff.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries
 
 /-! # Local constancy and derivative identities for the shear profile. -/
+
+@[expose] public section
 open Filter
 open scoped Topology
 set_option autoImplicit false

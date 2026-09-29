@@ -1,14 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Monotonicity
-import CKN.Statements.Theta
-import CKN.Foundation.Euclidean.RpowSquares
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
+module
+
+public import CKN.Setting.Monotonicity
+public import CKN.Statements.Theta
+public import CKN.Foundation.Euclidean.RpowSquares
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
 
 /-!
 # The arithmetic core of the scale iteration
@@ -19,6 +21,8 @@ analytic estimate itself is supplied as a hypothesis to the iteration theorem.
 The radius interpolation theorem likewise takes the finiteness hypotheses
 required by the radius monotonicity API.
 -/
+
+@[expose] public section
 
 open MeasureTheory
 open scoped ENNReal NNReal Topology

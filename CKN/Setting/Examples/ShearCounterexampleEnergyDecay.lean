@@ -2,14 +2,18 @@
 -- Released under Apache 2.0 license.
 
 
-import CKN.Setting.Examples.ShearCounterexample
-import CKN.Setting.Examples.ShearCounterexampleCoordinateEnergy
-import CKN.Setting.Examples.ShearCounterexample.ScaleSeries
-import CKN.Statements.SpatialGradientSq
-import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import CKN.Setting.Examples.ShearCounterexample
+public import CKN.Setting.Examples.ShearCounterexampleCoordinateEnergy
+public import CKN.Setting.Examples.ShearCounterexample.ScaleSeries
+public import CKN.Statements.SpatialGradientSq
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Countable
+public import Mathlib.Analysis.SpecificLimits.Basic
 
 /-! # Small-scale decay of the normalized rough-shear gradient energy. -/
+
+@[expose] public section
 
 
 set_option autoImplicit false

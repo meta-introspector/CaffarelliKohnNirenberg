@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.CZHarmonicCorollaryForceLocal
-import CKN.Pressure.CZHarmonicCorollaryForceSlice
-import CKN.Pressure.CZHarmonicCorollaryParts
-import CKN.Pressure.ForceDivergenceFreeBridge
+module
+
+public import CKN.Pressure.CZHarmonicCorollaryForceLocal
+public import CKN.Pressure.CZHarmonicCorollaryForceSlice
+public import CKN.Pressure.CZHarmonicCorollaryParts
+public import CKN.Pressure.ForceDivergenceFreeBridge
 
 /-!
 # The force part of `cor:CZ-harmonic` needs only `div f = 0`
@@ -15,6 +17,8 @@ round ball about the origin, with a linear growth constant.  Consequently the
 vanishing `p_f = 0` of `cor:CZ-harmonic` follows from the distributional
 divergence-free condition on the force alone.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.Cylinder
-import CKN.Statements.SpaceTimeTestFunction
-import Mathlib.Analysis.Calculus.ContDiff.Operations
+module
+
+public import CKN.Foundation.Heat.Cylinder
+public import CKN.Statements.SpaceTimeTestFunction
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+
+@[expose] public section
 
 open Set Filter
 open scoped ENNReal NNReal Topology

@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Basic
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Basic
 
 /-!
 # Scalar homogeneity of the parabolic Morrey seminorm
@@ -11,6 +13,8 @@ A nonnegative scalar may be pulled out of the parabolic Morrey seminorm: for
 `f`.  This is the homogeneity step that lets a cutoff derivative bound be
 factored away from the source estimates of paper label `thm:endgame`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

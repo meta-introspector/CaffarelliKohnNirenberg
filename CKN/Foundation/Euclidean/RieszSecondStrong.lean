@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.Interpolation
-import Mathlib.Analysis.Convolution
+module
+
+public import CKN.Foundation.Euclidean.Interpolation
+public import Mathlib.Analysis.Convolution
 
 /-!
 # Strong bounds supplied by the two endpoint estimates
@@ -12,6 +14,8 @@ operator is left as the operator supplied by the endpoint development: the
 only inputs here are its sublinearity, measurability, weak `(1,1)` estimate,
 and global `(2,2)` estimate.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology Convolution
 

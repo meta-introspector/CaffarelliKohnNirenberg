@@ -1,25 +1,27 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Algebra.BigOperators.Group.Finset.Basic
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Analysis.Calculus.FDeriv.Add
-import Mathlib.Analysis.Calculus.Gradient.Basic
-import Mathlib.Analysis.InnerProductSpace.Adjoint
-import Mathlib.Analysis.InnerProductSpace.Laplacian
-import Mathlib.Analysis.InnerProductSpace.LinearMap
-import Mathlib.Analysis.Normed.Lp.MeasurableSpace
-import Mathlib.Analysis.Normed.Lp.PiLp
-import Mathlib.LinearAlgebra.Trace
-import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.MeasureTheory.Measure.Hausdorff
-import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
-import Mathlib.MeasureTheory.Measure.Prod
-import Mathlib.MeasureTheory.SpecificCodomains.WithLp
-import Mathlib.Topology.MetricSpace.HolderNorm
-import Mathlib.Topology.MetricSpace.Snowflaking
+module
+
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.FDeriv.Add
+public import Mathlib.Analysis.Calculus.Gradient.Basic
+public import Mathlib.Analysis.InnerProductSpace.Adjoint
+public import Mathlib.Analysis.InnerProductSpace.Laplacian
+public import Mathlib.Analysis.InnerProductSpace.LinearMap
+public import Mathlib.Analysis.Normed.Lp.MeasurableSpace
+public import Mathlib.Analysis.Normed.Lp.PiLp
+public import Mathlib.LinearAlgebra.Trace
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Measure.Hausdorff
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.SpecificCodomains.WithLp
+public import Mathlib.Topology.MetricSpace.HolderNorm
+public import Mathlib.Topology.MetricSpace.Snowflaking
 
 /-!
 # The Caffarelli–Kohn–Nirenberg theorems
@@ -28,6 +30,8 @@ A standalone, Mathlib-only statement of Theorems A, B and C. Space-time has
 ordinary coordinates for the Navier–Stokes equations and the parabolic metric
 only where that metric is mathematically relevant.
 -/
+
+@[expose] public section
 
 open Filter MeasureTheory MeasureTheory.Measure Set
 open scoped ENNReal Gradient InnerProductSpace NNReal Topology

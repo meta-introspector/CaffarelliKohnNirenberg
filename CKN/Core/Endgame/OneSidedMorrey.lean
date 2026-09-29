@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.OneSidedGeometry
-import CKN.Foundation.Parabolic.Morrey.Basic
+module
+
+public import CKN.Core.Endgame.OneSidedGeometry
+public import CKN.Foundation.Parabolic.Morrey.Basic
 
 /-!
 # One-sided transfer of scalar Morrey estimates
@@ -21,6 +23,8 @@ unchanged large-radius case.
 small-cell growth coefficient and `B` the total integral; the two enter
 through the two regimes just described.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal

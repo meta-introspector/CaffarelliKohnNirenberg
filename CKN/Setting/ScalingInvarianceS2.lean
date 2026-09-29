@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.ScalingInvarianceTests
+module
+
+public import CKN.Setting.ScalingInvarianceTests
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology Pointwise
@@ -13,7 +17,7 @@ noncomputable section
 
 namespace CKN
 
-private def s2Homeomorph (μ : ℝ) (hμ : 0 < μ) (z₀ : ParabolicPoint) :
+def s2Homeomorph (μ : ℝ) (hμ : 0 < μ) (z₀ : ParabolicPoint) :
     (Vec3 × ℝ) ≃ₜ (Vec3 × ℝ) :=
   Homeomorph.prodCongr
     ((Homeomorph.smulOfNeZero μ hμ.ne').trans (Homeomorph.addLeft z₀.1))

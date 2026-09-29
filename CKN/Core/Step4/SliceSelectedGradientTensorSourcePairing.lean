@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientTensorSource
-import CKN.Foundation.Sobolev.WeakDerivative.Product
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientTensorSource
+public import CKN.Foundation.Sobolev.WeakDerivative.Product
 
 /-!
 # Integration by parts for the centred tensor
@@ -12,6 +14,8 @@ Without a finite-measure assumption on the open set, the identity for
 quadratic product, subtracting its constant-vector correction, and using the
 vanishing trace of the weak velocity gradient.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

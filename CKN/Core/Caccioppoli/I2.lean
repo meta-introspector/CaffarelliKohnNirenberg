@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.I1
-import CKN.Pressure.ParamExtension
-import CKN.Pressure.Slices
+module
+
+public import CKN.Core.Caccioppoli.I1
+public import CKN.Pressure.ParamExtension
+public import CKN.Pressure.Slices
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

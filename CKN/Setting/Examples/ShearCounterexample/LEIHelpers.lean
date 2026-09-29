@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.FiniteLEI
-import CKN.Setting.Examples.ShearCounterexample.MomentumMajorant
-import CKN.Setting.Examples.ShearCounterexample.LocalTestBox
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
-import Mathlib.MeasureTheory.Function.L1Space.Integrable
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.FiniteLEI
+public import CKN.Setting.Examples.ShearCounterexample.MomentumMajorant
+public import CKN.Setting.Examples.ShearCounterexample.LocalTestBox
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
 
 /-! # Algebraic and majorant identities for the local energy inequality. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory Filter

@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientHGCloserCellsSourceTime
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import CKN.Core.Step4.PressureGradientHGCloserCellsSourceTime
+public import Mathlib.Analysis.SpecificLimits.Basic
 
 /-! # Summation of the exterior source scales
 
@@ -10,6 +12,8 @@ The gap between the pressure Morrey exponent and the spatial critical
 exponent is uniform. It makes the exterior source scales summable after
 their spatial masses have been integrated in time.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

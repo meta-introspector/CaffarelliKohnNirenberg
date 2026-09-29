@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.InteriorGradientProducer
-import CKN.Core.Endgame.BootstrapPressureConsumer
-import CKN.Core.Step3.GradientSlotDuhamel
+module
+
+public import CKN.Core.Step4.InteriorGradientProducer
+public import CKN.Core.Endgame.BootstrapPressureConsumer
+public import CKN.Core.Step3.GradientSlotDuhamel
 
 /-! # The interior first round started from the smaller Step 2 carrier
 
@@ -22,6 +24,8 @@ improved velocity bound and a pressure-gradient bound, both with constants
 fixed from the force exponent and the two data bounds alone, before every
 domain, time interval and solution.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal BigOperators

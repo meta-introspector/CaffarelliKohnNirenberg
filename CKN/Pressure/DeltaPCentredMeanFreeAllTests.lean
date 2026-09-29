@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.DeltaPCentredMeanFreeSWS
-import CKN.Pressure.IdentificationExtensionPairingKernel
-import CKN.Pressure.IdentificationExtensionPairingWholeSpace
-import CKN.Pressure.DecompositionSWS
-import CKN.Foundation.Measure.SliceDistributionCore
-import CKN.Foundation.Parabolic.BallBasics
-import CKN.Setting.UTensor
+module
+
+public import CKN.Pressure.DeltaPCentredMeanFreeSWS
+public import CKN.Pressure.IdentificationExtensionPairingKernel
+public import CKN.Pressure.IdentificationExtensionPairingWholeSpace
+public import CKN.Pressure.DecompositionSWS
+public import CKN.Foundation.Measure.SliceDistributionCore
+public import CKN.Foundation.Parabolic.BallBasics
+public import CKN.Setting.UTensor
 
 /-!
 # A common exceptional set for the mean-free pressure identity
@@ -18,6 +20,8 @@ to obtain one exceptional set of times that works for every smooth compactly
 supported test in the spatial ball.
 -/
 
+@[expose] public section
+
 open MeasureTheory MeasureTheory.Measure Set Filter Metric Topology
 open scoped BigOperators ENNReal NNReal Topology
 open CKN.Foundation.Parabolic
@@ -27,9 +31,9 @@ noncomputable section
 
 namespace CKN
 
-private abbrev DeltaPMeanFreeTestIndex := Sum (Fin 3 × Fin 3) (Fin 3)
+abbrev DeltaPMeanFreeTestIndex := Sum (Fin 3 × Fin 3) (Fin 3)
 
-private def deltaPMeanFreeCoeff
+def deltaPMeanFreeCoeff
     (u : ParabolicPoint → Vec3) (p : ParabolicPoint → ℝ)
     (f : ParabolicPoint → Vec3) (x₀ : Vec3) (ρ s : ℝ)
     (x : Vec3) (a : DeltaPMeanFreeTestIndex) : ℝ :=
@@ -38,13 +42,13 @@ private def deltaPMeanFreeCoeff
       utensor u x₀ ρ s ij.1 ij.2 x
   | Sum.inr i => f (x, s) i
 
-private def deltaPMeanFreeTransform (ψ : Vec3 → ℝ)
+def deltaPMeanFreeTransform (ψ : Vec3 → ℝ)
     (a : DeltaPMeanFreeTestIndex) (x : Vec3) : ℝ :=
   match a with
   | Sum.inl ij => mixedSecond ψ ij.1 ij.2 x
   | Sum.inr i => spatialDeriv ψ i x
 
-private def deltaPMeanFreeKernel (n : ℕ)
+def deltaPMeanFreeKernel (n : ℕ)
     (a : DeltaPMeanFreeTestIndex) (x : Vec3) : ℝ :=
   match a with
   | Sum.inl ij => mixedSecond

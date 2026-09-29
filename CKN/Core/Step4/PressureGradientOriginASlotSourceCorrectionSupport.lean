@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTCentredSourceCorrection
-import CKN.Core.Step4.PressureGradientOriginKPHarmonicSmallCells
-import CKN.Pressure.PkBoundsCylinder
-import CKN.Foundation.Parabolic.Topology
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTCentredSourceCorrection
+public import CKN.Core.Step4.PressureGradientOriginKPHarmonicSmallCells
+public import CKN.Pressure.PkBoundsCylinder
+public import CKN.Foundation.Parabolic.Topology
 
 /-!
 # Support bounds for centred cutoff corrections
@@ -23,6 +25,8 @@ centring term explicit, so they can be consumed by the source estimates.
 - `spatialDeriv_mollifiedBallCutoff_eq_zero_outside_source_ball`: every spatial
   derivative of that cutoff vanishes there under the same condition.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal BigOperators

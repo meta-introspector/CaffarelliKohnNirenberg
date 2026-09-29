@@ -1,16 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.RieszSecondStrong
-import CKN.Foundation.Euclidean.RieszSecondOperator
-import CKN.Foundation.Euclidean.InterpolationRestricted
-import CKN.Foundation.Euclidean.LpExtension
-import CKN.Core.Endgame.RestrictedInterpolationAE
-import CKN.Core.Endgame.ExtensionNormTransport
-import CKN.Core.Endgame.RawCZBridge
-import CKN.Core.Step3.PressureDecay
-import CKN.Core.Step4.PressureGradient
-import CKN.Pressure.Identification
+module
+
+public import CKN.Foundation.Euclidean.RieszSecondStrong
+public import CKN.Foundation.Euclidean.RieszSecondOperator
+public import CKN.Foundation.Euclidean.InterpolationRestricted
+public import CKN.Foundation.Euclidean.LpExtension
+public import CKN.Core.Endgame.RestrictedInterpolationAE
+public import CKN.Core.Endgame.ExtensionNormTransport
+public import CKN.Core.Endgame.RawCZBridge
+public import CKN.Core.Step3.PressureDecay
+public import CKN.Core.Step4.PressureGradient
+public import CKN.Pressure.Identification
 
 /-!
 # Consumer-facing Calderón--Zygmund bounds
@@ -21,6 +23,8 @@ conventions used by the pressure consumers.  The pressure identification is
 kept as an explicit a.e. input until the distributional identification and
 the endpoint estimates are available together.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 
@@ -45,7 +49,7 @@ def czGradientComponentConstant (A₁ A₂ : ℝ) : ℝ :=
   (ENNReal.ofReal (rieszSecondInterpolationConstant A₁ A₂ ((6 : ℝ) / 5))) ^
       (5 / 6 : ℝ) |>.toReal
 
-private theorem lpNorm_bound_of_eLpNorm
+theorem lpNorm_bound_of_eLpNorm
     {T : (Vec3 → ℝ) → (Vec3 → ℝ)} {p : ℝ} {K : ℝ≥0∞}
     (hK : K ≠ ∞) {g : Vec3 → ℝ}
     (hgmem : MemLp g (ENNReal.ofReal p) volume)
@@ -60,7 +64,7 @@ private theorem lpNorm_bound_of_eLpNorm
   rw [← ENNReal.toReal_mul]
   exact (ENNReal.toReal_le_toReal hfiniteT.ne (ENNReal.mul_ne_top hK hfiniteG)).2 hbound
 
-private theorem eLpNorm_bound_of_l2_interpolation
+theorem eLpNorm_bound_of_l2_interpolation
     {T : (Vec3 → ℝ) → Vec3 → ℝ} {A₁ A₂ p : ℝ}
     (hTsub : ∀ f g, Measurable f → Integrable f volume → MemLp f 2 volume →
       Measurable g → MemLp g 2 volume → ∀ᵐ x ∂volume, |T (f + g) x| ≤
@@ -114,7 +118,7 @@ private theorem eLpNorm_bound_of_l2_interpolation
         simp
   simpa only [ENNReal.toReal_ofReal hp0.le] using hres
 
-private def l2ExtensionInput
+def l2ExtensionInput
     {T : (Vec3 → ℝ) → Vec3 → ℝ} {A₁ A₂ p : ℝ}
     [Fact (1 ≤ ENNReal.ofReal p)]
     (hTsub : ∀ f g, Measurable f → Integrable f volume → MemLp f 2 volume →
@@ -196,7 +200,7 @@ private def l2ExtensionInput
     (houtput hf hf₂).coeFn_toLp,
     eLpNorm_congr_ae hf.coeFn_toLp, K, lpNorm] using hlp
 
-private def rieszSecondExtensionInput
+def rieszSecondExtensionInput
     {i j : Fin 3} {p A₁ : ℝ}
     [Fact (1 ≤ ENNReal.ofReal p)]
     (hL2 : RieszSecondL2Input i j)

@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorSmooth
-import CKN.Foundation.Harmonic.InteriorDisplayBounds
+module
+
+public import CKN.Foundation.Harmonic.InteriorSmooth
+public import CKN.Foundation.Harmonic.InteriorDisplayBounds
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology
@@ -14,7 +18,7 @@ noncomputable section
 
 namespace CKN.Foundation.Heat
 
-private def liouvilleBall (n : ℕ) : Set Vec3 :=
+def liouvilleBall (n : ℕ) : Set Vec3 :=
   euclideanBall 0 ((n : ℝ) + 1)
 
 private lemma liouvilleBall_measurable (n : ℕ) :

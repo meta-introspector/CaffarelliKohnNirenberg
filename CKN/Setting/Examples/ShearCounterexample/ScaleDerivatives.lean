@@ -1,16 +1,20 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.ScaleBounds
-import Mathlib.MeasureTheory.Function.LpSpace.Indicator
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.ScaleBounds
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
 
 /-! # Derivative estimates for the scaled shear profile. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory
 namespace CKN
-private def shearSpatialTangent (i : Fin 2) : Vec 2 × ℝ := (Pi.single i (1 : ℝ), 0)
-private def shearTimeTangent : Vec 2 × ℝ := (0, 1)
+def shearSpatialTangent (i : Fin 2) : Vec 2 × ℝ := (Pi.single i (1 : ℝ), 0)
+def shearTimeTangent : Vec 2 × ℝ := (0, 1)
 
 private theorem shearScaleBump_as_comp {r : ℝ} (hr : 0 < r) :
     shearScaleBump r = shearUnitBump ∘ shearParabolicDilation r := by

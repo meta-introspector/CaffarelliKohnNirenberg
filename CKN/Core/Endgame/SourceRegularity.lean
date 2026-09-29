@@ -1,15 +1,19 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.HeatRepresentative
-import CKN.Core.Endgame.HolderGluing
-import CKN.Core.Parameters
+module
+
+public import CKN.Core.Endgame.HeatRepresentative
+public import CKN.Core.Endgame.HolderGluing
+public import CKN.Core.Parameters
 
 /-! # Local regularity from actual heat-potential sources
 
 An almost-everywhere heat representation transfers the quantitative estimate
 for compactly supported Morrey sources to the represented velocity.
 -/
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory Set

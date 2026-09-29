@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Parabolic.Campanato
-import CKN.Statements.ParabolicHolderVecOn
+module
+
+public import CKN.Foundation.Parabolic.Campanato
+public import CKN.Statements.ParabolicHolderVecOn
+
+@[expose] public section
 open scoped ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Metric Filter
 set_option autoImplicit false
@@ -53,7 +57,7 @@ private lemma closedBall_pos {z : ParabolicPoint} {r : ℝ} (hr : 0 < r) : 0 < v
   exact (volume_parabolicBall_pos hr).trans_le (measure_mono Metric.ball_subset_closedBall)
 private lemma closedBall_top {z : ParabolicPoint} {r : ℝ} (hr : 0 < r) : volume (@Metric.closedBall ParabolicPoint parabolicPseudoMetricSpace z r) < ∞ := by
   exact (measure_mono (Metric.closedBall_subset_ball (x := z) (ε₁ := r) (ε₂ := 2 * r) (by linarith only [hr]))).trans_lt (volume_parabolicBall_lt_top (by positivity))
-private def vec3ClosedBall (x : Vec3) (r : ℝ) : Set Vec3 :=
+def vec3ClosedBall (x : Vec3) (r : ℝ) : Set Vec3 :=
   {y | vec3EuclideanNorm (y - x) ≤ r}
 private lemma vec3ClosedBall_measurable (x : Vec3) (r : ℝ) :
     MeasurableSet (vec3ClosedBall x r) := by

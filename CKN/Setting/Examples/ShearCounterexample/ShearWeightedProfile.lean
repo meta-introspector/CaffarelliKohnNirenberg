@@ -1,15 +1,19 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Cutoff.SpaceTime
-import CKN.Foundation.Parabolic.Basic
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Parabolic.Vec3Norm
-import CKN.Statements.ParabolicHolderVecOn
-import CKN.Statements.RegularPoint
-import Mathlib.Analysis.PSeries
+module
+
+public import CKN.Foundation.Sobolev.Cutoff.SpaceTime
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Parabolic.Vec3Norm
+public import CKN.Statements.ParabolicHolderVecOn
+public import CKN.Statements.RegularPoint
+public import Mathlib.Analysis.PSeries
 
 /-! # The weighted parabolic shear profile and its singularity. -/
+
+@[expose] public section
 
 open Set
 open Filter
@@ -28,7 +32,7 @@ private theorem euclideanSqDist_nonneg_local {d : ℕ} (x y : Vec d) :
   unfold euclideanSqDist
   exact vecNormSq_nonneg _
 
-private def shearSpaceProjection (x : Vec3) : Vec 2 :=
+def shearSpaceProjection (x : Vec3) : Vec 2 :=
   fun i => x i.castSucc
 
 /-- A compact parabolic cutoff independent of the shear direction. -/

@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.GeneralSymbol
-import CKN.Core.HeatPotential.GeneralSymbolHeatKernelSplitData
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBounds
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBoundsProof
-import CKN.Foundation.Heat.SpatialSliceMultiplier
-import Mathlib.Analysis.Fourier.FourierTransformDeriv
+module
+
+public import CKN.Core.HeatPotential.GeneralSymbol
+public import CKN.Core.HeatPotential.GeneralSymbolHeatKernelSplitData
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBounds
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBoundsProof
+public import CKN.Foundation.Heat.SpatialSliceMultiplier
+public import Mathlib.Analysis.Fourier.FourierTransformDeriv
+
+@[expose] public section
 
 open scoped BigOperators FourierTransform
 open MeasureTheory Set

@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientSymmetricGeometry
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientSymmetricGeometry
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
 
 /-! # Time integration of the slicewise bound of display (3.5)
 
@@ -19,6 +21,8 @@ between reciprocal exponents.  Tonelli's theorem then integrates these slicewise
 `eq:parabolic-ball`.  When the resulting one-dimensional integral of the
 time-dependent bound is finite, the field is integrable on the product box
 `B_{R/2}(x₀) × (t₀ - R², t₀ + R²)`. -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

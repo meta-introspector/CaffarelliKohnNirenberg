@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.IntegralBounds
-import CKN.Foundation.Heat.Convolution
-import CKN.Foundation.Heat.Smooth
-import CKN.Foundation.Harmonic.Newtonian
-import CKN.Statements.TimePartial
-import CKN.Statements.SpatialSecondPartial
-import CKN.Setting.Energy.Calculus
-import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+module
+
+public import CKN.Foundation.Heat.IntegralBounds
+public import CKN.Foundation.Heat.Convolution
+public import CKN.Foundation.Heat.Smooth
+public import CKN.Foundation.Harmonic.Newtonian
+public import CKN.Statements.TimePartial
+public import CKN.Statements.SpatialSecondPartial
+public import CKN.Setting.Energy.Calculus
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Convolution
 

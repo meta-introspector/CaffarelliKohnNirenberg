@@ -1,15 +1,19 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.CutoffDerivatives
-import CKN.Core.Endgame.CutoffMorrey
-import CKN.Core.Endgame.OneSidedMeasurability
-import CKN.Core.Endgame.SourceComponents
-import CKN.Core.Step4.SourceMorreyData
-import CKN.Core.Step4.LocalizedEquationGradientMeasurability
-import CKN.Foundation.Parabolic.Morrey.Minkowski
-import CKN.Statements.MorreyVecMem
-import CKN.Foundation.Parabolic.BallDisplays
+module
+
+public import CKN.Core.Endgame.CutoffDerivatives
+public import CKN.Core.Endgame.CutoffMorrey
+public import CKN.Core.Endgame.OneSidedMeasurability
+public import CKN.Core.Endgame.SourceComponents
+public import CKN.Core.Step4.SourceMorreyData
+public import CKN.Core.Step4.LocalizedEquationGradientMeasurability
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+public import CKN.Statements.MorreyVecMem
+public import CKN.Foundation.Parabolic.BallDisplays
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Metric Filter

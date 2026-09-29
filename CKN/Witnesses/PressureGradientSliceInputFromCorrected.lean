@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedSmallCell
-import CKN.Core.Step4.PressureGradientGluedOriginClause
-import CKN.Core.Step4.PressureGradientOriginClauseGauge
-import CKN.Core.Step4.SliceSelectedGradientCorrectedSWS
-import CKN.Core.Step4.SliceSelectedGradientCellIdentification
+module
+
+public import CKN.Core.Step4.PressureGradientGluedSmallCell
+public import CKN.Core.Step4.PressureGradientGluedOriginClause
+public import CKN.Core.Step4.PressureGradientOriginClauseGauge
+public import CKN.Core.Step4.SliceSelectedGradientCorrectedSWS
+public import CKN.Core.Step4.SliceSelectedGradientCellIdentification
 
 /-!
 # Margin-cell pressure-gradient slice input
@@ -14,6 +16,8 @@ The corrected slice estimate on the doubled cell is identified with the
 fixed measurable weak gradient on the cell's shorter time window. The margin
 geometry keeps the doubled cylinder inside the unit cylinder.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology
@@ -45,7 +49,7 @@ private theorem origin_fixed_gauge_slice_bound
 
 /-- The explicit doubled-scale majorant in the corrected force-free
 centred-source slice estimate. -/
-@[irreducible] private def correctedPressureGradientSliceMajorant
+@[irreducible] def correctedPressureGradientSliceMajorant
     (C₁₇ C_P1 C₈ : ℝ)
     {q : ℝ} {u : ParabolicPoint → Vec3} {Du : ParabolicPoint → Fin 3 → Vec3}
     {p : ParabolicPoint → ℝ} {f : ParabolicPoint → Vec3}

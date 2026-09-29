@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.VectorInequalities
-import CKN.Setting.Finiteness
-import CKN.Setting.InterpolationCylinder
-import CKN.Setting.SliceNormBounds
-import CKN.Pressure.SliceIntegrability
-import CKN.Foundation.Parabolic.Integration.Average
-import CKN.Foundation.Parabolic.Integration.ProdSwap
+module
+
+public import CKN.Setting.VectorInequalities
+public import CKN.Setting.Finiteness
+public import CKN.Setting.InterpolationCylinder
+public import CKN.Setting.SliceNormBounds
+public import CKN.Pressure.SliceIntegrability
+public import CKN.Foundation.Parabolic.Integration.Average
+public import CKN.Foundation.Parabolic.Integration.ProdSwap
+
+@[expose] public section
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology
 open CKN.Foundation.Parabolic

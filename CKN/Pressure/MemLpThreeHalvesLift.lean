@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.DecompositionSWSBasic
-import CKN.Foundation.Measure.SupportRestrict
+module
+
+public import CKN.Pressure.DecompositionSWSBasic
+public import CKN.Foundation.Measure.SupportRestrict
+
+@[expose] public section
 
 open MeasureTheory CKN.Foundation.Parabolic
 set_option autoImplicit false

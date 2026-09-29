@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Cutoff
-import CKN.Foundation.Parabolic.Basic
-import CKN.Foundation.Sobolev.Cutoff.BallTopology
+module
+
+public import CKN.Pressure.Cutoff
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Foundation.Sobolev.Cutoff.BallTopology
 
 /-!
 # All-order derivative bounds for the mollified ball cut-off
@@ -17,6 +19,8 @@ annulus where the profile is not locally constant.  This file records those two 
 statements together with the three value clauses, in the single display used by the pressure
 decomposition.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 
@@ -36,7 +40,7 @@ private lemma vecEuclideanNorm_eq_vec3EuclideanNorm (x : Vec 3) :
   simp [vecEuclideanNorm, vec3EuclideanNorm, vecNormSq, vecDot, pow_two]
 
 /-- The fixed unit profile: the cut-off at the origin and at radius one. -/
-private def unitProfile : Vec 3 → ℝ := mollifiedBallCutoff (0 : Vec 3) one_pos
+def unitProfile : Vec 3 → ℝ := mollifiedBallCutoff (0 : Vec 3) one_pos
 
 private lemma unitProfile_smooth : ContDiff ℝ (⊤ : ℕ∞) unitProfile :=
   mollifiedBallCutoff_smooth (0 : Vec 3) one_pos

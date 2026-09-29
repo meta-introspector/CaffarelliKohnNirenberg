@@ -1,15 +1,19 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Pressure.IdentificationExtensionGrowth
-import CKN.Pressure.IdentificationExtensionPairing
-import CKN.Pressure.IdentificationExtensionUnconditional
-import CKN.Pressure.HarmonicRemainderForceTerms
-import CKN.Pressure.Lin34Slices
-import CKN.Pressure.PkBoundsP7Solution
-import CKN.Pressure.PotentialDecayPotentials
-import CKN.Foundation.Euclidean.PotentialLocalLpGrowth
-import CKN.Foundation.Parabolic.BallBasics
-import CKN.Setting.UTensor
+module
+
+public import CKN.Pressure.IdentificationExtensionGrowth
+public import CKN.Pressure.IdentificationExtensionPairing
+public import CKN.Pressure.IdentificationExtensionUnconditional
+public import CKN.Pressure.HarmonicRemainderForceTerms
+public import CKN.Pressure.Lin34Slices
+public import CKN.Pressure.PkBoundsP7Solution
+public import CKN.Pressure.PotentialDecayPotentials
+public import CKN.Foundation.Euclidean.PotentialLocalLpGrowth
+public import CKN.Foundation.Parabolic.BallBasics
+public import CKN.Setting.UTensor
+
+@[expose] public section
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology
 open CKN.Foundation.Parabolic

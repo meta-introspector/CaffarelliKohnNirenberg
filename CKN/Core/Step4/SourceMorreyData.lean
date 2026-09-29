@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.SubordinatedFar
-import CKN.Core.Step3.LocalizedEquationDuhamel
-import CKN.Foundation.Parabolic.Morrey.Minkowski
+module
+
+public import CKN.Core.HeatPotential.SubordinatedFar
+public import CKN.Core.Step3.LocalizedEquationDuhamel
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

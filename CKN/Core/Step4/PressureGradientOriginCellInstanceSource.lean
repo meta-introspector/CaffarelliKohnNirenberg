@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientTensorSource
-import CKN.Core.Step4.SliceSelectedGradientTensorSourcePairing
-import CKN.Foundation.Parabolic.Vec3Norm
-import CKN.Pressure.SliceVelocityCube
-import CKN.Foundation.Measure.SliceDistribution
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientTensorSource
+public import CKN.Core.Step4.SliceSelectedGradientTensorSourcePairing
+public import CKN.Foundation.Parabolic.Vec3Norm
+public import CKN.Pressure.SliceVelocityCube
+public import CKN.Foundation.Measure.SliceDistribution
 
 /-!
 # The local tensor source of the pressure gradient
@@ -13,6 +15,8 @@ import CKN.Foundation.Measure.SliceDistribution
 The source and its tested pairing in `eq:pressure-gradient-morrey` follow
 from the velocity's spatial weak gradient and divergence constraint.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

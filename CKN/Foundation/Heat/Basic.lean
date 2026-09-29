@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
-import Mathlib.MeasureTheory.Integral.Pi
-import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
+public import Mathlib.MeasureTheory.Integral.Pi
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
 
 /-!
 # The three-dimensional heat kernel
@@ -14,6 +16,8 @@ The spatial variable is the repository's `Fin 3 → ℝ` type, and the spatial
 quadratic form is written as a finite sum so that it is independent of the
 ambient sup norm on the function space.
 -/
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

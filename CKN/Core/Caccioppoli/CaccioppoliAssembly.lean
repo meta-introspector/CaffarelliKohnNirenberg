@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.CaccioppoliMeanSubtraction
+module
+
+public import CKN.Core.Caccioppoli.CaccioppoliMeanSubtraction
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

@@ -3,13 +3,26 @@
 [![Build and verify](https://github.com/scottnarmstrong/CaffarelliKohnNirenberg/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/scottnarmstrong/CaffarelliKohnNirenberg/actions/workflows/build.yml)
 [![Comparators](https://github.com/scottnarmstrong/CaffarelliKohnNirenberg/actions/workflows/comparators.yml/badge.svg?branch=main)](https://github.com/scottnarmstrong/CaffarelliKohnNirenberg/actions/workflows/comparators.yml)
 
-A complete, machine-checked proof of the Caffarelli–Kohn–Nirenberg theorem:
-for suitable weak solutions of the three-dimensional incompressible
-Navier–Stokes equations, the set of singular space-time points has zero
-one-dimensional parabolic Hausdorff measure. The formalization is written in
-Lean 4 on top of Mathlib and covers the whole argument, from the definition
-of a suitable weak solution to the final covering argument. The library uses
-no axioms beyond Lean's standard three and contains no unfinished proofs.
+A complete, machine-checked proof of the Caffarelli–Kohn–Nirenberg theorem
+and of the existence of Leray weak solutions that are suitable, for the
+three-dimensional incompressible Navier–Stokes equations:
+
+- **The Caffarelli–Kohn–Nirenberg theorem.** For suitable weak solutions,
+  the set of singular space-time points has zero one-dimensional parabolic
+  Hausdorff measure (Theorems A–C below).
+- **Existence of suitable Leray weak solutions.** Every divergence-free
+  initial velocity in $L^2(\mathbb{R}^3)$ has a global Leray–Hopf weak
+  solution which, together with an associated pressure, is a suitable weak
+  solution; by the first result its singular set has zero one-dimensional
+  parabolic Hausdorff measure. The associated pressure and versions with a
+  force are proved as well (see
+  [Leray existence](#leray-existence-and-the-associated-pressure)).
+
+The formalization is written in Lean 4 on top of Mathlib and covers both
+arguments in full, from the definitions of suitable weak solutions and
+Leray–Hopf solutions to the final covering argument and the passage to the
+limit. The library uses no axioms beyond Lean's standard three and contains
+no unfinished proofs.
 
 The forcing term is allowed to lie in $L^q_{\mathrm{loc}}$ for any $q > 5/2$
 and need not be divergence free. The proof keeps the direct scale iteration
@@ -17,9 +30,28 @@ of Caffarelli, Kohn and Nirenberg in the form organised by Kukavica, and
 closes it with a Morrey-space bootstrap and potential estimates in the manner
 of O'Leary and Lemarié-Rieusset; Lin's work supplies the pressure estimates.
 It is written out in full in the accompanying [manuscript](paper/ckn.pdf).
-The manuscript and the Lean development were produced together: the three
-main theorems are stated in Lean with the manuscript's hypotheses and
-conclusions.
+The manuscript and the Lean development were produced together: Theorems A–C and the six Leray existence and pressure results are stated in Lean with the manuscript's hypotheses and conclusions.
+
+## Results formalized
+
+- **L. Caffarelli, R. Kohn and L. Nirenberg, "Partial regularity of suitable
+  weak solutions of the Navier–Stokes equations", *Comm. Pure Appl. Math.* 35
+  (1982), 771–831.** Formalized: the partial regularity theorem (Theorem C
+  below) and its two ε-regularity criteria (Theorems A and B), for forces in
+  $L^q_{\mathrm{loc}}$ with $q>5/2$. The proof keeps the direct scale
+  iteration in the form of I. Kukavica, *Discrete Contin. Dyn. Syst.* 21
+  (2008), 717–728, with pressure estimates from F. Lin, *Comm. Pure Appl.
+  Math.* 51 (1998), 241–257, as described below.
+- **J. Leray, "Sur le mouvement d'un liquide visqueux emplissant l'espace",
+  *Acta Math.* 63 (1934), 193–248.** Formalized: global existence of a weak
+  (Leray–Hopf) solution on $\mathbb{R}^3$ for every divergence-free initial
+  velocity in $L^2$, in the suitable form, with its associated pressure and
+  versions with a force. The construction follows the modern review of
+  W. S. Ożański and B. C. Pooley, LMS Lecture Note Series 452 (2018),
+  113–203; suitability follows T.-P. Tsai, *Lectures on Navier–Stokes
+  Equations* (AMS, 2018), and J. C. Robinson, J. L. Rodrigo and W. Sadowski,
+  *The Three-Dimensional Navier–Stokes Equations* (CUP, 2016). See
+  [Leray existence](#leray-existence-and-the-associated-pressure).
 
 ## What is proved
 
@@ -59,9 +91,75 @@ Lin and Ladyzhenskaya–Seregin. It is deduced from Theorem B by a covering argu
 side in the manuscript's $\varepsilon$-regularity section; B is not deduced
 from A.
 
+## Leray existence and the associated pressure
+
+The library also contains a formalization of Leray's global existence theory,
+so that the solution class of the three theorems above is shown to be
+non-empty for every divergence-free $L^2$ datum. The proofs are in the new part
+of the manuscript on global existence. The space $J$ of initial data is the
+$L^2$ closure of smooth, compactly supported, divergence-free vector fields
+(`CKN.IsInJ`); a Leray–Hopf solution on $[0,T]$ with datum $a\in J$ has finite
+energy and dissipation, is weakly divergence free and weakly continuous in
+time on the closed interval, satisfies the weak equation against
+divergence-free tests and the energy inequality at every time, and attains $a$
+in $L^2$ as $t\downarrow 0$ (`CKN.IsLerayHopfSolution`); a global solution is
+one on every finite interval (`CKN.IsGlobalLerayHopfSolution`).
+
+- **Leray existence in suitable form.** For every $a\in J$ there are $u$, $Du$
+  and $p$ such that $(u,Du)$ is a global Leray–Hopf solution with datum $a$ and
+  $(u,Du,p,0)$ is a suitable weak solution on $\mathbb{R}^3\times(0,\infty)$
+  for every $q>5/2$.
+- **Singular set.** Consequently, every $a\in J$ has a global Leray–Hopf
+  solution whose singular set has zero one-dimensional parabolic Hausdorff
+  measure (Theorem C).
+- **Associated pressure.** Every Leray–Hopf solution on $[0,T]$ has a pressure
+  $p\in L^{5/3}(\mathbb{R}^3\times(0,T))$, the double Riesz transform of
+  $u\otimes u$, for which the momentum equation holds against all compactly
+  supported vector tests; if moreover $u\in L^\infty(0,T;L^3)$ then
+  $p\in L^\infty(0,T;L^{3/2})$.
+- **Forced versions.** The same results hold for forces in
+  $L^2_{\mathrm{loc}}([0,\infty);L^2)$ that are locally in $L^q$ for some
+  $q>5/2$: one solution is suitable for every such $q$, its singular set is
+  null, and its pressure splits into the quadratic Riesz pressure and a
+  pressure determined by the force.
+
+| Lean declaration | File |
+|---|---|
+| `CKN.leray_existence` | [CKN/Statements/LerayExistence.lean](CKN/Statements/LerayExistence.lean) |
+| `CKN.leray_existence_singularSet` | [CKN/Statements/LerayExistenceSingularSet.lean](CKN/Statements/LerayExistenceSingularSet.lean) |
+| `CKN.associatedPressure` | [CKN/Statements/AssociatedPressure.lean](CKN/Statements/AssociatedPressure.lean) |
+| `CKN.lerayExistenceForced` | [CKN/Statements/LerayExistenceForced.lean](CKN/Statements/LerayExistenceForced.lean) |
+| `CKN.lerayExistenceForcedSingularSet` | [CKN/Statements/LerayExistenceForcedSingularSet.lean](CKN/Statements/LerayExistenceForcedSingularSet.lean) |
+| `CKN.associatedPressureForced` | [CKN/Statements/AssociatedPressureForced.lean](CKN/Statements/AssociatedPressureForced.lean) |
+
+The definitions they use (`IsInJ`, `IsLerayHopfSolution`,
+`IsGlobalLerayHopfSolution`, `IsForcedLerayHopfSolution`,
+`IsGlobalForcedLerayHopfSolution`, `IsLocallySquareIntegrableForce`,
+`IsLocallyQIntegrableForce`, `forcedQuadraticTensor`, `HasSpaceTimeWeakDerivs`)
+are in the same directory, and the proofs are assembled in
+[CKN/Main](CKN/Main). The construction (the associated pressure by Riesz
+transforms, Leray-regularized equations, uniform bounds, compactness, the
+passage to the limit and the forced versions) is in [CKN/Leray](CKN/Leray),
+with generic helpers in [CKN/Leray/Support](CKN/Leray/Support).
+
+Sources: J. Leray, *Acta Math.* 63 (1934), 193–248, in the modern exposition
+of W. S. Ożański and B. C. Pooley (LMS Lecture Note Series 452, 2018,
+113–203); suitability of the limit follows T.-P. Tsai, *Lectures on
+Navier–Stokes Equations* (AMS, 2018), Theorem 3.9, and J. C. Robinson,
+J. L. Rodrigo and W. Sadowski, *The Three-Dimensional Navier–Stokes
+Equations: Classical Theory* (CUP, 2016). Two departures are worth naming: the
+regularized solutions are built by a Fourier–$L^2$ construction in place of the
+Oseen-kernel one, and the associated pressure is the whole-space double Riesz
+transform of $u\otimes u$. See [docs/DEVIATIONS.md](docs/DEVIATIONS.md).
+
+This material was developed in the formalization of the
+Escauriaza–Seregin–Šverák theorem and moved into this library, which now
+proves that its solution class is non-empty; that formalization imports it
+from here. The moved files keep their own copyright line, "Scott Armstrong."
+
 ## The Lean statements
 
-The three theorems are stated in [CKN/Statements](CKN/Statements) exactly as below.
+Theorems A–C are stated in [CKN/Statements](CKN/Statements) exactly as below.
 `Vec3` is `Fin 3 → ℝ`, a `ParabolicPoint` is a pair of a point and a time,
 and `IsSuitableWeakSolution Ω I q u Du p f` is the suitable-solution
 predicate on the domain $\Omega\times I$, carrying an explicit weak
@@ -140,10 +238,16 @@ their statement dependency closures and proofs, including an independent
 NanoDa kernel replay. Reading the Challenge is the quickest way to inspect
 the precise mathematical claims.
 
+A second, independent pair, [comparators/Leray](comparators/Leray), restates
+the Leray existence theorems in the same way, again from Mathlib alone: it
+covers `leray_existence`, `leray_existence_singularSet`, `lerayExistenceForced`,
+`lerayExistenceForcedSingularSet` and `associatedPressure`. The theorem
+`CKN.associatedPressureForced` is proved but not restated there.
+
 ## How the formalization relates to the manuscript
 
 The manuscript is the paper being formalized, not a description written
-after the fact, and it was corrected as the formalization progressed. The three main theorems are proved as stated. Supporting results follow
+after the fact, and it was corrected as the formalization progressed. Theorems A–C and the six Leray existence and pressure results are proved as stated. Supporting results follow
 the proof route described in the manuscript; unused alternative arguments
 and auxiliary exposition without a Lean counterpart are identified in the documentation. Some auxiliary quantitative estimates are proved only in the special cases
 used by the main proofs, including two fixed-centre parameter triples and
@@ -152,11 +256,14 @@ B58 to B62 of [docs/DEVIATIONS.md](docs/DEVIATIONS.md) list each one. Where the
 formalization led us to change a statement or a proof, the
 [deviations](docs/DEVIATIONS.md) document explains what changed and why, with the current scope stated explicitly.
 
-The formalization includes a concrete nonzero suitable weak solution, the
-viscous shear flow $u(x,t)=(e^{-t}\sin x_2,0,0)$ with zero pressure and
-force, so that the solution class is known to be inhabited and the theorems
-are not vacuous. The [witnesses](docs/WITNESSES.md) page lists what has been
-checked in this direction.
+Leray existence gives, for every divergence-free $L^2$ datum, a suitable
+weak solution on $\mathbb{R}^3\times(0,\infty)$, so the solution class of
+Theorems A–C is non-empty. The formalization also includes a concrete nonzero
+suitable weak solution, the viscous shear flow $u(x,t)=(e^{-t}\sin x_2,0,0)$
+with zero pressure and force, and the zero solutions of the Leray–Hopf and
+forced Leray–Hopf classes ([CKN/Witnesses](CKN/Witnesses/LerayHopfZero.lean)).
+The [witnesses](docs/WITNESSES.md) page lists what has been checked in this
+direction.
 
 ## Building and checking it yourself
 
@@ -169,13 +276,15 @@ lake exe cache get
 python3 scripts/build.py CKN
 ```
 
-The library contains about 250,000 lines of Lean. Build time depends on the
+The whole library is written in Lean's module system. It contains about
+400,000 lines of Lean in 1,815 files. Build time depends on the
 machine and availability of the Mathlib cache. Keep the committed dependency
 manifest; avoid `lake update` or `lake clean` when verifying this version.
 
-To confirm the axioms used by the three main theorems, or to run the
+To confirm the axioms used by the main theorems, or to run the
 source and comparator checks, follow the
-[verification guide](docs/VERIFICATION.md). Each main theorem depends
+[verification guide](docs/VERIFICATION.md). Each main theorem, including
+each of the six Leray existence and pressure theorems above, depends
 exactly on `propext`, `Classical.choice` and `Quot.sound`.
 
 ## Repository layout
@@ -188,17 +297,16 @@ exactly on `propext`, `Classical.choice` and `Quot.sound`.
 - [CKN/Covering](CKN/Covering): the parabolic Vitali covering and Hausdorff-measure argument of Theorem C.
 - [CKN/Witnesses](CKN/Witnesses): explicit examples showing the definitions are inhabited.
 - [CKN/ClassEquivalence](CKN/ClassEquivalence): the proof that the integrability conditions carried by the suitable-solution class follow from its energy conditions, so that the Lean class is the manuscript's.
-- [CKN/Main](CKN/Main): the assembly of the three theorems from the core results.
-- [comparators](comparators): the independent restatements described above.
+- [CKN/Leray](CKN/Leray): Leray's global existence theory: the associated pressure, regularized equations, uniform bounds, compactness, the passage to the limit and the forced versions, with generic helpers in [CKN/Leray/Support](CKN/Leray/Support).
+- [CKN/Main](CKN/Main): the assembly of the main theorems from the core results.
+- [comparators](comparators): the two independent Mathlib-only pairs described above (Theorems A–C, and `comparators/Leray`).
 - [paper](paper): the manuscript source and PDF.
 - [docs](docs): design notes, deviations, witnesses, verification guide, and the [bibliography](docs/SOURCES.md).
 - [scripts](scripts): the guarded build, checking, comparison, and release-verification tools.
 
 ## How this was made
 
-The Lean development was written in roughly 48 hours using AI coding agents
-under the authors' supervision. Claude Fable 5.1 coordinated agents using
-GPT 5.6-Luna, GPT Astra, Deepseek 4.1 flash, Leanstral and Opus 5. The authors
+The original CKN development was written in roughly 48 hours with AI coding tools under the authors' supervision. Claude Fable 5.1 coordinated work using GPT 5.6-Luna, GPT Astra, Deepseek 4.1 flash, Leanstral and Opus 5. The Leray existence development was written as part of the Escauriaza–Seregin–Šverák formalization from 2026-09-26 to 2026-09-29 (Claude Opus 5.5 coordinating GPT-6 Luna and GPT-6 Sol) and transferred here on 2026-09-29. The transfer and the port of the whole library to Lean's module system were done with Claude Sonnet 5.5 coordinated by Claude Opus 5.5, with independent reviews including a GPT-6 Sol audit. The authors
 reviewed the theorem statements before proof development and decided the
 mathematics and the corrections to the manuscript. Separate reviews checked
 the statements and the use of intermediate results in the main proofs.
@@ -219,7 +327,6 @@ The Lean development is by:
 - **Vlad Vicol**, Courant Institute School of Mathematics, Computing, and Data Science, New York University. Partially supported by Collaborative NSF
   grant DMS-2307681 and a Simons Investigator Award.
 
-The Lean library, software, documentation and included manuscript are
-copyright © 2026 Scott Armstrong and Vlad Vicol and distributed under the
+The repository is by Scott Armstrong and Vlad Vicol. Individual files retain their authors' copyright notices, including Scott Armstrong's notice on the transferred Leray files. The Lean library, software, documentation and included manuscript are distributed under the
 [Apache License 2.0](LICENSE). Cited third-party works and dependencies retain
 their own licenses.

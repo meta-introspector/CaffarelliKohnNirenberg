@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.WeakGradientGluingTGapForceIncrement
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTGapForceIncrement
 
 /-! # Four-term identification on interior collars -/
+
+@[expose] public section
 open MeasureTheory Set
 open scoped ENNReal Topology BigOperators
 open CKN CKN.Foundation.Parabolic CKN.Foundation.Euclidean CKN.Foundation.Heat

@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Euclidean.Maximal.StrongType
-import Mathlib.MeasureTheory.Integral.MeanInequalities
+module
+
+public import CKN.Foundation.Euclidean.Maximal.StrongType
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
 /-!
 # The order-one Euclidean Riesz potential
 This file supplies the geometric part of Hedberg's proof in the native
 three-dimensional model `Vec3`.  The maximal majorant is the uncentred
 maximal function from `Maximal.HardyLittlewood`.
 -/ 
+
+@[expose] public section
 open scoped ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Metric Filter
 set_option autoImplicit false
@@ -43,10 +47,10 @@ def rieszKernelOne (z w : Vec3) : ℝ≥0∞ :=
   (ENNReal.ofReal (dist z w)) ^ (-2 : ℝ)
 def rieszPotentialOne (f : Vec3 → ℝ) (z : Vec3) : ℝ≥0∞ :=
   ∫⁻ w, rieszKernelOne z w * ENNReal.ofReal |f w|
-private def nearShell (R : ℝ) (n : ℕ) (z : Vec3) : Set Vec3 :=
+def nearShell (R : ℝ) (n : ℕ) (z : Vec3) : Set Vec3 :=
   {w | (2 : ℝ) ^ (Int.negSucc n : ℝ) * R ≤ dist z w ∧
     dist z w < (2 : ℝ) ^ ((Int.negSucc n : ℝ) + 1) * R}
-private def farShell (R : ℝ) (n : ℕ) (z : Vec3) : Set Vec3 :=
+def farShell (R : ℝ) (n : ℕ) (z : Vec3) : Set Vec3 :=
   {w | (2 : ℝ) ^ (n : ℝ) * R ≤ dist z w ∧
     dist z w < (2 : ℝ) ^ ((n : ℝ) + 1) * R}
 private lemma nearShell_measurable (R : ℝ) (n : ℕ) (z : Vec3) :
@@ -248,7 +252,7 @@ private lemma ennreal_mul_rpow_of_ne_zero_of_ne_top
           ENNReal.rpow_ne_top_of_nonneg he' hytop
         exact ENNReal.mul_inv (Or.inl hxr0) (Or.inl hxrtop)
       _ = x ^ e * y ^ e := by rw [hxpow, hypow]
-private def nearTerm (n : ℕ) : ℝ≥0∞ :=
+def nearTerm (n : ℕ) : ℝ≥0∞ :=
   (ENNReal.ofReal ((2 : ℝ) ^ (Int.negSucc n : ℝ))) ^ (-2 : ℝ) *
     ENNReal.ofReal ((4 * ((2 : ℝ) ^ (Int.negSucc n : ℝ))) ^ 3)
 /-- The geometric constant in the near-field estimate. -/
@@ -530,7 +534,7 @@ private lemma far_shell_integral_le
         (∫⁻ w, ENNReal.ofReal |f w| ^ (5 / 2 : ℝ)) ^ (2 / 5 : ℝ) := by
       gcongr
 
-private def farTerm (n : ℕ) : ℝ≥0∞ :=
+def farTerm (n : ℕ) : ℝ≥0∞ :=
   ((ENNReal.ofReal ((2 : ℝ) ^ (n : ℝ))) ^ (-(10 / 3 : ℝ)) *
     ENNReal.ofReal ((4 * ((2 : ℝ) ^ (n : ℝ))) ^ 3)) ^ (3 / 5 : ℝ)
 
@@ -588,7 +592,7 @@ private lemma far_shell_scale_identity {R : ℝ} (hR : 0 < R) (n : ℕ) :
 def hedbergFarConstant : ℝ≥0∞ := ∑' n : ℕ, farTerm n
 
 private lemma far_integral_le_shell_sum {R : ℝ} (hR : 0 < R)
-    {f : Vec3 → ℝ} (_hf : AEMeasurable f volume) (z : Vec3) :
+    {f : Vec3 → ℝ} (z : Vec3) :
     (∫⁻ w in {w | R ≤ dist z w},
       rieszKernelOne z w * ENNReal.ofReal |f w|) ≤
       ∑' n : ℕ, ∫⁻ w in farShell R n z,
@@ -627,7 +631,7 @@ theorem rieszPotentialOne_far_le
         (∫⁻ w, ENNReal.ofReal |f w| ^ (5 / 2 : ℝ)) ^ (2 / 5 : ℝ) := by
   let B : ℝ≥0∞ :=
     (∫⁻ w, ENNReal.ofReal |f w| ^ (5 / 2 : ℝ)) ^ (2 / 5 : ℝ)
-  have hsum := far_integral_le_shell_sum hR hf z
+  have hsum := far_integral_le_shell_sum (f := f) hR z
   have hterm : ∀ n : ℕ,
       (∫⁻ w in farShell R n z,
           rieszKernelOne z w * ENNReal.ofReal |f w|) ≤

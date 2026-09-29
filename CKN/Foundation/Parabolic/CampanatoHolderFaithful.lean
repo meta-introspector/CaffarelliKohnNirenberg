@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.CampanatoHolderConverseScope
+module
+
+public import CKN.Foundation.Parabolic.CampanatoHolderConverseScope
 
 /-!
 # Parabolic Campanato characterization
@@ -9,6 +11,8 @@ import CKN.Foundation.Parabolic.CampanatoHolderConverseScope
 The representative and its local supremum bound require the Campanato
 hypothesis; the converse Hölder-to-Campanato estimate does not.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric Filter
 open scoped ENNReal NNReal Topology

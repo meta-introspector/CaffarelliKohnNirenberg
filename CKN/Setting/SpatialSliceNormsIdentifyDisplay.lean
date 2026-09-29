@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.SpatialSliceNormIdentifyVelocity
-import CKN.Setting.SpatialSliceNormIdentifyGradient
-import CKN.Setting.SpatialSliceNormIdentifyPressure
-import CKN.Setting.SpatialSliceNormIdentifyForce
+module
+
+public import CKN.Setting.SpatialSliceNormIdentifyVelocity
+public import CKN.Setting.SpatialSliceNormIdentifyGradient
+public import CKN.Setting.SpatialSliceNormIdentifyPressure
+public import CKN.Setting.SpatialSliceNormIdentifyForce
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

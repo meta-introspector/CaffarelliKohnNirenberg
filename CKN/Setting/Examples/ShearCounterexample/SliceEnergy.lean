@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.SliceSpatialUniform
-import CKN.Setting.Examples.ShearCounterexample.AmbientLp
-import CKN.Statements.LocalBox
-import CKN.Statements.SpaceTimeSet
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.MeasureTheory.Function.EssSup
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.SliceSpatialUniform
+public import CKN.Setting.Examples.ShearCounterexample.AmbientLp
+public import CKN.Statements.LocalBox
+public import CKN.Statements.SpaceTimeSet
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Function.EssSup
 
 /-! # Spatial slice energy estimates for the shear profile. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory

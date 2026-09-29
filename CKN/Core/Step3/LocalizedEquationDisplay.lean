@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step3.LocalizedDuhamelSelected
-import CKN.Core.Step3.LocalizedEquationDuhamel
-import CKN.Core.Step3.GradientSlotDuhamelTested
+module
+
+public import CKN.Core.Step3.LocalizedDuhamelSelected
+public import CKN.Core.Step3.LocalizedEquationDuhamel
+public import CKN.Core.Step3.GradientSlotDuhamelTested
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Metric Filter

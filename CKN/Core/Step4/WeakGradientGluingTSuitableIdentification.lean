@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTRieszIdentification
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSFinal
-import CKN.Core.Step4.SliceSelectedGradientSymmetricGeometry
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTRieszIdentification
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSFinal
+public import CKN.Core.Step4.SliceSelectedGradientSymmetricGeometry
 
 /-! # Concrete pressure-gradient identification from suitability
 
@@ -12,6 +14,8 @@ force source, and the smooth sum of the harmonic and far force potentials.
 Every locally integrable weak pressure derivative agrees with their signed
 completed-operator decomposition on almost every slice.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal BigOperators Topology

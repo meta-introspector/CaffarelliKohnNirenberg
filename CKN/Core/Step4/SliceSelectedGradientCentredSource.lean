@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientSWSUnconditional
-import CKN.Core.Step4.SourceMorreySlice
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientSWSUnconditional
+public import CKN.Core.Step4.SourceMorreySlice
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

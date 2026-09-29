@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Identity
-import CKN.Pressure.ParamExtension
-import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
-import Mathlib.MeasureTheory.Integral.Prod
+module
+
+public import CKN.Pressure.Identity
+public import CKN.Pressure.ParamExtension
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.MeasureTheory.Integral.Prod
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology

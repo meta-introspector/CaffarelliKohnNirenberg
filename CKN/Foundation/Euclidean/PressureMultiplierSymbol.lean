@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.DegreeOneSymbol
-import Mathlib.Analysis.Calculus.ContDiff.Operations
+module
+
+public import CKN.Foundation.Euclidean.DegreeOneSymbol
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
 
 /-!
 # The symbol of the pressure multiplier
@@ -24,6 +26,8 @@ symbol class of External Input `ext:heat-kernel`: smooth away from the origin
 and homogeneous of degree one.  A consumer that needs the symbol of `T_{jl}`
 itself takes the negation, which lies in the same class.
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open Set

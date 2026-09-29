@@ -1,14 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.PressureGradientOriginASlotCorrectionAssembly
-import CKN.Core.Step4.PressureGradientOriginASlotM2Riesz
-import CKN.Core.Step4.PressureGradientOriginASlotM2Split
-import CKN.Core.Step4.PressureGradientOriginASlotM2MeanFree
-import CKN.Core.Step4.WeakGradientGluingTInstanceInteriorCollar
-import CKN.Core.Step4.WeakGradientGluingTSourceMeasurable
-import CKN.Core.Step4.PressureGradientOriginKPComparison
-import CKN.Core.Step4.PressureGradientOriginASlotM2Data
-import CKN.Core.Step4.PressureGradientOriginASlotM2EnergyMean
+module
+
+public import CKN.Core.Step4.PressureGradientOriginASlotCorrectionAssembly
+public import CKN.Core.Step4.PressureGradientOriginASlotM2Riesz
+public import CKN.Core.Step4.PressureGradientOriginASlotM2Split
+public import CKN.Core.Step4.PressureGradientOriginASlotM2MeanFree
+public import CKN.Core.Step4.WeakGradientGluingTInstanceInteriorCollar
+public import CKN.Core.Step4.WeakGradientGluingTSourceMeasurable
+public import CKN.Core.Step4.PressureGradientOriginKPComparison
+public import CKN.Core.Step4.PressureGradientOriginASlotM2Data
+public import CKN.Core.Step4.PressureGradientOriginASlotM2EnergyMean
 
 /-! # The centred source correction meets the first slot at the two instances
 
@@ -20,6 +22,8 @@ the `L⁶` Sobolev–Poincaré display; the third pairs the gradient against the
 slice mean.  The actual Riesz fields of the three sources then satisfy the
 clipped-cell estimate above an explicit threshold depending on nothing.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal BigOperators

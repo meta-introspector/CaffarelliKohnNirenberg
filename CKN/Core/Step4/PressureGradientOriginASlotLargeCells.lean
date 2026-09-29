@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginASlotLargeCellsGeometry
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
+module
+
+public import CKN.Core.Step4.PressureGradientOriginASlotLargeCellsGeometry
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
 
 /-! # From margin cells to all cells in the origin A slot of `prop:bootstrap`
 
@@ -30,6 +32,8 @@ superhomogeneous in `|C_CZ| + 1`, so both are absorbed by requiring
 `C_CZ ≥ originASlotLargeCellThreshold Cbase`.  Nothing else is assumed: the
 centre of the given cell is arbitrary and its radius is arbitrary.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal BigOperators

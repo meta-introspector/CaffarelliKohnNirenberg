@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedTwoRegimeMorrey
-import CKN.Core.Step4.PressureGradientHGCloserTransfer
-import CKN.Core.Step4.PressureGradientLargeCells
+module
+
+public import CKN.Core.Step4.PressureGradientGluedTwoRegimeMorrey
+public import CKN.Core.Step4.PressureGradientHGCloserTransfer
+public import CKN.Core.Step4.PressureGradientLargeCells
 
 /-!
 # The every-cell bound of the symmetric carrier, in its two regimes
@@ -28,6 +30,8 @@ that meets the inner ball `Metric.ball z₀ (R / 2)` has its doubled parabolic
 cylinder inside `Metric.ball z₀ (2 * R)`, which is the region the hypotheses
 control.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

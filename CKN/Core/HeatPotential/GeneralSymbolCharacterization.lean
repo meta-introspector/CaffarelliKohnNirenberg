@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.GeneralSymbol
-import CKN.Core.HeatPotential.MultiplierPotentialBridge
-import CKN.Core.HeatPotential.SubordinatedBase
+module
+
+public import CKN.Core.HeatPotential.GeneralSymbol
+public import CKN.Core.HeatPotential.MultiplierPotentialBridge
+public import CKN.Core.HeatPotential.SubordinatedBase
+
+@[expose] public section
 
 open scoped BigOperators ENNReal
 

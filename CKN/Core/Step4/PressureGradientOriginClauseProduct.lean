@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Basic
-import CKN.Foundation.Parabolic.Integration.ProdSwap
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Basic
+public import CKN.Foundation.Parabolic.Integration.ProdSwap
 
 /-!
 # Product-box power integrals and their spatial slices
@@ -18,6 +20,8 @@ spatial slices into a bound on the power integral over the whole box.  Both are
 stated for an arbitrary spatial set and an arbitrary time set; no geometry of a
 ball or a backward time window is used.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

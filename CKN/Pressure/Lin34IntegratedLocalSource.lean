@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Lin34Solution
-import CKN.Core.Caccioppoli.LocalBox
-import CKN.Setting.PressureGaugeSlices
-import CKN.Setting.Energy.Calculus
+module
+
+public import CKN.Pressure.Lin34Solution
+public import CKN.Core.Caccioppoli.LocalBox
+public import CKN.Setting.PressureGaugeSlices
+public import CKN.Setting.Energy.Calculus
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

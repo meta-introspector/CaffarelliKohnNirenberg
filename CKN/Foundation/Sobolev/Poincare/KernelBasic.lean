@@ -1,13 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Poincare.Geometry
+module
 
+public import CKN.Foundation.Sobolev.Poincare.Geometry
 
-import Mathlib.MeasureTheory.Constructions.HaarToSphere
-import Mathlib.MeasureTheory.Function.L1Space.Integrable
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+
+@[expose] public section
 
 namespace CKN
 

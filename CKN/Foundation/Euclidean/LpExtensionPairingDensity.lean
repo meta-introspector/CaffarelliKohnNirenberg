@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.LpExtension
-import Mathlib.Analysis.Normed.Lp.SmoothApprox
-import Mathlib.MeasureTheory.Function.Holder
+module
+
+public import CKN.Foundation.Euclidean.LpExtension
+public import Mathlib.Analysis.Normed.Lp.SmoothApprox
+public import Mathlib.MeasureTheory.Function.Holder
 
 /-! # Density form of the distributional pairing identity
 
@@ -16,6 +18,8 @@ against a fixed dual class and are the device used to pass the identity from
 the dense set to every `Lᵖ` input.
 -/
 
+@[expose] public section
+
 open MeasureTheory Set Filter
 open scoped ENNReal Topology
 
@@ -26,7 +30,7 @@ namespace CKN.Foundation.Euclidean
 
 open CKN.Foundation.Parabolic
 
-private def testPairing {p q : ℝ≥0∞} [Fact (1 ≤ p)] [Fact (1 ≤ q)]
+def testPairing {p q : ℝ≥0∞} [Fact (1 ≤ p)] [Fact (1 ≤ q)]
     [ENNReal.HolderConjugate p q]
     (g : Lp ℝ q (volume : Measure Vec3)) :
     Lp ℝ p (volume : Measure Vec3) →L[ℝ] ℝ :=

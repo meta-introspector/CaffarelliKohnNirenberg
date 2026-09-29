@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Mollify.Basic
-import CKN.Foundation.Ambient.Euclidean
-import CKN.Foundation.Harmonic.KernelAllOrdersSphere
+module
+
+public import CKN.Foundation.Sobolev.Mollify.Basic
+public import CKN.Foundation.Ambient.Euclidean
+public import CKN.Foundation.Harmonic.KernelAllOrdersSphere
+
+@[expose] public section
 
 namespace CKN
 

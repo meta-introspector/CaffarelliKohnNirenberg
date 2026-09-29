@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.NewtonianRepresentationSource
-import CKN.Pressure.CZHarmonicResidualIdentification
+module
+
+public import CKN.Pressure.NewtonianRepresentationSource
+public import CKN.Pressure.CZHarmonicResidualIdentification
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped BigOperators ENNReal NNReal Topology

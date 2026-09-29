@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Measure.SliceMollifierIdentity
+module
+
+public import CKN.Foundation.Measure.SliceMollifierIdentity
 
 /-!
 # Change of variables for mollifier pairings
@@ -20,6 +22,8 @@ The second identity combines this reflection with the already-proved integral
 form of the weak partial derivative, so that a smooth `ψ` may be differentiated
 inside the pairing.
 -/
+
+@[expose] public section
 
 open MeasureTheory Metric
 open scoped Convolution Topology

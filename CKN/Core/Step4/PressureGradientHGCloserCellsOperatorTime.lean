@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientHGCloserCellsFiniteAnnuli
-import CKN.Core.Step4.PressureGradientHGCloserCellsShellTime
+module
+
+public import CKN.Core.Step4.PressureGradientHGCloserCellsFiniteAnnuli
+public import CKN.Core.Step4.PressureGradientHGCloserCellsShellTime
 
 /-! # Time integration of the local concrete Riesz estimate
 
@@ -10,6 +12,8 @@ The near-source estimate and the sum of exterior annuli give a bound on the
 time integral of the spatial operator norm. The constant is independent of
 the number of annuli used to cover the source.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

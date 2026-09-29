@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientAssembly
-import CKN.Core.Step4.SliceSelectedGradientScaling
-import CKN.Core.Step4.PressureGradientSWS
-import CKN.Pressure.HarmonicRemainderSlice
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientAssembly
+public import CKN.Core.Step4.SliceSelectedGradientScaling
+public import CKN.Core.Step4.PressureGradientSWS
+public import CKN.Pressure.HarmonicRemainderSlice
 
 /-! # The selected weak pressure gradient of a suitable weak solution slice
 
@@ -20,6 +22,8 @@ The harmonic term is taken from the interior gradient display, whose
 `ρ^{-3}` weight becomes the `ρ^{-1/2}` weight of display (3.5) once it is
 integrated over the half ball.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

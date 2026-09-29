@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Cutoff.Basic
-import Mathlib.Analysis.Normed.Lp.PiLp
+module
+
+public import CKN.Foundation.Sobolev.Cutoff.Basic
+public import Mathlib.Analysis.Normed.Lp.PiLp
+
+@[expose] public section
 
 set_option autoImplicit false
 

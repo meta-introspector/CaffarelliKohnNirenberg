@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.HeatKernelIntegrable
-import CKN.Foundation.Heat.IntegralBounds
-import Mathlib.Analysis.Real.Pi.Bounds
+module
+
+public import CKN.Pressure.HeatKernelIntegrable
+public import CKN.Foundation.Heat.IntegralBounds
+public import Mathlib.Analysis.Real.Pi.Bounds
 
 /-! # Product integrability for heat subordination
 
@@ -12,6 +14,8 @@ spatial derivative integrates a Gaussian family over positive times.  The two
 lemmas here supply the product integrability on `(0, ∞) × ℝ³` that licenses the
 Fubini exchange, for data that is smooth with compact support.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

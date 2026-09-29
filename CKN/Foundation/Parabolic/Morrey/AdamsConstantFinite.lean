@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Adams
-import CKN.Foundation.Parabolic.Morrey.Tail
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Adams
+public import CKN.Foundation.Parabolic.Morrey.Tail
+public import Mathlib.Analysis.SpecificLimits.Basic
+
+@[expose] public section
 
 open MeasureTheory
 open scoped ENNReal

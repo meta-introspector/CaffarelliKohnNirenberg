@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Potentials
-import CKN.Pressure.LeibnizLaplacian
+module
+
+public import CKN.Pressure.Potentials
+public import CKN.Pressure.LeibnizLaplacian
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.PkBoundsP7
-import CKN.Pressure.Cutoff
-import CKN.Pressure.DecompositionSWS
-import CKN.Setting.Finiteness
-import CKN.Setting.SliceNormBounds
-import CKN.Setting.TimeHolder
+module
+
+public import CKN.Pressure.PkBoundsP7
+public import CKN.Pressure.Cutoff
+public import CKN.Pressure.DecompositionSWS
+public import CKN.Setting.Finiteness
+public import CKN.Setting.SliceNormBounds
+public import CKN.Setting.TimeHolder
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

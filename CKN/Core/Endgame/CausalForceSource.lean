@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ForceSource
-import CKN.Core.Endgame.OneSidedCutoff
-import CKN.Statements.SuitableWeakSolutionIntegrable
+module
+
+public import CKN.Core.Endgame.ForceSource
+public import CKN.Core.Endgame.OneSidedCutoff
+public import CKN.Statements.SuitableWeakSolutionIntegrable
 
 /-!
 # The causal cutoff force term
@@ -12,6 +14,8 @@ Local force measurability on the unit cylinder suffices for the globally
 extended source, because the cutoff vanishes outside that cylinder in the
 past. Its numerical Morrey bound follows from the original small-data sum.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

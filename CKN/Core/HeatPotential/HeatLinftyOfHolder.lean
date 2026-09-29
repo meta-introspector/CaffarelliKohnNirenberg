@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.HeatLinftyCore
+module
+
+public import CKN.Core.HeatPotential.HeatLinftyCore
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

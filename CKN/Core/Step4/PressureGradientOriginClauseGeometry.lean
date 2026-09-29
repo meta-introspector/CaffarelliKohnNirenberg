@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.OneSidedMorrey
-import CKN.Core.Step4.PressureGradientOneSidedCell
+module
+
+public import CKN.Core.Endgame.OneSidedMorrey
+public import CKN.Core.Step4.PressureGradientOneSidedCell
 
 /-!
 # The backward carrier and the time windows that can contribute to it
@@ -23,6 +25,8 @@ never refers to times outside the region controlled by the data hypothesis of
 transfer: cell bounds for the gradient *restricted to the backward carrier*
 give the Morrey cell output the estimate consumes.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.LpExtensionCZ
-import CKN.Foundation.Euclidean.RieszSecondWeakCertificate
-import CKN.Pressure.IdentificationExtension
+module
+
+public import CKN.Foundation.Euclidean.LpExtensionCZ
+public import CKN.Foundation.Euclidean.RieszSecondWeakCertificate
+public import CKN.Pressure.IdentificationExtension
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

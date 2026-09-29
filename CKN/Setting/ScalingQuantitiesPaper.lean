@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.ScalingQuantitiesFullOnCylinder
+module
+
+public import CKN.Setting.ScalingQuantitiesFullOnCylinder
 
 /-!
 # Scale-quantity identities at the paper's cylinder hypothesis
@@ -9,6 +11,8 @@ import CKN.Setting.ScalingQuantitiesFullOnCylinder
 This module exposes the scale-quantity identities with containment of the open
 rescaled cylinder, matching Lemma `lem:scaling-quantities`.
 -/
+
+@[expose] public section
 
 open CKN.Foundation.Parabolic Set
 

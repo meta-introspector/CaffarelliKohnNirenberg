@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Covering
-import CKN.Foundation.Parabolic.Topology
-import CKN.Setting.SingularSetClosed
-import CKN.Statements.SuitableWeakSolutionIntegrable
-import CKN.Statements.SpatialGradientSq
+module
+
+public import CKN.Foundation.Parabolic.Covering
+public import CKN.Foundation.Parabolic.Topology
+public import CKN.Setting.SingularSetClosed
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+public import CKN.Statements.SpatialGradientSq
 
 /-!
 # Conditional nullity of the singular set
@@ -14,6 +16,8 @@ This module formalizes the reduction from the gradient criterion to vanishing
 parabolic one dimensional Hausdorff measure.  The criterion is supplied as a
 hypothesis so that a later regularity theorem can instantiate it directly.
 -/
+
+@[expose] public section
 
 
 open MeasureTheory MeasureTheory.Measure Set Filter

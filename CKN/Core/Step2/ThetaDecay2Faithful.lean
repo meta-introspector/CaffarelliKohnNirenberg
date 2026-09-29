@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step2.ThetaDecayAbsoluteConstant
+module
+
+public import CKN.Core.Step2.ThetaDecayAbsoluteConstant
 
 /-!
 # The small-`θ` decay display
 
 This file extracts the small-`θ` conclusion of the combined decay theorem at
 the fixed iteration scale. -/
+
+@[expose] public section
 
 open CKN.Foundation.Parabolic Set
 

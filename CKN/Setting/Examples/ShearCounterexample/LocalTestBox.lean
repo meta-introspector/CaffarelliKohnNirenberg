@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Finiteness
-import CKN.Foundation.Parabolic.Vec3Norm
-import CKN.Foundation.Parabolic.BallBasics
-import Mathlib.Topology.Order.Compact
+module
+
+public import CKN.Setting.Finiteness
+public import CKN.Foundation.Parabolic.Vec3Norm
+public import CKN.Foundation.Parabolic.BallBasics
+public import Mathlib.Topology.Order.Compact
 
 /-! # Compact support localization inside a local parabolic box. -/
+
+@[expose] public section
 set_option autoImplicit false
 open CKN.Foundation.Parabolic Set
 namespace CKN

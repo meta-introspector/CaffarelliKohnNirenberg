@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.Terms
-import CKN.Pressure.LeibnizLaplacian
-import CKN.Setting.SliceNormBounds
-import CKN.Foundation.Parabolic.Integration.Average
+module
+
+public import CKN.Core.Caccioppoli.Terms
+public import CKN.Pressure.LeibnizLaplacian
+public import CKN.Setting.SliceNormBounds
+public import CKN.Foundation.Parabolic.Integration.Average
 
 /-! Product rules for the spatial part of the first Caccioppoli term. -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

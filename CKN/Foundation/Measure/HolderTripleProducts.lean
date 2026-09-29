@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
-import Mathlib.MeasureTheory.Function.LpSeminorm.SMul
+module
+
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.SMul
+
+@[expose] public section
 
 open MeasureTheory
 open scoped ENNReal

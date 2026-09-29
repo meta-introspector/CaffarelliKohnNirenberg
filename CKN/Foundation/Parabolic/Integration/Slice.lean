@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Parabolic.Integration.Average
-import Mathlib.Analysis.Convex.Integral
-import Mathlib.Analysis.Convex.SpecificFunctions.Basic
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
-import Mathlib.MeasureTheory.Integral.Lebesgue.Add
-import Mathlib.MeasureTheory.Integral.MeanInequalities
+module
+
+public import CKN.Foundation.Parabolic.Integration.Average
+public import Mathlib.Analysis.Convex.Integral
+public import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
 
 /-!
 # Spatial and space-time averages
@@ -14,6 +16,8 @@ This file gives named wrappers for the two averages used on parabolic cylinders.
 The definitions remain the ordinary Mathlib set averages, so existing `average`,
 `eLpNorm`, and restriction lemmas apply without a second normalization convention.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set
 open scoped ENNReal

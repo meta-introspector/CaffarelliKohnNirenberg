@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelLowFrequency
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelLowFrequency
 
 /-!
 # Unit-scale estimates for multiplier heat kernels
 -/
+
+@[expose] public section
 
 open scoped BigOperators FourierTransform
 open MeasureTheory
@@ -16,7 +20,7 @@ namespace CKN.Foundation.Euclidean
 
 open CKN.Foundation.Parabolic CKN.Foundation.Heat VectorFourier
 
-private def multiplierKernelPhase (x ξ : Vec3) : ℂ :=
+def multiplierKernelPhase (x ξ : Vec3) : ℂ :=
   Complex.exp (Complex.I * ((∑ j : Fin 3, x j * ξ j : ℝ) : ℂ))
 
 private theorem multiplierKernelPhase_norm (x ξ : Vec3) :

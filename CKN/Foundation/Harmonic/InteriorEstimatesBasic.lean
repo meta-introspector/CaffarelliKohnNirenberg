@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.Interior
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Sobolev.Mollify.LpApproximation
-import CKN.Foundation.Sobolev.Inequalities.Smooth
-import Mathlib.Analysis.Calculus.ParametricIntegral
-import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+module
+
+public import CKN.Foundation.Harmonic.Interior
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Sobolev.Mollify.LpApproximation
+public import CKN.Foundation.Sobolev.Inequalities.Smooth
+public import Mathlib.Analysis.Calculus.ParametricIntegral
+public import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Filter
@@ -296,7 +300,7 @@ private lemma kernel_cutoff_derivative_bound
                 ]
             gcongr
 
-private noncomputable def harmonicInteriorValueConstant : ℝ :=
+noncomputable def harmonicInteriorValueConstant : ℝ :=
   (4 * Real.pi)⁻¹ * 30 * (3 / 4) * cutoffGradientConstant
 
 noncomputable def harmonicInteriorGradientConstant : ℝ :=

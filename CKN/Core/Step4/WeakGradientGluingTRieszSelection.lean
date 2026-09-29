@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.WeakGradientGluingTGlobalSelection
-import CKN.Core.Endgame.ConcreteRieszConsumption
-import CKN.Foundation.Euclidean.LpExtensionPairingMain
-import CKN.Core.Step4.SliceSelectedGradientPotential
+module
+
+public import CKN.Foundation.Sobolev.WeakGradientGluingTGlobalSelection
+public import CKN.Core.Endgame.ConcreteRieszConsumption
+public import CKN.Foundation.Euclidean.LpExtensionPairingMain
+public import CKN.Core.Step4.SliceSelectedGradientPotential
 
 /-! # Jointly measurable representatives of the completed Riesz operator
 
@@ -12,6 +14,8 @@ The first potential is jointly measurable. Its spatial weak derivatives are
 the negatives of the completed Riesz operator, so measurable derivative
 selection gives representatives of that operator with the correct sign.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal Topology

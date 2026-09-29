@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.TheoremAClosersInstances
+module
+
+public import CKN.Core.Endgame.TheoremAClosersInstances
 
 /-! # Pressure-gradient estimates at the two exponent-radius triples
 
@@ -24,6 +26,8 @@ all sources split at `t = 0` as Step 3 requires. The same composition is
 written, with an unrestricted pressure-gradient hypothesis, in
 `CKN.Core.Endgame.epsilonRegularityL3_closer_of_pending_inputs`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

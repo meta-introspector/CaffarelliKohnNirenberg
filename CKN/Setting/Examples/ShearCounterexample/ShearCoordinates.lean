@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
+module
+
+public import CKN.Foundation.Parabolic.Basic
 
 /-! # Measure-preserving coordinates separating the passive shear variable. -/
+
+@[expose] public section
 set_option autoImplicit false
 open MeasureTheory
 open CKN.Foundation.Parabolic

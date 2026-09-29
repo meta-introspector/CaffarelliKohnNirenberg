@@ -69,3 +69,39 @@ is marked explicitly rather than replaced by a DOI for a review or another editi
 - **Diestel, Joseph; Uhl, J. Jerry, Jr.** *Vector Measures*. Mathematical Surveys, **15**. American Mathematical Society, Providence, RI, 1977, xiii + 322 pp. [DOI: 10.1090/surv/015](https://doi.org/10.1090/surv/015). The current publisher catalogue calls the series Mathematical Surveys and Monographs. Key: `DiestelUhl1977`.
 
 - **Simon, Jacques.** “Compact sets in the space $L^p(0,T;B)$.” *Annali di Matematica Pura ed Applicata* **146**, 65–96 (1987). [DOI: 10.1007/BF01762360](https://doi.org/10.1007/BF01762360). Corollary 4 supplies the Aubin–Lions compactness statement and time-continuity endpoint recorded in `ext:aubin-lions`; this input is not used by the direct proof formalized here. Key: `Simon1987`.
+
+## Global existence: Leray solutions, the associated pressure and forced versions
+
+These works underlie the new part of the manuscript on global existence and
+the library `CKN/Leray`. Keys are those of the bibliography of that part.
+
+- **Leray, Jean.** “Sur le mouvement d'un liquide visqueux emplissant
+  l'espace.” *Acta Mathematica* **63**, 193–248 (1934). The original global
+  existence theorem. Key: `Leray1934`.
+
+- **Ożański, Wojciech S.; Pooley, Benjamin C.** “Leray's fundamental work on
+  the Navier–Stokes equations: a modern review of ‘Sur le mouvement d'un
+  liquide visqueux emplissant l'espace’.” In *Partial Differential Equations
+  in Fluid Mechanics*, London Mathematical Society Lecture Note Series
+  **452**, Cambridge University Press, 2018, 113–203.
+  [arXiv:1708.09787](https://arxiv.org/abs/1708.09787). Exposition of the
+  existence construction; the Oseen-kernel construction of the regularized
+  solutions is replaced by a Fourier–\(L^2\) one. Key: `OzanskiPooley2018`.
+
+- **Tsai, Tai-Peng.** *Lectures on Navier–Stokes Equations* (see above),
+  Theorem 3.9: the suitability argument for the constructed solutions. Key:
+  `Tsai2018`.
+
+- **Robinson, James C.; Rodrigo, José L.; Sadowski, Witold.** *The
+  Three-Dimensional Navier–Stokes Equations: Classical Theory* (see above),
+  used here for the suitability of the constructed solutions. Key:
+  `RobinsonRodrigoSadowski2016`.
+
+- **Escauriaza, Luis; Seregin, Gregory A.; Šverák, Vladimír.**
+  “\(L_{3,\infty}\)-solutions of Navier–Stokes equations and backward
+  uniqueness.” *Russian Mathematical Surveys* **58**(2), 211–250 (2003).
+  [DOI: 10.1070/RM2003v058n02ABEH000609](https://doi.org/10.1070/RM2003v058n02ABEH000609).
+  Its Theorem 1.1 is the form of Leray's theorem restated in the formalization
+  of that paper, where this material was developed; the associated pressure is
+  proved here by Riesz transforms instead of the Stokes estimates used in its
+  §3. Key: `ESS2003`.

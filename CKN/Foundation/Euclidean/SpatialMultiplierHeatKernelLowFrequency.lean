@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelHighFrequencyFourier
-import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelHighFrequencyFourier
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
 
 /-!
 # Compact-frequency bounds for homogeneous multiplier kernels
 -/
+
+@[expose] public section
 
 open scoped BigOperators FourierTransform
 open MeasureTheory Set

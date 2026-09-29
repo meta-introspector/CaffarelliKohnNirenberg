@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Measure.SliceDistributionKernel
-import Mathlib.MeasureTheory.Integral.Prod
+module
+
+public import CKN.Foundation.Measure.SliceDistributionKernel
+public import Mathlib.MeasureTheory.Integral.Prod
 
 /-!
 # Two auxiliary steps for slicing distributional identities
@@ -16,6 +18,8 @@ uses two ingredients that are independent of the differential operator at hand.
   supported continuous function with the translation average of an integrable
   function against a compactly supported continuous kernel.
 -/
+
+@[expose] public section
 
 open MeasureTheory Metric Filter Topology
 

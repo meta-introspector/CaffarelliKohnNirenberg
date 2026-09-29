@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.TheoremAClosersThreshold
-import CKN.Core.Endgame.TheoremACloser
+module
+
+public import CKN.Core.Endgame.TheoremAClosersThreshold
+public import CKN.Core.Endgame.TheoremACloser
 
 /-! # Pressure-gradient slots at the two endgame instances
 
@@ -10,6 +12,8 @@ The initial bootstrap and final pressure steps use two fixed triples of
 Morrey exponent and radii. The actual-integral slots are required only at
 those triples, above one absolute Calderón–Zygmund threshold.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

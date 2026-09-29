@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginClauseDerivativeShared
-import CKN.Core.Endgame.TheoremACarrierTime
-import CKN.Core.Endgame.TheoremABudgetBridge
-import CKN.Witnesses.PressureGradientOriginCellInstanceCarrier
-import CKN.Core.Step4.PressureGradientHGCloserCellsRemainderGlobal
+module
+
+public import CKN.Core.Step4.PressureGradientOriginClauseDerivativeShared
+public import CKN.Core.Endgame.TheoremACarrierTime
+public import CKN.Core.Endgame.TheoremABudgetBridge
+public import CKN.Witnesses.PressureGradientOriginCellInstanceCarrier
+public import CKN.Core.Step4.PressureGradientHGCloserCellsRemainderGlobal
 
 /-! # Origin budgets from the fixed derivative decomposition
 
@@ -14,6 +16,8 @@ integral for one selected field. The location of the coefficient quantifiers
 is retained: finite solution-dependent coefficients are not numerical
 bounds uniform over the suitable solutions of `prop:bootstrap`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

@@ -9,9 +9,14 @@ project:
     incompressible Navier-Stokes equations with forcing in L^q, q > 5/2: the L^3
     epsilon-regularity theorem (Theorem A), the gradient epsilon-regularity
     criterion (Theorem B) and the vanishing of the one-dimensional parabolic
-    Hausdorff measure of the singular set (Theorem C). The three theorems are
-    proved using only the standard axioms, restated together in a Mathlib-only comparator challenge and proved from
-    the library theorems. The manuscript being formalized is in the
+    Hausdorff measure of the singular set (Theorem C). The library also proves
+    Leray's global existence of suitable weak solutions for every
+    divergence-free L^2 datum (so that the solution class is non-empty), the
+    associated pressure, and the forced versions of these results. The three
+    theorems are proved using only the standard axioms, restated together in a
+    Mathlib-only comparator challenge and proved from the library theorems; five
+    of the six Leray existence and pressure theorems are restated in a second
+    Mathlib-only comparator pair. The manuscript being formalized is in the
     repository and was corrected alongside the development.
   authors:
     - "Scott Armstrong"
@@ -87,7 +92,57 @@ sources:
     author_contacted: "no"
     prior_work: ""
 
-related_formalizations: []
+  - title: "Sur le mouvement d'un liquide visqueux emplissant l'espace"
+    authors:
+      - "Jean Leray"
+    id: "Acta Math. 63 (1934), 193-248"
+    type: "paper"
+    relationship: "independently-proves"
+    note: "The original global existence theorem; the suitable form formalized here follows the modern treatments below."
+    license: ""
+    author_contacted: "no"
+    prior_work: ""
+  - title: "Leray's fundamental work on the Navier-Stokes equations: a modern review of \"Sur le mouvement d'un liquide visqueux emplissant l'espace\""
+    authors:
+      - "Wojciech S. Ożański"
+      - "Benjamin C. Pooley"
+    id: "arXiv:1708.09787"
+    type: "paper"
+    relationship: "background"
+    note: "Primary exposition for the existence construction; the manuscript replaces its Oseen-kernel construction by a Fourier L^2 construction."
+    license: ""
+    author_contacted: "no"
+    prior_work: ""
+  - title: "Lectures on Navier-Stokes Equations"
+    authors:
+      - "Tai-Peng Tsai"
+    id: "doi:10.1090/gsm/192"
+    type: "book"
+    relationship: "background"
+    note: "Theorem 3.9: the suitability argument for the constructed Leray solutions."
+    license: ""
+    author_contacted: "no"
+    prior_work: ""
+  - title: "The Three-Dimensional Navier-Stokes Equations: Classical Theory"
+    authors:
+      - "James C. Robinson"
+      - "Jose L. Rodrigo"
+      - "Witold Sadowski"
+    id: "doi:10.1017/CBO9781139095143"
+    type: "book"
+    relationship: "background"
+    note: "Suitability of the constructed Leray solutions."
+    license: ""
+    author_contacted: "no"
+    prior_work: ""
+
+related_formalizations:
+  - id: "https://github.com/scottnarmstrong/EscauriazaSereginSverak"
+    relationship: "built-on-by"
+    note: >-
+      The Escauriaza-Seregin-Sverak formalization developed the Leray existence
+      part of this library (2026-09-26 to 2026-09-29), which moved here on
+      2026-09-29; it now imports it from this library.
 
 status:
   scope: >-
@@ -97,11 +152,15 @@ status:
     free, regular points defined by an almost-everywhere equal parabolically
     Hölder representative, and the singular set measured by the one-dimensional
     parabolic Hausdorff measure in the diameter gauge. The supporting library
-    (about 250,000 lines) contains Sobolev spaces and weak
+    (about 400,000 lines in 1,815 files) contains Sobolev spaces and weak
     derivatives, mollification, Newtonian and heat potentials, Morrey and
     Campanato norms, the pressure theory and the parabolic Vitali covering. An
     explicit nonzero suitable weak solution (a viscous shear flow) shows the
-    solution class is inhabited. The formalization does not cover every
+    solution class is inhabited, and Leray's global existence theorem (in
+    suitable form, for every divergence-free L^2 datum, with the associated
+    pressure by double Riesz transforms and the forced versions, about
+    600 files under CKN/Leray) shows that it is non-empty for every such
+    datum. The whole library is in Lean's module system. The formalization does not cover every
     supporting statement in the manuscript. In particular, its H²₀/Z-space
     construction, time-derivative and weak-time-continuity route, and the
     associated Pettis and du Bois-Reymond inputs are unused and not formalized
@@ -151,6 +210,75 @@ status:
       axioms: ["propext", "Classical.choice", "Quot.sound"]
       comparator_config: "comparator.json"
       literature_dependencies: []
+    - declaration: "CKN.leray_existence"
+      file: "CKN/Statements/LerayExistence.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/Leray/comparator.json"
+      literature_dependencies: []
+    - declaration: "CKN.leray_existence_singularSet"
+      file: "CKN/Statements/LerayExistenceSingularSet.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/Leray/comparator.json"
+      literature_dependencies: []
+    - declaration: "CKN.associatedPressure"
+      file: "CKN/Statements/AssociatedPressure.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/Leray/comparator.json"
+      literature_dependencies: []
+    - declaration: "CKN.lerayExistenceForced"
+      file: "CKN/Statements/LerayExistenceForced.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/Leray/comparator.json"
+      literature_dependencies: []
+    - declaration: "CKN.lerayExistenceForcedSingularSet"
+      file: "CKN/Statements/LerayExistenceForcedSingularSet.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/Leray/comparator.json"
+      literature_dependencies: []
+    - declaration: "CKN.associatedPressureForced"
+      file: "CKN/Statements/AssociatedPressureForced.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      literature_dependencies: []
+      # Proved, but not restated in a comparator: its pressure split by
+      # Riesz-type operators would have to be defined from Mathlib inside the
+      # challenge; no concise restatement was attempted within the 1,000-line
+      # challenge limit.
+    - declaration: "CKNLerayChallenge.leray_existence"
+      file: "comparators/Leray/Solution.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/Leray/comparator.json"
+      literature_dependencies: []
+    - declaration: "CKNLerayChallenge.leray_existence_singularSet"
+      file: "comparators/Leray/Solution.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/Leray/comparator.json"
+      literature_dependencies: []
+    - declaration: "CKNLerayChallenge.associatedPressure"
+      file: "comparators/Leray/Solution.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/Leray/comparator.json"
+      literature_dependencies: []
+    - declaration: "CKNLerayChallenge.lerayExistenceForced"
+      file: "comparators/Leray/Solution.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/Leray/comparator.json"
+      literature_dependencies: []
+    - declaration: "CKNLerayChallenge.lerayExistenceForcedSingularSet"
+      file: "comparators/Leray/Solution.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/Leray/comparator.json"
+      literature_dependencies: []
 
 automation:
   methods:
@@ -163,8 +291,13 @@ automation:
         - "leanstral-1-5"
         - "claude-opus-5"
       framework: >-
-        Claude Fable 5.1 coordinated agents using GPT 5.6-Luna, GPT Astra,
+        Claude Fable 5.1 coordinated work using GPT 5.6-Luna, GPT Astra,
         Deepseek 4.1 flash, Leanstral and Opus 5, under the authors' supervision.
+        The Leray existence development was written in the Escauriaza-Seregin-Sverak
+        formalization (2026-09-26 to 2026-09-29; Claude Opus 5.5 coordinating
+        GPT-6 Luna and GPT-6 Sol) and transferred here on 2026-09-29. The transfer
+        and the port of the whole library to Lean's module system were done with
+        Claude Sonnet 5.5 coordinated by Claude Opus 5.5.
       tool_setup: >-
         Lean 4 and Mathlib v4.35.0-rc2. The main theorem statements were reviewed
         before proof development. Verification uses source checks, builds of
@@ -172,7 +305,7 @@ automation:
         independent NanoDa replay, and axiom checks. The commands are documented in
         docs/VERIFICATION.md and run by the repository's CI workflows.
       cost:
-        wall_time: "roughly 48 hours of development plus one day of release preparation"
+        wall_time: "roughly 48 hours of development plus one day of release preparation; the Leray existence part was developed in the Escauriaza-Seregin-Sverak formalization development (2026-09-26 to 2026-09-29) and moved into this library on 2026-09-29"
         spend_usd: "not separately tracked (ChatGPT Pro and Claude Max subscriptions)"
         hardware: "one 16-CPU / 124 GB RAM Linux machine"
       prompting_notes: >-
@@ -188,6 +321,15 @@ automation:
     library contains no sorry and no custom axiom. The Mathlib-only comparators/Challenge.lean contains exactly three intentional
     theorem-body placeholders. The separate Solution.lean proves the same
     named declarations from the library; comparator.json selects all three.
+    A second pair, comparators/Leray/{Challenge,Solution}.lean, has five
+    placeholders, one for each of the Leray existence and pressure theorems
+    except CKN.associatedPressureForced (whose pressure split by Riesz-type
+    operators would have to be defined from Mathlib inside the challenge; no
+    concise restatement was attempted within the 1,000-line limit);
+    comparators/Leray/comparator.json selects its five declarations. The
+    Leray part of the library was written in the Escauriaza-Seregin-Sverak
+    formalization under the same supervision and transferred here on
+    2026-09-29; those files keep the copyright line "Scott Armstrong."
 
 fidelity:
   divergences: >-
@@ -196,7 +338,12 @@ fidelity:
     the local energy inequality is used in its almost-every-time form and the
     manuscript's every-time route is excluded; the singular set is measured with
     the parabolic diameter gauge, whose null sets coincide with those of the
-    manuscript's radius gauge; the bootstrap step of the manuscript was rewritten
+    manuscript's radius gauge; the Leray solutions are built by a Fourier L^2
+    regularization rather than the Oseen-kernel route, the associated pressure
+    is the whole-space double Riesz transform with a fixed sign, and a
+    Leray-Hopf solution is one specified function whose every time slice is
+    constrained (weak continuity on the closed interval, the energy
+    inequality at every time, the strong initial trace); the bootstrap step of the manuscript was rewritten
     to follow the formalized route (a localized pressure-gradient Morrey bound
     rather than a pointwise potential representation); the Hölder representative
     is constructed as a limit of dyadic ball averages rather than by
@@ -207,7 +354,7 @@ fidelity:
     assumed in L^q_loc with q > 5/2, which is stronger than the weakest known
     hypotheses. The solution predicate uses supremum-norm energy finiteness,
     equivalent to Euclidean finiteness in the fixed finite-dimensional spaces.
-    The three main conclusions agree with the manuscript; supporting statement
+    The nine main conclusions agree with the manuscript; supporting statement
     differences and unused exposition are described in the linked documents.
 
 review:
@@ -219,7 +366,7 @@ review:
     Lean checks each proof against its formal statement. The
     authors reviewed that the statements are the intended theorems; the
     statements were compared with the manuscript by independent read-only
-    review agents, the three comparator declarations are checked mechanically, and the
+    reviews, including a GPT-6 Sol audit, the eight comparator declarations are checked mechanically, and the
     manuscript was proofread in full before release. This is not external peer
     review.
 
@@ -241,11 +388,41 @@ alignment:
       module: "CKN.Statements.TheoremC"
       status: "proved"
       note: "Deduced from Theorem B by the parabolic Vitali covering argument; comparator pair comparators/{Challenge,Solution}.lean."
+    - source: "Theorem thm:leray, Leray existence in suitable form (new part of the manuscript on global existence)"
+      lean: "CKN.leray_existence"
+      module: "CKN.Statements.LerayExistence"
+      status: "proved"
+      note: "Comparator pair comparators/Leray/{Challenge,Solution}.lean. The conclusion is literally CKN.IsSuitableWeakSolution on R^3 x (0, infinity) for every q > 5/2, with zero force."
+    - source: "Corollary cor:ckn-headline, the singular set of Leray's solution (new part of the manuscript on global existence)"
+      lean: "CKN.leray_existence_singularSet"
+      module: "CKN.Statements.LerayExistenceSingularSet"
+      status: "proved"
+      note: "Comparator pair comparators/Leray/{Challenge,Solution}.lean. Composes the existence theorem with CKN.caffarelliKohnNirenberg."
+    - source: "Theorem thm:assoc-pressure, associated pressure (new part of the manuscript on global existence)"
+      lean: "CKN.associatedPressure"
+      module: "CKN.Statements.AssociatedPressure"
+      status: "proved"
+      note: "Comparator pair comparators/Leray/{Challenge,Solution}.lean. Includes the conditional L^infinity L^{3/2} bound under the critical velocity bound."
+    - source: "Theorem thm:leray-forced, forced suitable existence (new part of the manuscript on global existence)"
+      lean: "CKN.lerayExistenceForced"
+      module: "CKN.Statements.LerayExistenceForced"
+      status: "proved"
+      note: "Comparator pair comparators/Leray/{Challenge,Solution}.lean. One solution is suitable for every q > 5/2 at which the force is locally L^q."
+    - source: "Theorem thm:leray-forced-singularSet, forced singular set (new part of the manuscript on global existence)"
+      lean: "CKN.lerayExistenceForcedSingularSet"
+      module: "CKN.Statements.LerayExistenceForcedSingularSet"
+      status: "proved"
+      note: "Comparator pair comparators/Leray/{Challenge,Solution}.lean. "
+    - source: "Theorem thm:assoc-pressure-forced, forced associated pressure (new part of the manuscript on global existence)"
+      lean: "CKN.associatedPressureForced"
+      module: "CKN.Statements.AssociatedPressureForced"
+      status: "proved"
+      note: "The pressure split through the Riesz operators. Proved; not restated in a comparator, because its pressure split by Riesz-type operators would have to be defined from Mathlib inside the challenge; no concise restatement was attempted within the 1,000-line challenge limit."
     - source: "Existence of a nonzero suitable weak solution (viscous shear flow)"
       lean: "CKN.isSuitableWeakSolutionIntegrable_shearFlow"
       module: "CKN.Setting.Examples.ShearFlowSuitable"
       status: "proved"
-      note: "Witness that the solution class is inhabited; see docs/WITNESSES.md."
+      note: "An explicit nonzero example; CKN.leray_existence shows the solution class is non-empty for every divergence-free L^2 datum. See docs/WITNESSES.md."
 
 acknowledgements: >-
   Scott Armstrong was supported by the European Research Council (ERC) under the

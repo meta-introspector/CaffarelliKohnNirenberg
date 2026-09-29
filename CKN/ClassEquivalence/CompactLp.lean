@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.ClassEquivalence.TestSupport
-import CKN.Core.Caccioppoli.LocalBox
-import Mathlib.MeasureTheory.Function.L2Space
+module
+
+public import CKN.ClassEquivalence.TestSupport
+public import CKN.Core.Caccioppoli.LocalBox
+public import Mathlib.MeasureTheory.Function.L2Space
 
 /-!
 # Local integrability from the data clauses alone
@@ -22,6 +24,8 @@ of that shape cannot be used while establishing the class's own integrability
 clauses, since it would assume what is being proved.  The proofs below use
 nothing beyond the data clauses.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

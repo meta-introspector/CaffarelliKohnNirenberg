@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientRemainder
-import CKN.Pressure.HarmonicRemainderSlice
-import CKN.Core.Step4.PressureGradientGaugeMajorantShift
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientRemainder
+public import CKN.Pressure.HarmonicRemainderSlice
+public import CKN.Core.Step4.PressureGradientGaugeMajorantShift
 
 /-! # Constant shifts of weak pressure derivatives
 
@@ -11,6 +13,8 @@ Spatial constants may be subtracted from a pressure slice without changing
 its weak gradient or its distributional harmonicity. In particular these
 identities apply to the spatial mean at each fixed time.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

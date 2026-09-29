@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.PotentialDecay
-import CKN.Pressure.PotentialDecayFarField
+module
+
+public import CKN.Pressure.PotentialDecay
+public import CKN.Pressure.PotentialDecayFarField
 
 /-!
 # Linear growth of the pressure potentials
@@ -20,6 +22,8 @@ The local `L^{3/2}` hypothesis near the origin is left to the consumer: for the
 zeroth-order potential it follows from local integrability of the kernel, and for
 the derivative potentials it is the Calderón–Zygmund bound.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Tail
-import CKN.Foundation.Parabolic.Integration.Average
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Tail
+public import CKN.Foundation.Parabolic.Integration.Average
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-!
 # Mass of a parabolic Morrey source on a thin time strip
@@ -34,6 +36,8 @@ cylinder of radius `R`.
 No hypothesis beyond measurability of the source and the finiteness of its
 Morrey seminorm enters the statements.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric
 open scoped ENNReal NNReal Topology

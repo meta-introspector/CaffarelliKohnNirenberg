@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.CZHarmonicCorollaryForceSlice
-import CKN.Pressure.PkBoundsCylinder
-import CKN.Pressure.DecompositionSWSBasic
-import CKN.Foundation.Measure.SupportRestrict
+module
+
+public import CKN.Pressure.CZHarmonicCorollaryForceSlice
+public import CKN.Pressure.PkBoundsCylinder
+public import CKN.Pressure.DecompositionSWSBasic
+public import CKN.Foundation.Measure.SupportRestrict
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

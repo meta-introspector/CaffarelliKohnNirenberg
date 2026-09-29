@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.Causality
-import CKN.Core.Endgame.UniformHalfCylinder
+module
+
+public import CKN.Core.Endgame.Causality
+public import CKN.Core.Endgame.UniformHalfCylinder
 
 /-! # Closed-cylinder control using only past-time source bounds
 
@@ -10,6 +12,8 @@ The smooth localization may depend on the future boundary of the domain.
 Only its sources at times at most zero contribute on the target cylinder.
 Consequently the numerical bounds below concern the truncated sources only.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal

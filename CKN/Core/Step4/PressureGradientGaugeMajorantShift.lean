@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientRemainder
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientRemainder
 
 /-!
 # Constant shifts of a weak spatial derivative
@@ -11,6 +13,8 @@ of time.  Subtracting such a function leaves every weak spatial derivative of
 the pressure slice unchanged, so a slice estimate proved for the shifted
 pressure is an estimate for the original pressure gradient.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal

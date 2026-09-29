@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.CZHarmonicCorollaryIdentification
-import CKN.Pressure.CZHarmonicCorollaryForce
-import CKN.Pressure.HarmonicPartBoundsAE
+module
+
+public import CKN.Pressure.CZHarmonicCorollaryIdentification
+public import CKN.Pressure.CZHarmonicCorollaryForce
+public import CKN.Pressure.HarmonicPartBoundsAE
 
 /-!
 # `cor:CZ-harmonic`: Calderón–Zygmund part, harmonic part, force part
@@ -35,6 +37,8 @@ growth on the round balls.  The splitting, the harmonicity, `eq:har-Ck` and the
 two Liouville inputs for `p_f` need no extra input beyond `def:sws`; the force
 part vanishes as soon as `div f = 0` on almost every slice.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

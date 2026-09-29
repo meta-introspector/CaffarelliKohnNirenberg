@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.MorreyScaling
-import CKN.Foundation.Parabolic.Morrey.Minkowski
-import CKN.Statements.SpatialPartial
+module
+
+public import CKN.Core.Endgame.MorreyScaling
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+public import CKN.Statements.SpatialPartial
 
 /-! # Quantitative cutoff multiplication for Morrey sources
 
@@ -12,6 +14,8 @@ of the source restricted to that set. Lowering the integrability exponent
 then supplies the differentiated heat-source norm, including after truncation
 to nonpositive times.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

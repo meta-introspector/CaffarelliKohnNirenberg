@@ -352,8 +352,8 @@ the wrong power of r/ρ and the wrong spatial region.
 Paper: `lem:theta-decay`, `eq:theta-decay-1`, `eq:theta-decay-2`, `conv:kappa`.
 Lean: `thetaDecay_T_of_inputs`, `iterationKappa`.
 These helpers establish the displays at the selected contraction
-κ=min(1/2,(8C₂₇)^{−1/(2/3−2/5)}). This suffices for their iteration
-iteration, but is not the assertion for every κ∈(0,1/2] with common constants.
+κ=min(1/2,(8C₂₇)^{−1/(2/3−2/5)}). This suffices for their iteration,
+but is not the assertion for every κ∈(0,1/2] with common constants.
 The specialization must remain visible when citing these helpers.
 
 ### B28 — Whole-space pressure tests and a common null set
@@ -996,3 +996,53 @@ whole-space H¹ functions with explicit
 weak-gradient representatives to express global H²-type bounds. It is not
 the H²₀/Z-space development above. The almost-every-time local energy route
 used by the main theorems does not need that development.
+
+## Global existence: Leray solutions, the associated pressure and forced versions
+
+These entries concern the new part of the manuscript on global existence and
+the library `CKN/Leray`, which came from the formalization of the
+Escauriaza–Seregin–Šverák theorem. They are not numbered with the B-entries
+above.
+
+- **Global solutions.** A global Leray–Hopf solution (`CKN.IsGlobalLerayHopfSolution`)
+  is a Leray–Hopf solution on every finite interval \([0,T]\). Applying the
+  finite-interval energy-space condition literally on \([0,\infty)\) would require
+  \(\int_0^\infty\!\int|u|^2<\infty\), which is not supplied by the energy inequality. See Remark 7.3 of the manuscript.
+- **The associated pressure.** `CKN.associatedPressure` chooses the canonical
+  whole-space pressure as a double Riesz transform of \(u\otimes u\), fixes
+  its sign relative to the weak equation, and extends the solenoidal identity
+  to arbitrary compactly supported vector tests. Its statement includes the
+  conditional mixed-norm clause: if \(\operatorname{ess\,sup}_{t\in(0,T)}\|u(\cdot,t)\|_{L^3}<\infty\), the same pressure lies in
+  \(L^\infty_tL^{3/2}_x\), proved by a slice-wise double-Riesz estimate. The
+  Helmholtz decomposition and cutoff argument supply details that the sources
+  obtain through coercive Stokes estimates.
+- **The regularized solutions.** They are built by a Fourier \(L^2\)
+  construction in place of the heat/Oseen and Picard routes of Ożański–Pooley
+  §§2–4. The pressure-inclusive weak identity is derived from the regularized
+  equation, fixing its sign and tensor order; the lifespan also covers zero
+  initial data. The inhomogeneous mollifier estimate is restricted to
+  \(0<\varepsilon\le1\), the range used, and the untruncated Newton-potential
+  argument of Ożański–Pooley Lemma 4.3 is replaced by an \(L^2\) double-Riesz
+  estimate that also gives the spatial-cutoff and initial-time limits.
+- **The limit.** The compactness statement is the one actually used for the
+  suitable limits. The passage to the limit carries every-time slices,
+  suitability, the energy inequality and the pressure. Weak lower
+  semicontinuity controls the dissipation; no sum of the global energy
+  supremum and the total dissipation is inferred from a single finite-time
+  energy inequality. Closure of suitability under the stated convergence
+  assumptions is proved separately, and the two culminate in
+  `CKN.leray_existence`.
+- **Forced existence.** `CKN.lerayExistenceForced`,
+  `CKN.lerayExistenceForcedSingularSet` and `CKN.associatedPressureForced`
+  extend the results to forces in \(L^2_{\mathrm{loc}}([0,\infty);L^2(\mathbb{R}^3))\)
+  that are locally in \(L^q\) for some \(q>5/2\). One solution is suitable for
+  every \(q>5/2\) at which the force is locally \(L^q\); with zero force it
+  gives the unforced statements. The forced pressure is the explicit split
+  \(p=P[u\otimes u]+p_f\), where \(p_f\) has weak spatial gradient equal to
+  the gradient part of the force, with local \(L^{3/2}\) bounds on bounded
+  cylinders. No global \(L^{5/3}\) bound for the total forced pressure and no
+  forced version of the conditional \(L^\infty_tL^{3/2}_x\) clause are claimed.
+- **Comparators.** Five of the six theorems are restated in the second
+  comparator pair; `CKN.associatedPressureForced` is not, because its Riesz-type
+  pressure split would have to be defined from Mathlib inside the Challenge
+  and no concise restatement was attempted within the 1,000-line limit.

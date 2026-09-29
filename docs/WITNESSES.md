@@ -1,8 +1,12 @@
 # Examples and satisfiability witnesses
 
-The formalization includes explicit examples alongside its general theorems.
-They show that the suitable weak-solution class and other mathematical
-interfaces admit the data they are intended to describe. The main collection
+The strongest statement of this kind is Leray existence
+(`CKN.leray_existence`): every divergence-free $L^2$ datum has a global
+Leray–Hopf solution that is suitable, so the solution class of Theorems A–C is
+non-empty and rich. The formalization also includes explicit examples
+alongside its general theorems. They show that the suitable weak-solution class
+and other mathematical interfaces admit the data they are intended to
+describe. The main collection
 is [CKN/Witnesses](../CKN/Witnesses); a nonzero suitable weak solution is
 constructed in [CKN/Setting/Examples](../CKN/Setting/Examples).
 
@@ -103,6 +107,31 @@ not depend on that sign, but operator identifications do. The current
 manuscript no longer uses that pressure-commutator representation; this
 symbol remains a nonzero example for the general multiplier definitions.
 
+## Leray–Hopf solutions
+
+[LerayHopfZero.lean](../CKN/Witnesses/LerayHopfZero.lean) proves:
+
+- `CKN.isInJ_zero`: the zero field belongs to the space `J` of divergence-free
+  initial data (`CKN.IsInJ`).
+- `CKN.isLerayHopfSolution_zero`: for every `T > 0`, the zero velocity and zero
+  gradient form a Leray–Hopf solution on `[0, T]` with zero datum. Every clause
+  of `CKN.IsLerayHopfSolution` is proved, including weak continuity on the
+  closed interval, the energy inequality at every time and the strong initial
+  trace.
+- `CKN.isGlobalLerayHopfSolution_zero`: the same fields form a global
+  Leray–Hopf solution.
+
+For nonzero data, the existence theorem `CKN.leray_existence` itself supplies,
+for every `a` with `IsInJ a`, a global Leray–Hopf solution with datum `a` that
+is also a suitable weak solution. The repository does not state a named
+nonzero element of `J` as a separate declaration.
+
+[ForcedZero.lean](../CKN/Witnesses/ForcedZero.lean) proves the forced
+analogues: `CKN.isLocallySquareIntegrableForce_zero` and
+`CKN.isLocallyQIntegrableForce_zero q` (for every `q`) for the zero force, and
+`CKN.isForcedLerayHopfSolution_zero` (on every `[0, T]`, `T > 0`) and
+`CKN.isGlobalForcedLerayHopfSolution_zero` for the zero fields.
+
 ## Counterexamples and preservation
 
 The collection also records negative facts that help delimit valid
@@ -113,6 +142,6 @@ ball times \((a,b)\), when \(a<b\). Local integrability away from a
 boundary does not imply integrability up to that boundary.
 
 These examples are retained and checked even when the main proofs do not use
-them. All 14 modules in `CKN/Witnesses` are imported by `CKN.lean`.
+them. All 16 modules in `CKN/Witnesses` are imported by `CKN.lean`.
 The exact statement of each declaration explains what the example proves;
 compilation and axiom checks verify its proof.

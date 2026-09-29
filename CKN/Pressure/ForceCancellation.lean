@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.DecompositionPotentials
-import CKN.Pressure.DecompositionSWSBasic
-import CKN.Foundation.Harmonic.InteriorWeak
-import CKN.Foundation.Harmonic.Liouville
+module
+
+public import CKN.Pressure.DecompositionPotentials
+public import CKN.Pressure.DecompositionSWSBasic
+public import CKN.Foundation.Harmonic.InteriorWeak
+public import CKN.Foundation.Harmonic.Liouville
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

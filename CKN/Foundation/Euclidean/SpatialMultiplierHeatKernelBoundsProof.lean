@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBounds
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelHighSymbolBounds
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelGaussianDerivativeBounds
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelBounds
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelHighSymbolBounds
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelGaussianDerivativeBounds
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
 
 /-!
 # Fourier estimates for the spatial multiplier heat kernel
@@ -14,6 +16,8 @@ This module proves the pointwise estimates for smooth degree-one homogeneous
 frequency symbols by cutting off the origin and integrating by parts in the
 Fourier variable.
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open scoped FourierTransform
@@ -27,7 +31,7 @@ namespace CKN.Foundation.Euclidean
 
 open CKN.Foundation.Parabolic CKN.Foundation.Heat VectorFourier
 
-private def frequencyPairingLinear :
+def frequencyPairingLinear :
     Vec3 →ₗ[ℝ] Vec3 →L[ℝ] ℝ where
   toFun := frequencyPairingCLM
   map_add' a b := by
@@ -63,7 +67,7 @@ private def frequencyPairingLinear :
               _ = c * ∑ j : Fin 3, a j * x j := by rw [Finset.mul_sum]
       _ = c • ∑ j : Fin 3, a j * x j := by rw [smul_eq_mul]
 
-private theorem frequencyPairingLinear_norm_le (ξ : Vec3) :
+theorem frequencyPairingLinear_norm_le (ξ : Vec3) :
     ‖frequencyPairingCLM ξ‖ ≤ 6 * ‖ξ‖ := by
   have hsqrt : Real.sqrt 3 ≤ 2 := by
     rw [Real.sqrt_le_iff]
@@ -81,7 +85,7 @@ private theorem frequencyPairingLinear_norm_le (ξ : Vec3) :
             (mul_le_mul_of_nonneg_right hsqrt (norm_nonneg ξ)) (by norm_num)
         _ = 6 * ‖ξ‖ := by ring
 
-private def frequencyPairingBilinear :
+def frequencyPairingBilinear :
     Vec3 →L[ℝ] Vec3 →L[ℝ] ℝ :=
   frequencyPairingLinear.mkContinuous 6 frequencyPairingLinear_norm_le
 

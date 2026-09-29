@@ -1,15 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Sobolev.Inequalities.Smooth
-import CKN.Foundation.Sobolev.H1.Basic
-import CKN.Foundation.Sobolev.Mollify.LpApproximation
-import CKN.Foundation.Sobolev.Mollify.Transport
-import CKN.Foundation.Sobolev.WeakDerivative.Product
-import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
-import Mathlib.MeasureTheory.Function.LpSpace.Complete
-import Mathlib.MeasureTheory.Function.LpSeminorm.SMul
-import Mathlib.MeasureTheory.SpecificCodomains.Pi
-import CKN.Foundation.Sobolev.Cutoff.NormLeVecEuclidean
+module
+
+public import CKN.Foundation.Sobolev.Inequalities.Smooth
+public import CKN.Foundation.Sobolev.H1.Basic
+public import CKN.Foundation.Sobolev.Mollify.LpApproximation
+public import CKN.Foundation.Sobolev.Mollify.Transport
+public import CKN.Foundation.Sobolev.WeakDerivative.Product
+public import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+public import Mathlib.MeasureTheory.Function.LpSpace.Complete
+public import Mathlib.MeasureTheory.Function.LpSeminorm.SMul
+public import Mathlib.MeasureTheory.SpecificCodomains.Pi
+public import CKN.Foundation.Sobolev.Cutoff.NormLeVecEuclidean
 /-!
 # Local Sobolev and interpolation inequalities for `H¹` representatives
 The proof first multiplies the representative by the canonical compactly supported cutoff
@@ -17,6 +19,8 @@ inside the outer ball.  The product rule gives a global weak gradient for this z
 global mollification then supplies smooth functions, and Fatou's lemma passes the estimate to the
 representative.  This preserves the absolute constant from the smooth estimate.
 -/
+
+@[expose] public section
 open MeasureTheory Set Filter
 open scoped ENNReal Convolution
 namespace CKN

@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.KernelAllOrders
-import CKN.Pressure.HarmonicPartDerivatives
-import CKN.Pressure.PkBoundsUnconditionalConstants
-import CKN.Setting.SliceNormBounds
+module
+
+public import CKN.Foundation.Harmonic.KernelAllOrders
+public import CKN.Pressure.HarmonicPartDerivatives
+public import CKN.Pressure.PkBoundsUnconditionalConstants
+public import CKN.Setting.SliceNormBounds
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

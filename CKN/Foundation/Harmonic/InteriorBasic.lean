@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.NewtonianRepresentation
-import CKN.Pressure.Cutoff
-import CKN.Pressure.LeibnizLaplacian
-import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
-import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
-import CKN.Foundation.Harmonic.NewtonianKernelIntegrability
+module
+
+public import CKN.Foundation.Harmonic.NewtonianRepresentation
+public import CKN.Pressure.Cutoff
+public import CKN.Pressure.LeibnizLaplacian
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+public import CKN.Foundation.Harmonic.NewtonianKernelIntegrability
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Filter
@@ -153,7 +157,7 @@ private lemma contDiffAt_newtonianKernel {z : Vec3} (hz : z ≠ 0) :
   rw [hkernel]
   simpa only [Function.comp_apply] using hmul
 
-private def kernelDerivative (i : Fin 3) (z : Vec3) : ℝ :=
+def kernelDerivative (i : Fin 3) (z : Vec3) : ℝ :=
   if z = 0 then 0 else
     (4 * Real.pi)⁻¹ * z i * q z ^ (-(3 : ℝ) / 2)
 

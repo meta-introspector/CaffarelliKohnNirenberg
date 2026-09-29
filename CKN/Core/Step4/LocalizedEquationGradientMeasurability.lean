@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.LocalizedEquationGradientData
-import CKN.Core.Endgame.OneSidedMeasurability
+module
+
+public import CKN.Core.Step4.LocalizedEquationGradientData
+public import CKN.Core.Endgame.OneSidedMeasurability
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

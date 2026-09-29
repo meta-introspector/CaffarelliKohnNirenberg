@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.Basic
-import CKN.Foundation.Heat.Convolution
-import Mathlib.MeasureTheory.Integral.Gamma
-import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
-import Mathlib.Analysis.Calculus.FDeriv.Pi
-import CKN.Foundation.Heat.Smooth
-import CKN.Foundation.Heat.SpaceSecondDeriv
+module
+
+public import CKN.Foundation.Heat.Basic
+public import CKN.Foundation.Heat.Convolution
+public import Mathlib.MeasureTheory.Integral.Gamma
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Calculus.FDeriv.Pi
+public import CKN.Foundation.Heat.Smooth
+public import CKN.Foundation.Heat.SpaceSecondDeriv
 
 /-!
 # The Gaussian subordination identity for the Newtonian kernel
@@ -16,6 +18,8 @@ The time integral of the three-dimensional heat kernel is the Newtonian
 kernel away from its singularity.  This identity is the scalar analytic
 input for the heat-kernel route to the pressure decomposition.
 -/
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

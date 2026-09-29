@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationExtensionPairing
-import CKN.Pressure.PkBoundsUnconditionalCore
-import CKN.Pressure.PkBoundsCylinder
-import CKN.Foundation.Parabolic.Integration.Average
+module
+
+public import CKN.Pressure.IdentificationExtensionPairing
+public import CKN.Pressure.PkBoundsUnconditionalCore
+public import CKN.Pressure.PkBoundsCylinder
+public import CKN.Foundation.Parabolic.Integration.Average
 
 /-!
 # The identification data on a parabolic cylinder
@@ -15,6 +17,8 @@ about `z` and to the ball average of the velocity used as the subtracted
 constant.  The conclusion is stated on the cylinder's time interval, which is
 the form the slice pressure estimates consume.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

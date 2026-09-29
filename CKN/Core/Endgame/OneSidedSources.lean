@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.OneSidedEnergy
-import CKN.Core.Endgame.OneSidedMorrey
+module
+
+public import CKN.Core.Endgame.OneSidedEnergy
+public import CKN.Core.Endgame.OneSidedMorrey
 
 /-!
 # Uniform one-sided velocity and pressure Morrey bounds
@@ -12,6 +14,8 @@ the original unit-cylinder small-data hypothesis, so the constants are
 independent of the solution. Both estimates concern extension by zero from
 the intermediate backward cylinder of radius `5/8`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

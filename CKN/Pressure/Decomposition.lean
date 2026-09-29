@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Pressure.SliceIdentity
-import CKN.Pressure.LeibnizLaplacian
-import CKN.Setting.Cutoff
-import CKN.Foundation.Harmonic.NewtonianRepresentation
+module
+
+public import CKN.Pressure.SliceIdentity
+public import CKN.Pressure.LeibnizLaplacian
+public import CKN.Setting.Cutoff
+public import CKN.Foundation.Harmonic.NewtonianRepresentation
+
+@[expose] public section
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology
 open CKN.Foundation.Parabolic

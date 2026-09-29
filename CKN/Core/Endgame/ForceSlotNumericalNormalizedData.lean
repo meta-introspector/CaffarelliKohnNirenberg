@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ForceSlotNumericalNormalization
-import CKN.Core.Endgame.ForceSlotNumericalEnergy
-import CKN.Core.Endgame.Localization
-import CKN.Setting.ScalingInvariance
-import CKN.Setting.PoincareSobolevL1SliceBasic
-import CKN.Foundation.Parabolic.BallDisplays
+module
+
+public import CKN.Core.Endgame.ForceSlotNumericalNormalization
+public import CKN.Core.Endgame.ForceSlotNumericalEnergy
+public import CKN.Core.Endgame.Localization
+public import CKN.Setting.ScalingInvariance
+public import CKN.Setting.PoincareSobolevL1SliceBasic
+public import CKN.Foundation.Parabolic.BallDisplays
 
 /-!
 # Normalized energy from the original solution norms
@@ -14,6 +16,8 @@ import CKN.Foundation.Parabolic.BallDisplays
 The normalization radius and its energy bound depend only on the fixed
 radii and the three prescribed norm bounds.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

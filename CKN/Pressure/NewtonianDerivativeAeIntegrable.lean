@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.HlsRieszPotentialFinite
-import CKN.Pressure.KernelMeasurability
-import CKN.Pressure.PkBoundsP7
+module
+
+public import CKN.Pressure.HlsRieszPotentialFinite
+public import CKN.Pressure.KernelMeasurability
+public import CKN.Pressure.PkBoundsP7
+
+@[expose] public section
 
 open MeasureTheory Filter
 open scoped ENNReal

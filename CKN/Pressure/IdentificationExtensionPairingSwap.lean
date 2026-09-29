@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationExtensionPairingKernel
-import CKN.Pressure.IdentificationExtensionPairingSource
-import CKN.Foundation.Measure.SliceDistributionCore
+module
+
+public import CKN.Pressure.IdentificationExtensionPairingKernel
+public import CKN.Pressure.IdentificationExtensionPairingSource
+public import CKN.Foundation.Measure.SliceDistributionCore
 
 /-!
 # One null set for every second-order test pairing
@@ -17,6 +19,8 @@ function from that countable family.  This is the second-order counterpart of
 the divergence-form and multiplication-form upgrades used for the slice
 identities.
 -/
+
+@[expose] public section
 
 open MeasureTheory Metric Filter Topology Set
 open CKN.Foundation.Parabolic

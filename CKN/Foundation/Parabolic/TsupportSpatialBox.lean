@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.Topology.Algebra.Support
-import Mathlib.Topology.Separation.Regular
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.Topology.Algebra.Support
+public import Mathlib.Topology.Separation.Regular
+
+@[expose] public section
 
 open Set
 open CKN.Foundation.Parabolic

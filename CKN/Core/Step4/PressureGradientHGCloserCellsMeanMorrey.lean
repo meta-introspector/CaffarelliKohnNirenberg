@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientHGCloserCellsMeans
-import CKN.Core.Step4.PressureGradientHGCloserCellsSourceMorrey
+module
+
+public import CKN.Core.Step4.PressureGradientHGCloserCellsMeans
+public import CKN.Core.Step4.PressureGradientHGCloserCellsSourceMorrey
 
 /-! # Centred velocity Morrey data from suitable weak solutions
 
@@ -10,6 +12,8 @@ The mean correction is bounded in time and supported on a finite-measure
 space-time carrier. It therefore belongs to every finite integrability
 class needed here. Subtracting it preserves the velocity Morrey class.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

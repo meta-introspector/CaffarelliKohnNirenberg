@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradient
-import CKN.Core.Step4.SourceMorreySlice
-import CKN.Pressure.HarmonicRemainderSliceSWS
+module
+
+public import CKN.Core.Step4.SliceSelectedGradient
+public import CKN.Core.Step4.SourceMorreySlice
+public import CKN.Pressure.HarmonicRemainderSliceSWS
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

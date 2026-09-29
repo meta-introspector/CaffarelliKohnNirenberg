@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.I1
-import CKN.Foundation.Parabolic.Covering
-import CKN.Setting.Finiteness
-import CKN.Setting.SliceNormBounds
+module
+
+public import CKN.Core.Caccioppoli.I1
+public import CKN.Foundation.Parabolic.Covering
+public import CKN.Setting.Finiteness
+public import CKN.Setting.SliceNormBounds
+
+@[expose] public section
 
 open MeasureTheory Set Filter Metric
 open scoped ENNReal NNReal Topology

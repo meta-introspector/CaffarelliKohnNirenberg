@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.HeatFarStripBound
-import CKN.Core.HeatPotential.GeneralSymbolHeatKernelSplitData
-import CKN.Foundation.Parabolic.BallDisplays
+module
+
+public import CKN.Core.HeatPotential.HeatFarStripBound
+public import CKN.Core.HeatPotential.GeneralSymbolHeatKernelSplitData
+public import CKN.Foundation.Parabolic.BallDisplays
 
 /-!
 # Geometry of a far shell and the mass of its source
@@ -30,6 +32,8 @@ far estimate.
 Both statements fix their constants before the source and before the shell
 data.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology BigOperators

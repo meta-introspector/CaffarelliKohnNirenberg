@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationExtensionPairingExterior
-import CKN.Pressure.IdentificationExtensionPairingSlice
-import CKN.Pressure.IdentificationWholeSpace
+module
+
+public import CKN.Pressure.IdentificationExtensionPairingExterior
+public import CKN.Pressure.IdentificationExtensionPairingSlice
+public import CKN.Pressure.IdentificationWholeSpace
 
 /-!
 # The whole-space distributional identity for the leading pressure term
@@ -17,6 +19,8 @@ a neighbourhood of `tsupport η`, so both sides of the identity vanish on it.
 The result is the identity tested against every compactly supported smooth `ψ`,
 which is the form the Liouville identification consumes.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

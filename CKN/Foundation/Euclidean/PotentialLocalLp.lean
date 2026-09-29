@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.PotentialLocalLpKernel
-import CKN.Foundation.Euclidean.PotentialLocalLpExponents
-import CKN.Foundation.Euclidean.PotentialLocalLpMeasure
+module
+
+public import CKN.Foundation.Euclidean.PotentialLocalLpKernel
+public import CKN.Foundation.Euclidean.PotentialLocalLpExponents
+public import CKN.Foundation.Euclidean.PotentialLocalLpMeasure
 
 /-!
 # Local `L^{3/2}` bounds for Newtonian potentials of compactly supported data
@@ -29,6 +31,8 @@ exactly for `s < 3/2`; this allows exactly `q > 1`.  Both ranges contain the sym
 and therefore cover every exponent `q ≥ 6/5`; in particular `q = 3/2` and the exponents
 `q > 5/2` of `def:sws`.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

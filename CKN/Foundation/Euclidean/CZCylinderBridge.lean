@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.CZUnconditional
-import CKN.Core.Step3.PressureDecayMeasurability
-import CKN.Pressure.PkBoundsUnconditionalCore
-import CKN.Setting.UTensor
-import CKN.Setting.SliceNormBounds
-import CKN.Setting.TimeHolder
+module
+
+public import CKN.Foundation.Euclidean.CZUnconditional
+public import CKN.Core.Step3.PressureDecayMeasurability
+public import CKN.Pressure.PkBoundsUnconditionalCore
+public import CKN.Setting.UTensor
+public import CKN.Setting.SliceNormBounds
+public import CKN.Setting.TimeHolder
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

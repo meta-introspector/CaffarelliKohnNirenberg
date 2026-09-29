@@ -2,16 +2,20 @@
 -- Released under Apache 2.0 license.
 
 
-import CKN.Setting.Examples.ShearCounterexample.SWSLocalData
-import CKN.Setting.Examples.ShearCounterexample.LocalTestBox
-import CKN.Setting.Examples.ShearCounterexampleDivergenceLimit
-import CKN.Setting.Examples.ShearCounterexampleMomentumLimit
-import CKN.Setting.Examples.ShearCounterexampleLEILimit
-import CKN.Statements.SpatialPartial
-import CKN.Statements.SpatialSecondPartial
-import CKN.Statements.TimePartial
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.SWSLocalData
+public import CKN.Setting.Examples.ShearCounterexample.LocalTestBox
+public import CKN.Setting.Examples.ShearCounterexampleDivergenceLimit
+public import CKN.Setting.Examples.ShearCounterexampleMomentumLimit
+public import CKN.Setting.Examples.ShearCounterexampleLEILimit
+public import CKN.Statements.SpatialPartial
+public import CKN.Statements.SpatialSecondPartial
+public import CKN.Statements.TimePartial
 
 /-! # A rough shear field satisfying the suitable weak-solution clauses at exponent two. -/
+
+@[expose] public section
 
 
 set_option autoImplicit false

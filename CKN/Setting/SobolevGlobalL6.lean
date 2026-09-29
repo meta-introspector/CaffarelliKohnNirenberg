@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Inequalities.H1
-import CKN.Foundation.Parabolic.Basic
-import CKN.Setting.ExtSobolevBallSupported
+module
+
+public import CKN.Foundation.Sobolev.Inequalities.H1
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Setting.ExtSobolevBallSupported
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

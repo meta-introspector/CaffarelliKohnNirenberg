@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.Smooth
+module
+
+public import CKN.Foundation.Heat.Smooth
 
 /-!
 # Backward Gaussian test functions
@@ -9,6 +11,8 @@ import CKN.Foundation.Heat.Smooth
 The backward test function used in the local energy calculation is recorded
 together with its nonnegativity.
 -/
+
+@[expose] public section
 
 open scoped Topology
 

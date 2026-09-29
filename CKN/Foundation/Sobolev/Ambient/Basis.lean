@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Ambient.Basic
-import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+module
+
+public import CKN.Foundation.Sobolev.Ambient.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 
 /-!
 # Coordinate basis for native vectors
@@ -11,6 +13,8 @@ Adapted from PDEFoundation (EllipticRegularity, 2026) with the author's
 permission. This port retains the coordinate basis and reconstruction facts
 needed to state coordinate weak derivatives, under the `CKN` namespace.
 -/
+
+@[expose] public section
 
 namespace CKN
 

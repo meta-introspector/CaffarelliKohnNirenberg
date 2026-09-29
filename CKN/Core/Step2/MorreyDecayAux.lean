@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Iteration.Arithmetic
-import CKN.Core.Step2.Iteration
-import CKN.Setting.SliceNormBounds
-import CKN.Setting.Energy.PointwiseEnergy
+module
+
+public import CKN.Core.Iteration.Arithmetic
+public import CKN.Core.Step2.Iteration
+public import CKN.Setting.SliceNormBounds
+public import CKN.Setting.Energy.PointwiseEnergy
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

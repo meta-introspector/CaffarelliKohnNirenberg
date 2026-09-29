@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.NormNum
+module
+
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

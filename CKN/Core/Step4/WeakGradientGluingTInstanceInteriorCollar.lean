@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTActualPressureIdentification
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTActualPressureIdentification
 
 /-! # Interior collars for the origin pressure decomposition
 
@@ -9,6 +11,8 @@ The half-gap collar stays inside the outer data cylinder for every centre
 in the closed inner carrier, so the actual pressure gradient admits the
 raw-source decomposition on that collar.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology BigOperators

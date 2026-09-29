@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientSliceCZ
-import CKN.Core.Step4.SliceSelectedGradientSWSUnconditional
+module
+
+public import CKN.Core.Step4.PressureGradientSliceCZ
+public import CKN.Core.Step4.SliceSelectedGradientSWSUnconditional
 
 /-!
 # Display (3.5) with the explicit Calderón–Zygmund endpoint constant
@@ -12,6 +14,8 @@ The preceding slice theorem takes the weak-gradient construction as an explicit
 `czGradientOperatorConstant`, so this module exposes the resulting
 solution-level statement without an analytic Calderón–Zygmund premise.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

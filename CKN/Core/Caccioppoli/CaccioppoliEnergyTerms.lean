@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.CaccioppoliEnergyTools
-import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+module
+
+public import CKN.Core.Caccioppoli.CaccioppoliEnergyTools
+public import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

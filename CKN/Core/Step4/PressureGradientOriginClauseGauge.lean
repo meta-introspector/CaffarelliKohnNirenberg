@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginClauseDoubling
+module
+
+public import CKN.Core.Step4.PressureGradientOriginClauseDoubling
 
 /-!
 # Pressure gauge covariance on clipped origin cells
@@ -12,6 +14,8 @@ The pressure mean is taken on the fixed carrier ball `vec3Ball 0 R₁`, so all
 cells use one pressure normalization in the clipped carrier integral.
 The argument is slicewise and requires no temporal integrability of the gauge.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped BigOperators ENNReal Topology

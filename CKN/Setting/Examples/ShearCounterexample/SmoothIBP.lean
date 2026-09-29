@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
+module
+
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
 
 /-! # Smooth integration by parts for the shear fields. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open MeasureTheory MeasureTheory.Measure

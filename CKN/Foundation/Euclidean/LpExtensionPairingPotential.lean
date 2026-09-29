@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.RieszSecondL2GlobalBounds
-import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
+module
+
+public import CKN.Foundation.Euclidean.RieszSecondL2GlobalBounds
+public import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

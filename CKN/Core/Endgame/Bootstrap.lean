@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.BootstrapPotential
-import CKN.Core.Endgame.PotentialMeasurability
-import CKN.Core.Endgame.AdamsAEMeasurable
-import CKN.Core.Step4.PressureGradientMorrey
+module
+
+public import CKN.Core.Endgame.BootstrapPotential
+public import CKN.Core.Endgame.PotentialMeasurability
+public import CKN.Core.Endgame.AdamsAEMeasurable
+public import CKN.Core.Step4.PressureGradientMorrey
 
 /-! # Morrey improvement from actual localized sources
 
@@ -12,6 +14,8 @@ The potential comparison uses almost-everywhere finiteness. Measurability
 of the potential and finiteness of the explicit Adams constants are derived,
 rather than supplied as extra inputs.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal

@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.ScalingQuantities
-import CKN.Setting.ExcessComparisonCore
+module
+
+public import CKN.Setting.ScalingQuantities
+public import CKN.Setting.ExcessComparisonCore
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal

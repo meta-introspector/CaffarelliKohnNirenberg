@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceWholeFinite
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceWholeFinite
 
 /-!
 # Local velocity moments throughout the solution domain
@@ -11,6 +13,8 @@ space-time subset of the solution domain. This supplies the time integrals
 on arbitrary compact windows in `prop:bootstrap`, without restricting time
 to the origin unit cylinder.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

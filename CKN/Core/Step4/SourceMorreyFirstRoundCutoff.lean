@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.CompactBall
-import CKN.Core.Endgame.Localization
-import CKN.Foundation.Parabolic.BallDisplays
+module
+
+public import CKN.Core.Endgame.CompactBall
+public import CKN.Core.Endgame.Localization
+public import CKN.Foundation.Parabolic.BallDisplays
 
 /-!
 # A first-round localization cutoff at arbitrary centre
@@ -17,6 +19,8 @@ identification, and a ball sitting compactly inside the space-time domain
 admits a smooth cutoff equal to one on the inner quarter-ball, supported inside
 the three-eighths-ball, and contained in the product box of half radius.
 -/
+
+@[expose] public section
 
 open Set Metric
 open scoped Topology

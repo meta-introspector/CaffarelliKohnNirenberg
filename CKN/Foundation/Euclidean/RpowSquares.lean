@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.Analysis.SpecialFunctions.Sqrt
+module
+
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.SpecialFunctions.Sqrt
+
+@[expose] public section
 
 set_option autoImplicit false
 

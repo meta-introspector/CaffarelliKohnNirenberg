@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.PkBoundsP7SolutionBound
+module
+
+public import CKN.Pressure.PkBoundsP7SolutionBound
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal

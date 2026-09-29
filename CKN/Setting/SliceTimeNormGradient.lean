@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.PkBoundsUnconditionalCore
-import CKN.Setting.SliceNormBounds
+module
+
+public import CKN.Pressure.PkBoundsUnconditionalCore
+public import CKN.Setting.SliceNormBounds
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

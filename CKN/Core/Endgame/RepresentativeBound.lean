@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.HeatRepresentative
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Parabolic.Topology
+module
+
+public import CKN.Core.Endgame.HeatRepresentative
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Parabolic.Topology
 
 /-! # Reanchoring a Hölder representative by velocity averages
 
@@ -11,6 +13,8 @@ The absolute value of a representative is controlled by averaging its
 oscillation against the original velocity. No average of the heat potential
 outside the region of almost-everywhere agreement is required.
 -/
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory Set

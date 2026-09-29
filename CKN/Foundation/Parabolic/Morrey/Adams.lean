@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Maximal.StrongType
-import CKN.Foundation.Parabolic.Morrey.Hedberg
-import CKN.Foundation.Parabolic.Morrey.Inclusions
-import CKN.Foundation.Parabolic.Morrey.Kernel
+module
+
+public import CKN.Foundation.Parabolic.Maximal.StrongType
+public import CKN.Foundation.Parabolic.Morrey.Hedberg
+public import CKN.Foundation.Parabolic.Morrey.Inclusions
+public import CKN.Foundation.Parabolic.Morrey.Kernel
 
 /-!
 # Hedberg and Adams estimates
@@ -12,6 +14,8 @@ import CKN.Foundation.Parabolic.Morrey.Kernel
 This module connects the parabolic Riesz potential with the exported maximal
 function estimates and the cylinder Morrey seminorm.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric
 open scoped ENNReal NNReal Topology
@@ -67,7 +71,7 @@ private lemma volume_metricBall_le {z : ParabolicPoint} {R : ℝ} (hR : 0 < R) :
         ENNReal.ofReal_mul (by norm_num : (0 : ℝ) ≤ 2 ^ 5),
         ENNReal.ofReal_pow (by positivity : 0 ≤ R) 5]
 
-private def nearShell (R : ℝ) (n : ℕ) (z : ParabolicPoint) : Set ParabolicPoint :=
+def nearShell (R : ℝ) (n : ℕ) (z : ParabolicPoint) : Set ParabolicPoint :=
   parabolicRieszShell R (Int.negSucc n) z
 
 private lemma nearShell_measurable (R : ℝ) (n : ℕ) (z : ParabolicPoint) :

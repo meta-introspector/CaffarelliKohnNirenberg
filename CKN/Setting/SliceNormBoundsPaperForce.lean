@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.SpatialSliceNormIdentifyForce
-import CKN.Setting.SliceTimeNormForce
+module
+
+public import CKN.Setting.SpatialSliceNormIdentifyForce
+public import CKN.Setting.SliceTimeNormForce
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

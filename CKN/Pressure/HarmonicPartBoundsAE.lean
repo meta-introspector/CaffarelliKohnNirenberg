@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.HarmonicPartBounds
-import CKN.Pressure.Lin34Slices
-import CKN.Pressure.OscillationLin34Solution
-import CKN.Pressure.PkBoundsCylinder
-import CKN.Foundation.Parabolic.Integration.Slice
+module
+
+public import CKN.Pressure.HarmonicPartBounds
+public import CKN.Pressure.Lin34Slices
+public import CKN.Pressure.OscillationLin34Solution
+public import CKN.Pressure.PkBoundsCylinder
+public import CKN.Foundation.Parabolic.Integration.Slice
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

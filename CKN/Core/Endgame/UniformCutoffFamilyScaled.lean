@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.UniformCutoffFamilyGeometry
-import CKN.Core.Endgame.UniformCutoffFamilySeparated
-import CKN.Core.Endgame.UniformCutoffFamilyTimeProfile
-import CKN.Foundation.Harmonic.InteriorEstimatesBasic
-import CKN.Pressure.PkBoundsCylinder
+module
+
+public import CKN.Core.Endgame.UniformCutoffFamilyGeometry
+public import CKN.Core.Endgame.UniformCutoffFamilySeparated
+public import CKN.Core.Endgame.UniformCutoffFamilyTimeProfile
+public import CKN.Foundation.Harmonic.InteriorEstimatesBasic
+public import CKN.Pressure.PkBoundsCylinder
 
 /-!
 # The translated and parabolically rescaled cutoff family
@@ -28,6 +30,8 @@ on the centre `z`, on the radius `a`, or on any solution. The `a ^ (-1)` and
 carried out inside the fixed ball cutoff of `CKN.mollifiedBallCutoff` in space
 and in `endgameTimeCutoff_abs_deriv_le` in time.
 -/
+
+@[expose] public section
 
 open Set Metric
 open CKN.Foundation.Parabolic

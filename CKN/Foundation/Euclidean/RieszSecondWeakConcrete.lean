@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.RieszSecondWeakExterior
-import CKN.Foundation.Euclidean.RieszSecondBadPart
-import CKN.Foundation.Harmonic.Interior
+module
+
+public import CKN.Foundation.Euclidean.RieszSecondWeakExterior
+public import CKN.Foundation.Euclidean.RieszSecondBadPart
+public import CKN.Foundation.Harmonic.Interior
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

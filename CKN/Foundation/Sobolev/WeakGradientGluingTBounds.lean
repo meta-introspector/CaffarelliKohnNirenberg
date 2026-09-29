@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedCell
-import CKN.Core.Step4.SliceSelectedGradientInputsCentred
-import CKN.Core.Step4.SliceSelectedGradientSymmetricGeometry
-import CKN.Foundation.Sobolev.WeakGradientGluingTMeasurable
+module
+
+public import CKN.Core.Step4.PressureGradientGluedCell
+public import CKN.Core.Step4.SliceSelectedGradientInputsCentred
+public import CKN.Core.Step4.SliceSelectedGradientSymmetricGeometry
+public import CKN.Foundation.Sobolev.WeakGradientGluingTMeasurable
 
 /-!
 # Cellwise bounds for one measurable pressure gradient
@@ -14,6 +16,8 @@ transported from the derivative selected at a cell's scale to a fixed field.
 Spatial a.e. uniqueness preserves the complete quantitative majorant. Time
 windows are restricted only along an explicit subset inclusion.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

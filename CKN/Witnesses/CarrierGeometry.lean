@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Topology
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Foundation.Parabolic.Topology
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-!
 # Geometry of a parabolic cylinder inside a metric ball
@@ -25,6 +27,8 @@ ball `vec3Ball x₀ R` with the concentric ball of its own half-radius.
   first fact, rewritten as `ρ/2 < R`.
 -/
 
+@[expose] public section
+
 open Set Metric
 
 set_option autoImplicit false
@@ -35,7 +39,7 @@ namespace CKN.Foundation.Parabolic
 
 /-- The vector `(ρ, 0, 0)`, the axis vector of length `ρ` used to realize a
 diameter of the Euclidean ball. -/
-private def carrierAxis (ρ : ℝ) : Vec3 := fun k => if k = 0 then ρ else 0
+def carrierAxis (ρ : ℝ) : Vec3 := fun k => if k = 0 then ρ else 0
 
 /-- The axis vector has Euclidean norm `ρ` when `ρ` is positive. -/
 private theorem carrierAxis_norm {ρ : ℝ} (hρ : 0 < ρ) :

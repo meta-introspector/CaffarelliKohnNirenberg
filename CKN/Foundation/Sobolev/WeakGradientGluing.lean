@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.WeakDerivative
-import Mathlib.Geometry.Manifold.PartitionOfUnity
+module
+
+public import CKN.Foundation.Sobolev.WeakDerivative
+public import Mathlib.Geometry.Manifold.PartitionOfUnity
 
 /-!
 # Uniqueness of weak partial derivatives
@@ -10,6 +12,8 @@ import Mathlib.Geometry.Manifold.PartitionOfUnity
 Locally integrable weak partial derivatives of the same function on an open
 set agree almost everywhere.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped Topology BigOperators

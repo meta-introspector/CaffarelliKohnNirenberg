@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.CausalGradientMorrey
-import CKN.Core.Endgame.CausalDerivativeSource
-import CKN.Core.Endgame.CausalHalfCylinder
+module
+
+public import CKN.Core.Endgame.CausalGradientMorrey
+public import CKN.Core.Endgame.CausalDerivativeSource
+public import CKN.Core.Endgame.CausalHalfCylinder
 
 /-! # Quantitative consumption of the literal localized sources
 
@@ -12,6 +14,8 @@ closed-half-cylinder Hölder conclusion once their literal heat representation
 is supplied. This consumer does not construct that representation or the
 pressure gradient. All norm estimates concern only nonpositive times.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

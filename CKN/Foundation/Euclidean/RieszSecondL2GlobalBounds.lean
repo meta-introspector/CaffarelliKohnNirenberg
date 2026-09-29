@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.HessianL2
-import CKN.Pressure.PkBoundsCylinder
-import CKN.Foundation.Euclidean.InterpolationBasic
-import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+module
+
+public import CKN.Foundation.Euclidean.HessianL2
+public import CKN.Pressure.PkBoundsCylinder
+public import CKN.Foundation.Euclidean.InterpolationBasic
+public import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

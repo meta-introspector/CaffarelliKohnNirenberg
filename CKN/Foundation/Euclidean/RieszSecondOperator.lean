@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.RieszSecond
-import CKN.Foundation.Euclidean.RieszSecondBadPart
-import CKN.Foundation.Euclidean.HessianL2
-import CKN.Foundation.Euclidean.RieszSecondL2Global
-import CKN.Foundation.Euclidean.InterpolationBasic
-import Mathlib.Analysis.Distribution.SchwartzSpace.Basic
-import Mathlib.Analysis.Normed.Operator.Extend
-import Mathlib.MeasureTheory.Function.LpSpace.Complete
+module
+
+public import CKN.Foundation.Euclidean.RieszSecond
+public import CKN.Foundation.Euclidean.RieszSecondBadPart
+public import CKN.Foundation.Euclidean.HessianL2
+public import CKN.Foundation.Euclidean.RieszSecondL2Global
+public import CKN.Foundation.Euclidean.InterpolationBasic
+public import Mathlib.Analysis.Distribution.SchwartzSpace.Basic
+public import Mathlib.Analysis.Normed.Operator.Extend
+public import Mathlib.MeasureTheory.Function.LpSpace.Complete
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology
@@ -23,7 +27,7 @@ open CKN
 
 abbrev rieszSecondL2 := Lp ℝ 2 (volume : Measure Vec3)
 
-private def rieszSecondSchwartzEmbedding :
+def rieszSecondSchwartzEmbedding :
     SchwartzMap Vec3 ℝ →L[ℝ] rieszSecondL2 :=
   SchwartzMap.toLpCLM ℝ ℝ 2 volume
 

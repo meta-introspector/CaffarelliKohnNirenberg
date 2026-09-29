@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SourceMorreyGradientNumerical
-import CKN.Core.Endgame.ForceSlotNumericalData
-import CKN.Core.Endgame.ForceSlotNumericalSupport
-import CKN.Core.Endgame.Localization
+module
+
+public import CKN.Core.Step4.SourceMorreyGradientNumerical
+public import CKN.Core.Endgame.ForceSlotNumericalData
+public import CKN.Core.Endgame.ForceSlotNumericalSupport
+public import CKN.Core.Endgame.Localization
 
 /-!
 # Numerical bound for the full force slot
@@ -15,6 +17,8 @@ whereas convection uses the improved velocity bound. The selected weak
 pressure gradient is retained unchanged. All numerical parameters precede
 the solution and cutoff in the source estimate.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

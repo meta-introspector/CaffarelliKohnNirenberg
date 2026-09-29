@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSSource
-import CKN.Pressure.CZP1UnconditionalAssembly
-import CKN.Pressure.IdentificationExtensionGrowthSWS
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSSource
+public import CKN.Pressure.CZP1UnconditionalAssembly
+public import CKN.Pressure.IdentificationExtensionGrowthSWS
 
 /-!
 # The centred pressure-gradient estimate from suitable-solution data
@@ -12,6 +14,8 @@ All slice inputs to the unconditional gradient selector are supplied by
 `def:sws` and cylinder containment. The numerical constants precede the
 solution, and the source is the force-free centred tensor source.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

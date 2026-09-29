@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.GrowthExponentArithmetic
-import CKN.Core.Step4.PressureGradientOriginKPAffineSlot
-import CKN.Core.Step4.PressureGradientOriginLatticeCover
-import CKN.Foundation.Parabolic.OffCentreInclusion
+module
+
+public import CKN.Core.Step4.GrowthExponentArithmetic
+public import CKN.Core.Step4.PressureGradientOriginKPAffineSlot
+public import CKN.Core.Step4.PressureGradientOriginLatticeCover
+public import CKN.Foundation.Parabolic.OffCentreInclusion
 
 /-! # Margin cells for the origin pressure-gradient budget of `prop:bootstrap`
 
@@ -22,6 +24,8 @@ radius may exceed the margin `(1 - R₁)/4` on which the small-cell estimate of
 Together they reduce every clipped cell to margin cells centred in the carrier,
 at the cost of one absolute multiplicative constant.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal BigOperators

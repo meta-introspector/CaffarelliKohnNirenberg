@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.PotentialLocalLpP8
-import CKN.Pressure.PkBoundsP7Solution
-import CKN.Pressure.Cutoff
-import CKN.Foundation.Parabolic.BallOrigin
+module
+
+public import CKN.Foundation.Euclidean.PotentialLocalLpP8
+public import CKN.Pressure.PkBoundsP7Solution
+public import CKN.Pressure.Cutoff
+public import CKN.Foundation.Parabolic.BallOrigin
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

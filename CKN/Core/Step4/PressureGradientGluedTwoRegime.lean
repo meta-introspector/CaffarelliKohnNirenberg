@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Basic
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Basic
 
 /-!
 # The every-cell growth bound in its two regimes
@@ -22,6 +24,8 @@ The two regimes are combined here into a single every-cell statement whose
 constant is the sum of the two.  Attempting one uniform argument across all
 radii is what makes a growth clause unsatisfiable.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

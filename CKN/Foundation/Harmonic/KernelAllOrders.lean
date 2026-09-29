@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.KernelAllOrdersBounds
-import CKN.Foundation.Harmonic.KernelAllOrdersPotential
-import CKN.Pressure.Potentials
-import CKN.Pressure.PkBoundsBasic
+module
+
+public import CKN.Foundation.Harmonic.KernelAllOrdersBounds
+public import CKN.Foundation.Harmonic.KernelAllOrdersPotential
+public import CKN.Pressure.Potentials
+public import CKN.Pressure.PkBoundsBasic
+
+@[expose] public section
 
 open scoped BigOperators Topology
 open MeasureTheory

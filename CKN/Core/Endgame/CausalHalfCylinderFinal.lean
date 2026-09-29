@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.CausalHalfCylinderAssembly
-import CKN.Core.HeatPotential.PastSourcesStep2
+module
+
+public import CKN.Core.Endgame.CausalHalfCylinderAssembly
+public import CKN.Core.HeatPotential.PastSourcesStep2
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Distributions
 

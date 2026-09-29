@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
+module
+
+public import CKN.Foundation.Parabolic.Basic
 
 /-! # Radius-gauge contents for cylinders and parabolic balls
 
@@ -12,6 +14,8 @@ the radii; the reverse comparison doubles them and shifts the top time forward.
 The positive-scale limits give the source's Hausdorff radius gauges in every
 nonnegative dimension.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Metric
 open scoped ENNReal NNReal Topology

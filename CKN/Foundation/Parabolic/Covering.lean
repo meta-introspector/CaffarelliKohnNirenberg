@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import CKN.Foundation.Parabolic.Doubling
-import Mathlib.MeasureTheory.Covering.Vitali
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Foundation.Parabolic.Doubling
+public import Mathlib.MeasureTheory.Covering.Vitali
 
 /-!
 # A parabolic Vitali covering estimate
@@ -11,6 +13,8 @@ import Mathlib.MeasureTheory.Covering.Vitali
 This file records the measure estimate obtained by applying the Vitali
 covering theorem to the metric balls associated with the parabolic cylinders.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 
@@ -360,7 +364,7 @@ theorem parabolicHausdorffMeasure_one_le_integral_of_small_cylinders
   norm_num
   simpa [K] using hausdorff_bound
 
-private noncomputable def parabolicVolumeConstant : ℝ≥0∞ :=
+noncomputable def parabolicVolumeConstant : ℝ≥0∞ :=
   ENNReal.ofReal ((4 : ℝ) ^ 5) * volume (parabolicCylinder 0 0 1)
 
 private lemma volume_cylinder_unit_time (x : Vec3) (t : ℝ) :

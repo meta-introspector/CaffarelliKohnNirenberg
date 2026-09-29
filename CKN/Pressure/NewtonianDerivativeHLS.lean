@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.NewtonianDerivativeAeIntegrable
-import CKN.Foundation.Euclidean.PotentialLocalLpMeasure
+module
+
+public import CKN.Pressure.NewtonianDerivativeAeIntegrable
+public import CKN.Foundation.Euclidean.PotentialLocalLpMeasure
+
+@[expose] public section
 
 open MeasureTheory Filter
 open scoped ENNReal

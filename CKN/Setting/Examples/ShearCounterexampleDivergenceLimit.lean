@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearCounterexampleMomentumLimit
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
-import Mathlib.MeasureTheory.Function.L1Space.Integrable
+module
+
+public import CKN.Setting.Examples.ShearCounterexampleMomentumLimit
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
 
 /-! # Distributional divergence identities for the rough parabolic shear. -/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section
@@ -14,7 +18,7 @@ open scoped ENNReal Topology
 namespace CKN
 
 
-private def finiteShearDivergenceResidual (N : ℕ) (ψ : Vec3 × ℝ → ℝ)
+def finiteShearDivergenceResidual (N : ℕ) (ψ : Vec3 × ℝ → ℝ)
     (z : Vec3 × ℝ) : ℝ :=
   shearFullScalarPartial N z * spatialPartial (show ParabolicPoint → ℝ from ψ) 2 z
 
@@ -86,7 +90,7 @@ private theorem shearCounterexample_divergence_finite (N : ℕ)
       rw [hz, integral_zero]
       simp
 
-private def shearDivergenceMajorant (ψ : Vec3 × ℝ → ℝ) (z : Vec3 × ℝ) : ℝ :=
+def shearDivergenceMajorant (ψ : Vec3 × ℝ → ℝ) (z : Vec3 × ℝ) : ℝ :=
   |shearFullScalar z| *
     |spatialPartial (show ParabolicPoint → ℝ from ψ) 2 z|
 

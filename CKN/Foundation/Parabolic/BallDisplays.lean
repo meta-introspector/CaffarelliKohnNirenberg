@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
 
 /-!
 # The parabolic ball and its volume
@@ -22,6 +24,8 @@ The spatial ball `vec3Ball x r` uses the Euclidean norm on `Fin 3 → ℝ`
 volume of the Euclidean ball in `EuclideanSpace ℝ (Fin 3)` along the
 measure-preserving equivalence `WithLp.toLp 2`.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Analysis.SpecialFunctions.Pow.NNReal
+module
+
+public import Mathlib.Analysis.SpecialFunctions.Pow.NNReal
+
+@[expose] public section
 
 open scoped ENNReal
 set_option autoImplicit false

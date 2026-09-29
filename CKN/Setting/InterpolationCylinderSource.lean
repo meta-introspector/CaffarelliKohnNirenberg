@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.InterpolationCylinder
-import CKN.Setting.SobolevPoincareConstantFinite
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Setting.InterpolationCylinder
+public import CKN.Setting.SobolevPoincareConstantFinite
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-! # Two-radius interpolation from the energy data
 
@@ -10,6 +12,8 @@ Subtracting each spatial mean separates the inner-ball volume term from the
 mean-free Sobolev term. Hölder in time then yields the cubic interpolation
 estimate using only the square-integrable velocity and weak gradient.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology
@@ -126,7 +130,7 @@ private theorem scalar_inner_cubic {μ ν : Measure Vec3} [IsFiniteMeasure μ]
       exact add_le_add hcenter3 (by
         simpa only [mul_assoc] using mul_le_mul_of_nonneg_left hc3 (show 0 ≤ ν univ from bot_le))
 
-private def cubicConstant : ℝ≥0∞ :=
+def cubicConstant : ℝ≥0∞ :=
   12 * ENNReal.ofReal (Real.sqrt 3) * ((2 * sobolevPoincareL6Constant) ^ (3/2 : ℝ) + 1)
 
 private theorem cubicConstant_ne_top : cubicConstant ≠ ⊤ := by

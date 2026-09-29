@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceHarmonicForceTime
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceHarmonicForceTime
 
 /-!
 # Time integrability of the direct force-gradient contribution
@@ -9,6 +11,8 @@ import CKN.Core.Step4.PressureGradientOriginCellInstanceHarmonicForceTime
 Both cutoff source norms and the spatial force mass in
 `eq:pressure-gradient-morrey` are time integrable on any interior local box.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

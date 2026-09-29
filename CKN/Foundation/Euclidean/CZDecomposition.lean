@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.Dyadic
-import Mathlib.Analysis.SpecificLimits.Basic
-import Mathlib.MeasureTheory.Covering.DensityTheorem
-import Mathlib.MeasureTheory.Integral.Average
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
-import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+module
+
+public import CKN.Foundation.Euclidean.Dyadic
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.MeasureTheory.Covering.DensityTheorem
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
 
 /-!
 # The consumer-facing Calderón--Zygmund decomposition certificate
@@ -15,6 +17,8 @@ The certificate records the maximal dyadic cubes and all estimates needed by
 the good/bad part argument.  Its geometry is native to `Vec3`; no alternate
 Euclidean carrier is introduced.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology
@@ -26,7 +30,7 @@ noncomputable section
 
 namespace CKN.Foundation.Euclidean
 
-private instance dyadicIndexCountable : Countable DyadicIndex := by
+instance dyadicIndexCountable : Countable DyadicIndex := by
   obtain ⟨f, hf⟩ := Countable.exists_injective_nat (ℤ × DyadicCorner)
   apply Countable.mk
   refine ⟨fun Q : DyadicIndex => f (Q.scale, Q.corner), ?_⟩

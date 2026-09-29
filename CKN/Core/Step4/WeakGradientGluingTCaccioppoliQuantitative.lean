@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.StartCaccioppoli
-import Mathlib.Analysis.Real.Pi.Bounds
-import CKN.Setting.SliceNormBounds
-import CKN.Setting.ScalingQuantityNonneg
+module
+
+public import CKN.Core.Endgame.StartCaccioppoli
+public import Mathlib.Analysis.Real.Pi.Bounds
+public import CKN.Setting.SliceNormBounds
+public import CKN.Setting.ScalingQuantityNonneg
 
 /-! # Unit-data control of interior Dirichlet energy
 
@@ -12,6 +14,8 @@ The force coefficient in the gamma-form Caccioppoli estimate has an absolute
 upper bound. Applying the display on a doubled interior cylinder produces
 an explicit energy coefficient before any solution is chosen.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

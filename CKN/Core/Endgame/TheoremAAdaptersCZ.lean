@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationCZP1Unconditional
+module
+
+public import CKN.Pressure.IdentificationCZP1Unconditional
 
 /-!
 # Re-quantifying the Calderón--Zygmund pressure estimate for Theorem A
@@ -18,6 +20,8 @@ This file provides the single re-quantification adapter: from a slice
 certificate available for every suitable weak solution, it produces the
 solution-uniform `ext:CZ` estimate with the exact binder consumed downstream.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

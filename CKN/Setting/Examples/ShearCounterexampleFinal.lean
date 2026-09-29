@@ -2,10 +2,14 @@
 -- Released under Apache 2.0 license.
 
 
-import CKN.Setting.Examples.ShearCounterexample
-import CKN.Setting.Examples.ShearCounterexampleEnergyDecay
+module
+
+public import CKN.Setting.Examples.ShearCounterexample
+public import CKN.Setting.Examples.ShearCounterexampleEnergyDecay
 
 /-! # The critical shear counterexample to the exponent-two regularity criterion. -/
+
+@[expose] public section
 
 
 set_option autoImplicit false

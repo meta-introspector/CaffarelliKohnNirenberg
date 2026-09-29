@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.LocalZeroMeanPairing
-import CKN.Foundation.Harmonic.RadialBumpDensities
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
-import Mathlib.MeasureTheory.Integral.PeakFunction
-import CKN.Foundation.Harmonic.SolidBallMeanValueOriginCore
+module
+
+public import CKN.Foundation.Harmonic.LocalZeroMeanPairing
+public import CKN.Foundation.Harmonic.RadialBumpDensities
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Integral.PeakFunction
+public import CKN.Foundation.Harmonic.SolidBallMeanValueOriginCore
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped Topology ENNReal

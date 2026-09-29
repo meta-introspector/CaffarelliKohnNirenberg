@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.LocalBox
-import CKN.Core.Caccioppoli.CaccioppoliEnergyTools
+module
+
+public import CKN.Core.Caccioppoli.LocalBox
+public import CKN.Core.Caccioppoli.CaccioppoliEnergyTools
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

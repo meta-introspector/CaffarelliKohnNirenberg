@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step3.LocalEquationRepresentation
-import CKN.Core.Step3.DuhamelAdjoint
+module
+
+public import CKN.Core.Step3.LocalEquationRepresentation
+public import CKN.Core.Step3.DuhamelAdjoint
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

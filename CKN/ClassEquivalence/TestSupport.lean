@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.ClassEquivalence.Data
-import CKN.Setting.PressureGaugeSlices
-import CKN.Setting.Energy.Calculus
+module
+
+public import CKN.ClassEquivalence.Data
+public import CKN.Setting.PressureGaugeSlices
+public import CKN.Setting.Energy.Calculus
 
 /-!
 # Supports of space-time test functions
@@ -27,6 +29,8 @@ Boundedness is the form in which the test function enters: an integrand of
 `def:sws` is an integrable field times a bounded factor coming from the test
 function.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

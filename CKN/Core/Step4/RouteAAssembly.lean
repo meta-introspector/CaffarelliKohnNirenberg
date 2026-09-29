@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientMorrey
-import CKN.Core.Step4.PointwisePotential
-import CKN.Core.Step4.SourceMorreyGradient
-import CKN.Core.Endgame.Bootstrap
-import CKN.Core.Endgame.CarrierLocalAE
-import CKN.Foundation.Parabolic.Morrey.AdamsM4
-import CKN.Foundation.Parabolic.Morrey.Minkowski
+module
+
+public import CKN.Core.Step4.PressureGradientMorrey
+public import CKN.Core.Step4.PointwisePotential
+public import CKN.Core.Step4.SourceMorreyGradient
+public import CKN.Core.Endgame.Bootstrap
+public import CKN.Core.Endgame.CarrierLocalAE
+public import CKN.Foundation.Parabolic.Morrey.AdamsM4
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
+module
+
+public import CKN.Foundation.Parabolic.Basic
 
 /-!
 # Same-centre inclusion of a parabolic cylinder in a parabolic ball
@@ -13,6 +15,8 @@ uses the sharper *same-centre* inclusion `Q_r(z) ⊆ 𝔅_r(z)`, which is what l
 a cylinder-stated defect inequality to a ball-run covering argument.  This file
 records that inclusion.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Metric
 

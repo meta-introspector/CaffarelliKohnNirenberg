@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.PressureGradientOriginASlotSourceCorrectionSupport
-import CKN.Core.Step4.WeakGradientGluingTCentredSourceCorrection
-import CKN.Core.Step4.WeakGradientGluingTRieszSourceQuantitative
-import CKN.Core.Step4.WeakGradientGluingTRieszSelection
-import CKN.Core.Step4.PressureGradientGaugeMajorantExponents
+module
+
+public import CKN.Core.Step4.PressureGradientOriginASlotSourceCorrectionSupport
+public import CKN.Core.Step4.WeakGradientGluingTCentredSourceCorrection
+public import CKN.Core.Step4.WeakGradientGluingTRieszSourceQuantitative
+public import CKN.Core.Step4.WeakGradientGluingTRieszSelection
+public import CKN.Core.Step4.PressureGradientGaugeMajorantExponents
 
 /-! # From a Morrey majorant to the A-slot estimate for the correction
 
@@ -14,6 +16,8 @@ soon as the carrier-restricted sources carry a common Morrey majorant.  The
 carrier restriction is invisible on the collar time window because the
 correction vanishes off the source ball.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal BigOperators

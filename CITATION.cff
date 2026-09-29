@@ -6,17 +6,18 @@ message: >-
   Vlad Vicol was partially supported by the Collaborative NSF grant DMS-2307681
   and by a Simons Investigator Award.
 title: "CaffarelliKohnNirenberg: a Lean 4 formalization of the Caffarelli-Kohn-Nirenberg partial regularity theorem for the Navier-Stokes equations"
-version: "1.0"
-date-released: 2026-09-22
+version: "2.0"
+date-released: 2026-09-29
 abstract: >-
   A machine-checked Lean 4 / Mathlib formalization of the Caffarelli-Kohn-Nirenberg
   partial regularity theory for suitable weak solutions of the three-dimensional
   Navier-Stokes equations: the L^3 epsilon-regularity theorem (Theorem A), the
   gradient epsilon-regularity criterion (Theorem B) and the theorem that the
   singular set has zero one-dimensional parabolic Hausdorff measure (Theorem C),
-  each proved using only the standard axioms, with
-  Mathlib-only comparator challenges checked separately and an explicit
-  non-zero suitable weak solution witnessing that the solution class is inhabited.
+  and Leray's global existence of suitable weak solutions for every
+  divergence-free L^2 datum, with the associated pressure and forced versions.
+  Each result is proved using only the standard axioms, with Mathlib-only
+  comparator challenges checked separately.
 type: software
 authors:
   - family-names: Armstrong

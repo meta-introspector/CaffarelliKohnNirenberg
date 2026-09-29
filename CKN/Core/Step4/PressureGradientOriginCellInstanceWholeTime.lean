@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTermTime
-import CKN.Core.Step4.PressureGradientOriginCellInstanceForceGradientTime
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTermTime
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceForceGradientTime
 
 /-!
 # Compact-time integrability of the complete centered slice majorant
@@ -11,6 +13,8 @@ Every term of the explicit majorant in `eq:pressure-gradient-morrey` is
 integrable in time at a fixed interior origin radius, on every local box of
 the solution interval.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

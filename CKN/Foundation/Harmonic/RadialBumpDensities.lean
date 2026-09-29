@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorBasic
-import CKN.Foundation.Sobolev.Cutoff.BallTopology
-import CKN.Foundation.Harmonic.Commutator.SphereTransport
-import Mathlib.Analysis.Calculus.BumpFunction.Basic
-import Mathlib.MeasureTheory.Integral.Bochner.Set
+module
+
+public import CKN.Foundation.Harmonic.InteriorBasic
+public import CKN.Foundation.Sobolev.Cutoff.BallTopology
+public import CKN.Foundation.Harmonic.Commutator.SphereTransport
+public import Mathlib.Analysis.Calculus.BumpFunction.Basic
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+
+@[expose] public section
 
 open MeasureTheory
 open scoped Topology
@@ -23,7 +27,7 @@ evaluation and solid-ball averages.
 
 namespace CKN.Foundation.Harmonic
 
-private def scalarRadialBump (r α : ℝ) (hr : 0 < r)
+def scalarRadialBump (r α : ℝ) (hr : 0 < r)
     (hα : 0 < α) (hα1 : α < 1) : ContDiffBump (0 : ℝ) :=
   ⟨α * r ^ 2, r ^ 2, mul_pos hα (sq_pos_of_pos hr), by
     nlinarith only [hα1, sq_pos_of_pos hr]⟩

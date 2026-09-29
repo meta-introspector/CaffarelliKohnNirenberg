@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorBasic
-import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+module
+
+public import CKN.Foundation.Harmonic.InteriorBasic
+public import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+
+@[expose] public section
 
 open scoped BigOperators Topology
 open CKN.Foundation.Parabolic

@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step2.MorreyDecay
-import CKN.Core.Step2.ThetaDecayAbsoluteConstant
+module
+
+public import CKN.Core.Step2.MorreyDecay
+public import CKN.Core.Step2.ThetaDecayAbsoluteConstant
+
+@[expose] public section
 
 open CKN.Foundation.Parabolic Filter
 open scoped ENNReal NNReal Topology

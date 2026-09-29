@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.NewtonianRepresentation
-import CKN.Pressure.LeibnizLaplacian
+module
+
+public import CKN.Foundation.Harmonic.NewtonianRepresentation
+public import CKN.Pressure.LeibnizLaplacian
+
+@[expose] public section
 
 open MeasureTheory
 open CKN.Foundation.Parabolic

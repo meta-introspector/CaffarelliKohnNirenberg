@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.BootstrapBounds
-import CKN.Core.Endgame.Causality
-import CKN.Core.Step4.SourceMorreyGradient
+module
+
+public import CKN.Core.Endgame.BootstrapBounds
+public import CKN.Core.Endgame.Causality
+public import CKN.Core.Step4.SourceMorreyGradient
 
 /-! # Quantitative bootstrap from past-time sources
 
@@ -11,6 +13,8 @@ The global bootstrap is applied to the truncated potential itself. Its
 agreement with velocity is needed only on the target cylinder. Consequently
 no bound or representation for the truncated velocity at future times is used.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal

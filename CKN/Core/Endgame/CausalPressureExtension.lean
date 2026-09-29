@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.CausalSources
-import CKN.Foundation.Parabolic.Morrey.Basic
+module
+
+public import CKN.Core.Endgame.CausalSources
+public import CKN.Foundation.Parabolic.Morrey.Basic
 
 /-! # Past-time extension of a localized pressure field
 
@@ -10,6 +12,8 @@ Zero extension inside the past half-space preserves the localized source
 when its cutoff is supported in the smaller cylinder. No global weak-gradient
 characterization is asserted for the extended field.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal

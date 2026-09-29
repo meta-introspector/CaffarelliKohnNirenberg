@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationExtensionUnconditional
-import CKN.Pressure.Lin34CentredSource
-import CKN.Pressure.Lin34SliceIntegrated
+module
+
+public import CKN.Pressure.IdentificationExtensionUnconditional
+public import CKN.Pressure.Lin34CentredSource
+public import CKN.Pressure.Lin34SliceIntegrated
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

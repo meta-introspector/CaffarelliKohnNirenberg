@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorRepresentative
-import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+module
+
+public import CKN.Foundation.Harmonic.InteriorRepresentative
+public import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Convolution
 open MeasureTheory MeasureTheory.Measure Set Filter

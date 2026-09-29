@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.ScaleSupport
-import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
-import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
-import Mathlib.Analysis.PSeries
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.ScaleSupport
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
+public import Mathlib.Analysis.PSeries
 
 /-! # L2 estimates for the shear force. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory

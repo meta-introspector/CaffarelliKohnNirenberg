@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.ExcessComparisonCore
+module
+
+public import CKN.Setting.ExcessComparisonCore
 
 /-! Pressure-side comparisons for the Tsai excess quantities. -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology BigOperators

@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.RouteAAssembly
-import CKN.Core.Step4.SourceMorreyGradient
+module
+
+public import CKN.Core.Step4.RouteAAssembly
+public import CKN.Core.Step4.SourceMorreyGradient
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.DeltaPCentredMeanFreeAllTests
+module
+
+public import CKN.Pressure.DeltaPCentredMeanFreeAllTests
 
 /-! # A common exceptional set for pressure tests on a cylinder
 
 The spatial pressure identity is restricted to the open cylinder time window
 before the test function is selected, retaining the original solution fields.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped BigOperators ENNReal

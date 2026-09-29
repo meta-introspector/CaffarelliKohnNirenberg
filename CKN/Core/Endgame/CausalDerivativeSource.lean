@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.CutoffMorrey
-import CKN.Core.Endgame.OneSidedCutoff
-import CKN.Core.Step4.SourceMorreyGradient
-import CKN.Setting.ScalingInvarianceTests
+module
+
+public import CKN.Core.Endgame.CutoffMorrey
+public import CKN.Core.Endgame.OneSidedCutoff
+public import CKN.Core.Step4.SourceMorreyGradient
+public import CKN.Setting.ScalingInvarianceTests
 
 /-!
 # The concrete causal differentiated cutoff source
@@ -13,6 +15,8 @@ The paper source `-2 ∂ⱼφ uᵢ`, truncated to the past, is measurable using
 only local suitable-solution data. Its support and Morrey bound follow
 from the cutoff support, its derivative bound, and initial velocity norms.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

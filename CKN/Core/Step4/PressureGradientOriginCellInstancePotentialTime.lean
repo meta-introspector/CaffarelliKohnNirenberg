@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalForce
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalForce
 
 /-!
 # Measurability of time-dependent force potentials
@@ -10,6 +12,8 @@ Spatial integration against a measurable kernel preserves measurability
 of the potential norm in time. This applies to the force-growth constants
 in `eq:pressure-gradient-morrey` without assuming temporal regularity.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Metric Filter
 open scoped ENNReal NNReal Topology BigOperators

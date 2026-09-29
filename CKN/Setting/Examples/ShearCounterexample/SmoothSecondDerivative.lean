@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries
-import Mathlib.Analysis.Calculus.ContDiff.Operations
+module
+
+public import Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
 
 /-! # Second derivative identities for smooth shear factors. -/
+
+@[expose] public section
 
 namespace CKN
 

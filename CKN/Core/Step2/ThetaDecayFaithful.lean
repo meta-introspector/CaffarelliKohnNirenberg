@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step2.ThetaDecayAbsoluteConstant
+module
+
+public import CKN.Core.Step2.ThetaDecayAbsoluteConstant
+
+@[expose] public section
 
 open CKN.Foundation.Parabolic CKN.Core.Step3
 open scoped BigOperators ENNReal NNReal Topology

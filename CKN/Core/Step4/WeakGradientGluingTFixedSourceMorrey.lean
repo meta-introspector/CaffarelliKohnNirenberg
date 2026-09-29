@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTFixedSelection
-import CKN.Core.Step4.PressureGradientHGCloserCellsMeanMorrey
-import CKN.Core.Step4.PressureGradientGaugeMajorantExponents
-import CKN.Core.Endgame.CarrierRestriction
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTFixedSelection
+public import CKN.Core.Step4.PressureGradientHGCloserCellsMeanMorrey
+public import CKN.Core.Step4.PressureGradientGaugeMajorantExponents
+public import CKN.Core.Endgame.CarrierRestriction
 
 /-! # Morrey membership of the fixed force-free pressure source
 
@@ -12,6 +14,8 @@ The localization cylinder is inside the prescribed velocity and gradient
 carrier. Suitability controls its fixed spatial mean through the local energy
 bound, and the force-free tensor estimate then gives the target source class.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology BigOperators

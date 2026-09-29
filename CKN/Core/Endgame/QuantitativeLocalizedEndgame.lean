@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.QuantitativeEndgame
-import CKN.Core.Endgame.Localization
-import CKN.Core.Step4.SourceMorreyGradient
-import CKN.Setting.PoincareSobolevL1SliceBasic
+module
+
+public import CKN.Core.Endgame.QuantitativeEndgame
+public import CKN.Core.Endgame.Localization
+public import CKN.Core.Step4.SourceMorreyGradient
+public import CKN.Setting.PoincareSobolevL1SliceBasic
 
 /-! # Quantitative bounds from literal localized sources
 
@@ -12,6 +14,8 @@ The numerical source bounds remain explicit hypotheses. This result converts
 them, together with the localized heat identity, into a uniform full Hölder
 norm. It does not establish the uniform source estimates themselves.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.ScalingInvarianceBasic
-import CKN.Foundation.Parabolic.Integration.Scaling
-import CKN.Foundation.Sobolev.WeakDerivative
+module
+
+public import CKN.Setting.ScalingInvarianceBasic
+public import CKN.Foundation.Parabolic.Integration.Scaling
+public import CKN.Foundation.Sobolev.WeakDerivative
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology Pointwise
@@ -15,7 +19,7 @@ noncomputable section
 
 namespace CKN
 
-private def weakSpatialHomeomorph (μ : ℝ) (hμ : 0 < μ) (x₀ : Vec3) :
+def weakSpatialHomeomorph (μ : ℝ) (hμ : 0 < μ) (x₀ : Vec3) :
     Vec3 ≃ₜ Vec3 :=
   (Homeomorph.smulOfNeZero μ hμ.ne').trans (Homeomorph.addLeft x₀)
 

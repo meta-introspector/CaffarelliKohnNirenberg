@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.AdamsBridge
-import CKN.Foundation.Parabolic.Morrey.Indicator
-import CKN.Core.Step4.PressureGradientGluedOriginTransfer
-import CKN.Core.Step4.PressureGradientHGCloserCellsShellTime
+module
+
+public import CKN.Foundation.Parabolic.Morrey.AdamsBridge
+public import CKN.Foundation.Parabolic.Morrey.Indicator
+public import CKN.Core.Step4.PressureGradientGluedOriginTransfer
+public import CKN.Core.Step4.PressureGradientHGCloserCellsShellTime
 
 /-!
 # Time integrals on clipped origin cells
@@ -14,6 +16,8 @@ with the origin carrier and the corresponding intersection of backward time
 windows. Tonelli identifies these integrals with the carrier-restricted
 space-time mass without extending any data outside the carrier.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology BigOperators

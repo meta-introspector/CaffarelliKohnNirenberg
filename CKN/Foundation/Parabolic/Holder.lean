@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
+module
+
+public import CKN.Foundation.Parabolic.Basic
 
 /-!
 # Hölder bounds for the parabolic metric
@@ -9,6 +11,8 @@ import CKN.Foundation.Parabolic.Basic
 This module names the seminorm used by the space-time regularity statements.
 The measure-theoretic representative predicate records agreement on a set.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

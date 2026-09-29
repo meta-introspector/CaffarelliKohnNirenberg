@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Iteration.Arithmetic
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Ring
+module
+
+public import CKN.Core.Iteration.Arithmetic
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Ring
 
 /-!
 # The standing parameters of Section 5
@@ -30,6 +32,8 @@ used in Corollary `cor:one-round`, the positivity and upper bound
 `0 < γ₀(q) ≤ 1/5` for `q > 5/2`, the lower bound `σ > 1` for `q > 5/2`, and
 the exponent identities `2 - 5/θ₀ = 1 - 5/θ₁ = γ` of `eq:q0q1`.
 -/
+
+@[expose] public section
 
 set_option autoImplicit false
 

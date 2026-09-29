@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step3.GradientSlotDuhamel
-import CKN.Core.Step4.PressureGradientBase
-import CKN.Core.Step4.PressureGradientOneSided
-import CKN.Core.Step4.PressureGradientOneSidedCell
-import CKN.Core.Step4.RouteAAssembly
-import CKN.Core.Step4.RouteAOneRound
-import CKN.Foundation.Parabolic.Morrey.Zero
+module
+
+public import CKN.Core.Step3.GradientSlotDuhamel
+public import CKN.Core.Step4.PressureGradientBase
+public import CKN.Core.Step4.PressureGradientOneSided
+public import CKN.Core.Step4.PressureGradientOneSidedCell
+public import CKN.Core.Step4.RouteAAssembly
+public import CKN.Core.Step4.RouteAOneRound
+public import CKN.Foundation.Parabolic.Morrey.Zero
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

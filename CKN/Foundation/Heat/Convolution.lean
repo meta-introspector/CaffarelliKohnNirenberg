@@ -1,14 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.Basic
-import CKN.Foundation.Heat.Bounds
-import CKN.Foundation.Ambient.Euclidean
-import CKN.Foundation.Sobolev.Ambient.Basis
-import CKN.Pressure.LeibnizLaplacian
-import Mathlib.Analysis.Calculus.ContDiff.Convolution
-import Mathlib.Analysis.Calculus.ParametricIntegral
-import Mathlib.MeasureTheory.Integral.PeakFunction
+module
+
+public import CKN.Foundation.Heat.Basic
+public import CKN.Foundation.Heat.Bounds
+public import CKN.Foundation.Ambient.Euclidean
+public import CKN.Foundation.Sobolev.Ambient.Basis
+public import CKN.Pressure.LeibnizLaplacian
+public import Mathlib.Analysis.Calculus.ContDiff.Convolution
+public import Mathlib.Analysis.Calculus.ParametricIntegral
+public import Mathlib.MeasureTheory.Integral.PeakFunction
 
 /-!
 # Heat-kernel convolution
@@ -18,6 +20,8 @@ route to the Newtonian kernel.  The heat kernel is the left factor and the
 compactly supported function is the right factor, so Mathlib's right-factor
 regularity and derivative-transport theorems apply directly.
 -/
+
+@[expose] public section
 
 open scoped Convolution
 open scoped BigOperators

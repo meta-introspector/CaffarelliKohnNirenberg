@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Inequalities.Seeley
-import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Ring
+module
+
+public import CKN.Foundation.Sobolev.Inequalities.Seeley
+public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
 
 /-!
 # Quantitative bounds for the two-reflection extension
@@ -13,6 +15,8 @@ This file records the derivative and Jacobian estimates on the closed annulus.
 The constants are deliberately coarse absolute constants; their role is to
 make the change-of-variables estimates explicit.
 -/
+
+@[expose] public section
 
 open Set
 open scoped BigOperators

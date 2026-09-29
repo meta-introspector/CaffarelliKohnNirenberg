@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.LeibnizLaplacian
-import Mathlib.MeasureTheory.Integral.Bochner.Set
+module
+
+public import CKN.Pressure.LeibnizLaplacian
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientSymmetricCell
-import CKN.Core.Step4.RouteAGradientProducerUniformExponents
-import CKN.Core.Step4.RouteAGradientProducerUniformMorrey
-import CKN.Foundation.Parabolic.BallBasics
+module
+
+public import CKN.Core.Step4.PressureGradientSymmetricCell
+public import CKN.Core.Step4.RouteAGradientProducerUniformExponents
+public import CKN.Core.Step4.RouteAGradientProducerUniformMorrey
+public import CKN.Foundation.Parabolic.BallBasics
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

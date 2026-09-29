@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Cutoff.Ball
-import Mathlib.Analysis.FunctionalSpaces.SobolevInequality
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
-import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
-import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+module
+
+public import CKN.Foundation.Sobolev.Cutoff.Ball
+public import Mathlib.Analysis.FunctionalSpaces.SobolevInequality
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
 
 /-!
 # Local Sobolev and interpolation inequalities for smooth functions
@@ -20,6 +22,8 @@ of both the function and its gradient, together with the weak product rule
 for a smooth cutoff. Interpolation yields the `L³` and `L^(10/3)` estimates;
 for `Q_r = (t-r²,t) × B_r`, the `L³` cylinder factor is `r^(1/2)`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

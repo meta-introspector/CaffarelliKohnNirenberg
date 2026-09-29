@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.Hedberg
+module
+
+public import CKN.Foundation.Euclidean.Hedberg
 
 /-!
 # The order-one Hardy--Littlewood--Sobolev estimate in dimension three
@@ -11,6 +13,8 @@ The proof is Hedberg's pointwise estimate followed by the strong maximal
 estimate.  The a.e. maximal-data hypothesis is exposed so that zero data and
 finite truncations can be handled by the consuming pressure lemma.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.CZCylinderBridge
-import CKN.Core.Step3.ThetaDecayTShape
-import CKN.Pressure.IdentificationExtensionUnconditional
+module
+
+public import CKN.Foundation.Euclidean.CZCylinderBridge
+public import CKN.Core.Step3.ThetaDecayTShape
+public import CKN.Pressure.IdentificationExtensionUnconditional
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

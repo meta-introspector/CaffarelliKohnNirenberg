@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.TheoremA.StartLin34Unconditional
-import CKN.Core.Step2.IterationAbsoluteConstant
+module
+
+public import CKN.Core.TheoremA.StartLin34Unconditional
+public import CKN.Core.Step2.IterationAbsoluteConstant
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped BigOperators ENNReal NNReal Topology

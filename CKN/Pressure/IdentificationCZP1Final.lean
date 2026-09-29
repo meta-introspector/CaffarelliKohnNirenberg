@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationCZP1LocalGrowth
-import CKN.Pressure.CZP1Closer
-import CKN.Pressure.SliceVelocityCube
-import CKN.Core.Step3.ThetaDecayTShape
+module
+
+public import CKN.Pressure.IdentificationCZP1LocalGrowth
+public import CKN.Pressure.CZP1Closer
+public import CKN.Pressure.SliceVelocityCube
+public import CKN.Core.Step3.ThetaDecayTShape
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

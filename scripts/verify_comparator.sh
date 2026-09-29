@@ -23,25 +23,38 @@ for required_command in cargo git go lake python3; do
   fi
 done
 
-python3 - "$repository_root/comparator.json" <<'PY'
+comparator_configs=()
+if [ -f "$repository_root/comparator.json" ]; then
+  comparator_configs+=(comparator.json)
+fi
+while IFS= read -r config; do
+  comparator_configs+=("$config")
+done < <(cd "$repository_root" && ls comparators/*/comparator.json 2>/dev/null | sort)
+if [ "${#comparator_configs[@]}" -eq 0 ]; then
+  echo "error: no comparator.json or comparators/*/comparator.json found" >&2
+  exit 1
+fi
+
+python3 - "${comparator_configs[@]/#/$repository_root/}" <<'PY'
 import json
 import pathlib
 import sys
 
-config_path = pathlib.Path(sys.argv[1])
-try:
-    config = json.loads(config_path.read_text(encoding="utf-8"))
-except (OSError, UnicodeError, json.JSONDecodeError) as error:
-    print(f"error: cannot read valid Comparator config {config_path}: {error}", file=sys.stderr)
-    raise SystemExit(1)
+for argument in sys.argv[1:]:
+    config_path = pathlib.Path(argument)
+    try:
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as error:
+        print(f"error: cannot read valid Comparator config {config_path}: {error}", file=sys.stderr)
+        raise SystemExit(1)
 
-if not isinstance(config, dict) or config.get("enable_nanoda") is not True:
-    print(
-        f"error: {config_path}: enable_nanoda must be exactly true; "
-        "the NanoDa replay is required",
-        file=sys.stderr,
-    )
-    raise SystemExit(1)
+    if not isinstance(config, dict) or config.get("enable_nanoda") is not True:
+        print(
+            f"error: {config_path}: enable_nanoda must be exactly true; "
+            "the NanoDa replay is required",
+            file=sys.stderr,
+        )
+        raise SystemExit(1)
 PY
 
 mkdir -p "$cache_root" "$bin_dir"
@@ -85,7 +98,10 @@ GOMAXPROCS="${GOMAXPROCS:-2}" GOBIN="$bin_dir" go install "github.com/zouuup/lan
 (cd "$nanoda_dir" && cargo build --release --locked -j "${CARGO_BUILD_JOBS:-2}")
 
 cd "$repository_root"
-COMPARATOR_LEAN4EXPORT="$lean4export_dir/.lake/build/bin/lean4export" \
-COMPARATOR_NANODA="$nanoda_dir/target/release/nanoda_bin" \
-COMPARATOR_LANDRUN="$bin_dir/landrun" \
-  lake env "$comparator_dir/.lake/build/bin/comparator" comparator.json
+for config in "${comparator_configs[@]}"; do
+  echo "== Comparator: $config"
+  COMPARATOR_LEAN4EXPORT="$lean4export_dir/.lake/build/bin/lean4export" \
+  COMPARATOR_NANODA="$nanoda_dir/target/release/nanoda_bin" \
+  COMPARATOR_LANDRUN="$bin_dir/landrun" \
+    lake env "$comparator_dir/.lake/build/bin/comparator" "$config"
+done

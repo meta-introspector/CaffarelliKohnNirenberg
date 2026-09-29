@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Inequalities.SeeleyPoincare
+module
+
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyPoincare
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal Pointwise

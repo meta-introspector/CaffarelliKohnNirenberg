@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTGapForceAffine
-import CKN.Core.Step4.WeakGradientGluingTFourTermMass
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTGapForceAffine
+public import CKN.Core.Step4.WeakGradientGluingTFourTermMass
 
 /-! # Homogeneous time mass of the annular force increment
 
 Spatial boundedness on the half-collar and Holder's inequality in space
 and time retain the force data power without an additive constant.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology BigOperators

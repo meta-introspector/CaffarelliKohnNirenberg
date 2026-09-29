@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.PastSourcesNear
-import CKN.Core.HeatPotential.GeneralSymbolCharacterizationFinal
+module
+
+public import CKN.Core.HeatPotential.PastSourcesNear
+public import CKN.Core.HeatPotential.GeneralSymbolCharacterizationFinal
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Distributions
 

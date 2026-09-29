@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.RepresentativeBound
-import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+module
+
+public import CKN.Core.Endgame.RepresentativeBound
+public import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
 
 /-! # Reanchoring by an actual L^(10/3) velocity bound
 
@@ -10,6 +12,8 @@ Finite L^(10/3) control supplies integrability and the velocity average.
 Together with a global Hölder seminorm this gives an explicit full norm,
 with a center-independent coefficient on parabolic balls.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

@@ -1,17 +1,19 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.DivergenceFreeSlice
-import CKN.Foundation.Measure.SliceDistribution
-import CKN.Foundation.Measure.SliceDistributionMollifyBounds
-import CKN.Foundation.Sobolev.Mollify.Basic
-import CKN.Foundation.Sobolev.WeakDerivative
-import CKN.Foundation.Parabolic.Topology
-import CKN.Foundation.Parabolic.BallBasics
-import CKN.Statements.SpaceTimeTestFunction
-import CKN.Setting.Energy.Calculus
-import Mathlib.Analysis.Calculus.ContDiff.Convolution
-import Mathlib.MeasureTheory.Integral.Prod
+module
+
+public import CKN.Setting.DivergenceFreeSlice
+public import CKN.Foundation.Measure.SliceDistribution
+public import CKN.Foundation.Measure.SliceDistributionMollifyBounds
+public import CKN.Foundation.Sobolev.Mollify.Basic
+public import CKN.Foundation.Sobolev.WeakDerivative
+public import CKN.Foundation.Parabolic.Topology
+public import CKN.Foundation.Parabolic.BallBasics
+public import CKN.Statements.SpaceTimeTestFunction
+public import CKN.Setting.Energy.Calculus
+public import Mathlib.Analysis.Calculus.ContDiff.Convolution
+public import Mathlib.MeasureTheory.Integral.Prod
 
 /-!
 # A common exceptional set for C¹ divergence tests
@@ -21,6 +23,8 @@ identity for smooth tests. Local integrability of the slices then extends that
 identity by spatial mollification to every compactly supported C¹ test in an
 interior ball, outside one exceptional time set.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators Topology Convolution

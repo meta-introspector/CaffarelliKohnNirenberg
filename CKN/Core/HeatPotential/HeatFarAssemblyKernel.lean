@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.HeatFarAssemblyGeometry
-import CKN.Core.HeatPotential.FarShell
-import CKN.Foundation.Sobolev.Ambient.Basis
-import Mathlib.Analysis.Calculus.MeanValue
+module
+
+public import CKN.Core.HeatPotential.HeatFarAssemblyGeometry
+public import CKN.Core.HeatPotential.FarShell
+public import CKN.Foundation.Sobolev.Ambient.Basis
+public import Mathlib.Analysis.Calculus.MeanValue
 
 /-!
 # Kernel oscillation across a far shell
@@ -30,6 +32,8 @@ Both estimates use the separation `farShellAssembly_gauge_lower`, so the
 gauge is at least `R / 2` throughout and the kernel orders four, five and six
 turn into powers of `R`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology BigOperators

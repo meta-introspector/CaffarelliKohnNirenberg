@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTFixedSourceMorrey
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTFixedSourceMorrey
 
 /-! # Morrey membership of the fixed near-force source
 
@@ -9,6 +11,8 @@ Local force integrability on a finite fixed carrier gives the target source
 Morrey class. The cutoff is bounded by one, and no spatial supremum bound
 on the force is used.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

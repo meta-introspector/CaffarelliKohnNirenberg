@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Lin34Slices
-import CKN.Pressure.OscillationLin34
-import CKN.Pressure.PkBoundsUnconditionalP234
-import CKN.Pressure.PkBoundsUnconditionalP56
-import CKN.Pressure.PkBoundsUnconditionalP8
-import CKN.Setting.SliceNormBounds
-import CKN.Setting.TimeHolder
-import CKN.Foundation.Parabolic.Integration.Average
+module
+
+public import CKN.Pressure.Lin34Slices
+public import CKN.Pressure.OscillationLin34
+public import CKN.Pressure.PkBoundsUnconditionalP234
+public import CKN.Pressure.PkBoundsUnconditionalP56
+public import CKN.Pressure.PkBoundsUnconditionalP8
+public import CKN.Setting.SliceNormBounds
+public import CKN.Setting.TimeHolder
+public import CKN.Foundation.Parabolic.Integration.Average
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

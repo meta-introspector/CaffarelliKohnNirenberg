@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.SliceNormBoundsPaperVelocity
-import CKN.Setting.SliceNormBoundsPaperGradient
-import CKN.Setting.SliceNormBoundsPaperPressure
-import CKN.Setting.SliceNormBoundsPaperForce
+module
+
+public import CKN.Setting.SliceNormBoundsPaperVelocity
+public import CKN.Setting.SliceNormBoundsPaperGradient
+public import CKN.Setting.SliceNormBoundsPaperPressure
+public import CKN.Setting.SliceNormBoundsPaperForce
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

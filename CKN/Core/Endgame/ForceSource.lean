@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Minkowski
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
 
 /-!
 # Uniform force-source Morrey bounds
@@ -11,6 +13,8 @@ force inherits its global integral bound. The global Lebesgue-to-Morrey
 estimate and unit-support exponent reduction preserve a fully numerical
 bound, with no conversion of infinite integrals to real numbers.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

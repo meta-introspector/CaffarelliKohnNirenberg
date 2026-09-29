@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Inequalities.SeeleyC1
-import CKN.Foundation.Sobolev.Inequalities.SeeleyEnergy
-import CKN.Foundation.Sobolev.Inequalities.SeeleyGradient
-import CKN.Foundation.Sobolev.Inequalities.SeeleyPoincare
-import CKN.Foundation.Sobolev.Inequalities.SeeleyScaling
-import CKN.Foundation.Sobolev.Inequalities.Smooth
+module
+
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyC1
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyEnergy
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyGradient
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyPoincare
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyScaling
+public import CKN.Foundation.Sobolev.Inequalities.Smooth
 
 /-!
 # Unit-ball Sobolev localization through the two-reflection extension
@@ -15,6 +17,8 @@ The compactly supported cutoff of the `C¹` extension is the smooth input for th
 same-ball estimate.  This module records the localization step explicitly; the
 remaining reduction of its outer-ball terms to the original ball is kept separate.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal

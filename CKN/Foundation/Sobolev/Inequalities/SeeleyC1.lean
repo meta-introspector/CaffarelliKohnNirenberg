@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Inequalities.Seeley
+module
+
+public import CKN.Foundation.Sobolev.Inequalities.Seeley
 
 /-!
 # The `C¹` Seeley extension
@@ -10,6 +12,8 @@ This file supplies the global differentiability and compact-support interface fo
 two-reflection extension.  The derivative is glued across the unit sphere using the
 matching identities from `Seeley`.
 -/
+
+@[expose] public section
 
 open Set
 open scoped Topology
@@ -28,7 +32,7 @@ private theorem seeleyC1_annulus_open : IsOpen seeleyAnnulus := by
   exact (isOpen_lt continuous_const hnorm).inter
     (isOpen_lt hnorm continuous_const)
 
-private def seeleyC1Derivative (v : Vec 3 → ℝ) (x : Vec 3) :
+def seeleyC1Derivative (v : Vec 3 → ℝ) (x : Vec 3) :
     Vec 3 →L[ℝ] ℝ :=
   (3 : ℝ) • ((fderiv ℝ v (seeleyReflectionOne x)) ∘SL
     (fderiv ℝ seeleyReflectionOne x)) -

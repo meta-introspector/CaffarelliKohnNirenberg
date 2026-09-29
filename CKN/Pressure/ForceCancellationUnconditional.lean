@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.ForceCancellation
-import CKN.Pressure.PkBoundsP7Solution
-import CKN.Pressure.PkBoundsUnconditionalCore
-import CKN.Foundation.Measure.SliceDistribution
-import CKN.Pressure.HarmonicRemainderForceTerms
+module
+
+public import CKN.Pressure.ForceCancellation
+public import CKN.Pressure.PkBoundsP7Solution
+public import CKN.Pressure.PkBoundsUnconditionalCore
+public import CKN.Foundation.Measure.SliceDistribution
+public import CKN.Pressure.HarmonicRemainderForceTerms
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

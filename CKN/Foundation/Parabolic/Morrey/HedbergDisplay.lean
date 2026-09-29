@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.AdamsEndpoints
-import CKN.Foundation.Parabolic.Morrey.AdamsConstantFinite
-import CKN.Foundation.Parabolic.Morrey.Cylinders
-import CKN.Foundation.Parabolic.Morrey.Minkowski
-import CKN.Foundation.Parabolic.BallDisplays
+module
+
+public import CKN.Foundation.Parabolic.Morrey.AdamsEndpoints
+public import CKN.Foundation.Parabolic.Morrey.AdamsConstantFinite
+public import CKN.Foundation.Parabolic.Morrey.Cylinders
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+public import CKN.Foundation.Parabolic.BallDisplays
 
 /-!
 # Hedberg's inequality with a sum-gauge potential
@@ -34,6 +36,8 @@ display above: the centred maximal function is a majorant in that sense
 0 0 1))`, which is bounded uniformly in `P` and therefore absorbed into a
 single `C₂₀(a, τ)`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

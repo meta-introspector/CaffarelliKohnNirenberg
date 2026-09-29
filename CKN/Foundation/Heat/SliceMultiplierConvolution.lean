@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.SpatialSliceMultiplier
-import Mathlib.Analysis.Convolution
+module
+
+public import CKN.Foundation.Heat.SpatialSliceMultiplier
+public import Mathlib.Analysis.Convolution
 
 /-!
 # The multiplier commutes with the heat convolution
@@ -38,6 +40,8 @@ space-time statement below records; its Fubini step consumes the local integrabi
 of `ς(D)W₊` in space-time, the fourth clause of `eq:heat-kernel-bounds`, and that
 clause is carried here as an explicit integrability hypothesis rather than assumed.
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open MeasureTheory

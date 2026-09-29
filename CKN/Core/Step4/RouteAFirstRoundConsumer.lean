@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.RouteAOneRoundFinal
-import CKN.Core.Step4.SourceMorreyFirstRound
+module
+
+public import CKN.Core.Step4.RouteAOneRoundFinal
+public import CKN.Core.Step4.SourceMorreyFirstRound
 
 /-!
 # The first round of `prop:bootstrap` with its source data supplied
@@ -14,6 +16,8 @@ first-round exponents `(6/5, 25/11)` and `(3, 25/6)`.  The last of these is
 `first_round_source_package_of_sws`, so the round below carries only the two
 remaining inputs.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Metric
 open scoped ENNReal

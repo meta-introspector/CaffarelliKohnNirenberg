@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.PotentialLocalLpP8
-import CKN.Pressure.Lin34Slices
-import CKN.Pressure.PkBoundsCylinder
+module
+
+public import CKN.Foundation.Euclidean.PotentialLocalLpP8
+public import CKN.Pressure.Lin34Slices
+public import CKN.Pressure.PkBoundsCylinder
 
 /-!
 # The local `L^{3/2}` class and linear growth of `p₇ + p₈` for the ball cut-off
@@ -25,6 +27,8 @@ ball `vec3Ball x₀ ρ`: the cut-off is bounded by `1`, its derivative is bounde
 `cutoffGradientConstant / ρ`, and both are supported in that ball.  The resulting growth
 constant is recorded as `czHarmonicForceGrowthConstant`.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

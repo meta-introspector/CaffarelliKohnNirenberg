@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Poincare.KernelSegment
-import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
-import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
-import Mathlib.MeasureTheory.Measure.WithDensity
+module
+
+public import CKN.Foundation.Sobolev.Poincare.KernelSegment
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
+public import Mathlib.MeasureTheory.Measure.WithDensity
+
+@[expose] public section
 
 namespace CKN
 

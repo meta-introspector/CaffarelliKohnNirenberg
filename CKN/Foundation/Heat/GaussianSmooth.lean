@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.CylinderCentered
-import CKN.Foundation.Heat.Smooth
+module
+
+public import CKN.Foundation.Heat.CylinderCentered
+public import CKN.Foundation.Heat.Smooth
+
+@[expose] public section
 
 open Set
 open CKN.Foundation.Parabolic

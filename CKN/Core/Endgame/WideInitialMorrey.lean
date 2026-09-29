@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.OneSidedGradient
+module
+
+public import CKN.Core.Endgame.OneSidedGradient
 
 /-!
 # Initial Morrey estimates on a larger interior cylinder
@@ -11,6 +13,8 @@ the cylinder of radius eleven sixteenths. The numerical bounds agree with
 the smaller-cylinder estimates; the gradient covering number is selected
 before the domain and solution.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

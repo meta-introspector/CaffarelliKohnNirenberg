@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Iteration.Arithmetic
+module
+
+public import CKN.Core.Iteration.Arithmetic
 
 /-!
 # Positive small-data thresholds
@@ -10,6 +12,8 @@ The scalar expression in the start estimate tends to zero with the data
 size. Its admissible threshold depends only on the numerical constants,
 before any solution or domain is chosen.
 -/
+
+@[expose] public section
 
 open Filter
 open scoped Topology

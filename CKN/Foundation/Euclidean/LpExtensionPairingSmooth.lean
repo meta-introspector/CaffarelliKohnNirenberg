@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.CZInputs
-import CKN.Foundation.Euclidean.RieszSecondL2Input
-import CKN.Foundation.Euclidean.LpExtensionInputCast
+module
+
+public import CKN.Foundation.Euclidean.CZInputs
+public import CKN.Foundation.Euclidean.RieszSecondL2Input
+public import CKN.Foundation.Euclidean.LpExtensionInputCast
 
 /-! # The completed gradient component on smooth compactly supported data
 
@@ -14,6 +16,8 @@ is the classical Hessian `∂ᵢ∂ⱼ(N * G)` of the Newtonian potential.  This
 only place where a classical representative of the completed operator is
 identified, and it is used exactly on the dense class of test data.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

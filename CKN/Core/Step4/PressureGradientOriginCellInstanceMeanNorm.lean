@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTensorTime
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTensorTime
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-!
 # Slice norms of the mean-free velocity
@@ -10,6 +12,8 @@ import CKN.Foundation.Parabolic.Vec3Norm
 The mean oscillation estimate behind `eq:Chat` gives a uniform component
 `L³` bound for the centered factor of `eq:Uij`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

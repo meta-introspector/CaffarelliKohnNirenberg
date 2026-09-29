@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.OneSidedCutoff
-import CKN.Statements.SuitableWeakSolutionIntegrable
+module
+
+public import CKN.Core.Endgame.OneSidedCutoff
+public import CKN.Statements.SuitableWeakSolutionIntegrable
 
 /-!
 # Almost-everywhere measurability of one-sided localized fields
@@ -12,6 +14,8 @@ after multiplication by the indicator of the intermediate cylinder. A
 coefficient supported on a measurable set likewise localizes an a.e.
 measurable scalar field without requiring a global representative.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open CKN.Foundation.Parabolic

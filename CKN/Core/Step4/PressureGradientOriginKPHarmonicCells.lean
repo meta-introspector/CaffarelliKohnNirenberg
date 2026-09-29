@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.PressureGradientOriginKPHarmonicMoment
-import CKN.Core.Step4.PressureGradientOriginKPAffineSlot
-import CKN.Setting.SobolevPoincareRescale
+module
+
+public import CKN.Core.Step4.PressureGradientOriginKPHarmonicMoment
+public import CKN.Core.Step4.PressureGradientOriginKPAffineSlot
+public import CKN.Setting.SobolevPoincareRescale
+
+@[expose] public section
 open MeasureTheory Set Filter
 open scoped ENNReal
 open CKN.Foundation.Parabolic CKN.Foundation.Heat

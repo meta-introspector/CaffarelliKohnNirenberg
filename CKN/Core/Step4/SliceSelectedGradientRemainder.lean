@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.WeakPressureSlice
-import CKN.Core.Step4.PressureGradientSlice
-import CKN.Foundation.Parabolic.BallDisplays
+module
+
+public import CKN.Core.Endgame.WeakPressureSlice
+public import CKN.Core.Step4.PressureGradientSlice
+public import CKN.Foundation.Parabolic.BallDisplays
 
 /-! # Slice-selected pressure gradients: classical, additive, quantitative forms
 
@@ -15,6 +17,8 @@ function has its classical coordinate gradient as a weak partial derivative,
 weak partial derivatives add along an a.e. decomposition of the carrier, and a
 coordinate field obeying a pointwise gradient display is controlled in `L^(6/5)`
 on the half ball. -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

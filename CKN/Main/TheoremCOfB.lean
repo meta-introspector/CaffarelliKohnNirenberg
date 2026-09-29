@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Covering.TheoremCReductionClosed
-import CKN.Statements.SpaceTimeSet
-import CKN.Statements.SuitableWeakSolutionIntegrable
-import CKN.Statements.RegularPoint
-import CKN.Statements.SingularSet
-import CKN.Statements.SpatialGradientSq
+module
+
+public import CKN.Covering.TheoremCReductionClosed
+public import CKN.Statements.SpaceTimeSet
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+public import CKN.Statements.RegularPoint
+public import CKN.Statements.SingularSet
+public import CKN.Statements.SpatialGradientSq
 
 /-!
 # Theorem C from the gradient criterion of Theorem B
@@ -23,6 +25,8 @@ The hypothesis `hB` below expresses the gradient criterion of `thm:B` for
 suitable-solution class; the class-equivalence bridge supplies this version
 when assembling Theorem C.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

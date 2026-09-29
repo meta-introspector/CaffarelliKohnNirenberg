@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.BootstrapSourceBounds
-import CKN.Core.Endgame.CausalDerivativeSource
+module
+
+public import CKN.Core.Endgame.BootstrapSourceBounds
+public import CKN.Core.Endgame.CausalDerivativeSource
 
 /-! # The first bootstrap's differentiated cutoff source
 
@@ -10,6 +12,8 @@ The initial velocity exponent controls the actual differentiated source
 without lowering integrability. Unit-cylinder support then lowers only the
 outer Morrey exponent, with numerical factor one.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal

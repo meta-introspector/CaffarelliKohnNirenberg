@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientHGCloserCellsOperatorTime
+module
+
+public import CKN.Core.Step4.PressureGradientHGCloserCellsOperatorTime
 
 /-! # Cancellation of the cell scale in the concrete Riesz bound
 
@@ -9,6 +11,8 @@ The parabolic Morrey normalization cancels the radius powers in both the
 near-source term and the annular tail. The resulting bound is independent
 of the centre, radius, and number of source annuli.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

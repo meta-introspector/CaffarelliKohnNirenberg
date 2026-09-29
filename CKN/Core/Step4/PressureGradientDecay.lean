@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradient
-import CKN.Core.Step4.Decay
+module
+
+public import CKN.Core.Step4.PressureGradient
+public import CKN.Core.Step4.Decay
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open CKN.Foundation.Parabolic

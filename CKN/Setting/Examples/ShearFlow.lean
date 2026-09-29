@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearFlowIBP
-import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
-import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+module
+
+public import CKN.Setting.Examples.ShearFlowIBP
+public import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
+public import Mathlib.Analysis.SpecialFunctions.ExpDeriv
 
 /-!
 # An explicit viscous shear flow
@@ -11,6 +13,8 @@ import Mathlib.Analysis.SpecialFunctions.ExpDeriv
 The velocity has one component, depending only on the transverse coordinate
 and time. Its spatial gradient has only the entry in row zero, column one.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory
 open CKN.Foundation.Parabolic

@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.RawI1
-import CKN.Core.Caccioppoli.RawI2Bound
-import CKN.Core.Caccioppoli.Conversions
-import CKN.Foundation.Parabolic.Integration.Slice
-import CKN.Foundation.Parabolic.BallDisplays
+module
+
+public import CKN.Core.Caccioppoli.RawI1
+public import CKN.Core.Caccioppoli.RawI2Bound
+public import CKN.Core.Caccioppoli.Conversions
+public import CKN.Foundation.Parabolic.Integration.Slice
+public import CKN.Foundation.Parabolic.BallDisplays
 
 /-!
 # The `γ`-form Caccioppoli terms
@@ -29,6 +31,8 @@ replacement bounds as standalone theorems about the same raw integrals that
 The remaining two terms `I₃`, `I₄` keep their proved bounds, so the conclusion
 of `eq:caccioppoli-gamma` follows by the normalisation lemmas recorded here.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter Metric
 open scoped ENNReal NNReal Topology

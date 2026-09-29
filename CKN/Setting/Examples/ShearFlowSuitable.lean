@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearFlowLocalData
-import CKN.Setting.Examples.ShearFlowEnergy
+module
+
+public import CKN.Setting.Examples.ShearFlowLocalData
+public import CKN.Setting.Examples.ShearFlowEnergy
 
 /-!
 # A nonzero suitable weak solution
@@ -10,6 +12,8 @@ import CKN.Setting.Examples.ShearFlowEnergy
 The smooth decaying shear satisfies every clause of the suitable weak-solution
 definition on all space and the time interval (0,1), with zero pressure and force.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

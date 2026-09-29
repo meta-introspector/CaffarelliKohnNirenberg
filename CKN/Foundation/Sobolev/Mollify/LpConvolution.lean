@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Mollify.Basic
-import Mathlib.Analysis.Convex.Integral
-import Mathlib.Analysis.Convex.SpecificFunctions.Basic
-import Mathlib.Analysis.Convolution
-import Mathlib.Analysis.Normed.Module.Convex
-import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
-import Mathlib.MeasureTheory.Integral.Prod
+module
+
+public import CKN.Foundation.Sobolev.Mollify.Basic
+public import Mathlib.Analysis.Convex.Integral
+public import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+public import Mathlib.Analysis.Convolution
+public import Mathlib.Analysis.Normed.Module.Convex
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Integral.Prod
 
 /-!
 # `L^p` bounds for normalized convolution
@@ -16,6 +18,8 @@ The proof uses Jensen for `|·|^p`, translation invariance, and Tonelli.  The
 result is the contraction estimate needed in the density argument for
 mollification.
 -/
+
+@[expose] public section
 
 open Function Set Filter MeasureTheory Topology
 open scoped ENNReal Convolution

@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.TheoremAClosersInstancesQ
-import CKN.Core.Step4.PressureGradientOriginASlotFinal
-import CKN.Core.Step4.PressureGradientOriginBSlotInstances
+module
+
+public import CKN.Core.Endgame.TheoremAClosersInstancesQ
+public import CKN.Core.Step4.PressureGradientOriginASlotFinal
+public import CKN.Core.Step4.PressureGradientOriginBSlotInstances
 
 /-! # The cubic regularity criterion for suitable weak solutions -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

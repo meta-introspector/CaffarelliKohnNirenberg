@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Lin34CentredSource
-import CKN.Foundation.Euclidean.PotentialLocalLpGrowth
-import CKN.Pressure.PotentialDecayGrowthSum
-import CKN.Pressure.PotentialDecay
-import CKN.Pressure.PkBoundsCylinder
-import CKN.Foundation.Parabolic.BallOrigin
+module
+
+public import CKN.Pressure.Lin34CentredSource
+public import CKN.Foundation.Euclidean.PotentialLocalLpGrowth
+public import CKN.Pressure.PotentialDecayGrowthSum
+public import CKN.Pressure.PotentialDecay
+public import CKN.Pressure.PkBoundsCylinder
+public import CKN.Foundation.Parabolic.BallOrigin
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

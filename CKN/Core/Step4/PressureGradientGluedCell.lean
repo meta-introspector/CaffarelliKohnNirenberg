@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedSlice
+module
+
+public import CKN.Core.Step4.PressureGradientGluedSlice
 
 /-!
 # The slice bound of one field at every cell scale
@@ -20,6 +22,8 @@ everywhere uniqueness of weak partial derivatives then transports the cell's
 bound to the one field.  Its conclusion is exactly the slice hypothesis of the
 time integration that turns slice bounds into the cell power integral.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

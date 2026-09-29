@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.GeneralSymbolHeatNearProof
-import CKN.Core.HeatPotential.Campanato
-import CKN.Foundation.Parabolic.BallDisplays
-import Mathlib.Analysis.MeanInequalitiesPow
-import Mathlib.MeasureTheory.Integral.Prod
+module
+
+public import CKN.Core.HeatPotential.GeneralSymbolHeatNearProof
+public import CKN.Core.HeatPotential.Campanato
+public import CKN.Foundation.Parabolic.BallDisplays
+public import Mathlib.Analysis.MeanInequalitiesPow
+public import Mathlib.MeasureTheory.Integral.Prod
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Distributions
 

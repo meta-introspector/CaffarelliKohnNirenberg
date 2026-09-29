@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.ClassEquivalence.CompactLp
+module
+
+public import CKN.ClassEquivalence.CompactLp
 
 /-!
 # The integrand of the divergence-free identity
@@ -19,6 +21,8 @@ a finite sum of such products.
 Nothing about the identities of `def:sws` is used, so the conclusion is
 available while those identities are still being established.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

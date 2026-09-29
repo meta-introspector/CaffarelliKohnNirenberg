@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTCentredSourceCorrection
-import CKN.Core.Step4.WeakGradientGluingTSuitableIdentification
-import CKN.Core.Step4.PressureGradientOriginClauseDoubling
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTCentredSourceCorrection
+public import CKN.Core.Step4.WeakGradientGluingTSuitableIdentification
+public import CKN.Core.Step4.PressureGradientOriginClauseDoubling
 
 /-! # Identification of the prescribed weak pressure gradient on clipped cells
 
@@ -11,6 +13,8 @@ The pressure gradient is the one supplied by the consumer. Uniqueness of
 locally integrable weak derivatives identifies it on the intersection of
 the consumer carrier and the local pressure ball, on one common time set.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginKPAffineSlot
-import CKN.Core.Step4.PressureGradientOriginKPComparison
-import CKN.Core.Endgame.TheoremABudgetBridge
-import CKN.Core.Step4.WeakGradientGluingTRemainderMajorant
-import CKN.Core.Step4.PressureGradientOriginClauseDerivativeShared
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTranslatedSlice
+module
+
+public import CKN.Core.Step4.PressureGradientOriginKPAffineSlot
+public import CKN.Core.Step4.PressureGradientOriginKPComparison
+public import CKN.Core.Endgame.TheoremABudgetBridge
+public import CKN.Core.Step4.WeakGradientGluingTRemainderMajorant
+public import CKN.Core.Step4.PressureGradientOriginClauseDerivativeShared
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTranslatedSlice
 
 /-! # Full-sum comparison from bounds on its two coefficients
 
@@ -14,6 +16,8 @@ The coefficients here are the sum of the actual carrier Morrey norms to
 the `6/5` power and its radius-weighted multiple. They are distinct from
 bounds on individual clipped cell integrals or the actual total time mass.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

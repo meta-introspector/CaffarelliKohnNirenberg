@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.PkBoundsUnconditionalConstants
-import CKN.Foundation.Harmonic.InteriorEstimatesBasic
+module
+
+public import CKN.Pressure.PkBoundsUnconditionalConstants
+public import CKN.Foundation.Harmonic.InteriorEstimatesBasic
+
+@[expose] public section
 
 open scoped ENNReal NNReal
 open CKN.Foundation.Parabolic

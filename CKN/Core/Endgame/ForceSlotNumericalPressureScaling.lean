@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ForceSlotNumericalScaling
-import CKN.Setting.ScalingInvarianceTests
+module
+
+public import CKN.Core.Endgame.ForceSlotNumericalScaling
+public import CKN.Setting.ScalingInvarianceTests
 
 /-!
 # Transport of a selected weak pressure gradient
@@ -12,6 +14,8 @@ The gradient acquires one additional spatial scaling factor beyond the
 pressure amplitude. The identity retains the exact transformed test support.
 -/
 
+@[expose] public section
+
 open MeasureTheory Set
 open scoped Topology
 open CKN.Foundation.Parabolic
@@ -20,7 +24,7 @@ set_option autoImplicit false
 noncomputable section
 namespace CKN.Core.Endgame
 
-private def pressureScalingHomeomorph (a : ℝ) (ha : 0 < a) (z₀ : ParabolicPoint) :
+def pressureScalingHomeomorph (a : ℝ) (ha : 0 < a) (z₀ : ParabolicPoint) :
     (Vec3 × ℝ) ≃ₜ (Vec3 × ℝ) :=
   Homeomorph.prodCongr
     ((Homeomorph.smulOfNeZero a ha.ne').trans (Homeomorph.addLeft z₀.1))

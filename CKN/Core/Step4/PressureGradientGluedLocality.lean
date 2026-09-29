@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedPartition
-import CKN.Core.Step4.PressureGradientGluedSupport
+module
+
+public import CKN.Core.Step4.PressureGradientGluedPartition
+public import CKN.Core.Step4.PressureGradientGluedSupport
 
 /-!
 # Weak partial derivatives are a local property
@@ -18,6 +20,8 @@ each piece, and reassembles the integrals.  The corresponding statement was not
 available anywhere: the previously existing interface for weak derivatives
 consisted only of restriction, transport and almost-everywhere uniqueness.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 set_option autoImplicit false

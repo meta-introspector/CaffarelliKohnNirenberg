@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Ambient.Basic
-import Mathlib.MeasureTheory.Integral.Prod
+module
+
+public import CKN.Foundation.Sobolev.Ambient.Basic
+public import Mathlib.MeasureTheory.Integral.Prod
 
 /-!
 # Sliced convolution integrals and product-measure slicing
@@ -21,6 +23,8 @@ into a single space-time statement.
   Mathlib states these for slices in the first factor; the versions here are
   obtained by transporting along the measure-preserving coordinate swap.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure
 

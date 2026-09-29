@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Cutoff.Ball
-import CKN.Foundation.Harmonic.Commutator.KernelsBasic
-import CKN.Pressure.LeibnizLaplacian
-import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
+module
+
+public import CKN.Foundation.Sobolev.Cutoff.Ball
+public import CKN.Foundation.Harmonic.Commutator.KernelsBasic
+public import CKN.Pressure.LeibnizLaplacian
+public import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+
+@[expose] public section
 
 open scoped BigOperators Topology
 open Filter MeasureTheory

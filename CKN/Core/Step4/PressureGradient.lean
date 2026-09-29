@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientBase
-import CKN.Foundation.Euclidean.NewtonianDerivativeLocalLp
-import CKN.Pressure.PkBoundsBasic
-import CKN.Core.Step4.PressureGradientProduct
-import CKN.Core.Step4.PressureGradientSlice
-import CKN.Foundation.Measure.SliceGradientSelection
+module
+
+public import CKN.Core.Step4.PressureGradientBase
+public import CKN.Foundation.Euclidean.NewtonianDerivativeLocalLp
+public import CKN.Pressure.PkBoundsBasic
+public import CKN.Core.Step4.PressureGradientProduct
+public import CKN.Core.Step4.PressureGradientSlice
+public import CKN.Foundation.Measure.SliceGradientSelection
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

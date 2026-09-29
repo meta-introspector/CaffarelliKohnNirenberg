@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginClauseGrowth
+module
+
+public import CKN.Core.Step4.PressureGradientOriginClauseGrowth
 
 /-! # Backward patches up to the final time of an origin carrier
 
@@ -10,6 +12,8 @@ half-balls and backward windows contained in the larger Morrey carrier.
 At final time zero the neighborhood extends past zero, while its intersection
 with the carrier is still controlled by a backward window ending at zero.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

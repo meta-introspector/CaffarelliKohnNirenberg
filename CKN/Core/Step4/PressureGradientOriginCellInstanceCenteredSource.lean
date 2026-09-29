@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensorDef
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTensorTime
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensorDef
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTensorTime
 
 /-!
 # A bilinear bound for the centered tensor source
@@ -12,6 +14,8 @@ factor. Spatial Hölder bounds this factor separately, retaining the cutoff
 cost needed for the time estimate of `eq:pressure-gradient-morrey`.
 The scalar Hölder proofs follow `PressureGradientSourceBounds`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

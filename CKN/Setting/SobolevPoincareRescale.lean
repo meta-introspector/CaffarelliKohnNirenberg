@@ -1,14 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.PoincareSobolevL1Ball
-import CKN.Setting.SobolevPoincareBallWeak
-import CKN.Setting.SobolevPoincareConstantFinite
-import CKN.Foundation.Harmonic.InteriorDisplayBounds
-import CKN.Foundation.Sobolev.Cutoff.BallMemLp
-import CKN.Foundation.Sobolev.Poincare.GradientNorm
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Setting.PoincareSobolevL1Ball
+public import CKN.Setting.SobolevPoincareBallWeak
+public import CKN.Setting.SobolevPoincareConstantFinite
+public import CKN.Foundation.Harmonic.InteriorDisplayBounds
+public import CKN.Foundation.Sobolev.Cutoff.BallMemLp
+public import CKN.Foundation.Sobolev.Poincare.GradientNorm
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-!
 # The rescaled `L¹` Poincaré display
@@ -18,6 +20,8 @@ Hölder on the ball and comparison of the differential norm with the Euclidean
 norm of the gradient.  These steps contribute respectively
 `(4π/3)^(1/3) r` and `√3` to the constant.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal

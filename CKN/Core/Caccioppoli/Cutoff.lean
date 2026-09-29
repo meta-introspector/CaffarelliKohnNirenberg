@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.Admissibility
-import CKN.Pressure.Cutoff
-import CKN.Foundation.Sobolev.Cutoff.SpaceTime
-import CKN.Setting.Energy.Calculus
-import CKN.Core.Caccioppoli.CutoffBase
+module
+
+public import CKN.Core.Caccioppoli.Admissibility
+public import CKN.Pressure.Cutoff
+public import CKN.Foundation.Sobolev.Cutoff.SpaceTime
+public import CKN.Setting.Energy.Calculus
+public import CKN.Core.Caccioppoli.CutoffBase
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.BootstrapFaithfulProp
-import CKN.Core.Step2.MorreyDecayFaithful
-import CKN.Core.Step2.MorreyFormUniform
+module
+
+public import CKN.Core.Step4.BootstrapFaithfulProp
+public import CKN.Core.Step2.MorreyDecayFaithful
+public import CKN.Core.Step2.MorreyFormUniform
 
 /-!
 # Building the Step 2 Morrey data consumed by one bootstrap round
@@ -26,6 +28,8 @@ Step 2 velocity exponent `25/3`.  The round's output exponent is then exactly
 smaller ball; in particular on the quarter ball, which is the set on which the
 one-round velocity improvement is stated.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter Metric
 open scoped ENNReal NNReal Topology

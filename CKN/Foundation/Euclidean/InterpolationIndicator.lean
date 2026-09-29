@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.InterpolationBasic
+module
+
+public import CKN.Foundation.Euclidean.InterpolationBasic
 
 /-!
 # Moduli and Lebesgue integrals of indicator truncations
@@ -22,6 +24,8 @@ stated for an arbitrary measurable set `s` and an arbitrary function
 `f : Vec3 → ℝ`; the two integral identities use the restriction of Lebesgue
 measure to `s`.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

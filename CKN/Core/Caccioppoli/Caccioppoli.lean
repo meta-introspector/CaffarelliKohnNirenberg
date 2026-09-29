@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.CaccioppoliEnergyLower
-import CKN.Core.Caccioppoli.CaccioppoliCentered
-import CKN.Foundation.Harmonic.InteriorEstimatesBasic
+module
+
+public import CKN.Core.Caccioppoli.CaccioppoliEnergyLower
+public import CKN.Core.Caccioppoli.CaccioppoliCentered
+public import CKN.Foundation.Harmonic.InteriorEstimatesBasic
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

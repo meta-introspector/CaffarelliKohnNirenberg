@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import Mathlib.MeasureTheory.Integral.MeanInequalities
-import Mathlib.Analysis.SpecialFunctions.Pow.NNReal
-import Mathlib.MeasureTheory.Group.Arithmetic
+module
+
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.Analysis.SpecialFunctions.Pow.NNReal
+public import Mathlib.MeasureTheory.Group.Arithmetic
+
+@[expose] public section
 
 open MeasureTheory
 open scoped ENNReal NNReal

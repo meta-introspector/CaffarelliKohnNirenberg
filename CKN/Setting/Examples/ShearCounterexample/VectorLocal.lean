@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.SliceAE
-import CKN.Statements.LocalVecLp
-import CKN.Statements.LocalBox
-import CKN.Statements.SpaceTimeSet
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.SliceAE
+public import CKN.Statements.LocalVecLp
+public import CKN.Statements.LocalBox
+public import CKN.Statements.SpaceTimeSet
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-! # Local vector-valued Lp estimates for the shear fields. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory

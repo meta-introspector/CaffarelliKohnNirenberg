@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.HeatPotential.Near
-import CKN.Foundation.Parabolic.Morrey.AdamsBridge
-import CKN.Foundation.Parabolic.Morrey.Kernel
+module
+
+public import CKN.Core.HeatPotential.Near
+public import CKN.Foundation.Parabolic.Morrey.AdamsBridge
+public import CKN.Foundation.Parabolic.Morrey.Kernel
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

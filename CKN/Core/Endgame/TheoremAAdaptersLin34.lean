@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.Lin34SliceIntegrated
-import CKN.Pressure.Lin34CentredCZResidual
-import CKN.Pressure.Lin34CentredResidual
+module
+
+public import CKN.Pressure.Lin34SliceIntegrated
+public import CKN.Pressure.Lin34CentredCZResidual
+public import CKN.Pressure.Lin34CentredResidual
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

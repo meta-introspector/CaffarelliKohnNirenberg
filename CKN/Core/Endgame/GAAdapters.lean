@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOneSided
+module
+
+public import CKN.Core.Step4.PressureGradientOneSided
 
 /-! # The one-sided pressure-gradient boundary in its three consumed shapes
 
@@ -31,6 +33,8 @@ spellings: existential majorant against explicit majorant, free centre
 against origin carrier, and the two orders in which the solution hypotheses
 are presented. No estimate is strengthened or weakened here.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

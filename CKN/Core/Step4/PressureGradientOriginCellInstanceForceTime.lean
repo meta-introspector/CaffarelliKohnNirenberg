@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceForceEnvelope
-import CKN.Core.Step4.PressureGradientHGCloserTimeBounds
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceForceEnvelope
+public import CKN.Core.Step4.PressureGradientHGCloserTimeBounds
 
 /-!
 # Time integrability of the harmonic force envelope
@@ -10,6 +12,8 @@ import CKN.Core.Step4.PressureGradientHGCloserTimeBounds
 The fixed-radius force contribution in `eq:pressure-gradient-morrey` has a
 measurable, finite, locally time-integrable norm envelope from `def:sws`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Metric Filter
 open scoped ENNReal NNReal Topology BigOperators

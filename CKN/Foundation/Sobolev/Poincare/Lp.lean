@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Poincare.Mean
-import CKN.Foundation.Sobolev.Poincare.KernelBasic
-import CKN.Foundation.Sobolev.Poincare.KernelSegment
-import CKN.Foundation.Sobolev.Poincare.KernelTime
-import CKN.Foundation.Sobolev.Poincare.KernelPower
-import CKN.Foundation.Sobolev.Poincare.Smooth
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
+module
+
+public import CKN.Foundation.Sobolev.Poincare.Mean
+public import CKN.Foundation.Sobolev.Poincare.KernelBasic
+public import CKN.Foundation.Sobolev.Poincare.KernelSegment
+public import CKN.Foundation.Sobolev.Poincare.KernelTime
+public import CKN.Foundation.Sobolev.Poincare.KernelPower
+public import CKN.Foundation.Sobolev.Poincare.Smooth
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+
+@[expose] public section
 
 namespace CKN
 

@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Parameters
-import CKN.Foundation.Parabolic.Morrey.Minkowski
-import CKN.Foundation.Parabolic.BallDisplays
+module
+
+public import CKN.Core.Parameters
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+public import CKN.Foundation.Parabolic.BallDisplays
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

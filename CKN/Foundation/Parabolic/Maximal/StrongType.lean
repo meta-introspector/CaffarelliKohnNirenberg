@@ -1,14 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Maximal.HardyLittlewood
-import Mathlib.Analysis.SpecialFunctions.Pow.Integral
-import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
-import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
-import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
-import CKN.Foundation.Measure.LayerCake
-import CKN.Foundation.Measure.WeightedKernelIdentity
+module
+
+public import CKN.Foundation.Parabolic.Maximal.HardyLittlewood
+public import Mathlib.Analysis.SpecialFunctions.Pow.Integral
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+public import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+public import CKN.Foundation.Measure.LayerCake
+public import CKN.Foundation.Measure.WeightedKernelIdentity
 
 /-!
 # Strong maximal estimates
@@ -18,6 +20,8 @@ from the weak estimate in `HardyLittlewood`.  The proof uses truncation at
 half the level and Tonelli's theorem, so it does not depend on an abstract
 interpolation package.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 
@@ -33,13 +37,13 @@ def parabolicMaximalStrongConstant (p : ℝ) : ℝ≥0∞ :=
   (2 : ℝ≥0∞) ^ p * ENNReal.ofReal (10 ^ 5) * ENNReal.ofReal p /
     ENNReal.ofReal (p - 1)
 
-private abbrev strongMetricBall (z : ParabolicPoint) (r : ℝ) : Set ParabolicPoint :=
+abbrev strongMetricBall (z : ParabolicPoint) (r : ℝ) : Set ParabolicPoint :=
   @Metric.ball ParabolicPoint parabolicPseudoMetricSpace z r
 
-private def highPart (f : ParabolicPoint → ℝ≥0∞) (a : ℝ≥0∞) :
+def highPart (f : ParabolicPoint → ℝ≥0∞) (a : ℝ≥0∞) :
     ParabolicPoint → ℝ≥0∞ := {z | a < f z}.indicator f
 
-private def lowPart (f : ParabolicPoint → ℝ≥0∞) (a : ℝ≥0∞) :
+def lowPart (f : ParabolicPoint → ℝ≥0∞) (a : ℝ≥0∞) :
     ParabolicPoint → ℝ≥0∞ := {z | f z ≤ a}.indicator f
 
 private lemma measurable_highPart {f : ParabolicPoint → ℝ≥0∞} (hf : Measurable f)
@@ -166,10 +170,10 @@ private lemma parabolicMaximalFunction_high_tail
       exact lintegral_indicator (measurableSet_Ioi.preimage hf) f
 
 
-private def positiveRpow (p t : ℝ) : ℝ :=
+def positiveRpow (p t : ℝ) : ℝ :=
   if 0 < t then Real.exp ((p - 2) * Real.log t) else 0
 
-private def weightedTailIntegrand (f : ParabolicPoint → ℝ≥0∞) (p : ℝ)
+def weightedTailIntegrand (f : ParabolicPoint → ℝ≥0∞) (p : ℝ)
     (t : ℝ) (z : ParabolicPoint) : ℝ≥0∞ :=
   ENNReal.ofReal (positiveRpow p t) *
     ({z | ENNReal.ofReal (t / 2) < f z}.indicator f) z

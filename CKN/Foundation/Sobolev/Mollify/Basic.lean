@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.WeakDerivative
-import Mathlib.Analysis.Calculus.BumpFunction.Convolution
-import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
-import Mathlib.Analysis.Calculus.ContDiff.Convolution
+module
+
+public import CKN.Foundation.Sobolev.WeakDerivative
+public import Mathlib.Analysis.Calculus.BumpFunction.Convolution
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.Analysis.Calculus.ContDiff.Convolution
 
 /-!
 # ContDiffBump mollification
@@ -15,6 +17,8 @@ already provides normalized `ContDiffBump` kernels, convolution regularity,
 and approximate-identity convergence. This direct port keeps the kernel and
 convolution API independent of the sibling geometry layer.
 -/
+
+@[expose] public section
 
 open scoped Convolution Topology
 

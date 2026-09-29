@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Minkowski
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
+public import Mathlib.Analysis.SpecificLimits.Basic
 
 /-!
 # Morrey bounds for bounded diameter support and real kernels
@@ -10,6 +12,8 @@ import Mathlib.Analysis.SpecificLimits.Basic
 This module records the diameter-support and real-kernel forms of the
 Morrey estimates.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric
 open Filter

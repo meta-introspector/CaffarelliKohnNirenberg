@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTGapForceIncrement
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTGapForceIncrement
 
 /-! # An absolute affine threshold for the force-potential increment -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology BigOperators

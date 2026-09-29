@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.KernelAllOrdersSphere
-import Mathlib.MeasureTheory.Function.StronglyMeasurable.AEStronglyMeasurable
-import Mathlib.MeasureTheory.Function.StronglyMeasurable.Basic
-import Mathlib.MeasureTheory.Integral.IntegrableOn
-import Mathlib.MeasureTheory.Measure.Haar.OfBasis
+module
+
+public import CKN.Foundation.Harmonic.KernelAllOrdersSphere
+public import Mathlib.MeasureTheory.Function.StronglyMeasurable.AEStronglyMeasurable
+public import Mathlib.MeasureTheory.Function.StronglyMeasurable.Basic
+public import Mathlib.MeasureTheory.Integral.IntegrableOn
+public import Mathlib.MeasureTheory.Measure.Haar.OfBasis
+
+@[expose] public section
 
 open scoped BigOperators Topology
 open MeasureTheory

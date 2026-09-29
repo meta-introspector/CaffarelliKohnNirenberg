@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.CausalSources
-import CKN.Core.Endgame.CausalLinearSources
-import CKN.Core.Endgame.BootstrapConvection
-import CKN.Core.Endgame.BootstrapLinearSources
-import CKN.Core.Endgame.CausalForceSource
-import CKN.Core.Endgame.OneSidedMeasurability
+module
+
+public import CKN.Core.Endgame.CausalSources
+public import CKN.Core.Endgame.CausalLinearSources
+public import CKN.Core.Endgame.BootstrapConvection
+public import CKN.Core.Endgame.BootstrapLinearSources
+public import CKN.Core.Endgame.CausalForceSource
+public import CKN.Core.Endgame.OneSidedMeasurability
 
 /-! # Quantitative bounds for the actual gradient-slot source
 
@@ -15,6 +17,8 @@ velocity norm, the initial gradient norm, the supplied pressure-gradient
 norm, and the original force smallness. The formula includes the pressure
 gradient in the order-two slot. No potential or Hölder estimate is assumed.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal BigOperators

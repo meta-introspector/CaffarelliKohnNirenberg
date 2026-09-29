@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Analysis.SpecialFunctions.Pow.NNReal
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Linarith
+module
+
+public import Mathlib.Analysis.SpecialFunctions.Pow.NNReal
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Linarith
+
+@[expose] public section
 
 open scoped ENNReal
 set_option autoImplicit false

@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.MorreyVecMem
-import CKN.Foundation.Parabolic.Morrey.Neg
+module
+
+public import CKN.Statements.MorreyVecMem
+public import CKN.Foundation.Parabolic.Morrey.Neg
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

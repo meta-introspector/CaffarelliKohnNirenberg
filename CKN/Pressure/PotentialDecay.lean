@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.PotentialDecayShell
-import CKN.Pressure.PotentialDecayGeometry
-import CKN.Pressure.PotentialDecayGrowthSum
+module
+
+public import CKN.Pressure.PotentialDecayShell
+public import CKN.Pressure.PotentialDecayGeometry
+public import CKN.Pressure.PotentialDecayGrowthSum
 
 /-!
 # Linear growth of local `L^{3/2}` norms from decay at infinity
@@ -20,6 +22,8 @@ representation `ext:newtonian` of the paper, whose proof applies Liouville's
 theorem to a harmonic function that tends to zero in the `L^{3/2}` average
 sense at infinity.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology

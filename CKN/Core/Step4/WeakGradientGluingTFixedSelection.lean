@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTFixedField
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTFixedField
 
 /-! # Fixed jointly measurable pressure decomposition on an inner ball
 
@@ -9,6 +11,8 @@ One pressure field and two matrices of completed Riesz representatives are
 chosen from suitability. Their measurable remainder represents the classical
 harmonic and far-force gradient on almost every slice of the target carrier.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology BigOperators

@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.PressureGradientOriginASlotSourceCorrectionSupport
-import CKN.Core.Step4.WeakGradientGluingTCentredSourceCorrection
-import CKN.Core.Step4.PressureGradientMorrey
-import CKN.Core.Step4.PressureGradientGaugeMajorantExponents
-import CKN.Core.Endgame.SourceComponents
-import CKN.Core.Endgame.MorreyScaling
-import CKN.Foundation.Parabolic.Morrey.Minkowski
+module
+
+public import CKN.Core.Step4.PressureGradientOriginASlotSourceCorrectionSupport
+public import CKN.Core.Step4.WeakGradientGluingTCentredSourceCorrection
+public import CKN.Core.Step4.PressureGradientMorrey
+public import CKN.Core.Step4.PressureGradientGaugeMajorantExponents
+public import CKN.Core.Endgame.SourceComponents
+public import CKN.Core.Endgame.MorreyScaling
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
 
 /-! # The three-term Morrey majorant of the centred source correction
 
@@ -17,6 +19,8 @@ last two by a Morrey Hölder product at the endpoint exponent, and the
 endpoint is transferred to the exponent-dependent one for free on a carrier
 of radius at most one.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal BigOperators

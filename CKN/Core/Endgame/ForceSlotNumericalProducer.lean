@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ForceSlotNumericalSelected
-import CKN.Core.Endgame.ForceSlotNumericalTarget
-import CKN.Core.Endgame.ForceSlotNumericalCutoff
+module
+
+public import CKN.Core.Endgame.ForceSlotNumericalSelected
+public import CKN.Core.Endgame.ForceSlotNumericalTarget
+public import CKN.Core.Endgame.ForceSlotNumericalCutoff
 
 /-!
 # The numerical force-source producer
@@ -12,6 +14,8 @@ The selected pressure gradient is required on its localization collar.
 The five explicit source estimates give the numerical force bound with
 all constants fixed before the solution.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

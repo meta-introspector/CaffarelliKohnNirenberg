@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.Integrability
-import CKN.Foundation.Parabolic.Topology
-import Mathlib.Analysis.Distribution.Distribution
-import Mathlib.Analysis.Distribution.Support
+module
+
+public import CKN.Foundation.Heat.Integrability
+public import CKN.Foundation.Parabolic.Topology
+public import Mathlib.Analysis.Distribution.Distribution
+public import Mathlib.Analysis.Distribution.Support
 
 /-!
 # The causal heat kernel as a distribution
@@ -21,6 +23,8 @@ function, and its causal support.
 The fundamental-solution identity itself is the content of the external input
 and is not proved here.
 -/
+
+@[expose] public section
 
 open scoped BigOperators Distributions
 open Set MeasureTheory

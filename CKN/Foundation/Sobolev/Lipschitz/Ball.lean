@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Lipschitz.Domain
+module
+
+public import CKN.Foundation.Sobolev.Lipschitz.Domain
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology
@@ -95,7 +99,7 @@ private theorem vec3EuclideanNorm_sq_split (z : Vec3) :
   rw [Real.sq_sqrt (by positivity)]
   ring
 
-private def quad2 (w : Fin 2 → ℝ) : ℝ := ∑ j : Fin 2, w j ^ 2
+def quad2 (w : Fin 2 → ℝ) : ℝ := ∑ j : Fin 2, w j ^ 2
 
 private theorem quad2_sub_bound (u v : Fin 2 → ℝ) :
     |quad2 u - quad2 v| ≤ 2 * (‖u‖ + ‖v‖) * ‖u - v‖ := by

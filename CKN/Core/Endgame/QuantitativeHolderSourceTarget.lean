@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.QuantitativeProducerEndgame
-import CKN.Core.Endgame.Localization
-import CKN.Core.Endgame.CompactBall
-import CKN.Core.Endgame.SourceExponents
-import CKN.Setting.ScalingInvarianceTests
+module
+
+public import CKN.Core.Endgame.QuantitativeProducerEndgame
+public import CKN.Core.Endgame.Localization
+public import CKN.Core.Endgame.CompactBall
+public import CKN.Core.Endgame.SourceExponents
+public import CKN.Setting.ScalingInvarianceTests
 
 /-!
 # Numerical source data at the Hölder exponents of `thm:endgame`
@@ -30,6 +32,8 @@ Steps 2--4: numerical Morrey bounds for the literal localized sources at the
 paper's own exponents, with constants preceding all solution data. No Hölder
 conclusion is assumed anywhere.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology

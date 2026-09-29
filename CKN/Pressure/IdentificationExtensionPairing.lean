@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationExtensionPairingSwap
-import CKN.Pressure.IdentificationExtensionPairingWholeSpace
-import CKN.Pressure.Identification
+module
+
+public import CKN.Pressure.IdentificationExtensionPairingSwap
+public import CKN.Pressure.IdentificationExtensionPairingWholeSpace
+public import CKN.Pressure.Identification
 
 /-!
 # The identification data for the leading pressure term
@@ -19,6 +21,8 @@ dependence, and the two facts below hold, for almost every time, simultaneously
 for every test function.
 -/
 
+@[expose] public section
+
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology
 open CKN.Foundation.Parabolic
@@ -31,7 +35,7 @@ namespace CKN
 /-- The residual matrix field whose second-order pairing measures the failure of
 the whole-space identity: the diagonal carries `p₁(·, s)` and the full matrix
 carries the tensor source `η U(·, s)`. -/
-private def pressureP1Residual (η : Vec3 → ℝ) (u : ParabolicPoint → Vec3)
+def pressureP1Residual (η : Vec3 → ℝ) (u : ParabolicPoint → Vec3)
     (c : ℝ → Vec3) (p : ParabolicPoint → ℝ) (f : ParabolicPoint → Vec3)
     (s : ℝ) (i j : Fin 3) : Vec3 → ℝ := fun x =>
   (if i = j then pressureP1 η u c p f s x else 0) -

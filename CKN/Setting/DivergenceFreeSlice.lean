@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.SuitableWeakSolutionIntegrable
-import CKN.Foundation.Parabolic.Topology
-import CKN.Foundation.Parabolic.TsupportProduct
-import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
+module
+
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+public import CKN.Foundation.Parabolic.Topology
+public import CKN.Foundation.Parabolic.TsupportProduct
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
 
 /-!
 # The divergence-free condition on time slices
@@ -24,6 +26,8 @@ for almost every `s ∈ I`.  The null set a priori depends on `ψ₀`; obtaining
 null set requires a countable `C¹`-dense family of test functions and is not formalized
 here.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology

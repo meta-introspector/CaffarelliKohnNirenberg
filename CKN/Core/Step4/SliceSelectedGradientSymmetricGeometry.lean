@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradient
-import CKN.Foundation.Parabolic.BallDisplays
+module
+
+public import CKN.Core.Step4.SliceSelectedGradient
+public import CKN.Foundation.Parabolic.BallDisplays
 
 /-! # Geometry of the symmetric parabolic window
 
@@ -20,6 +22,8 @@ absorbed by the slightly larger open window used in display (3.5).
 The module contains no analytic content: it is pure parabolic geometry, and its
 statements are used only to rewrite membership between the one-sided and
 symmetric carriers. -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

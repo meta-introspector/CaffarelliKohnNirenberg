@@ -1,17 +1,21 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedTimeBounds
-import CKN.Core.Step4.PressureGradientOriginClauseGeometry
-import CKN.Foundation.Parabolic.Vec3Norm
-import Mathlib.Data.Int.Interval
-import Mathlib.Data.Fintype.BigOperators
+module
+
+public import CKN.Core.Step4.PressureGradientGluedTimeBounds
+public import CKN.Core.Step4.PressureGradientOriginClauseGeometry
+public import CKN.Foundation.Parabolic.Vec3Norm
+public import Mathlib.Data.Int.Interval
+public import Mathlib.Data.Fintype.BigOperators
 
 /-! # A countable lattice cover by backward cells
 
 Spatial mesh `r/2` and temporal mesh `r²/2` give a countable family of
 backward parabolic cells of radius `r` that covers the whole space-time.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal BigOperators

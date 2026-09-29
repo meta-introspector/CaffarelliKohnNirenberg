@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.LocalTestBox
-import CKN.Setting.Examples.ShearCounterexample.SWSLocalData
-import CKN.Setting.Examples.ShearCounterexample.TestSupport
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
-import Mathlib.MeasureTheory.Function.L1Space.Integrable
-import Mathlib.MeasureTheory.Constructions.BorelSpace.Basic
-import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.LocalTestBox
+public import CKN.Setting.Examples.ShearCounterexample.SWSLocalData
+public import CKN.Setting.Examples.ShearCounterexample.TestSupport
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Basic
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
 
 /-! # An integrable majorant for the shear momentum residual. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory
@@ -37,10 +41,10 @@ theorem shear_localBox_volume_restrict_finite {Ω' : Set Vec3} {J : Set ℝ}
     IsFiniteMeasure (volume.restrict (spaceTimeSet Ω' J)) :=
   shear_spaceTime_restrict_finite hbox
 
-private def momentumTestValue (φ : Vec3 × ℝ → Vec3) (z : Vec3 × ℝ) : ℝ := φ z 2
-private def momentumTestTime (φ : Vec3 × ℝ → Vec3) (z : Vec3 × ℝ) : ℝ :=
+def momentumTestValue (φ : Vec3 × ℝ → Vec3) (z : Vec3 × ℝ) : ℝ := φ z 2
+def momentumTestTime (φ : Vec3 × ℝ → Vec3) (z : Vec3 × ℝ) : ℝ :=
   timePartial (fun w => φ w 2) z
-private def momentumTestSpace (φ : Vec3 × ℝ → Vec3) (i : Fin 3)
+def momentumTestSpace (φ : Vec3 × ℝ → Vec3) (i : Fin 3)
     (z : Vec3 × ℝ) : ℝ := spatialPartial (fun w => φ w 2) i z
 
 def shearMomentumMajorant (φ : Vec3 × ℝ → Vec3) (z : Vec3 × ℝ) : ℝ :=

@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.PotentialLocalLpExponents
-import CKN.Pressure.Cutoff
-import CKN.Foundation.Sobolev.Cutoff.Ball
-import CKN.Core.Step4.SliceSelectedGradientForceUnconditional
-import Mathlib.Analysis.SpecialFunctions.Pow.NNReal
+module
+
+public import CKN.Foundation.Euclidean.PotentialLocalLpExponents
+public import CKN.Pressure.Cutoff
+public import CKN.Foundation.Sobolev.Cutoff.Ball
+public import CKN.Core.Step4.SliceSelectedGradientForceUnconditional
+public import Mathlib.Analysis.SpecialFunctions.Pow.NNReal
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

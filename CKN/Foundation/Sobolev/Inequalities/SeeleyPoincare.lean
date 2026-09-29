@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Inequalities.SeeleyGradient
-import CKN.Foundation.Sobolev.Poincare.Lp
-import CKN.Foundation.Ambient.Euclidean
-import Mathlib.Analysis.Convex.Measure
+module
+
+public import CKN.Foundation.Sobolev.Inequalities.SeeleyGradient
+public import CKN.Foundation.Sobolev.Poincare.Lp
+public import CKN.Foundation.Ambient.Euclidean
+public import Mathlib.Analysis.Convex.Measure
+
+@[expose] public section
 
 open Set MeasureTheory
 open scoped ENNReal
@@ -13,7 +17,7 @@ namespace CKN
 
 noncomputable section
 
-private def seeleyUnitEuclideanBall : Set (Vec 3) :=
+def seeleyUnitEuclideanBall : Set (Vec 3) :=
   euclideanBall (0 : Vec 3) 1
 
 private theorem seeleyVecEuclideanNorm_eq_l2 (x : Vec 3) :
@@ -79,7 +83,7 @@ private theorem seeleyUnitEuclideanBall_convex :
           (mul_lt_mul_of_pos_left hy' hbpos)
     _ = 1 := by simp [hab]
 
-private theorem seeleyUnitEuclideanBall_domain :
+theorem seeleyUnitEuclideanBall_domain :
     IsOpenBoundedConvexDomain seeleyUnitEuclideanBall :=
   ⟨seeleyUnitEuclideanBall_open, seeleyUnitEuclideanBall_bounded,
     seeleyUnitEuclideanBall_convex⟩

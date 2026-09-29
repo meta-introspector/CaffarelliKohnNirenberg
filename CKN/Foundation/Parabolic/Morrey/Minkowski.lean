@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Integration.Average
-import CKN.Foundation.Parabolic.Morrey.Inclusions
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.MeasureTheory.Integral.MeanInequalities
+module
+
+public import CKN.Foundation.Parabolic.Integration.Average
+public import CKN.Foundation.Parabolic.Morrey.Inclusions
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Metric
 open scoped ENNReal NNReal Topology

@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalMoments
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeHolder
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalMoments
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeHolder
 
 /-!
 # Compact-time integrability of the centered source majorant
@@ -12,6 +14,8 @@ and integrable on compact time windows of any local box. This is the source
 contribution to the time obligations in `prop:bootstrap`; the pressure and
 force-potential contributions are separate.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

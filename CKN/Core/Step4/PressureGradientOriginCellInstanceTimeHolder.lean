@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTimeIntegrals
 
 /-!
 # Temporal Hölder estimates for the pressure source
@@ -11,6 +13,8 @@ at exponent `6/5`. Velocity cubes and gradient squares enter with powers
 `2/5` and `3/5`; quadratic velocity and tensor-energy terms use the remaining
 `1/5` power of the time-window measure.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

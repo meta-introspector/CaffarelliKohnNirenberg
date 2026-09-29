@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.QuantitativeHolderScalar
-import CKN.Core.Step4.SourceMorreyGradient
-import CKN.Foundation.Parabolic.Morrey.Minkowski
+module
+
+public import CKN.Core.Endgame.QuantitativeHolderScalar
+public import CKN.Core.Step4.SourceMorreyGradient
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
 
 /-!
 # The numerical derivative-slot source bound of `thm:endgame`
@@ -21,6 +23,8 @@ reached from the velocity exponent `3` by lowering integrability on the unit
 cylinder, which contributes the explicit volume factor below and nothing
 else.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

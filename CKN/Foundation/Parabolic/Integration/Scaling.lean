@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Parabolic.Integration.Slice
-import Mathlib.MeasureTheory.Group.Prod
-import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
-import Mathlib.MeasureTheory.Function.EssSup
+module
+
+public import CKN.Foundation.Parabolic.Integration.Slice
+public import Mathlib.MeasureTheory.Group.Prod
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+public import Mathlib.MeasureTheory.Function.EssSup
 
 /-!
 # Scaling, translation, and radius monotonicity
@@ -12,6 +14,8 @@ The declarations here keep the geometric maps from `Basic.lean` and expose the
 change-of-variables statements needed for scale-invariant quantities.  In
 particular, no source-facing quantity is introduced in this module.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set
 open scoped ENNReal Pointwise

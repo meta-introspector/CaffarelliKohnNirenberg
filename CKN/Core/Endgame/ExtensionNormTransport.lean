@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.MeasureTheory.Function.LpSpace.Basic
+module
+
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
 
 /-! # Transport of an Lp norm estimate to its actual functions
 
@@ -9,6 +11,8 @@ Finite Lp representatives retain their literal extended-valued seminorms.
 Consequently a real norm estimate between the representatives gives the
 same numerical estimate on the original functions, for any exponent.
 -/
+
+@[expose] public section
 
 open MeasureTheory
 open scoped ENNReal

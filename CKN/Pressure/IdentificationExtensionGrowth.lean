@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.IdentificationExtension
-import CKN.Pressure.PotentialDecayGrowthSum
-import CKN.Foundation.Euclidean.PotentialLocalLpP8
+module
+
+public import CKN.Pressure.IdentificationExtension
+public import CKN.Pressure.PotentialDecayGrowthSum
+public import CKN.Foundation.Euclidean.PotentialLocalLpP8
 
 /-!
 # Growth of the indexed pressure-extension residual
@@ -15,6 +17,8 @@ second supplies its local hypotheses from the global `MemLp` statement of the
 indexed extension.  The last two declarations expose the pressure-decomposition
 shape consumed by the CZ identification argument.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped BigOperators ENNReal NNReal Topology

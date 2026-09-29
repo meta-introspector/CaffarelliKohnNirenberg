@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.SpaceTimeSet
-import CKN.Statements.ParabolicHolderVecOn
-import CKN.Foundation.Parabolic.Basic
+module
+
+public import CKN.Statements.SpaceTimeSet
+public import CKN.Statements.ParabolicHolderVecOn
+public import CKN.Foundation.Parabolic.Basic
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open CKN.Foundation.Parabolic

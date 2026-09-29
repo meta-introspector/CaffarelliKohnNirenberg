@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.PkBoundsCylinder
+module
+
+public import CKN.Pressure.PkBoundsCylinder
+
+@[expose] public section
 
 open CKN.Foundation.Parabolic
 set_option autoImplicit false

@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceMeasurable
-import CKN.Core.Step4.PressureGradientOriginCellInstanceQuantitative
-import CKN.Core.Step4.PressureGradientGluedSmallCell
-import CKN.Core.Step4.PressureGradientGluedOriginClause
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceMeasurable
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceQuantitative
+public import CKN.Core.Step4.PressureGradientGluedSmallCell
+public import CKN.Core.Step4.PressureGradientGluedOriginClause
 
 /-!
 # The local pressure-gradient estimate on origin margin cells
@@ -14,6 +16,8 @@ larger interior ball. The doubled source cylinder is admissible, and the
 slice estimate in `eq:pressure-gradient-morrey` bounds the power integral of
 one fixed measurable gradient, as used in `prop:bootstrap`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

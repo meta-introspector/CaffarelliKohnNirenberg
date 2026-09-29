@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginGapHarmonicMoment
-import CKN.Core.Step4.WeakGradientGluingTForceMassEnvelope
+module
+
+public import CKN.Core.Step4.PressureGradientOriginGapHarmonicMoment
+public import CKN.Core.Step4.WeakGradientGluingTForceMassEnvelope
 
 /-! # Harmonic pressure estimates on the fixed gap collars
 
 The collar floor is `1/128`. The larger absolute moment coefficient is
 chosen before the numerical data and the suitable solution.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal

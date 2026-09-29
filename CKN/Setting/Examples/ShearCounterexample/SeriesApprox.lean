@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.GradientSeparation
-import CKN.Setting.Examples.ShearCounterexample.SliceFinite
-import CKN.Statements.SpatialGradientSq
-import CKN.Foundation.Parabolic.Basic
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.GradientSeparation
+public import CKN.Setting.Examples.ShearCounterexample.SliceFinite
+public import CKN.Statements.SpatialGradientSq
+public import CKN.Foundation.Parabolic.Basic
 
 /-! # Finite scale approximations to the shear fields. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory Filter

@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.DivergenceFreeSlice
-import CKN.Foundation.Parabolic.TsupportSpatialBox
-import Mathlib.Topology.Bases
-import Mathlib.MeasureTheory.Measure.Restrict
+module
+
+public import CKN.Setting.DivergenceFreeSlice
+public import CKN.Foundation.Parabolic.TsupportSpatialBox
+public import Mathlib.Topology.Bases
+public import Mathlib.MeasureTheory.Measure.Restrict
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology

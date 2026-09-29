@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceQuantitative
-import CKN.Core.Endgame.TheoremACarrierTime
-import CKN.Core.Step4.SliceSelectedGradientCellIdentification
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceQuantitative
+public import CKN.Core.Endgame.TheoremACarrierTime
+public import CKN.Core.Step4.SliceSelectedGradientCellIdentification
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-!
 # Fixed-radius pressure slices on the full solution interval
@@ -14,6 +16,8 @@ interval by interior backward windows of any fixed length less than one.
 The slice bound of `eq:pressure-gradient-morrey` therefore holds almost
 everywhere on the full interval, with its source radius unchanged.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

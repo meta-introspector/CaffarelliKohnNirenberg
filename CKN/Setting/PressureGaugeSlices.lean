@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.SuitableWeakSolutionIntegrable
-import CKN.Foundation.Parabolic.Topology
-import CKN.Core.Caccioppoli.LocalBox
-import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
-import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
-import Mathlib.MeasureTheory.Integral.Prod
+module
+
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+public import CKN.Foundation.Parabolic.Topology
+public import CKN.Core.Caccioppoli.LocalBox
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.MeasureTheory.Integral.Prod
 
 /-!
 # Slice identities behind the pressure gauge invariance
@@ -30,6 +32,8 @@ The uniform time-slice bound of the velocity comes from the essential
 supremum of the slice energies in `def:sws` together with `x ≤ 1 + x²`; no
 Gagliardo-Nirenberg input is needed.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology

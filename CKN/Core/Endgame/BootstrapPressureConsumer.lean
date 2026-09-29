@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.BootstrapDerivativeSource
-import CKN.Core.Endgame.CausalBootstrap
-import CKN.Core.Endgame.CausalPressureExtension
-import CKN.Core.Endgame.NestedCutoffs
-import CKN.Core.Endgame.LocalBoxRestriction
+module
+
+public import CKN.Core.Endgame.BootstrapDerivativeSource
+public import CKN.Core.Endgame.CausalBootstrap
+public import CKN.Core.Endgame.CausalPressureExtension
+public import CKN.Core.Endgame.NestedCutoffs
+public import CKN.Core.Endgame.LocalBoxRestriction
 
 /-! # The bootstrap round of `prop:bootstrap`
 
@@ -22,6 +24,8 @@ Every source is split at `t = 0` and only the past part is estimated, so no
 bound at times after `0` is used; the pressure values there enter only the
 local representation of the localized velocity.
 -/
+
+@[expose] public section
 
 open Set MeasureTheory Filter
 open scoped ENNReal Topology

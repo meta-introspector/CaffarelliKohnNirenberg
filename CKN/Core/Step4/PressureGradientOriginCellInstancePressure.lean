@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceAssembly
-import CKN.Core.Step4.PressureGradientGluedSlice
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceAssembly
+public import CKN.Core.Step4.PressureGradientGluedSlice
 
 /-!
 # Pressure slices on the whole solution interval
@@ -12,6 +14,8 @@ pressure premise of spatial weak-gradient gluing in `prop:bootstrap`.
 A compact exhaustion of the time interval makes the exceptional set uniform
 on the entire interval.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal Topology

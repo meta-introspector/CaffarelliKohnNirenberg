@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.HigherBounds
-import Mathlib.Analysis.Calculus.ParametricIntegral
-import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+module
+
+public import CKN.Foundation.Heat.HigherBounds
+public import Mathlib.Analysis.Calculus.ParametricIntegral
+public import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 

@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step3.LocalizedEquationTested
-import CKN.Core.Step3.DuhamelAdjoint
-import CKN.Core.Step3.LocalizedEquationDuhamelKernels
+module
+
+public import CKN.Core.Step3.LocalizedEquationTested
+public import CKN.Core.Step3.DuhamelAdjoint
+public import CKN.Core.Step3.LocalizedEquationDuhamelKernels
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Metric Filter
@@ -604,7 +608,7 @@ private lemma parabolic_potential_integrableOn_of_compact_integrable
       ∫ y, k (pointSub x y) * g y) (volume.restrict K)
   exact hpot
 
-private def parabolicHomeomorphReal' : ParabolicPoint ≃ₜ Vec3 × ℝ :=
+def parabolicHomeomorphReal' : ParabolicPoint ≃ₜ Vec3 × ℝ :=
   parabolicHomeomorph
 
 private lemma compact_parabolicMetricClosedBall' {z : ParabolicPoint} {r : ℝ} :

@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorDisplayBounds
-import CKN.Foundation.Parabolic.BallBasics
-import CKN.Foundation.Sobolev.Cutoff.BallTopology
-import CKN.Foundation.Sobolev.Cutoff.NormTriangle
-import Mathlib.MeasureTheory.Measure.OpenPos
+module
+
+public import CKN.Foundation.Harmonic.InteriorDisplayBounds
+public import CKN.Foundation.Parabolic.BallBasics
+public import CKN.Foundation.Sobolev.Cutoff.BallTopology
+public import CKN.Foundation.Sobolev.Cutoff.NormTriangle
+public import Mathlib.MeasureTheory.Measure.OpenPos
+
+@[expose] public section
 
 open scoped ENNReal Topology
 open MeasureTheory MeasureTheory.Measure Set

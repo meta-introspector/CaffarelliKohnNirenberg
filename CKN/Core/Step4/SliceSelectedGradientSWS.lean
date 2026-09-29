@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradient
-import CKN.Core.Step4.SliceSelectedGradientIdentification
-import CKN.Core.Step4.SliceSelectedGradientRegularity
-import CKN.Core.Step4.SliceSelectedGradientForce
+module
+
+public import CKN.Core.Step4.SliceSelectedGradient
+public import CKN.Core.Step4.SliceSelectedGradientIdentification
+public import CKN.Core.Step4.SliceSelectedGradientRegularity
+public import CKN.Core.Step4.SliceSelectedGradientForce
 
 /-! # Display (3.5) on a slice, with the analytic slots discharged
 
@@ -21,6 +23,8 @@ named inputs which are visibly about the data and not about the pressure: the
 divergence-form characterization of the slice source `V` and the
 distributional divergence-freedom of the force in space-time.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

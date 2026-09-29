@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Basic
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Basic
 
 /-!
 # Quantitative scalar multiplication in Morrey seminorms
@@ -9,6 +11,8 @@ import CKN.Foundation.Parabolic.Morrey.Basic
 The absolute scalar factor is retained in the bound, including when the
 scalar vanishes or the unscaled seminorm is infinite.
 -/
+
+@[expose] public section
 
 open MeasureTheory
 open scoped ENNReal

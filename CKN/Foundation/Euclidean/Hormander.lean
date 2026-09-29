@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Ambient.Euclidean
-import CKN.Foundation.Parabolic.BallDisplays
-import Mathlib.Analysis.Calculus.MeanValue
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import CKN.Foundation.Ambient.Euclidean
+public import CKN.Foundation.Parabolic.BallDisplays
+public import Mathlib.Analysis.Calculus.MeanValue
+public import Mathlib.Analysis.SpecificLimits.Basic
 
 /-!
 # The Hörmander condition for the Newtonian second-derivative kernel
@@ -40,6 +42,8 @@ the displacement contributes exactly `vec3EuclideanNorm y`.  All balls and
 shells are Euclidean (`vec3Ball`), and the volume normalization
 `volume_vec3Ball_eq` is the one of the paper.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 open Filter MeasureTheory MeasureTheory.Measure Set Metric

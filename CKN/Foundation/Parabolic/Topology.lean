@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import CKN.Statements.SpaceTimeSet
-import Mathlib.Topology.Order.DenselyOrdered
-import Mathlib.Analysis.Normed.Module.RCLike.Real
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Statements.SpaceTimeSet
+public import Mathlib.Topology.Order.DenselyOrdered
+public import Mathlib.Analysis.Normed.Module.RCLike.Real
 
 /-!
 # Topology of parabolic space-time
@@ -18,6 +20,8 @@ particular the space-time set `def:sws`, whose carrier is `Ω × I`, is open for
 and `I`, and the interior and closure of a parabolic cylinder are computed from the
 Euclidean ball and the intervals `Ioo` and `Icc`.
 -/
+
+@[expose] public section
 
 open scoped Topology
 open Set Metric

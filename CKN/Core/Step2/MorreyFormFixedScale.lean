@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step2.Interpolation
-import CKN.Foundation.Parabolic.Morrey.Cylinders
+module
+
+public import CKN.Core.Step2.Interpolation
+public import CKN.Foundation.Parabolic.Morrey.Cylinders
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

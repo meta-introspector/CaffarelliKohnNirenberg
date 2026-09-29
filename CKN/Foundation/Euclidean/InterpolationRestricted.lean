@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.Interpolation
-import CKN.Foundation.Euclidean.InterpolationLpChar
-import CKN.Foundation.Euclidean.InterpolationTruncBounds
-import CKN.Foundation.Euclidean.InterpolationIndicator
-import CKN.Foundation.Measure.ENNRealHalfScale
+module
+
+public import CKN.Foundation.Euclidean.Interpolation
+public import CKN.Foundation.Euclidean.InterpolationLpChar
+public import CKN.Foundation.Euclidean.InterpolationTruncBounds
+public import CKN.Foundation.Euclidean.InterpolationIndicator
+public import CKN.Foundation.Measure.ENNRealHalfScale
 
 /-!
 # Marcinkiewicz interpolation for operators defined on a restricted class
@@ -36,6 +38,8 @@ the second lies in `L^2`; these two facts, proved here from the pointwise bounds
 of `InterpolationTruncBounds.lean`, are what lets the restricted hypotheses be
 applied.  Everything else is the argument of `Interpolation.lean`.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

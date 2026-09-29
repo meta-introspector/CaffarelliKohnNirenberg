@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Poincare.Smooth
-import CKN.Foundation.Sobolev.WeakDerivative
-import Mathlib.Analysis.Calculus.FDeriv.Equiv
+module
+
+public import CKN.Foundation.Sobolev.Poincare.Smooth
+public import CKN.Foundation.Sobolev.WeakDerivative
+public import Mathlib.Analysis.Calculus.FDeriv.Equiv
 
 /-!
 # Translation and dilation bookkeeping
@@ -14,6 +16,8 @@ to pass from the unit ball to a general ball.  The weak-derivative result is
 proved for the smooth pullback; a density theorem for the full representative
 level is still a separate input.
 -/
+
+@[expose] public section
 
 namespace CKN
 

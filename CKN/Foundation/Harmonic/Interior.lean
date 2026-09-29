@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.NewtonianRepresentation
-import CKN.Foundation.Harmonic.InteriorBasic
-import CKN.Pressure.Cutoff
-import CKN.Pressure.LeibnizLaplacian
-import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
-import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+module
+
+public import CKN.Foundation.Harmonic.NewtonianRepresentation
+public import CKN.Foundation.Harmonic.InteriorBasic
+public import CKN.Pressure.Cutoff
+public import CKN.Pressure.LeibnizLaplacian
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Filter

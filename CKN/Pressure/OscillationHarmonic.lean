@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorSmooth
-import CKN.Foundation.Harmonic.InteriorEstimates
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Parabolic.Integration.Average
-import CKN.Foundation.Sobolev.Poincare.LpConvergence
-import CKN.Pressure.DecompositionPotentials
-import CKN.Pressure.DecompositionSWSBasic
+module
+
+public import CKN.Foundation.Harmonic.InteriorSmooth
+public import CKN.Foundation.Harmonic.InteriorEstimates
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Parabolic.Integration.Average
+public import CKN.Foundation.Sobolev.Poincare.LpConvergence
+public import CKN.Pressure.DecompositionPotentials
+public import CKN.Pressure.DecompositionSWSBasic
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

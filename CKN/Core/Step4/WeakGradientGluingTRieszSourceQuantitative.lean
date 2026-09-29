@@ -1,18 +1,22 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTRemainderMajorantQuantitative
-import CKN.Core.Step4.PressureGradientGluedRemainderBounds
-import CKN.Core.Step4.PressureGradientHGCloserCellsRiesz
-import CKN.Core.Step4.PressureGradientOriginKPAffineSource
-import CKN.Core.Step4.WeakGradientGluingTWindowSelection
-import CKN.Core.Step4.PressureGradientGaugeMajorantExponents
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTRemainderMajorantQuantitative
+public import CKN.Core.Step4.PressureGradientGluedRemainderBounds
+public import CKN.Core.Step4.PressureGradientHGCloserCellsRiesz
+public import CKN.Core.Step4.PressureGradientOriginKPAffineSource
+public import CKN.Core.Step4.WeakGradientGluingTWindowSelection
+public import CKN.Core.Step4.PressureGradientGaugeMajorantExponents
 
 /-! # Quantitative time masses of the localized pressure Riesz sources
 
 A uniform endpoint coefficient puts the localized divergence source into the
 affine cell budget; the source contains both convection and force.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

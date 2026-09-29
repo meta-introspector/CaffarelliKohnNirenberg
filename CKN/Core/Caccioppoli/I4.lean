@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.I3
-import CKN.Setting.SliceNormBounds
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Parabolic.Covering
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+module
+
+public import CKN.Core.Caccioppoli.I3
+public import CKN.Setting.SliceNormBounds
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Parabolic.Covering
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

@@ -1,10 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.SuitableWeakSolutionIntegrable
-import CKN.Setting.ScalingQuantities
-import CKN.Foundation.Parabolic.Topology
-import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+module
+
+public import CKN.Statements.SuitableWeakSolutionIntegrable
+public import CKN.Setting.ScalingQuantities
+public import CKN.Foundation.Parabolic.Topology
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology Pointwise
@@ -81,7 +85,7 @@ theorem rescaledTime_ordConnected {μ : ℝ} (_ : 0 < μ) (t₀ : ℝ)
   simpa [add_comm] using
     (add_le_add_left (mul_le_mul_of_nonneg_left hab (sq_nonneg μ)) t₀)
 
-private def scalingSpaceHomeomorph (μ : ℝ) (hμ : 0 < μ) (x₀ : Vec3) :
+def scalingSpaceHomeomorph (μ : ℝ) (hμ : 0 < μ) (x₀ : Vec3) :
     Vec3 ≃ₜ Vec3 :=
   (Homeomorph.smulOfNeZero μ hμ.ne').trans (Homeomorph.addLeft x₀)
 
@@ -90,7 +94,7 @@ private theorem scalingSpace_eq_homeomorph (μ : ℝ) (hμ : 0 < μ) (x₀ : Vec
   funext y
   simp [scalingSpace, scalingSpaceHomeomorph]
 
-private def scalingTimeHomeomorph (μ : ℝ) (hμ : 0 < μ) (t₀ : ℝ) :
+def scalingTimeHomeomorph (μ : ℝ) (hμ : 0 < μ) (t₀ : ℝ) :
     ℝ ≃ₜ ℝ :=
   (Homeomorph.smulOfNeZero (μ ^ 2) (sq_pos_of_pos hμ).ne').trans
     (Homeomorph.addLeft t₀)
@@ -100,7 +104,7 @@ private theorem scalingTime_eq_homeomorph (μ : ℝ) (hμ : 0 < μ) (t₀ : ℝ)
   funext s
   simp [scalingTime, scalingTimeHomeomorph, smul_eq_mul]
 
-private def scalingTimeInv (μ : ℝ) (t₀ : ℝ) : ℝ → ℝ :=
+def scalingTimeInv (μ : ℝ) (t₀ : ℝ) : ℝ → ℝ :=
   fun s => (μ ^ 2)⁻¹ * (s - t₀)
 
 private theorem scalingTime_left_inverse (μ : ℝ) (hμ : 0 < μ) (t₀ s : ℝ) :

@@ -1,6 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step3.LocalizedEquationBasics
+module
+
+public import CKN.Core.Step3.LocalizedEquationBasics
+
+@[expose] public section
 open scoped BigOperators ENNReal NNReal Topology
 open MeasureTheory MeasureTheory.Measure Set Metric Filter
 set_option autoImplicit false

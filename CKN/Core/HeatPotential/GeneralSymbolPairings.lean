@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step3.LocalizedEquationDuhamel
+module
+
+public import CKN.Core.Step3.LocalizedEquationDuhamel
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology
 
@@ -196,7 +200,7 @@ theorem kernel_potential_integrableOn_of_compact
       ∫ y, k (pointSub x y) * (g y : ℂ)) (volume.restrict K)
   exact hprod.integral_prod_left
 
-private def parabolicHomeomorphReal' : ParabolicPoint ≃ₜ Vec3 × ℝ :=
+def parabolicHomeomorphReal' : ParabolicPoint ≃ₜ Vec3 × ℝ :=
   parabolicHomeomorph
 
 private lemma compact_parabolicMetricClosedBall' {z : ParabolicPoint} {r : ℝ} :

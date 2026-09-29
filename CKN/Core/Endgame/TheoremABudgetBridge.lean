@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginClauseGauge
-import CKN.Core.Step4.PressureGradientOriginBudgetSufficient
-import CKN.Core.Endgame.CarrierRestriction
-import CKN.Core.Step4.PressureGradientOriginCellInstanceMargin
-import CKN.Core.Step4.PressureGradientOriginClauseField
+module
+
+public import CKN.Core.Step4.PressureGradientOriginClauseGauge
+public import CKN.Core.Step4.PressureGradientOriginBudgetSufficient
+public import CKN.Core.Endgame.CarrierRestriction
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceMargin
+public import CKN.Core.Step4.PressureGradientOriginClauseField
 
 /-! # Assembling the pressure-gradient estimate on the origin carrier
 
@@ -23,6 +25,8 @@ transfer: the small-cell growth coefficient and the whole-carrier mass.
 A uniform bound on the covering sums is a genuine quantitative input;
 finiteness of the local growth coefficients alone does not supply it.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped BigOperators ENNReal Topology

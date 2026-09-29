@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.SliceFullWeak
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.SliceFullWeak
 
 /-! # Almost-everywhere convergence statements for shear slices. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory

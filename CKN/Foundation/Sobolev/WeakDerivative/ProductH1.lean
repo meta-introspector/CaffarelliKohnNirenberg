@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Mollify.LpApproximation
-import CKN.Foundation.Sobolev.Mollify.Transport
-import Mathlib.MeasureTheory.Function.L1Space.Integrable
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
-import Mathlib.Topology.MetricSpace.Thickening
+module
+
+public import CKN.Foundation.Sobolev.Mollify.LpApproximation
+public import CKN.Foundation.Sobolev.Mollify.Transport
+public import Mathlib.MeasureTheory.Function.L1Space.Integrable
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.Topology.MetricSpace.Thickening
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology Convolution Pointwise

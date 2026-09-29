@@ -1,19 +1,23 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Cutoff.SpaceTime
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.Analysis.Calculus.ContDiff.Bounds
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.MeasureTheory.Function.LpSpace.Indicator
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+module
+
+public import CKN.Foundation.Sobolev.Cutoff.SpaceTime
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.Analysis.Calculus.ContDiff.Bounds
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.MeasureTheory.Function.LpSpace.Indicator
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
 
 /-! # Pointwise bounds for the scaled shear profile. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory
 namespace CKN
-private def shearSpaceDilation (r : ℝ) : Vec 2 →L[ℝ] Vec 2 :=
+def shearSpaceDilation (r : ℝ) : Vec 2 →L[ℝ] Vec 2 :=
   ContinuousLinearMap.pi fun i =>
     (ContinuousLinearMap.proj (R := ℝ) i).smulRight (r⁻¹)
 
@@ -130,7 +134,7 @@ theorem shearUnitBump_bound :
 
 
 
-private def shearTimeCore (t : ℝ) : ℝ :=
+def shearTimeCore (t : ℝ) : ℝ :=
   smoothTransitionProfile ((t + 1 / 2) / (3 / 8)) *
     smoothTransitionProfile ((1 / 2 - t) / (3 / 8))
 

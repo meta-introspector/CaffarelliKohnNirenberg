@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientGluedUnion
-import CKN.Core.Step4.PressureGradientGluedGeometry
-import CKN.Statements.SpaceTimeSet
-import CKN.Foundation.Sobolev.Cutoff.Ball
-import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
+module
+
+public import CKN.Core.Step4.PressureGradientGluedUnion
+public import CKN.Core.Step4.PressureGradientGluedGeometry
+public import CKN.Statements.SpaceTimeSet
+public import CKN.Foundation.Sobolev.Cutoff.Ball
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Basic
 
 /-!
 # The spatial gradient of a pressure slice on a whole ball
@@ -27,6 +29,8 @@ everywhere on an open set, every bound proved for a slice gradient on a
 sub-ball is inherited by the glued field there.  That is the mechanism that
 makes a bound available at *every* cell scale rather than at one scale only.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

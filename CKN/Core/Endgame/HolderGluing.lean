@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.ParabolicHolderVecNormLE
-import CKN.Statements.RegularPoint
-import CKN.Foundation.Parabolic.Topology
-import Mathlib.MeasureTheory.Measure.OpenPos
-import Mathlib.Topology.MetricSpace.Holder
+module
+
+public import CKN.Statements.ParabolicHolderVecNormLE
+public import CKN.Statements.RegularPoint
+public import CKN.Foundation.Parabolic.Topology
+public import Mathlib.MeasureTheory.Measure.OpenPos
+public import Mathlib.Topology.MetricSpace.Holder
 
 /-!
 # Quantitative gluing of parabolic Hölder representatives
@@ -14,6 +16,8 @@ Representatives equal almost everywhere on overlapping open sets agree
 pointwise. A common local Hölder bound then gives a quantitative bound on
 a region whenever sufficiently close pairs lie in a common member of the cover.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

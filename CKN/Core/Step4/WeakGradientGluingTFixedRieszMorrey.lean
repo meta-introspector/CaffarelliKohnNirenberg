@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTFixedForceMorrey
-import CKN.Core.Step4.PressureGradientHGCloserCellsRieszMorrey
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTFixedForceMorrey
+public import CKN.Core.Step4.PressureGradientHGCloserCellsRieszMorrey
 
 /-! # Morrey control of a windowed Riesz field
 
@@ -10,6 +12,8 @@ A completed-operator representative inherits the finite source Morrey
 seminorm once the bounded spatial support and the full-time slice membership
 are supplied by the fixed product restriction.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

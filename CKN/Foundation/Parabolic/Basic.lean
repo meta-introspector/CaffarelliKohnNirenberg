@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Analysis.Normed.Lp.PiLp
-import Mathlib.Analysis.Normed.Lp.MeasurableSpace
-import Mathlib.MeasureTheory.Measure.Hausdorff
-import Mathlib.MeasureTheory.Measure.Prod
-import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
-import Mathlib.Topology.MetricSpace.Snowflaking
+module
+
+public import Mathlib.Analysis.Normed.Lp.PiLp
+public import Mathlib.Analysis.Normed.Lp.MeasurableSpace
+public import Mathlib.MeasureTheory.Measure.Hausdorff
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.Topology.MetricSpace.Snowflaking
 
 /-!
 # Parabolic space-time geometry
@@ -15,6 +17,8 @@ The spatial geometry uses the Euclidean norm on `Fin 3 → ℝ`, defined from th
 finite sum of squares.  This is deliberate: the ambient function space's
 default norm can be the sup norm, whereas the cylinders here are Euclidean.
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

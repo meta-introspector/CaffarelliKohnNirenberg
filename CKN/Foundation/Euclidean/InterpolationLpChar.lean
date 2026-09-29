@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.InterpolationBasic
+module
+
+public import CKN.Foundation.Euclidean.InterpolationBasic
 
 /-!
 # `L^p` membership as finiteness of a Lebesgue integral
@@ -26,6 +28,8 @@ agree pointwise with `‖f ·‖ₑ`.  The results are:
 * finiteness of `∫⁻ x, absE f x` is exactly Bochner integrability of `f`
   (`integrable_of_lintegral_absE_lt_top`).
 -/
+
+@[expose] public section
 
 open scoped ENNReal NNReal Topology
 

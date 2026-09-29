@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.KernelAllOrdersShift
-import CKN.Foundation.Parabolic.Topology
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Statements.SpaceTimeSet
+module
+
+public import CKN.Foundation.Harmonic.KernelAllOrdersShift
+public import CKN.Foundation.Parabolic.Topology
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Statements.SpaceTimeSet
 
 /-!
 # Margin-safe parabolic cylinders and their closures
@@ -21,6 +23,8 @@ The results are stated in the two settings used later: a one-sided cylinder
 based at the origin of the unit parabolic cylinder, and a parabolic metric ball
 about an arbitrary centre.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

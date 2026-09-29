@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.OneSidedCutoff
-import CKN.Core.Step3.LocalizedEquationBasics
-import CKN.Pressure.LeibnizLaplacian
-import Mathlib.Analysis.Normed.Group.Bounded
+module
+
+public import CKN.Core.Endgame.OneSidedCutoff
+public import CKN.Core.Step3.LocalizedEquationBasics
+public import CKN.Pressure.LeibnizLaplacian
+public import Mathlib.Analysis.Normed.Group.Bounded
 
 /-!
 # Uniform derivatives of fixed and domain-adapted cutoffs
@@ -15,6 +17,8 @@ Equality of germs transports these bounds without imposing smoothness or
 support assumptions on the second function. In particular the negative-time
 bounds of a domain-adapted cutoff retain the fixed function's constants.
 -/
+
+@[expose] public section
 
 open Set Filter
 open scoped Topology BigOperators

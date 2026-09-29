@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.WeakGradientGluingTMeasurable
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSFinal
-import CKN.Core.Step4.SliceSelectedGradientSymmetricGeometry
-import CKN.Core.Step4.PressureGradientSymmetricCell
-import CKN.Core.Step4.SliceSelectedGradientSWS
+module
+
+public import CKN.Foundation.Sobolev.WeakGradientGluingTMeasurable
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSFinal
+public import CKN.Core.Step4.SliceSelectedGradientSymmetricGeometry
+public import CKN.Core.Step4.PressureGradientSymmetricCell
+public import CKN.Core.Step4.SliceSelectedGradientSWS
 
 /-! # One measurable pressure gradient on the inner symmetric carrier
 
@@ -13,6 +15,8 @@ Suitability on the doubled parabolic ball supplies spatial slice derivatives
 on a larger ball. Measurable selection fixes one field on the inner ball
 before any smaller cells or quantitative estimates are considered.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Topology

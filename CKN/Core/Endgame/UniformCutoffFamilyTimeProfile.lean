@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Cutoff.Profile
-import Mathlib.Analysis.Calculus.Deriv.Add
-import Mathlib.Analysis.Calculus.Deriv.Comp
-import Mathlib.Analysis.Calculus.Deriv.Mul
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Positivity
+module
+
+public import CKN.Foundation.Sobolev.Cutoff.Profile
+public import Mathlib.Analysis.Calculus.Deriv.Add
+public import Mathlib.Analysis.Calculus.Deriv.Comp
+public import Mathlib.Analysis.Calculus.Deriv.Mul
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Positivity
 
 /-!
 # A fixed smooth temporal profile with an explicit derivative bound
@@ -31,6 +33,8 @@ collar has width one on each side.
 * `uniformTimeProfile_eq_zero`: the profile vanishes outside `(-2, 2)`.
 * `uniformTimeProfile_abs_deriv_le`: the first derivative is bounded by `16`.
 -/
+
+@[expose] public section
 
 set_option autoImplicit false
 noncomputable section

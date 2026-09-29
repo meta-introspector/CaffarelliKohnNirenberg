@@ -1,19 +1,21 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step3.GradientSlotDuhamel
-import CKN.Core.Step4.PressureGradientOriginCellInstanceAssembly
-import CKN.Core.Step4.PressureGradientOriginCellInstanceSlice
-import CKN.Core.Step4.PressureGradientGluedSlice
-import CKN.Core.Step4.SliceSelectedGradientSymmetricBox
-import CKN.Core.Step4.WeakGradientGluingTFixedPairing
-import CKN.Core.Endgame.TheoremACarrierTime
-import CKN.Foundation.Parabolic.BallBasics
-import CKN.Foundation.Measure.SliceGradientSelection
-import CKN.Foundation.Sobolev.WeakGradientGluingTMeasurable
-import CKN.Statements.SpaceTimeSet
-import CKN.Setting.ScalingInvariance
-import Mathlib.Topology.Metrizable.Basic
+module
+
+public import CKN.Core.Step3.GradientSlotDuhamel
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceAssembly
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceSlice
+public import CKN.Core.Step4.PressureGradientGluedSlice
+public import CKN.Core.Step4.SliceSelectedGradientSymmetricBox
+public import CKN.Core.Step4.WeakGradientGluingTFixedPairing
+public import CKN.Core.Endgame.TheoremACarrierTime
+public import CKN.Foundation.Parabolic.BallBasics
+public import CKN.Foundation.Measure.SliceGradientSelection
+public import CKN.Foundation.Sobolev.WeakGradientGluingTMeasurable
+public import CKN.Statements.SpaceTimeSet
+public import CKN.Setting.ScalingInvariance
+public import Mathlib.Topology.Metrizable.Basic
 
 /-! # Producing the localized Duhamel pressure gradient
 
@@ -21,6 +23,8 @@ The pressure of a suitable weak solution is locally integrable in space-time.
 Fubini therefore gives locally integrable pressure slices on every compact
 local box.  This is the starting point for selecting its spatial weak gradient.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

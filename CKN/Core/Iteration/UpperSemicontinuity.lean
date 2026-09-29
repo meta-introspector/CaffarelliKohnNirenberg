@@ -1,15 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Iteration.Arithmetic
-import CKN.Core.Iteration.UpperSemicontinuityBasic
-import CKN.Core.Caccioppoli.Conversions
-import CKN.Setting.Energy.AELocalEnergy
-import CKN.Foundation.Sobolev.Cutoff.Ball
-import CKN.Foundation.Parabolic.Topology
-import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
-import Mathlib.MeasureTheory.Function.EssSup
-import Mathlib.MeasureTheory.Integral.Bochner.Set
+module
+
+public import CKN.Core.Iteration.Arithmetic
+public import CKN.Core.Iteration.UpperSemicontinuityBasic
+public import CKN.Core.Caccioppoli.Conversions
+public import CKN.Setting.Energy.AELocalEnergy
+public import CKN.Foundation.Sobolev.Cutoff.Ball
+public import CKN.Foundation.Parabolic.Topology
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.MeasureTheory.Function.EssSup
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
 
 /-!
 # Upper semicontinuity of the time-slice energy
@@ -17,6 +19,8 @@ import Mathlib.MeasureTheory.Integral.Bochner.Set
 The product-cutoff argument below uses the almost-every-time local energy
 inequality and the compactly supported smooth cutoffs from the setting layer.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter Metric
 open scoped ENNReal NNReal Topology

@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginClauseGauge
-import CKN.Core.Step4.PressureGradientGluedTimeBounds
-import CKN.Core.Step4.PressureGradientGaugeMajorantHolder
-import CKN.Core.Step4.PressureGradientLargeCells
+module
+
+public import CKN.Core.Step4.PressureGradientOriginClauseGauge
+public import CKN.Core.Step4.PressureGradientGluedTimeBounds
+public import CKN.Core.Step4.PressureGradientGaugeMajorantHolder
+public import CKN.Core.Step4.PressureGradientLargeCells
 
 /-!
 # Pressure oscillation on clipped origin windows
@@ -16,6 +18,8 @@ The separate large-radius estimate is supplied by
 `pressure_gradient_origin_cylinder_large_cell_le` in `PressureGradientLargeCells`.
 No estimate for the complete slice majorant is asserted here.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped BigOperators ENNReal NNReal Topology

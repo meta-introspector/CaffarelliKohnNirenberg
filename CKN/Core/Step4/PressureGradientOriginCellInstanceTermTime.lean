@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginCellInstanceTermMeasurable
-import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalSource
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceTermMeasurable
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalSource
 
 /-!
 # Time integrability of the actual centered slice terms
@@ -10,6 +12,8 @@ import CKN.Core.Step4.PressureGradientOriginCellInstanceLocalSource
 The sum of source norms and the real tensor energy in
 `eq:pressure-gradient-morrey` are integrable on arbitrary interior time boxes.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

@@ -1,6 +1,8 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSSource
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSSource
 
 /-!
 # Quantitative majorant for the centred source on a slice ball
@@ -10,6 +12,8 @@ slice `L³` norm, and splits the centred source majorant of
 `eq:pressure-gradient-decomposition` into a mixed velocity-gradient term, a quadratic
 velocity term, and a localized force term, with explicit numerical constants.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal BigOperators

@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.ScalingInvarianceS3S4
+module
+
+public import CKN.Setting.ScalingInvarianceS3S4
 
 /-!
 # Faithful local-energy scaling
@@ -15,6 +17,8 @@ of parabolic scaling invariance.
   `μ⁻¹`, and the original and rescaled local energy inequalities are equivalent.
 -/
 
+@[expose] public section
+
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology Pointwise
 open CKN.Foundation.Parabolic CKN.Foundation.Parabolic.Integration
@@ -25,7 +29,7 @@ noncomputable section
 
 namespace CKN
 
-private def s4ScalingHomeomorph (μ : ℝ) (hμ : 0 < μ) (z₀ : ParabolicPoint) :
+def s4ScalingHomeomorph (μ : ℝ) (hμ : 0 < μ) (z₀ : ParabolicPoint) :
     ParabolicPoint ≃ₜ ParabolicPoint :=
   (parabolicHomeomorph.trans (Homeomorph.prodCongr
     ((Homeomorph.smulOfNeZero μ hμ.ne').trans (Homeomorph.addLeft z₀.1))

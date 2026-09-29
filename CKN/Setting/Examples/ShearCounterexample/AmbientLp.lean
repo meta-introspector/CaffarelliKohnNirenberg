@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.ShearCoordinates
-import CKN.Statements.LocalBox
-import CKN.Statements.SpaceTimeSet
-import CKN.Foundation.Parabolic.Vec3Norm
-import Mathlib.MeasureTheory.Function.LpSeminorm.Prod
-import Mathlib.MeasureTheory.Measure.Restrict
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.ShearCoordinates
+public import CKN.Statements.LocalBox
+public import CKN.Statements.SpaceTimeSet
+public import CKN.Foundation.Parabolic.Vec3Norm
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Prod
+public import Mathlib.MeasureTheory.Measure.Restrict
 
 /-! # Lp bounds for the passive coordinate of the shear. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory

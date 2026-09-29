@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Analysis.SpecialFunctions.Exp
-import Mathlib.Analysis.Real.Sqrt
-import Mathlib.Order.Bounds.Basic
+module
+
+public import Mathlib.Analysis.SpecialFunctions.Exp
+public import Mathlib.Analysis.Real.Sqrt
+public import Mathlib.Order.Bounds.Basic
+
+@[expose] public section
 
 set_option autoImplicit false
 

@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.ClassEquivalence.CompactLp
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.ClassEquivalence.CompactLp
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-!
 # Covering a compact space-time set by ball cylinders inside a local box
@@ -19,6 +21,8 @@ factor is never subdivided, because the interpolation on a ball accepts an
 arbitrary order-connected time interval; so the cover is indexed by one finite
 family and a finite union of integrability statements closes it.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped ENNReal NNReal Topology

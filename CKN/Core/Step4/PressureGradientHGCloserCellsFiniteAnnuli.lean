@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientHGCloserCellsAnnulus
+module
+
+public import CKN.Core.Step4.PressureGradientHGCloserCellsAnnulus
 
 /-! # Finite annular decomposition of the pressure Riesz operator
 
@@ -9,6 +11,8 @@ A source restricted to a large ball is split into its near part and finitely
 many dyadic annuli. The near part uses the global Calderón–Zygmund bound;
 each annulus uses the exterior inverse-cube estimate.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

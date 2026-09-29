@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.WeakDerivative
-import CKN.Foundation.Sobolev.Cutoff.Basic
-import CKN.Foundation.Sobolev.Measure.CompactMultiplier
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
-import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
+module
+
+public import CKN.Foundation.Sobolev.WeakDerivative
+public import CKN.Foundation.Sobolev.Cutoff.Basic
+public import CKN.Foundation.Sobolev.Measure.CompactMultiplier
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality
 
 /-!
 # Product rules for compactly supported smooth multipliers
@@ -14,6 +16,8 @@ The statements here use the representative functions carried by the weak-derivat
 predicate.  Compact support keeps every test-function product inside the open set, so
 the resulting derivative is a global weak derivative of the zero extension.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

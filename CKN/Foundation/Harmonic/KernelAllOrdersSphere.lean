@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import CKN.Foundation.Ambient.Euclidean
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import CKN.Foundation.Ambient.Euclidean
+
+@[expose] public section
 
 open scoped BigOperators Topology
 open CKN.Foundation.Parabolic

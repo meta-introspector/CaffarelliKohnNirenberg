@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.TheoremA.StartCZ
-import CKN.Pressure.Lin34SliceIntegrated
+module
+
+public import CKN.Core.TheoremA.StartCZ
+public import CKN.Pressure.Lin34SliceIntegrated
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Basic
-import Mathlib.Algebra.Order.Floor.Ring
-import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
-import Mathlib.Tactic.Positivity
+module
+
+public import CKN.Foundation.Parabolic.Basic
+public import Mathlib.Algebra.Order.Floor.Ring
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.Tactic.Positivity
 
 /-!
 # Dyadic cubes in the native three-dimensional carrier
@@ -12,6 +14,8 @@ import Mathlib.Tactic.Positivity
 The cubes use the half-open product grid on `Vec3 = Fin 3 → ℝ`.  The scale
 index is integral so that parent and child cubes are represented uniformly.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal NNReal Topology

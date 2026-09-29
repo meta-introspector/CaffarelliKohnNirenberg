@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSFinal
-import CKN.Foundation.Euclidean.OperatorConstantNonneg
-import CKN.Foundation.Sobolev.WeakGradientGluingTBounds
+module
+
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSFinal
+public import CKN.Foundation.Euclidean.OperatorConstantNonneg
+public import CKN.Foundation.Sobolev.WeakGradientGluingTBounds
 
 /-!
 # Corrected pressure-gradient slices from suitable-solution data
@@ -12,6 +14,8 @@ The force-free centred source and its tested identity are extracted from
 suitable-solution data. The resulting quantitative slice estimate is in the
 form used to transfer a doubled-scale bound to cell data.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped BigOperators ENNReal NNReal Topology

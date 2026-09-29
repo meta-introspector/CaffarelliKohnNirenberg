@@ -1,6 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.PressureGradientOriginKPHarmonicCells
+module
+
+public import CKN.Core.Step4.PressureGradientOriginKPHarmonicCells
+
+@[expose] public section
 open MeasureTheory Set Filter
 open scoped ENNReal
 open CKN.Foundation.Parabolic CKN.Foundation.Heat

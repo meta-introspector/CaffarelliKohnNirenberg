@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Parameters
+module
+
+public import CKN.Core.Parameters
 
 /-!
 # The admissible range of the bootstrap exponent
@@ -21,6 +23,8 @@ direction supplied by `bootstrap_condition_of_mem_range`.
 This file records the characterisation, so that a consumer of `prop:bootstrap`
 can see which `τ` the proposition admits.
 -/
+
+@[expose] public section
 
 open scoped Topology
 

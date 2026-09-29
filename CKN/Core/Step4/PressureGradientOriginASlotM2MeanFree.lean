@@ -1,13 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.PressureGradientOriginCellInstanceCenteredSource
-import CKN.Core.Step4.PressureGradientOriginCellInstanceMeanNorm
-import CKN.Core.Step4.PressureGradientOriginCellInstanceSource
-import CKN.Core.Step4.SliceSelectedGradientCentredSWSData
-import CKN.Setting.SobolevPoincareRescale
-import CKN.Core.Step4.PressureGradientGluedTimeBounds
-import CKN.Core.Step4.PressureGradientOriginClauseField
-import CKN.Core.Step4.PressureGradientMorrey
+module
+
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceCenteredSource
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceMeanNorm
+public import CKN.Core.Step4.PressureGradientOriginCellInstanceSource
+public import CKN.Core.Step4.SliceSelectedGradientCentredSWSData
+public import CKN.Setting.SobolevPoincareRescale
+public import CKN.Core.Step4.PressureGradientGluedTimeBounds
+public import CKN.Core.Step4.PressureGradientOriginClauseField
+public import CKN.Core.Step4.PressureGradientMorrey
 
 /-! # The mean-free velocity field on the half-gap collar
 
@@ -18,6 +20,8 @@ controlled by the gradient slice mass and not by the velocity size.  The
 volume gain on a cell of radius `r` beats the Morrey normalisation by
 `r^{1/10}`, uniformly over all cells and both large and small radii.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal BigOperators

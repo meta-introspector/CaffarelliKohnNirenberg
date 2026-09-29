@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.Bootstrap
-import CKN.Core.Endgame.MorreyScaling
-import CKN.Core.Endgame.SourceComponents
+module
+
+public import CKN.Core.Endgame.Bootstrap
+public import CKN.Core.Endgame.MorreyScaling
+public import CKN.Core.Endgame.SourceComponents
 
 /-! # Numerical bounds for the first Morrey improvement
 
@@ -11,6 +13,8 @@ The constants in Adams' estimate and in lowering the integrability exponent
 are retained. This gives a bound determined by the source bounds, not by a
 new existential constant chosen after the solution.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal

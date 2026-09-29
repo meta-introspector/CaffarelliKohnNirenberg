@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Core.Step4.WeakGradientGluingTHarmonicMassEnvelope
-import CKN.Core.Step4.WeakGradientGluingTFourTermIdentification
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTHarmonicMassEnvelope
+public import CKN.Core.Step4.WeakGradientGluingTFourTermIdentification
 
 /-! # Measurable harmonic and force envelopes at the prescribed collars -/
+
+@[expose] public section
 open MeasureTheory Set
 open scoped ENNReal
 open CKN CKN.Foundation.Parabolic CKN.Foundation.Heat CKN.Core.Endgame

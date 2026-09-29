@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.Examples.ShearFlow
+module
+
+public import CKN.Setting.Examples.ShearFlow
 
 /-!
 # Local energy data for the viscous shear
@@ -9,6 +11,8 @@ import CKN.Setting.Examples.ShearFlow
 The velocity and its gradient are bounded by one on the positive time
 interval. Compact local boxes therefore have finite energy and slice bounds.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal

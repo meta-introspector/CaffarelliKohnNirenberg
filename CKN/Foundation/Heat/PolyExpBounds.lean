@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Analysis.Complex.Exponential
-import Mathlib.Analysis.Real.Sqrt
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
-import Mathlib.Algebra.Order.GroupWithZero.Basic
-import Mathlib.Algebra.Order.Ring.Basic
-import Mathlib.Tactic.Positivity
+module
+
+public import Mathlib.Analysis.Complex.Exponential
+public import Mathlib.Analysis.Real.Sqrt
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+public import Mathlib.Algebra.Order.GroupWithZero.Basic
+public import Mathlib.Algebra.Order.Ring.Basic
+public import Mathlib.Tactic.Positivity
+
+@[expose] public section
 
 set_option autoImplicit false
 

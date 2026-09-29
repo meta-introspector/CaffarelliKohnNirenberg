@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Caccioppoli.CaccioppoliMeanSubtraction
-import CKN.Setting.SliceNormBounds
-import Mathlib.Analysis.Real.Pi.Bounds
+module
+
+public import CKN.Core.Caccioppoli.CaccioppoliMeanSubtraction
+public import CKN.Setting.SliceNormBounds
+public import Mathlib.Analysis.Real.Pi.Bounds
 
 /-! # Inner-ball slice energy
 
@@ -11,6 +13,8 @@ Splitting the energy into its mean and oscillation on the outer ball gives
 an inner-ball estimate. Spatial Hölder and the vector Poincaré inequality
 control the oscillation; the essential slice-energy supremum supplies alpha.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
+module
+
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
 
 /-!
 # Radius exponents for the pressure term of a slice majorant
@@ -31,6 +33,8 @@ This file records the two exponent balances involved, in the normalisation
   measure of the cell then contributes and the radius power is `17/5`, which
   dominates the requirement for every admissible `κ` with room to spare.
 -/
+
+@[expose] public section
 
 open scoped ENNReal
 

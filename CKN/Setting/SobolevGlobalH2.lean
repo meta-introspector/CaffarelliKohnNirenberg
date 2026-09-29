@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.SobolevGlobalH2Core
-import CKN.Setting.SobolevGlobalL6
-import CKN.Foundation.Sobolev.Mollify.LpApproximation
-import CKN.Foundation.Sobolev.Mollify.Transport
-import CKN.Foundation.Euclidean.LpDensity
+module
+
+public import CKN.Setting.SobolevGlobalH2Core
+public import CKN.Setting.SobolevGlobalL6
+public import CKN.Foundation.Sobolev.Mollify.LpApproximation
+public import CKN.Foundation.Sobolev.Mollify.Transport
+public import CKN.Foundation.Euclidean.LpDensity
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal Convolution Topology

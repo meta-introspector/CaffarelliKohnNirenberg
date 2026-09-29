@@ -1,8 +1,10 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Endgame.ConcreteRieszConsumption
-import CKN.Foundation.Euclidean.LpExtensionExterior
+module
+
+public import CKN.Core.Endgame.ConcreteRieszConsumption
+public import CKN.Foundation.Euclidean.LpExtensionExterior
 
 /-! # Local pieces of the concrete pressure Riesz operator
 
@@ -10,6 +12,8 @@ The concrete operator has its global `L^{6/5}` bound and respects a spatial
 near/far decomposition. Away from the support its exterior formula gives a
 pointwise bound by the source's spatial `L^1` norm.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

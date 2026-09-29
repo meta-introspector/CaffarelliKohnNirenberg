@@ -1,12 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.SolidBallMeanValueOrigin
-import CKN.Foundation.Sobolev.Cutoff.NormTriangle
-import Mathlib.Analysis.Calculus.ParametricIntegral
-import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
-import Mathlib.MeasureTheory.Integral.IntegrableOn
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+module
+
+public import CKN.Foundation.Harmonic.SolidBallMeanValueOrigin
+public import CKN.Foundation.Sobolev.Cutoff.NormTriangle
+public import Mathlib.Analysis.Calculus.ParametricIntegral
+public import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
+public import Mathlib.MeasureTheory.Integral.IntegrableOn
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped Topology ENNReal

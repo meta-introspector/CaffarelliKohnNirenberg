@@ -1,15 +1,19 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.NewtonianDerivativeLocalLp
-import CKN.Foundation.Euclidean.RieszSecondAllExponentsPaper
-import CKN.Foundation.Euclidean.PotentialLocalLpGrowth
-import CKN.Foundation.Euclidean.PotentialLocalLpKernel
-import CKN.Pressure.PotentialDecayPotentials
-import CKN.Pressure.Potentials
-import CKN.Pressure.IdentificationExtension
-import CKN.Pressure.SpatialDerivSupport
-import Mathlib.MeasureTheory.Integral.MeanInequalities
+module
+
+public import CKN.Foundation.Euclidean.NewtonianDerivativeLocalLp
+public import CKN.Foundation.Euclidean.RieszSecondAllExponentsPaper
+public import CKN.Foundation.Euclidean.PotentialLocalLpGrowth
+public import CKN.Foundation.Euclidean.PotentialLocalLpKernel
+public import CKN.Pressure.PotentialDecayPotentials
+public import CKN.Pressure.Potentials
+public import CKN.Pressure.IdentificationExtension
+public import CKN.Pressure.SpatialDerivSupport
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure
 open scoped ENNReal
@@ -20,7 +24,7 @@ namespace CKN.Foundation.Euclidean
 
 open CKN.Foundation.Parabolic
 
-private def convMaj (f g : Vec3 → ℝ≥0∞) (x : Vec3) : ℝ≥0∞ :=
+def convMaj (f g : Vec3 → ℝ≥0∞) (x : Vec3) : ℝ≥0∞ :=
   ∫⁻ y : Vec3, f y * g (x-y)
 
 private theorem convMaj_integral {f g : Vec3 → ℝ≥0∞}

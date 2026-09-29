@@ -1,12 +1,14 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Sobolev.Ambient.Basic
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
-import Mathlib.Topology.MetricSpace.Thickening
-import Mathlib.Analysis.Normed.Group.Real
+module
+
+public import CKN.Foundation.Sobolev.Ambient.Basic
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.Topology.MetricSpace.Thickening
+public import Mathlib.Analysis.Normed.Group.Real
 
 /-!
 # Local integrability and continuity of translated-kernel integrals
@@ -21,6 +23,8 @@ fits inside `Ω`. These are the local-integrability and continuity inputs used
 in the Caffarelli–Kohn–Nirenberg paper (CKN) when a spatially localised kernel
 is slid against a locally integrable density.
 -/
+
+@[expose] public section
 
 namespace CKN
 

@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Measure.SliceGradientSelection
+module
+
+public import CKN.Foundation.Measure.SliceGradientSelection
 
 /-! # Jointly measurable representatives of global slice derivatives
 
@@ -9,6 +11,8 @@ Spatial mollification constructs a representative from joint measurability
 and local integrability of almost every slice. No time-integrability bound
 on the derivative is needed for this selection.
 -/
+
+@[expose] public section
 
 open MeasureTheory MeasureTheory.Measure Set Filter
 open scoped Topology

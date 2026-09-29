@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.Minkowski
+module
+
+public import CKN.Foundation.Parabolic.Morrey.Minkowski
 
 /-! # Component bounds for Euclidean vector-source Morrey norms
 
@@ -9,6 +11,8 @@ The Euclidean norm is bounded by the sum of the three absolute coordinate
 values. The scalar triangle inequality transfers this comparison to the
 Morrey norm without changing either exponent.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped BigOperators ENNReal

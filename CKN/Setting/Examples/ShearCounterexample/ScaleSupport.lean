@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Setting.Examples.ShearCounterexample.ScaleBounds
-import CKN.Foundation.Sobolev.Cutoff.BallTopology
-import CKN.Setting.Examples.ShearCounterexample.ScaleDerivatives
-import CKN.Setting.Examples.ShearCounterexample.LocalConstDeriv
-import CKN.Setting.Examples.ShearCounterexample.ShearWeightedProfile
-import CKN.Setting.Examples.ShearCounterexample.WeightSummable
+module
+
+public import CKN.Setting.Examples.ShearCounterexample.ScaleBounds
+public import CKN.Foundation.Sobolev.Cutoff.BallTopology
+public import CKN.Setting.Examples.ShearCounterexample.ScaleDerivatives
+public import CKN.Setting.Examples.ShearCounterexample.LocalConstDeriv
+public import CKN.Setting.Examples.ShearCounterexample.ShearWeightedProfile
+public import CKN.Setting.Examples.ShearCounterexample.WeightSummable
 
 /-! # Support estimates for the scaled shear profile. -/
+
+@[expose] public section
 set_option autoImplicit false
 noncomputable section
 open CKN.Foundation.Parabolic Set MeasureTheory

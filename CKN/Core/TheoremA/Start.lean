@@ -1,14 +1,18 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Iteration.Arithmetic
-import CKN.Core.Endgame.StartSmallness
-import CKN.Pressure.OscillationLin34
-import CKN.Setting.ExcessComparisonCore
-import CKN.Setting.ExcessComparisonPressure
-import CKN.Setting.Finiteness
-import CKN.Setting.SliceNormBounds
-import CKN.Statements.Theta
+module
+
+public import CKN.Core.Iteration.Arithmetic
+public import CKN.Core.Endgame.StartSmallness
+public import CKN.Pressure.OscillationLin34
+public import CKN.Setting.ExcessComparisonCore
+public import CKN.Setting.ExcessComparisonPressure
+public import CKN.Setting.Finiteness
+public import CKN.Setting.SliceNormBounds
+public import CKN.Statements.Theta
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

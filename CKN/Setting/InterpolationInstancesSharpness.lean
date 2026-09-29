@@ -1,11 +1,15 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.InterpolationBall
-import CKN.Foundation.Parabolic.BallBasics
-import CKN.Foundation.Parabolic.BallDisplays
-import CKN.Foundation.Sobolev.Cutoff.BallTopology
-import CKN.Pressure.PkBoundsUnconditionalConstants
+module
+
+public import CKN.Setting.InterpolationBall
+public import CKN.Foundation.Parabolic.BallBasics
+public import CKN.Foundation.Parabolic.BallDisplays
+public import CKN.Foundation.Sobolev.Cutoff.BallTopology
+public import CKN.Pressure.PkBoundsUnconditionalConstants
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal Topology
@@ -15,10 +19,10 @@ noncomputable section
 
 namespace CKN
 
-private def sharpCutoff (r : ℝ) : Vec3 → ℝ :=
+def sharpCutoff (r : ℝ) : Vec3 → ℝ :=
   canonicalBallCutoff (0 : Vec3) r (2 * r)
 
-private noncomputable def sharpH1 (r : ℝ) (hr : 0 < r) :
+noncomputable def sharpH1 (r : ℝ) (hr : 0 < r) :
     H1Function (euclideanBall (0 : Vec3) 1) :=
   let f := sharpCutoff r
   let hfTop : ContDiff ℝ (⊤ : ℕ∞) f := by
@@ -220,10 +224,10 @@ private lemma sharp_cutoff_eLpNorm_lower {r q : ℝ} (hr : 0 < r)
       eLpNorm_mono_measure _ hrestrict
     _ = _ := by rfl
 
-private noncomputable def sharpVolumeConstant : ℝ≥0∞ :=
+noncomputable def sharpVolumeConstant : ℝ≥0∞ :=
   ENNReal.ofReal (4 * Real.pi / 3)
 
-private noncomputable def sharpScaleConstant : ℝ≥0∞ :=
+noncomputable def sharpScaleConstant : ℝ≥0∞ :=
   ((8 : ℝ≥0∞) * sharpVolumeConstant) ^ (1 / 2 : ℝ)
 
 private lemma sharp_volume_scale {r : ℝ} (hr : 0 < r) :

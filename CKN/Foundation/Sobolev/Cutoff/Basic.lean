@@ -1,14 +1,16 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
-import CKN.Foundation.Sobolev.Ambient.Basis
-import Mathlib.Algebra.Order.BigOperators.Ring.Finset
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Analysis.Calculus.FDeriv.Basic
-import Mathlib.Analysis.Calculus.FDeriv.Mul
-import Mathlib.Analysis.Calculus.LocalExtr.Basic
-import Mathlib.Analysis.Normed.Group.Constructions
-import Mathlib.Analysis.Real.Sqrt
-import Mathlib.Topology.Algebra.Support
+module
+
+public import CKN.Foundation.Sobolev.Ambient.Basis
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.FDeriv.Basic
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import Mathlib.Analysis.Calculus.LocalExtr.Basic
+public import Mathlib.Analysis.Normed.Group.Constructions
+public import Mathlib.Analysis.Real.Sqrt
+public import Mathlib.Topology.Algebra.Support
 
 /-!
 # Quantitative smooth cutoff data
@@ -30,6 +32,8 @@ gradient API in the independent `CKN` namespace.
   the square operation has the expected pointwise form.
 * `QuantitativeSmoothCutoff.mem_Icc`: every cutoff value lies in `[0, 1]`.
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 

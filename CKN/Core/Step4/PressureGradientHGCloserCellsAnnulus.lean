@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientHGCloserCellsRiesz
-import CKN.Foundation.Parabolic.BallBasics
-import CKN.Foundation.Parabolic.Vec3Norm
+module
+
+public import CKN.Core.Step4.PressureGradientHGCloserCellsRiesz
+public import CKN.Foundation.Parabolic.BallBasics
+public import CKN.Foundation.Parabolic.Vec3Norm
 
 /-! # Exterior Riesz estimates for spatial annuli
 
@@ -11,6 +13,8 @@ An annulus outside twice the observation radius is separated from the
 observation ball. The exterior formula for the concrete pressure operator
 then supplies its inverse-cube source estimate.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology

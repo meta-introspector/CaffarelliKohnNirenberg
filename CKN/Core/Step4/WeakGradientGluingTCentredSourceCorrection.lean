@@ -1,9 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.WeakGradientGluingTRieszSourceQuantitative
-import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensorDef
-import CKN.Core.Step4.WeakGradientGluingTRieszIdentification
+module
+
+public import CKN.Core.Step4.WeakGradientGluingTRieszSourceQuantitative
+public import CKN.Core.Step4.SliceSelectedGradientCentredSourceTensorDef
+public import CKN.Core.Step4.WeakGradientGluingTRieszIdentification
 
 /-! # The correction between raw and centred cutoff sources
 
@@ -11,6 +13,8 @@ The raw divergence source and the centred cutoff source differ by cutoff
 and spatial-mean terms. Linearity transports this explicit correction to
 the completed spatial Riesz operators.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Filter
 open scoped ENNReal NNReal Topology BigOperators

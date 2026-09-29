@@ -1,11 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Harmonic.InteriorBasic
-import Mathlib.Analysis.Calculus.ContDiff.Deriv
-import Mathlib.Analysis.Calculus.Deriv.Comp
-import Mathlib.Analysis.Calculus.Deriv.Mul
-import Mathlib.Topology.Basic
+module
+
+public import CKN.Foundation.Harmonic.InteriorBasic
+public import Mathlib.Analysis.Calculus.ContDiff.Deriv
+public import Mathlib.Analysis.Calculus.Deriv.Comp
+public import Mathlib.Analysis.Calculus.Deriv.Mul
+public import Mathlib.Topology.Basic
 
 /-!
 # The Laplacian of a radial profile
@@ -13,6 +15,8 @@ import Mathlib.Topology.Basic
 This module records the coordinate identity used to study radial Newtonian potentials away from
 their pole.
 -/
+
+@[expose] public section
 
 open Set Filter
 open scoped Topology

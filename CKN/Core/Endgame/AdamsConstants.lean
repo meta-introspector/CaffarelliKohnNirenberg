@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Parabolic.Morrey.AdamsM4
+module
+
+public import CKN.Foundation.Parabolic.Morrey.AdamsM4
 
 /-! # Finiteness of the explicit Adams constants
 
 The geometric series and maximal-function constants are finite under the
 same strict exponent conditions as the potential estimate.
 -/
+
+@[expose] public section
 
 open MeasureTheory
 open scoped ENNReal

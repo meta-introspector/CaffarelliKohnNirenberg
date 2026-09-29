@@ -1,8 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Core.Step4.PressureGradientOriginASlotCorrectionAssembly
-import CKN.Core.Step4.PressureGradientOriginASlotM2InstancesCorrection
+module
+
+public import CKN.Core.Step4.PressureGradientOriginASlotCorrectionAssembly
+public import CKN.Core.Step4.PressureGradientOriginASlotM2InstancesCorrection
+
+@[expose] public section
 
 open MeasureTheory Set
 open scoped ENNReal BigOperators

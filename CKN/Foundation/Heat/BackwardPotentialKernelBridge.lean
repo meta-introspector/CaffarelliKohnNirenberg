@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Heat.BackwardPotentialIdentity
-import CKN.Foundation.Heat.Integrability
-import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+module
+
+public import CKN.Foundation.Heat.BackwardPotentialIdentity
+public import CKN.Foundation.Heat.Integrability
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+
+@[expose] public section
 
 open scoped BigOperators ENNReal NNReal Topology Convolution
 

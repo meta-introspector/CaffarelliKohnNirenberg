@@ -1,9 +1,13 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Setting.SpatialSliceNorms
-import CKN.Setting.SliceNormBounds
-import CKN.Pressure.PkBoundsUnconditionalCore
+module
+
+public import CKN.Setting.SpatialSliceNorms
+public import CKN.Setting.SliceNormBounds
+public import CKN.Pressure.PkBoundsUnconditionalCore
+
+@[expose] public section
 
 open MeasureTheory Set
 open CKN.Foundation.Parabolic

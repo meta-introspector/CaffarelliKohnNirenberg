@@ -1,7 +1,9 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Pressure.LeibnizLaplacian
+module
+
+public import CKN.Pressure.LeibnizLaplacian
 
 /-! # The Laplacian product rule under a linear pairing
 
@@ -9,6 +11,8 @@ The smooth product identity can be paired with any scalar linear functional.
 In particular, its algebraic form does not require a locally integrable
 function representing the functional.
 -/
+
+@[expose] public section
 
 open CKN.Foundation.Parabolic
 open scoped BigOperators

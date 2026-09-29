@@ -1,13 +1,17 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelSpatialDerivative
-import Mathlib.Analysis.Calculus.ParametricIntegral
-import Mathlib.Analysis.Complex.RealDeriv
+module
+
+public import CKN.Foundation.Euclidean.SpatialMultiplierHeatKernelSpatialDerivative
+public import Mathlib.Analysis.Calculus.ParametricIntegral
+public import Mathlib.Analysis.Complex.RealDeriv
 
 /-!
 # Time differentiability of multiplier heat kernels
 -/
+
+@[expose] public section
 
 open scoped BigOperators
 open MeasureTheory
@@ -46,12 +50,12 @@ theorem spatialMultiplierTimeSymbol_homogeneous
   rw [pow_add]
   ring
 
-private def multiplierHeatTimeIntegrand
+def multiplierHeatTimeIntegrand
     (σ : Vec3 → ℂ) (x : Vec3) (z : ℂ) (ξ : Vec3) : ℂ :=
   Complex.exp (Complex.I * ((∑ j : Fin 3, x j * ξ j : ℝ) : ℂ)) * σ ξ *
     Complex.exp (-(z * complexEuclideanSquare ξ))
 
-private def multiplierHeatTimeDerivativeIntegrand
+def multiplierHeatTimeDerivativeIntegrand
     (σ : Vec3 → ℂ) (x : Vec3) (z : ℂ) (ξ : Vec3) : ℂ :=
   Complex.exp (Complex.I * ((∑ j : Fin 3, x j * ξ j : ℝ) : ℂ)) *
     spatialMultiplierTimeSymbol σ ξ * Complex.exp (-(z * complexEuclideanSquare ξ))

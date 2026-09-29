@@ -1,7 +1,11 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Statements.RegularPoint
+module
+
+public import CKN.Statements.RegularPoint
+
+@[expose] public section
 
 open Set
 

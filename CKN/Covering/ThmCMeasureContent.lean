@@ -1,10 +1,12 @@
 -- Copyright (c) 2026 Scott Armstrong and Vlad Vicol.
 -- Released under Apache 2.0 license.
 
-import CKN.Covering.SumRadiiDefectBalls
-import CKN.Covering.CylinderRadiusContent
-import CKN.Foundation.Parabolic.Covering
-import Mathlib.MeasureTheory.Covering.Vitali
+module
+
+public import CKN.Covering.SumRadiiDefectBalls
+public import CKN.Covering.CylinderRadiusContent
+public import CKN.Foundation.Parabolic.Covering
+public import Mathlib.MeasureTheory.Covering.Vitali
 
 /-!
 # The fixed-scale covering estimate `eq:P1-delta`
@@ -29,6 +31,8 @@ covering family by a subset of `ℕ`, which is the index shape required by
 
 Both results below live in the namespace `CKN.Foundation.Parabolic`.
 -/
+
+@[expose] public section
 
 open MeasureTheory Set Metric Filter
 open scoped ENNReal NNReal Topology
